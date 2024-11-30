@@ -1,0 +1,223 @@
+nvim ~/.config/nushell/config.nu
+exit
+nvim ~/.config/nushell/config.nu
+exit
+nvim ~/.config/nushell/config.nu
+nvim ~/.config/nushell/env.nu
+exit
+echo $EDITOR
+echo $env.EDITOR
+echo $env.XDG_CONFIG_HOME
+zshrc
+exit
+config nu
+n .zshrc
+echo $env.LANG
+echo $env.LC_ALL
+echo $env.PATH
+lazygit
+whereis lazygit
+ls .cargo/bin/
+bat
+config env
+echo $env.HOME/bin
+config env
+exit
+config nu
+z nu
+cd .config/nushell/
+nvim alias.nu
+man nu
+nu -h
+def --env mkcd [dir: path] { mkdir -p $dir && cd $dir }
+def --env mkcd [dir: path] { mkdir -p $dir ; and cd $dir }
+def --env mkcd [dir: path] { mkdir $dir ; and cd $dir }
+mkdir temp/temp
+rmdir temp/temp/
+rmdir temp/
+nvim alias.nu
+echo ($env.HOME + "hello")
+nvim alias.nu
+alias nvif = nvim \(fzf)
+nvif
+nvim alias.nu
+echo $env.config
+echo $env.config-path
+echo $nu.config-path
+nvim alias.nu
+yay -Ss nu-lsp
+yay -Ss nu
+yay -Ss nushell
+nvrc
+nvim ../nvim/lua/autocmd.lua
+n alias.nu
+nvim alias.nu
+nvim ../nvim/lua/autocmd.lua
+nvim alias.nu
+exec alias.nu
+nvim alias.nu
+source alias.nu
+launch neovide alias.nu
+n alias.nu
+source alias.nu
+launch neovide alias.nu
+n nohup.out
+rm nohup.out
+eval ls
+nohup neovide alias.nu out+err>/dev/null &
+n nohup.out
+rm nohup.out
+n alias.nu
+source alias.nu
+launch neovide alias.nu
+disown
+n alias.nu
+launch neovide alias.nu
+n alias.nu
+source alias.nu
+launch neovide alias.nu
+n alias.nu
+str -h
+str join -h
+n alias.nu
+source alias.nu
+ggrks how to config nushell
+n alias.nu
+source alias.nu
+ggrks how to config nushell
+n alias.nu
+source alias.nu
+ggrks how to config nushell
+n alias.nu
+source alias.nu
+ggrks how to config nushell
+n alias.nu
+source alias.nu
+ggrks how to config nushell
+n alias.nu
+source alias.nu
+ggrks how to config nushell
+n alias.nu
+source alias.nu
+ggrks how to config nushell
+n alias.nu
+source alias.nu
+ggrks how to config nushell
+n alias.nu
+source alias.nu
+ggrks how to config nushell
+n alias.nu
+ls | where extension == 'nu' 
+ls 
+ls | where name ends-with .nu 
+rm nohup.out
+n alias.nu
+fname.zip | str ends-with .zip
+exho fname.zip | str ends-with .zip
+echo fname.zip | str ends-with .zip
+echo fname.zip | str ends-with .zi
+n alias.nu
+source alias.nu
+extract alias.nu
+n alias.nu
+mkcd temp
+n alias.nu
+source alias.nu
+mkcd temp
+n alias.nu
+if "fname.zip" | str ends-with 'zip' { echo 'true' }
+true && false
+true || false
+n alias.nu
+mkdir temp and cd temp
+ls
+rmdir temp/ and/ cd
+mkdir temp ; cd temp
+n alias.nu
+false ; cd temp
+source alias.nu
+false
+test 5 < 3
+test '5 < 3'
+test '5 > 3'
+true ; echo 'true'
+false ; echo 'true'
+false and echo 'true'
+false try echo 'true'
+try 
+and
+$env.LAST_EXIT_CODE 
+../../project/c/rpx
+g b -a
+cd -
+alias cd = cd
+cd -
+^cd -
+-
+../../../.config/nushell/
+source alias.nu
+cd
+alias -h
+n alias.nu
+match 'hello.zip' { (_ + '.zip') => echo 'true', _ => false }
+match 'hello.zip' { (_ + '.zip') => echo 'true' }
+match 'hello.zip' { (_ + '.zip') => true }
+match 'hello.zip' { (_ + '.zip') => true, _ => false }
+match 'hello.zip' { (str end-with .zip) => true, _ => false }
+match 'hello.zip' { (str 'hello.zip' end-with .zip) => true, _ => false }
+if (hello.zip | str end-with .zip) {true}
+if (hello.zip | str end-with '.zip') {true}
+if ('hello.zip' | str end-with '.zip') {true}
+if ('hello.zip' | str ends-with .zip) {true}
+if ('hello.zip' | str ends-with .zip) {false}
+match 'hello.zip' { (str ends-with .zip) => true, _ => false }
+n alias.nu
+source alias.nu
+extract alias.nu
+n alias.nu
+source alias.nu
+extract alias.nu
+n alias.nu
+source alias.nu
+extract alias.nu
+n alias.nu
+source alias.nu
+extract alias.nu
+n alias.nu
+source alias.nu
+extract alias.nu
+nvim .zshrc
+exit
+fzf
+n config.nu
+zoxide init nushell | save -f zoxide.nu
+n zoxide.nu
+n config.nu
+source config.nu
+z 
+zoxide
+zoxide query
+exit
+zsh
+exit
+cd 
+z nu
+z nushell
+z ar
+z .co
+z nu
+z -
+z nushell/
+n config.nu
+n alias.nu
+null | into bool
+ls
+ls | get modified
+ls | get name
+ls | get name | str join 
+ls | get name | str join ' '
+ls -al
+rmdir temp/
+n history.txt
+l
+g init
