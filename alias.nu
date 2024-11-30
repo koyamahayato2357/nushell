@@ -37,6 +37,6 @@ def --env extract [fname: path] {
     } else if ($fname | str ends-with .tar.bz2) {
         tar xjvf $fname
     } else {
-        ^echo "Unsupported file type:" ($fname | path basename)
+        ^echo "Unsupported file type:" ($fname | path parse | get extension)
     }
 }
