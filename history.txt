@@ -221,3 +221,574 @@ rmdir temp/
 n history.txt
 l
 g init
+laz
+date now
+date now | $in + iday
+date now | $in + 1day
+date now | $in + 1month
+date now | $in + 1m
+date now | $in + 10day
+date now | $in + 10min
+path -h
+alias.nu | path parse
+echo alias.nu | path parse
+echo alias.nu | path parse | pick extension
+echo alias.nu | path parse | get extension
+n alias.nu
+echo ~/alias.nu | path parse | get extension
+n alias.nu
+source alias.nu
+extract alias.nu
+echo 'abc.tar.gz' | path parse
+path parse -h
+n alias.nu
+laz
+nu -h
+nu --ide-ast alias.nu
+shut
+shutdown now
+bat project/c/rpx/README.md
+fastfetch --fake windows
+man fastfetch
+fastfetch --list-logo
+man fastfetch
+fastfetch --list-logos
+fastfetch --logo nixos
+ansi blue
+echo hello(ansi blue)world
+starshop
+yay -S starship
+starship init nushell
+starship init nu
+starship init nu | source
+source -h
+starship init nu | exec
+z nushell
+./.config/nushell/
+n alias.nu
+exit
+z nu
+z nushell
+../.config/nushell/
+starship init nu | save -f starship.nu
+n starship.nu
+n config.nu
+exit
+ls
+let $val = (echo 'hello world')
+echo $val
+open -h
+decode -h
+z nu
+z nushell
+../.config/nushell/
+open alias.nu
+z rpx
+bat makefile
+open /etc/keyd/default.conf
+/etc/keyd/default.conf | get newlayer
+open /etc/keyd/default.conf | get newlayer
+open ~/keylayout.json 
+open ~/keylayout.json | get keys
+ps
+ps | get mem
+ps | get name | get vivaldi
+ps | get name | get systemd
+get -h
+ps | get name.vivaldi
+ps | get name.systemd
+ps | get name
+ps | get name | get 296
+ps | get name.296
+open compile_commands.json
+open compile_commands.json|to toml
+open compile_commands.json|to csv 
+open compile_commands.json|to text 
+open compile_commands.json|to xml 
+open compile_commands.json|to yaml 
+in -h
+find -h
+ps | find vivaldi
+ps | find nu
+ps | find nu | get pid
+ps | find nu | get pid | is-empty 
+ps | find nua | get pid | is-empty 
+ps | find nu | get pid | is-empty 
+z nushell
+z ../../../.config/nushell/
+mut $val = null
+echo $val
+$val = 4
+ps | get pid name | find nu
+ps | select pid name | find nu
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done-byname nu
+wait-for-process-done-byname nvim
+n
+exit
+n shutdown-when-done.nu
+ps | select name | where nu 
+ps | select name | where name == nu
+ps | where name == nu
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name nu
+ps
+wait-for-process-done pid 33957
+n shutdown-when-done.nu
+ps | where pid == 33957
+ps | where pid == 33957 | is-not-empty 
+ps | where pid == 39857 | is-not-empty 
+ps | where name == 50 | is-not-empty 
+ps | where pid == '33957'
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+waitpid -h
+man waitpid
+wait-for-process-done name nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+ps | where 'name' == 'vivaldi-bin'
+ps | where 'name' == 'vivaldi-bin' | is-not-empty 
+wait-for-process-done 'name' 'vivaldi-bin'
+n shutdown-when-done.nu
+ps | where 'name' == 'vivaldi-bin' | is-not-empty 
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+n shutdown-when-done.nu
+ps | select name | where vivaldi-bin
+ps | select name | where name ==vivaldi-bin
+ps | select name | where name == vivaldi-bin
+n shutdown-when-done.nu
+ps | select name | where name ==vivaldi-bin
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi-bin
+ps
+wait-for-process-done pid 42591
+n shutdown-when-done.nu
+shutdown-when-done 
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+z nushell
+z .config/nushell/
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+shutdown-when-done 
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+shutdown-when-done 
+n shutdown-when-done.nu
+source shutdown-when-done.nu
+wait-for-process-done name vivaldi
+n shutdown-when-done.nu
+def f [--o: int] { ^echo $o }
+f
+n shutdown-when-done.nu
+def f [--o: int] { if $o {^echo $o} }
+f
+n shutdown-when-done.nu
+def f [--o: int] { if $o != null {^echo $o} }
+f
+def f [--o: int] { if $o? {^echo $o} }
+def f [--o: int] { if $o.? {^echo $o} }
+f
+def f [--o: int] { if $o != null {^echo $o} }
+n shutdown-when-done.nu
+null | into bool 
+z neovim
+g pl
+laz
+../vim/
+g pl
+../neovim/
+make CMAKE_BUILD_TYPE=Release -j16
+sudo make install
+ps | find zsh
+ps | find nu
+ls
+open monster-vimmer.txt
+n monster-vimmer.txt
+exit
+sys
+sys cpu
+sys mem
+sys net
+sys temp
+sys disks
+sys host
+sys users
+cpufetch 
+cpufreq-bench 
+cpupower 
+cpupower info
+cpupower nonitor
+cpupower monitor
+cpupower frequency-info
+sys users | table
+ls **/*.json
+open CMakePresets.json
+exit
+http -h
+help download
+help curl
+http get https://ourworldindata.org/life-expectancy
+http get https://ourworldindata.org/life-expectancy | from xml 
+http get 'https://ourworldindata.org/life-expectancy' | from xml 
+http get 'https://ourworldindata.org/life-expectancy' | query db 
+http get 'https://ourworldindata.org/life-expectancy' | query web
+http get 'https://ourworldindata.org/life-expectancy' | query web -h
+query web -h
+ps | uniq | wc
+ps | wc
+ps | select name | uniq
+ps | select name | uniq | wc
+ps | sort-by mem
+btop
+htop
+top
+ls
+ls -l
+z .config/nushell/
+n alias.nu
+ls -h
+source alias.nu
+l
+z
+ls **/*.zig
+exit
+btop
+kill 104930
+kill -h
+ps | sort-by mem
+memusage 
+memusage -h
+memusage --help
+btop
+shutdown now
+emacs
+yay -
+yay -Ss emacs
+yay -S emacs-wayland
+smacs
+emacs
+emacs -nw
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+rmf .emacs.d/
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+emacs
+n .spacemacs
+emacs
+emacs -nw
+yay -S superfile
+yay -S go
+spf
+z .config/superfile/
+l
+n config.toml
+spf 
+n config.toml
+spf
+n config.toml
+spf
+n config.toml
+spf
+n config.toml
+spf
+n config.toml
+spf
+yay -S television
+television
+tv
+tv ~
+tv env
+echo $env.TERM
+tv 
+tv -h
+tv alias
+fzf
+tv
+../nushell/
+n alias.nu
+tv
+spf
+n ../superfile/config.toml
+spf
+n ../superfile/config.toml
+spf
+n ../superfile/config.toml
+spf
+yazi
+spf
+n alias.nu
+n starship.nu
+starship prompt
+n starship.nu
+term size
+term -h
+term size
+ls
+exit
+z nushell
+z .config/nushell/
+term size
+help term
+dunst -h
+yay -S dunst
+dunst
+dunst -h
+dunst -print hello
+dunstctl
+dunstctl -h
+dunstctl history
+dunst
+mako
+n ../mako/config
+l /etc/tlp.conf
+nvimsudo /etc/tlp.conf
+ls -l /etc/tlp.conf
+^ls -l /etc/tlp.conf
+ls
+ls -l
+n ~/rc/defaults.conf
+nvimsudo /etc/tlp.conf
+l /usr/share/tlp/defaults.conf
+exit
+n ../hypr/hyprland.conf
+yay -S fufexan
+yay -Ss fufexan
+yay -Ss fufexanrm `~/Downloads/audio (3).mp3`
+rm `~/Downloads/audio (3).mp3`
+ls -h 
+ls -ald 
+l
+n alias.nu
+ls -adlt
+~
+ls -adl
+ls -adlt
+cd .emacs.d/
+l
+n init.el
+n core/core-configuration-layer.el
+shutdown now
+nu --version
+vi
+which vi
+which nvim
+where nvim
+whereis nvim
+version
+version | pivot
+glob -h
+glob **/*.c --depth 2
+glob **/*.c --depth 3
+glob -h
+du -h
+du
+watch -h
+loop -h
+touch -h
+echo 'hello' 'world'
+echo 'hello<\n>'
+echo -h
+scope
+uname
+uname | columns 
+columns -h
+uname | describe 
+sys mem
+[[name, mem]; [1, 2]] 
+[[name, mem]; [1, 2]] | describe 
+drop -h
+l | drop column 4
+l 
+each -h
+[[1 2 3 4 5]; [6 7 8 9 0]] | each {|l, r| $l + $r }
+[[1, 2, 3, 4, 5]; [6, 7, 8, 9, 0]] | each {|l, r| $l + $r }
+[[z, o, t, th, f]; [1, 2, 3, 4, 5]; [6, 7, 8, 9, 0]] | each {|l, r| $l + $r }
+[1 2 3]
+[1 2 3] | enumerate 
+[1 2 3] | each --keep-empty {|e| if $e == 2 { "found 2!"} }
+[1 2 3] | each --keep-empty {|e| if $e == 2 { "found 2!"} } | describe 
+every -h
+[["c1" "c2" "c3"];[1 2 3] [4 5 6]] 
+[[1 2 3] [4 5 6]] | each {|l, r| $l + $r }
+[[1 2 3] [4 5 6]] | each {|l| $l }
+[[1 2 3] [4 5 6]] | each {|l| each { |r| $l + $r } }
+[[1 2 3] [4 5 6]] | each {|l| each { |r| $l.item + $r } }
+[[1 2 3] [4 5 6]] | enumerate | each {|l| each { |r| $l.item + $r } }
+[[1 2 3] [4 5 6]] | each {|l| each { |r| $l.$r + $r } }
+[[1 2 3] [4 5 6]] | each {|l| each { |r| $l.0 + $r } }
+[[1 2 3] [1 2 3]]
+[[1 2 3]; [1 2 3]]
+[[1 4] [2 5] [3 6]] | each {|l| echo $l }
+[[1 4] [2 5] [3 6]] | each {|l| $l.0 + $l.1 }
+[[1 2] 3 4]
+sys mem
+sys cpu
+sys disks 
+sys temp 
+sys users 
+sys users | flatten 
+yay -Rsc sddm
+sum -h
+ls | group-by type
+items -h
+history -h
+history | length
+history 
+history -h
+history | were command =~ yay 
+history | where command =~ yay 
+echo 'a' 'b'
+echo 'a' 'b' | lines
+echo 'a' 'b' | str join |lines
+lines -h
+(^echo a; ^echo b) | lines
+roll -h
+ls | split-by type
+sys mem
+sys mem | split-by 1
+sys mem | split-by total
+ls -dt
+ncdu
+first -h
+take -h
+[[name mem]; [hello 1]]
+[[name mem]; [hello 1]] | describe 
+[[name mem]; [hello 1]] | first
+[[name mem]; [hello 1]] | take 1
+[[name mem]; [hello 1] [world 2]] | take 1
+[[name mem]; [hello 1] [world 2]] | first 2
+[[name mem]; [hello 1] [world 2]] | take 2
+first -h
+tee -h
+1..100
+tee {1..100 | print}
+tee {1..100 | print} | $in * 5
+tee -h
+print -h
+100 | print 10
+ps | where name =~ vivaldi
+port 3121 4000
+port 0 4000
+port -h
+[{x:12, y:15}, {x:8, y:9}], [[x, y]; [12, 15], [8, 9]]
+[{x:12, y:15}, {x:8, y:9}]
+[[{x:12, y:15}, {x:8, y:9}], [[x, y]; [12, 15], [8, 9]]]
+[{x:12, y:15}, {x:8, y:9}] | describe 
+{name:"Nushell", lang: "Rust"}
+[[{x:12, y:15}, {x:8, y:9}], [[x, y]; [12, 15], [8, 9]]] | describe 
+desc -h
+describe  -h
+ls | describe 
+ls | describe -d
+{shell:'true', uwu:true, features: {bugs:false, multiplatform:true, speed: 10}, fib: [1 1 2 3 5 8], on_save: {|x| $'Saving ($x)'}, first_commit: 2019-05-10, my_duration: (4min + 20sec)} 
+{shell:'true', uwu:true, features: {bugs:false, multiplatform:true, speed: 10}, fib: [1 1 2 3 5 8], on_save: {|x| $'Saving ($x)'}, first_commit: 2019-05-10, my_duration: (4min + 20sec)}  | describe -d
+*.c | describe 
+echo *.c | describe 
+echo *.c 
+echo *.c | into glob | describe 
+echo *.c | into glob
+let b = { $in.name.0 | path exists }
+ls | do $b
+[[name, age]; [a 1] [b 2] [c 3]]
+'apl' =~ '^\w{4}'
+'apl' =~ '^\w{3}'
+ansi -h
+whoami 
+whoami -h
+$"Captain (whoami)"
+which -h
+which nvim
+whereis nvim
+which nvim -a
+which -a nvim 
+which -a vim
+which vim
+which vim -a
+which which -a
+1..3..10
+10..1
+10..3..1
+vivaldi in (ps)
+vivaldi in (ps | get name)
+ps | get name
+ps | get name | describe 
+help in
+help operators in
+let psn = (ps | get name)
+vivaldi in $psn
+$psn
+date now | date to-record 
+date now | date to-record | $in.year
+let carapace_completer = {|spans|<\n>carapace $spans.0 nushell ...$spans | from json}
+do $carapace_completer git
+config env
+config nu
+source $nu.config-path
+yay -Syu
+open .config/nushell/history.txt
+config nu
+source $nu.config-path
+spf
+pwd
+cd (tv | path dirname)
+ls | where type == dir | each { |it| $it.name} | str join (char nl) | tv
+ls -r | where type == dir | each { |it| $it.name} | str join (char nl) | tv
+ls -h
+../../../.config/nushell/
+n config.nu
+source $nu.config-path
+n config.nu

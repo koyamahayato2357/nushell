@@ -1,15 +1,14 @@
 alias n = nvim
 alias g = git
-alias l = facad -l
+alias l = ls -adlt
 alias nvif = nvim \(fzf)
 alias laz = lazygit
 alias nvimsudo = sudo -E nvim
 alias vivaldi = vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland
 alias man = man --pager='bat -l man -p'
-alias fzf = fzf --preview "bat --color=always --style=header,grid --line-range :100 {}"
+alias fzf = tv
 alias rmf = rm -rf
 alias psa = procs
-alias cd = z
 
 def --env mkcd [dir: path] {
     mkdir $dir and cd $dir

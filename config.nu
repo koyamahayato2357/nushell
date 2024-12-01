@@ -4,6 +4,7 @@
 
 source alias.nu
 source zoxide.nu
+source starship.nu
 
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
@@ -222,7 +223,10 @@ $env.config = {
         external: {
             enable: true # set to false to prevent nushell looking into $env.PATH to find more suggestions, `false` recommended for WSL users as this look up may be very slow
             max_results: 100 # setting it lower can improve completion performance at the cost of omitting some options
-            completer: null # check 'carapace_completer' above as an example
+            completer: {|spans| # check 'carapace_completer' above as an example
+                carapace $spans.0 nushell ...$spans | from json
+				| if ($in | default [] | where value =~ '^-.*ERR$' | is-empty) { $in } else { null }
+			}
         }
         use_ls_colors: true # set this to true to enable file/path/directory completions using LS_COLORS
     }
