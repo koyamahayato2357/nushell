@@ -1,17 +1,8 @@
 nvim ~/.config/nushell/config.nu
-exit
-nvim ~/.config/nushell/config.nu
-exit
-nvim ~/.config/nushell/config.nu
 nvim ~/.config/nushell/env.nu
-exit
 echo $EDITOR
 echo $env.EDITOR
 echo $env.XDG_CONFIG_HOME
-zshrc
-exit
-config nu
-n .zshrc
 echo $env.LANG
 echo $env.LC_ALL
 echo $env.PATH
@@ -19,124 +10,48 @@ lazygit
 whereis lazygit
 ls .cargo/bin/
 bat
-config env
 echo $env.HOME/bin
-config env
-exit
-config nu
-z nu
 cd .config/nushell/
-nvim alias.nu
 man nu
-nu -h
 def --env mkcd [dir: path] { mkdir -p $dir && cd $dir }
 def --env mkcd [dir: path] { mkdir -p $dir ; and cd $dir }
 def --env mkcd [dir: path] { mkdir $dir ; and cd $dir }
 mkdir temp/temp
 rmdir temp/temp/
-rmdir temp/
-nvim alias.nu
 echo ($env.HOME + "hello")
-nvim alias.nu
 alias nvif = nvim \(fzf)
-nvif
-nvim alias.nu
 echo $env.config
 echo $env.config-path
 echo $nu.config-path
-nvim alias.nu
 yay -Ss nu-lsp
 yay -Ss nu
 yay -Ss nushell
-nvrc
 nvim ../nvim/lua/autocmd.lua
-n alias.nu
-nvim alias.nu
-nvim ../nvim/lua/autocmd.lua
-nvim alias.nu
 exec alias.nu
 nvim alias.nu
-source alias.nu
-launch neovide alias.nu
-n alias.nu
-source alias.nu
-launch neovide alias.nu
-n nohup.out
-rm nohup.out
 eval ls
 nohup neovide alias.nu out+err>/dev/null &
 n nohup.out
-rm nohup.out
-n alias.nu
-source alias.nu
-launch neovide alias.nu
 disown
-n alias.nu
 launch neovide alias.nu
-n alias.nu
-source alias.nu
-launch neovide alias.nu
-n alias.nu
 str -h
 str join -h
-n alias.nu
-source alias.nu
 ggrks how to config nushell
-n alias.nu
-source alias.nu
-ggrks how to config nushell
-n alias.nu
-source alias.nu
-ggrks how to config nushell
-n alias.nu
-source alias.nu
-ggrks how to config nushell
-n alias.nu
-source alias.nu
-ggrks how to config nushell
-n alias.nu
-source alias.nu
-ggrks how to config nushell
-n alias.nu
-source alias.nu
-ggrks how to config nushell
-n alias.nu
-source alias.nu
-ggrks how to config nushell
-n alias.nu
-source alias.nu
-ggrks how to config nushell
-n alias.nu
-ls | where extension == 'nu' 
-ls 
-ls | where name ends-with .nu 
+ls | where extension == 'nu'
+ls | where name ends-with .nu
 rm nohup.out
-n alias.nu
 fname.zip | str ends-with .zip
 exho fname.zip | str ends-with .zip
 echo fname.zip | str ends-with .zip
 echo fname.zip | str ends-with .zi
-n alias.nu
-source alias.nu
-extract alias.nu
-n alias.nu
 mkcd temp
-n alias.nu
-source alias.nu
-mkcd temp
-n alias.nu
 if "fname.zip" | str ends-with 'zip' { echo 'true' }
 true && false
 true || false
-n alias.nu
 mkdir temp and cd temp
-ls
 rmdir temp/ and/ cd
 mkdir temp ; cd temp
-n alias.nu
 false ; cd temp
-source alias.nu
-false
 test 5 < 3
 test '5 < 3'
 test '5 > 3'
@@ -144,21 +59,14 @@ true ; echo 'true'
 false ; echo 'true'
 false and echo 'true'
 false try echo 'true'
-try 
+try
 and
-$env.LAST_EXIT_CODE 
+$env.LAST_EXIT_CODE
 ../../project/c/rpx
-g b -a
-cd -
 alias cd = cd
-cd -
 ^cd -
 -
-../../../.config/nushell/
-source alias.nu
-cd
 alias -h
-n alias.nu
 match 'hello.zip' { (_ + '.zip') => echo 'true', _ => false }
 match 'hello.zip' { (_ + '.zip') => echo 'true' }
 match 'hello.zip' { (_ + '.zip') => true }
@@ -171,57 +79,16 @@ if ('hello.zip' | str end-with '.zip') {true}
 if ('hello.zip' | str ends-with .zip) {true}
 if ('hello.zip' | str ends-with .zip) {false}
 match 'hello.zip' { (str ends-with .zip) => true, _ => false }
-n alias.nu
-source alias.nu
-extract alias.nu
-n alias.nu
-source alias.nu
-extract alias.nu
-n alias.nu
-source alias.nu
-extract alias.nu
-n alias.nu
-source alias.nu
-extract alias.nu
-n alias.nu
-source alias.nu
-extract alias.nu
 nvim .zshrc
-exit
-fzf
-n config.nu
 zoxide init nushell | save -f zoxide.nu
 n zoxide.nu
-n config.nu
-source config.nu
-z 
-zoxide
 zoxide query
-exit
-zsh
-exit
-cd 
-z nu
-z nushell
 z ar
-z .co
-z nu
-z -
-z nushell/
-n config.nu
-n alias.nu
-null | into bool
-ls
 ls | get modified
-ls | get name
-ls | get name | str join 
+ls | get name | str join
 ls | get name | str join ' '
 ls -al
 rmdir temp/
-n history.txt
-l
-g init
-laz
 date now
 date now | $in + iday
 date now | $in + 1day
@@ -234,22 +101,15 @@ alias.nu | path parse
 echo alias.nu | path parse
 echo alias.nu | path parse | pick extension
 echo alias.nu | path parse | get extension
-n alias.nu
 echo ~/alias.nu | path parse | get extension
-n alias.nu
-source alias.nu
 extract alias.nu
 echo 'abc.tar.gz' | path parse
 path parse -h
-n alias.nu
-laz
 nu -h
 nu --ide-ast alias.nu
 shut
-shutdown now
 bat project/c/rpx/README.md
 fastfetch --fake windows
-man fastfetch
 fastfetch --list-logo
 man fastfetch
 fastfetch --list-logos
@@ -257,235 +117,103 @@ fastfetch --logo nixos
 ansi blue
 echo hello(ansi blue)world
 starshop
-yay -S starship
 starship init nushell
 starship init nu
 starship init nu | source
-source -h
 starship init nu | exec
-z nushell
 ./.config/nushell/
-n alias.nu
-exit
-z nu
-z nushell
-../.config/nushell/
 starship init nu | save -f starship.nu
-n starship.nu
-n config.nu
-exit
-ls
 let $val = (echo 'hello world')
-echo $val
 open -h
 decode -h
-z nu
-z nushell
 ../.config/nushell/
 open alias.nu
-z rpx
 bat makefile
 open /etc/keyd/default.conf
 /etc/keyd/default.conf | get newlayer
 open /etc/keyd/default.conf | get newlayer
-open ~/keylayout.json 
+open ~/keylayout.json
 open ~/keylayout.json | get keys
-ps
 ps | get mem
 ps | get name | get vivaldi
 ps | get name | get systemd
 get -h
 ps | get name.vivaldi
 ps | get name.systemd
-ps | get name
 ps | get name | get 296
 ps | get name.296
 open compile_commands.json
 open compile_commands.json|to toml
-open compile_commands.json|to csv 
-open compile_commands.json|to text 
-open compile_commands.json|to xml 
-open compile_commands.json|to yaml 
+open compile_commands.json|to csv
+open compile_commands.json|to text
+open compile_commands.json|to xml
+open compile_commands.json|to yaml
 in -h
-find -h
 ps | find vivaldi
-ps | find nu
 ps | find nu | get pid
-ps | find nu | get pid | is-empty 
-ps | find nua | get pid | is-empty 
-ps | find nu | get pid | is-empty 
-z nushell
+ps | find nua | get pid | is-empty
+ps | find nu | get pid | is-empty
 z ../../../.config/nushell/
 mut $val = null
 echo $val
 $val = 4
 ps | get pid name | find nu
 ps | select pid name | find nu
-n shutdown-when-done.nu
-source shutdown-when-done.nu
 wait-for-process-done-byname nu
 wait-for-process-done-byname nvim
-n
-exit
-n shutdown-when-done.nu
-ps | select name | where nu 
+ps | select name | where nu
 ps | select name | where name == nu
 ps | where name == nu
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name nu
-ps
 wait-for-process-done pid 33957
-n shutdown-when-done.nu
 ps | where pid == 33957
-ps | where pid == 33957 | is-not-empty 
-ps | where pid == 39857 | is-not-empty 
-ps | where name == 50 | is-not-empty 
+ps | where pid == 33957 | is-not-empty
+ps | where pid == 39857 | is-not-empty
+ps | where name == 50 | is-not-empty
 ps | where pid == '33957'
-n shutdown-when-done.nu
-source shutdown-when-done.nu
 waitpid -h
 man waitpid
 wait-for-process-done name nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
 ps | where 'name' == 'vivaldi-bin'
-ps | where 'name' == 'vivaldi-bin' | is-not-empty 
 wait-for-process-done 'name' 'vivaldi-bin'
-n shutdown-when-done.nu
-ps | where 'name' == 'vivaldi-bin' | is-not-empty 
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-wait-for-process-done name vivaldi-bin
-n shutdown-when-done.nu
+ps | where 'name' == 'vivaldi-bin' | is-not-empty
 ps | select name | where vivaldi-bin
-ps | select name | where name ==vivaldi-bin
 ps | select name | where name == vivaldi-bin
-n shutdown-when-done.nu
 ps | select name | where name ==vivaldi-bin
-source shutdown-when-done.nu
 wait-for-process-done name vivaldi-bin
-ps
 wait-for-process-done pid 42591
-n shutdown-when-done.nu
-shutdown-when-done 
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-z nushell
-z .config/nushell/
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-shutdown-when-done 
-n shutdown-when-done.nu
-source shutdown-when-done.nu
-shutdown-when-done 
-n shutdown-when-done.nu
+shutdown-when-done
 source shutdown-when-done.nu
 wait-for-process-done name vivaldi
-n shutdown-when-done.nu
 def f [--o: int] { ^echo $o }
-f
-n shutdown-when-done.nu
 def f [--o: int] { if $o {^echo $o} }
-f
-n shutdown-when-done.nu
-def f [--o: int] { if $o != null {^echo $o} }
-f
 def f [--o: int] { if $o? {^echo $o} }
 def f [--o: int] { if $o.? {^echo $o} }
-f
 def f [--o: int] { if $o != null {^echo $o} }
 n shutdown-when-done.nu
-null | into bool 
-z neovim
-g pl
-laz
-../vim/
-g pl
+null | into bool
 ../neovim/
-make CMAKE_BUILD_TYPE=Release -j16
-sudo make install
 ps | find zsh
 ps | find nu
-ls
 open monster-vimmer.txt
 n monster-vimmer.txt
-exit
 sys
-sys cpu
-sys mem
 sys net
-sys temp
-sys disks
 sys host
-sys users
-cpufetch 
-cpufreq-bench 
-cpupower 
+cpufreq-bench
+cpupower
 cpupower info
 cpupower nonitor
 cpupower monitor
-cpupower frequency-info
 sys users | table
 ls **/*.json
 open CMakePresets.json
-exit
 http -h
 help download
 help curl
 http get https://ourworldindata.org/life-expectancy
-http get https://ourworldindata.org/life-expectancy | from xml 
-http get 'https://ourworldindata.org/life-expectancy' | from xml 
-http get 'https://ourworldindata.org/life-expectancy' | query db 
+http get https://ourworldindata.org/life-expectancy | from xml
+http get 'https://ourworldindata.org/life-expectancy' | from xml
+http get 'https://ourworldindata.org/life-expectancy' | query db
 http get 'https://ourworldindata.org/life-expectancy' | query web
 http get 'https://ourworldindata.org/life-expectancy' | query web -h
 query web -h
@@ -493,149 +221,72 @@ ps | uniq | wc
 ps | wc
 ps | select name | uniq
 ps | select name | uniq | wc
-ps | sort-by mem
-btop
-htop
 top
-ls
-ls -l
-z .config/nushell/
-n alias.nu
-ls -h
 source alias.nu
-l
-z
 ls **/*.zig
-exit
-btop
 kill 104930
 kill -h
 ps | sort-by mem
-memusage 
+memusage
 memusage -h
 memusage --help
-btop
-shutdown now
-emacs
-yay -
 yay -Ss emacs
 yay -S emacs-wayland
 smacs
-emacs
-emacs -nw
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 rmf .emacs.d/
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-emacs
 n .spacemacs
 emacs
 emacs -nw
 yay -S superfile
 yay -S go
-spf
 z .config/superfile/
-l
 n config.toml
-spf 
-n config.toml
-spf
-n config.toml
-spf
-n config.toml
-spf
-n config.toml
-spf
-n config.toml
-spf
 yay -S television
 television
-tv
 tv ~
 tv env
 echo $env.TERM
-tv 
 tv -h
 tv alias
-fzf
-tv
 ../nushell/
-n alias.nu
-tv
-spf
 n ../superfile/config.toml
-spf
-n ../superfile/config.toml
-spf
-n ../superfile/config.toml
-spf
-yazi
-spf
-n alias.nu
-n starship.nu
-starship prompt
-n starship.nu
-term size
 term -h
 term size
-ls
-exit
-z nushell
-z .config/nushell/
-term size
 help term
-dunst -h
 yay -S dunst
-dunst
 dunst -h
 dunst -print hello
 dunstctl
 dunstctl -h
 dunstctl history
 dunst
-mako
 n ../mako/config
-l /etc/tlp.conf
-nvimsudo /etc/tlp.conf
 ls -l /etc/tlp.conf
 ^ls -l /etc/tlp.conf
-ls
-ls -l
 n ~/rc/defaults.conf
 nvimsudo /etc/tlp.conf
 l /usr/share/tlp/defaults.conf
-exit
 n ../hypr/hyprland.conf
 yay -S fufexan
 yay -Ss fufexan
 yay -Ss fufexanrm `~/Downloads/audio (3).mp3`
 rm `~/Downloads/audio (3).mp3`
-ls -h 
-ls -ald 
-l
-n alias.nu
-ls -adlt
-~
+ls -ald
 ls -adl
 ls -adlt
 cd .emacs.d/
-l
 n init.el
 n core/core-configuration-layer.el
-shutdown now
 nu --version
 vi
 which vi
-which nvim
-where nvim
-whereis nvim
 version
 version | pivot
-glob -h
 glob **/*.c --depth 2
 glob **/*.c --depth 3
 glob -h
 du -h
-du
 watch -h
 loop -h
 touch -h
@@ -643,26 +294,23 @@ echo 'hello' 'world'
 echo 'hello<\n>'
 echo -h
 scope
-uname
-uname | columns 
+uname | columns
 columns -h
-uname | describe 
-sys mem
-[[name, mem]; [1, 2]] 
-[[name, mem]; [1, 2]] | describe 
+uname | describe
+[[name, mem]; [1, 2]]
+[[name, mem]; [1, 2]] | describe
 drop -h
 l | drop column 4
-l 
 each -h
 [[1 2 3 4 5]; [6 7 8 9 0]] | each {|l, r| $l + $r }
 [[1, 2, 3, 4, 5]; [6, 7, 8, 9, 0]] | each {|l, r| $l + $r }
 [[z, o, t, th, f]; [1, 2, 3, 4, 5]; [6, 7, 8, 9, 0]] | each {|l, r| $l + $r }
 [1 2 3]
-[1 2 3] | enumerate 
+[1 2 3] | enumerate
 [1 2 3] | each --keep-empty {|e| if $e == 2 { "found 2!"} }
-[1 2 3] | each --keep-empty {|e| if $e == 2 { "found 2!"} } | describe 
+[1 2 3] | each --keep-empty {|e| if $e == 2 { "found 2!"} } | describe
 every -h
-[["c1" "c2" "c3"];[1 2 3] [4 5 6]] 
+[["c1" "c2" "c3"];[1 2 3] [4 5 6]]
 [[1 2 3] [4 5 6]] | each {|l, r| $l + $r }
 [[1 2 3] [4 5 6]] | each {|l| $l }
 [[1 2 3] [4 5 6]] | each {|l| each { |r| $l + $r } }
@@ -675,22 +323,18 @@ every -h
 [[1 4] [2 5] [3 6]] | each {|l| echo $l }
 [[1 4] [2 5] [3 6]] | each {|l| $l.0 + $l.1 }
 [[1 2] 3 4]
-sys mem
 sys cpu
-sys disks 
-sys temp 
-sys users 
-sys users | flatten 
-yay -Rsc sddm
+sys disks
+sys temp
+sys users | flatten
 sum -h
 ls | group-by type
 items -h
-history -h
 history | length
-history 
+history
 history -h
-history | were command =~ yay 
-history | where command =~ yay 
+history | were command =~ yay
+history | where command =~ yay
 echo 'a' 'b'
 echo 'a' 'b' | lines
 echo 'a' 'b' | str join |lines
@@ -702,18 +346,15 @@ sys mem
 sys mem | split-by 1
 sys mem | split-by total
 ls -dt
-ncdu
-first -h
 take -h
 [[name mem]; [hello 1]]
-[[name mem]; [hello 1]] | describe 
+[[name mem]; [hello 1]] | describe
 [[name mem]; [hello 1]] | first
 [[name mem]; [hello 1]] | take 1
 [[name mem]; [hello 1] [world 2]] | take 1
 [[name mem]; [hello 1] [world 2]] | first 2
 [[name mem]; [hello 1] [world 2]] | take 2
 first -h
-tee -h
 1..100
 tee {1..100 | print}
 tee {1..100 | print} | $in * 5
@@ -727,19 +368,19 @@ port -h
 [{x:12, y:15}, {x:8, y:9}], [[x, y]; [12, 15], [8, 9]]
 [{x:12, y:15}, {x:8, y:9}]
 [[{x:12, y:15}, {x:8, y:9}], [[x, y]; [12, 15], [8, 9]]]
-[{x:12, y:15}, {x:8, y:9}] | describe 
+[{x:12, y:15}, {x:8, y:9}] | describe
 {name:"Nushell", lang: "Rust"}
-[[{x:12, y:15}, {x:8, y:9}], [[x, y]; [12, 15], [8, 9]]] | describe 
+[[{x:12, y:15}, {x:8, y:9}], [[x, y]; [12, 15], [8, 9]]] | describe
 desc -h
 describe  -h
-ls | describe 
+ls | describe
 ls | describe -d
-{shell:'true', uwu:true, features: {bugs:false, multiplatform:true, speed: 10}, fib: [1 1 2 3 5 8], on_save: {|x| $'Saving ($x)'}, first_commit: 2019-05-10, my_duration: (4min + 20sec)} 
+{shell:'true', uwu:true, features: {bugs:false, multiplatform:true, speed: 10}, fib: [1 1 2 3 5 8], on_save: {|x| $'Saving ($x)'}, first_commit: 2019-05-10, my_duration: (4min + 20sec)}
 {shell:'true', uwu:true, features: {bugs:false, multiplatform:true, speed: 10}, fib: [1 1 2 3 5 8], on_save: {|x| $'Saving ($x)'}, first_commit: 2019-05-10, my_duration: (4min + 20sec)}  | describe -d
-*.c | describe 
-echo *.c | describe 
-echo *.c 
-echo *.c | into glob | describe 
+*.c | describe
+echo *.c | describe
+echo *.c
+echo *.c | into glob | describe
 echo *.c | into glob
 let b = { $in.name.0 | path exists }
 ls | do $b
@@ -747,14 +388,12 @@ ls | do $b
 'apl' =~ '^\w{4}'
 'apl' =~ '^\w{3}'
 ansi -h
-whoami 
 whoami -h
 $"Captain (whoami)"
 which -h
-which nvim
 whereis nvim
 which nvim -a
-which -a nvim 
+which -a nvim
 which -a vim
 which vim
 which vim -a
@@ -765,30 +404,5901 @@ which which -a
 vivaldi in (ps)
 vivaldi in (ps | get name)
 ps | get name
-ps | get name | describe 
+ps | get name | describe
 help in
 help operators in
 let psn = (ps | get name)
 vivaldi in $psn
 $psn
-date now | date to-record 
+date now | date to-record
 date now | date to-record | $in.year
 let carapace_completer = {|spans|<\n>carapace $spans.0 nushell ...$spans | from json}
 do $carapace_completer git
 config env
-config nu
-source $nu.config-path
-yay -Syu
 open .config/nushell/history.txt
-config nu
-source $nu.config-path
-spf
-pwd
 cd (tv | path dirname)
 ls | where type == dir | each { |it| $it.name} | str join (char nl) | tv
 ls -r | where type == dir | each { |it| $it.name} | str join (char nl) | tv
 ls -h
 ../../../.config/nushell/
-n config.nu
 source $nu.config-path
+git remote add origin https://github.com/koyamahayato2357/nushell.git
+z neovi
+g log --name-only --graph --all --date=format-local:'%Y-%m-%d %H:%M:%S' --format='%C(auto)%h%d %cd %s'
+g l --name-only
+random dice
+random dice -d 100 -n 10
+random dice -d 100 -s 10
+random chars
+random binary
+random binary 10
+debug
+debug info
+man exec
+banner -h
+banner
+create_left_prompt -h
+create_right_prompt
+math -h
+5 ** 5
+5 ** 5 ** 2
+5 ** 5 ** 3
+5 ** 5 ** 4
+5 ** 5 ** 5
+5 ** 5 ** 6
+5 ** (5 ** 5)
+do -i -h
+../project/
+mkcd shell
+cd shell/
+n ../../.config/nushell/alias.nu
+rmdir ../and/ ../cd/
+g cl https://github.com/nushell/nu_scripts.git
+cd nu_scripts/modules/git/
+source git.nu
+gl 50
+git age
+'git age'
+git\ age
+../nvim/
+n mod.nu
+../prompt/
+source starship.nu
+create_left_prompt
+gl
+z project/shell/nu_scripts/modules/prompt/
+n full-line.nu
+spf
+cd weather/
+source get-weather.nu
+get_my_location
+get_my_location 0
+get_my_location 1
+get_my_location 2
+weather_emoji_table
+n get-weather.nu
+get_weather
+clip
+cat $nu.current-exe
+kill 109707
+z project/shell/nu_scripts/
+cd aliases/
+n bat/bat-aliases.nu
+n git/git-aliases.nu
+cd modules/
+n fuzzy/
+cat $nu.history-path
+source fuzzy/fuzzy_command_search.nu
+fuzzy-command-search
+help commands
+help commands | get name
+help commands | select name
+n fuzzy/fuzzy_command_search.nu
+help commands | select name | str join
+help commands | select name | describe
+help commands | select name | each {|it| echo $it.name }
+help commands | select name | each {|it| ^echo $it.name }
+help commands | select name | to toml
+help commands | select name | to json
+help commands | select name | to json | to toml
+help commands | select name | to json | to text
+help commands | select name | to json | to csv
+help commands | select name | to csv
+help commands | select name | to csv | head
+help commands | select name | to csv | tail -n +2
+help commands | select name | to csv | tail -n +2 | uniq | head
+help commands | select name | to csv | tail -n +2 | ^uniq | head
+help commands | select name | to csv | tail -n +2 | ^uniq
+help commands | select name | to csv | tail -n +2 | head
+help commands | select name | to csv | tail -n +2 | tv
+(help commands | select name | to csv | tail -n +2 | ^uniq | tv)
+kill 113663
+exec -h
+xargs uniq
+xargs ls
+xargs
+xargs xargs
+ps | where name =~ nu
+kill 125554
+help commands | select name | to csv | tail -n +2 | ^uniq | tv
+^fzf
+cat $nu.history-path | ^fzf
+z .config/nushell/
+cat history.txt | wc
+cat history.txt | uniq | wc
+cat history.txt | ^uniq | wc
+cat history.txt
+cat history.txt | uniq
+^uniq -h
+^uniq --help
+cat history.txt | awk '!seen[$0]++ { line[NR] = $0 } { delete line[NR-1] } END { for (i in line) print line[i] }'
+open history.txt | uniq-by name
+open history.txt | to toml  | uniq-by name
+open history.txt | to toml
+open history.txt | to csv
+open history.txt | to json
+cat history.txt | to json
+[(cat history.txt)]
+[(cat history.txt)] | split -h
+[(cat history.txt)] | lines
+[(cat history.txt)] | split cell-path
+[(cat history.txt)] | split row
+[(cat history.txt)] | split list
+[(cat history.txt)] | uniq
+[(cat history.txt)].0
+cat history.txt | table
+cat history.txt | table -i
+cat history.txt | table -i name
+cat history.txt | table -i 0
+table -h
+[[name]; (cat history.txt)]
+[[name]; [(cat history.txt)]]
+cat history.txt | sort -u
+sort -h
+cat history.txt | sort | uniq
+cat history.txt | ^sort -u
+cat history.txt | ^sort | ^uniq
+^echo -e 'apple\napple\nbanana'
+^echo -e 'apple\napple\nbanana' | ^uniq
+cat history.txt | sed 's/ \+$//' | ^sort | ^uniq
+cat history.txt | sed 's/ \+$//' | ^sort | ^uniq | tv
+save -g
+ls | table
+z nushell
+z ../.config/nushell/
+rg ansi
+n env.nu
+echo -e 'hello ' | str replace ' \+$' ''
+echo 'hello ' | str replace ' \+$' ''
+echo 'hello ' | str replace ' +$' ''
+echo 'hello ' | str replace ' $' ''
+echo 'hello ' | str replace (' $' | into glob) ''
+str replace -h
+echo 'hello ' | str replace ' +$' '' -r
+cat $nu.history-path | str replace -r ' +$' ''
+cat $nu.history-path | str replace -r ' +$' '' | ^sort | ^uniq
+cat $nu.history-path | str replace ' +$' '' -r | ^sort | ^uniq
+cat $nu.history-path | str replace ' +$' '' -r | ^sort -u
+^echo 'hello\nhello'
+^echo -e 'hello\nhello'
+^echo -e 'hello\nhello' | str replace 'h' 'a'
+^echo -e 'hello\nhello' | str replace 'h' 'a' -a
+cat $nu.history-path | str replace ' +$' '' -ar | ^sort -u
+^echo -e 'hello\nhello' | str replace 'o$' 'a' -a
+^echo -e 'hello\nhello' | str replace 'o$' 'a' -ar
+n alias.nu
+starship prompt --cmd-duration $env.CMD_DURATION_MS $"--status=($env.LAST_EXIT_CODE)" --terminal-width (term size).columns
+starship prompt --right --cmd-duration $env.CMD_DURATION_MS $"--status=($env.LAST_EXIT_CODE)" --terminal-width (term size).columns
+n starship.nu
+source config.nu
+sys users
+uname
+mkcd ~/project/zig/uniqu
+zig build run src/main.zig
+zig build run -- src/main.zig
+zig test src/main.zig -- src/main.zig
+zig test -h
+zig test -h | grep arg
+config nu
+lldb zig-out/bin/uniqu
+n /usr/lib/zig/std/mem/Allocator.zig
+zig run src/main.zig -- temp.txt
+zig run src/main.zig -- src/main.zig
+valgrind zig-out/bin/uniqu
+valgrind zig-out/bin/uniqu src/main.zig
+rg uniq
+./zig-out/bin/uniqu
+cat src/main.zig | ./zig-out/bin/uniqu
+mv ../uniqu/ ../superuniq
+cd .
+../../project/zig/superuniq/
+zig clean
+rmf .zig-cache/ zig-out/
+$env.PATH
+mkdir ~/bin
+cp zig-out/bin/superuniq ~/bin/
+superuniq
+which superuniq
+l ~/bin/
+l zig-out/bin/
+z nushell/
+cat history.txt | superuniq > his.txt
+cat history.txt | superuniq | save -f his.txt
+n his.txt
+save -h
+cat history.txt | superuniq | save -f history.txt
+rm his.txt
+z project/zig/superuniq/
+cat src/main.zig | wl-copy
+n src/root.zig
+rm src/root.zig
+rm temp.txt
+../vim/
+n src/version.c
+../ly/
+~/proc/ChezScheme/
+n s/cptypes.ss
+../llvm-project/
+../zig/
+n test/tests.zig
+rmf .nix*
+ls /
+rm keylayout.json
+l fonts/
+rmf fonts/bdf/
+yay -S platformio
+pio
+cd project/club/ctrlr/
+python --version
+yay -Ss python
+yay -Ss python3
+yay -S python310
+n youken.txt
+yay -S python36
+l /usr/lib/python3.6/
+grib --help
+grid -h
+n .config/hyprpanel/config.json
+cd Pictures/
+cd `Vivaldi Captures/`
+lsix `2024-12-01 21.59.33 teams.microsoft.com 61bdaaae0d2f.png`
+yay -S pinta
+launch pinta
+wl-copy --version
+wl-copy --help
+man wl-clipboard
+cat "Pictures/Vivaldi Captures/2024-12-01 21.59.33 teams.microsoft.com 61bdaaae0d2f.png" | wl-copy
+pinta
+yay -Rsc pinta
+yay -S krita
+krita
+yay -Rsc krita
+yay -Ss tux paint
+yay -S tuxpaint
+tuxpaint
+yay -Rsc tuxpaint
+yay -S gimp
+yay -Ss gimp
+yay -Ss gimp wayland
+gimp
+yay -Rsc gimp
+n `Downloads/test_1 1.ino`
+cat youken.txt
+z ../../zig/superuniq/
+zoxide
+echo $env.__zoxide_hooked
+zoxide add
+zoxide add ~/project/zig/superuniq/
+zoxide add ~/.config/nushell/
+z nu
+wc history.txt
+n history.txt
+cat history.txt | superuniq | wc
+ls | get name
+find -h
+n cc.nu
+n --clean src/evalfn.c
+rg argc
+rg spr
+rg `=`
+rg '`=`'
+mkcd ~/project/club/
+g cl https://github.com/ZigEmbeddedGroup/microzig.git --depth 1
+cd microzig/
+cd examples/stmicro/stm32/
+l zig-out/firmware/STM32F103C8.elf
+rg f446re
+rg f446re -i
+./examples/stmicro/stm32/
+python3 gpt_repository_loader.py ~/project/c/rpx/ -o rpx.txt
+ls *.mp3 | get name
+ls *.mp3 | get name | each { |it| mv $it $"../Music/($it + 2.mp3)" }
+l ../Music/
+rmf Pinta/
+rmf sway*
+rmf neofetch/ GIMP/
+rmf wofi/ unity3d/
+mkcd starship
+rmdir starship
+touch starship.toml
+n starship.toml
+echo $env.STARSHIP_SHELL
+echo $env.STARSHIP_SESSION_KEY
+rm starship.toml
+n kritarc
+rm krita*
+n kxkbrc
+n kscreenlockerrc
+l ibus/
+ps | find ibus
+ibus
+rmf ibus/
+sway --help
+l autostart/
+rmdir autostart/
+l dconf/
+n zsh/fzf.zsh
+n zsh/zoxide.zsh
+fcitx --help
+l fcitx/
+n Trolltech.conf
+l Kitware/
+n Kitware/CMakeSetup.conf
+yay -Ss baloo
+rmf baloofilerc
+^ls -R | grep baloo
+yay -Rsc firefox
+rm `Downloads/stm32f446re (1).pdf`
+yay -Ss arm-none-abi
+yay -Ss arm
+yay -Ss arm-none-eabi
+yay -S arm-none-eabi-gcc
+arm-none-eabi-gcc --version
+clang --target=arm-none-eabi
+clang --target
+mkcd project/club/raw
+clang --target=arm-none-eabi -mcpu=cortex-m4 -mthumb -O2 -c main.c -o main.o
+clang --target=arm-none-eabi -mcpu=cortex-m4 -mthumb -TSTM32F446RE.ld -o firmware.elf main.o -lnosys
+clang --target=arm-none-eabi -mcpu=cortex-m4 -mthumb -TSTM32F446RE.ld -o firmware.elf main.o -lc -lnosys
+n STM32F446RE.ld
+ld --verbose
+readelf -r .build/2411f779628ef21a6715c81b438f0b46/target/ansiesc.o
+file .build/2411f779628ef21a6715c81b438f0b46/target/ansiesc.o
+file .build/441c49f43cf3b6c23fb8af6cf506705c/target/ansiesc.o
+readelf -r .build/441c49f43cf3b6c23fb8af6cf506705c/target/ansiesc.o
+ls .cache/
+readelf -r .build/441c49f43cf3b6c23fb8af6cf506705c/target/main.o
+readelf -l .build/441c49f43cf3b6c23fb8af6cf506705c/target/main.o
+readelf -l .build/441c49f43cf3b6c23fb8af6cf506705c/target/rpx
+zoxide add ../../club/microzig/
+z micro
+cd port/stmicro/
+cd stm32/
+n src/generate.zig
+rg linker
+n tools/generate_linker_script.zig
+z examples/stmicro/stm32/
+tv
+rg f103c8
+rg f103c8 -i
+vim port/stmicro/stm32/src/chips/all.zig
+n port/stmicro/stm32/src/chips/all.zig
+n port/stmicro/stm32/src/Chips.zig
+rg GlobalConfiguration
+rg Target
+ls port/stmicro/stm32/src/chips/all.zig
+rg 103C8 port/stmicro/stm32/src/chips/all.zig
+rg 446RE port/stmicro/stm32/src/chips/all.zig
+n src/blinky.zig
+l /usr/share/keyd/layouts/
+ld.lld --verbose
+ldconfig --help
+lldb zig-out/bin/rpx
+z blink
+sudo rm -rf .deps/ build/
+rg clang
+rg CC
+rg CC Makefile
+rg CC CMakeLists.txt
+echo $env.CC
+n --clean src/main.c
+rg feature
+rg '3.0.x'
+rg Feature
+n CHANGELOG.md
+z plugins/CopilotChat.nvim/
+n lua/CopilotChat/init.lua
+rg warn
+n lua/CopilotChat/health.lua
+rg removed
+rg CopilotChat lua/
+rmf plugins/CopilotChat.nvim/
+rg nui
+zig build run -t=bench
+make run OL=3 T=bench
+rg get_rtinfo
+make run T=bench OL=2
+zig build run -DT=bench --release=debug
+make run T=bench OL=g
+cmake . --target build
+cmake . build
+rm -h
+l ~/.local/share/Trash/
+rmf llvm-project/
+g cl https://github.com/llvm-project/llvm-project --depth 1
+g cl https://github.com/llvm/llvm-project --depth 1
+cd llvm-project/
+cmake -G "Ninja" ../llvm -DLLVM_ENABLE_PROJECTS="clang;lld;clang-tools-extra" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release
+cd proc/llvm-project/
+cd build/
+ps | hypr
+ps | find hypr
+sudo systemctl stop hyprland
+sudo systemctl stop hyprctl
+kill 852
+kill 664
+ps | find ly
+sudo kill 664
+cat .histfile | awk '{ print $2 }'
+cat .histfile | awk '{ print $2 }' | head
+cat .histfile | awk '{ print $1 }' | head
+cat .histfile | cut -d';' -f1 | head
+cat .histfile | cut -d';' -f2 | head
+yay -S pueue
+pueue completions nu
+pueue completions nushell
+source -h
+(which clang).path
+(which clang).path | ls
+ls /usr/local/bin/clang
+readlink /usr/local/bin/clang
+which clang-20
+ls /usr/local/bin/clang20
+ls /usr/local/bin/clang-20
+pueue -h
+pueue completions nushell | save -f pueue.nu
+n pueue.nu
 n config.nu
+n build.zig.zon
+zig build --release=fast -Tuse-llvm
+rg 19\.x
+n cmake/Findclang.cmake
+../gcc/
+~/linux/
+z super
+cat ~/.histfile | cut -d';' -f2-
+z nus
+yay -S zap
+zap
+plug
+zap update
+yay -Rsc zap
+yay -Rsc zap-git
+yay -Rsc zap-git-debug
+zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+sudo pacman -S fzf
+cd /home/sundo/.local/share
+git clone https://github.com/zap-zsh/zap.git
+cd zap
+sudo nvim /etc/wsl.conf
+sudo vim /etc/wsl.conf
+sudo pacman -S lazygit
+cargo install asm-ls
+CARGO_TARGET_DIR=/tmp/cargo-install8A1fuU cargo install asm-lsp
+cargo install --git https://github.com/bergercookie/asm-lsp
+mkcd ~/temp
+git clone https://github.com/bergercookie/asm-lsp.git
+cd asm-lsp
+rmf asm-lsp
+mkcd tool
+git clone https://gitlab.com/jallbrit/cbonsai
+cd cbonsai
+sudo pacman -S make cmake
+cbonsai --help
+./cbonsai
+./cbonsai -i
+./cbonsai --help
+./cbonsai -il
+git clone https://github.com/pipeseroni/pipes.sh.git
+cd pipes.sh
+helix pipes.sh
+./pipes.sh -p 3
+./pipes.sh -p 100
+./pipes.sh -p 10
+cd ~/project
+mkcd pro
+mkcd pro2
+git clone git@github.com:s2201050/Pro2-First-Report.git
+./Pro2-First-Report
+z li
+z pro2
+../fibonacci
+du --help
+vl
+cargo new overflow_test
+ssh --help
+ssh -T git@github.com -i ~/.ssh/private
+ssh -T git@github.com -i ~/.ssh/arch
+mkcd ~/project/c/brain\*\*\*\*
+cp ../../makefile-formats/makefile-c ./Makefile
+n makefile-c
+n main.bf
+cp main.bf test.bf
+./a.out main.bf
++++++++++[>++++++++>+++++++++++>+++>+<<<<-]>.>++.+++++++..+++.\
+>+++++.<<+++++++++++++++.>.+++.------.--------.>+.>+.\
+rm main.bf
+cd ~/project/c/brain\*\*\*\*
+cat test.bf
+./a.out test.bf| wc -l
+factor 117
+./a.out test.bf|head -n 10
+./a.out test.bf|head -n 100
++[-->-[>>+>-----<<]<--<---]>-.>>>+.>>..+++[.>]<<<<.+++.------.<<-.>>>>+.\
+sudo pacman -S bf
++++++++++[->++++++++>+++++++++++>+++++<<<]>.>++.+++++++..+++.>-.\
+------------.<++++++++.--------.+++.------.--------.>+.\
+mkcd ~/tool
+git clone https://github.com/fabianishere/brainfuck.git
+cd brainfuck
+brainfuck test.bf
+++++++[->++++>>+>+>-<<<<<]>[<++++>>+++>++++>>+++>+++++>+++++>>>>>>++>>++<\
+<<<<<<<<<<<<<-]<++++>+++>-->+++>->>--->++>>>+++++[->++>++<<]<<<<<<<<<<[->\
+-[>>>>>>>]>[<+++>.>.>>>>..>>>+<]<<<<<-[>>>>]>[<+++++>.>.>..>>>+<]>>>>+<-[\
+<<<]<[[-<<+>>]>>>+>+<<<<<<[->>+>+>-<<<<]<]>>[[-]<]>[>>>[>.<<.<<<]<[.<<<<]\
+>]>.<<<<<<<<<<<]\
+>++++[<++++++++>-]>++++++++[<++++++>-]<++.<.>+.<.>++.<.>++.<.>------..<.>\
+.++.<.>--.++++++.<.>------.>+++[<+++>-]<-.<.>-------.+.<.> -.+++++++.<.>\
+------.--.<.>++.++++.<.>---.---.<.> +++.-.<.>+.+++.<.>--.--.<.> ++.++++.<.>\
+---.-----.<.>+++++.+.<.>.------.<.> ++++++.----.<.> ++++.++.<.> -.-----.<.>\
++++++.+.<.>.--.\
+gcc main.c -O3
+cat <<EOF > test.bf\
+++++++++[>++++++++<-]>[<++++>-]\
++<[>-<\
+    [>++++<-]>[<++++++++>-]<[>++++++++<-]\
+    +>[>\
+        ++++++++++[>+++++<-]>+.-.[-]<\
+    <[-]<->] <[>>\
+        +++++++[>+++++++<-]>.+++++.[-]<\
+<<-]] >[>\
+    ++++++++[>+++++++<-]>.[-]<\
+<-]<\
++++++++++++[>+++>+++++++++>+++++++++>+<<<<-]>-.>-.+++++++.+++++++++++.<.\
+>>.++.+++++++..<-.>>-\
+[[-]<]\
+n ../.gitignore
+rm .gitignore
+n ../../.gitignore
+../../inner_outer_product
+sudo pacman -S texlive-latexextra
+uplatexx main.tex
+n Session.vim
+vim -S Session.vim
+n -S Session.vim
+rm main.c.tex mainouter.c.tex
+z in
+z inn
+z tex
+cat main.tex
+./a.out -1
+./a.out 7
+./a.out 10
+./a.out 30
+sudo su
+n ../inner_outer_product/IS16_log.log
+rm IS16_log.log
+n m
+rm m
+factor
+sudo pacman -S man man-db
+sudo pacman -S man-pages
+man 3 printf
+cp /mnt/c/Users/sundo/Downloads/gpio_* .
+mkdir -p project/arduino/kumikomisystem
+mv ./gpio_* project/arduino/kumikomisystem
+cd project/arduino/kumikomisystem
+cp gpio_single-01.ino kadai1.ino kadai2.ino
+cp gpio_single-01.ino kadai1.ino
+cp gpio_single-01.ino kadai2.ino
+cp gpio_multi-01.ino kadai3.ino
+cp gpio_multi-01.ino kadai4.ino
+n kadai1.ino
+rm kadai{1,2}*
+rm gpio_single-01.ino
+./a.out test.bf
+n test.bf
+mkdir test
+mv test.bf test/memorysize.bf
+cat <<EOF > power.bf\
+++++[>+++++<-]>[<+++++>-]+<+[>[>+>+<<-]++>>[<<+>>-]>>>[-]++>[-]+\
+>>>+[[-]++++++>>>]<<<[[<++++++++<++>>-]+<.<[>----<-]<]\
+<<[>>>>>[>>>[-]+++++++++<[>-<-]+++++++++>[-[<->-]+[<<<]]<[>+<-]>]<<-]<<-]\
+EOF
+../a.out power.bf
+z rust
+cargo new brain\*\*\*\*
+cargo new brainfuc
+cd brainfuc
+../../c/brain\*\*\*\*
+z sys
+cat kadai3.ino
+z line
+bat main.c
+z fib
+z inner
+z bra
+git clone git@github.com:koyamahayato2357/source.git
+mkdir gameoflife && cp source/reliablelife.c gameoflife
+cd gameoflife
+mv reliablelife.c main.c
+git config --global init.defaultBranch main
+git remote add origin git@github.com:koyamahayato2357/gameoflife.git
+mkdir frequency-analysis && cp source/word_percentage.c frequency_analysis/main.c
+cp source/word_percentage.c frequency-analysis/main.c
+cd frequency-analysis
+git remote add origin git@github.com:koyamahayato2357/frequency-analysis.git
+git commit -m "first commit"
+git push --set-upstream origin main
+../source
+n sosuu.c
+bat -p ackermann.c
+bat ackermann.c
+z sou
+gcc getch.c
+bat --list-languages
+man ls
+z editor/neovim
+grep "\\033[H\\033[J" -r **/*.[ch]
+grep "\\033\[H\\033\[J" -r **/*.[ch]
+grep "\033\[H\033\[J" -r **/*.[ch]
+grep ".033\[H.033\[J" -r **/*.[ch]
+grep ".033\[H.033\[J" -r **/*.c
+grep ".033\[H.033\[J" -r *
+grep "033" -r *
+bat --list-themes
+sudo make CMAKE_INSTALL_PREFIX=/usr/local/nvim install
+/usr/local/nvim/bin/nvim --version
+n kadai4.ino
+z syst
+gcc test.c
+n test.c
+man 3 tcsetattr
+man 3 fgetc
+man 3 unfgetc
+sudo pacman -S lv
+man more
+man more| bat
+man 3 ungetc| bat
+man 3 ungetc| bat -p -l man
+MANPAGER=less
+man 3 ungetc
+batman ungetc
+man 3 ungetc| bat -p -l man --color=always
+man 3 ungetc| bat -p
+batman 3 printf
+batman 6
+batman man
+batman /etc/passwd
+batman puts
+cd project/makefile-formats
+z local
+z .local/share/nvim/lazy/vim-repeat
+n ../README.markdown
+cat repeat.vim
+n repeat.vim
+touch lua/repeat.lua
+nv lua/repeat.lua
+n lua/repeat.lua
+n ~/.local/share/nvim/lazy/vim-repeat/autoload/repeat.vim
+rm lua/repeat.lua
+./lesson-2-practice-of-pointer-chapter-11-s2201050
+./a.out 5 5
+./a.out 3 3
+git commit -m "printf„ÅÆÂºÉµÊÉµ∞„ÅÆÈÉÄÉ¶ÁÉµ™„ÇÉ≤‰øÆÊ≠£„ÅÉ∑„ÅÉø"
+cd less
+git add practice2.log
+git commit -m "2ÂÄÉ´ÁÉªÆ„ÅÆlog„ÇÉ≤ËøΩÂÉ™ÉÄ"
+git commit -m "alloc_matrixÈÉ∂ÉÇÊÉµ∞„ÇÉ≤ËøΩÂÉ™ÉÄ"
+git commit -m "alloc_matrixÈÉ∂ÉÇÊÉµ∞„ÅÆËøÉ¥„ÇÉ™ÂÄ§„ÅÆÂÉæÉ´„ÇÉ≤Â§É©„ÅÉ®„ÅÉø"
+c
+gcc practice01_1.c
+./a.out 9 9
+git config --global user.email "sundongxiaoshan202@sendai-nct.jp"
+script practice1.log
+z les
+git reset --hard fdce794ddcc29fc0bfe66cb64810bffde89c3ea6
+rmf lesson-2-practice-of-pointer-chapter-11-s2201050
+git clone git@github.com:GE3ProgrammingII/lesson-2-practice-of-pointer-chapter-11-s2201050.git
+cd lesson-2-practice-of-pointer-chapter-11-s2201050
+sudo chsh -s /bin/bash sundo
+z le
+git add practice1.log
+git commit -m "log„ÇÉ≤ÊÉª¥ÊÉ∂∞„ÅÉ∑„ÅÉø"
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME='s2201050'; \\
+" HEAD~11..HEAD
+git push -f origin main
+mkcd project/c/mivim
+cp ~/project/makefile-formats/makefile-c Makefile
+git remote add origin git@github.com:koyamahayato2357/mivim.git
+touch getch.{c,h} main.c
+cp ../../source/getch.c .
+n getch.h
+touch functions.{c,h}
+n functions.h
+n functions.c
+mkdir Include
+mv *.h Include
+mv Include/* .
+rmdir Include
+mkdir ../include
+mv *.h ../include
+l ../include
+n brain\*\*\*\*
+cd brain\*\*\*\*
+git remote add origin git@github.com:koyamahayato2357/brain-.git
+git reset
+git reset 427e5e08991f52c74f20c69f2760331671fd86aa
+git reset --hard 427e5e08991f52c74f20c69f2760331671fd86aa
+n test/test.bf
+time ./a.out test/test.bf
+time ./a.out test/power.bf
+n test/interactive.bf
+./a.out test/interactive.bf
+man 3 getchar
+sudo pacman -S neovide
+neovide --wsl
+sudo pacman -Rc libmd
+sudo pacman -Rc alsa-lib
+sudo pacman -Rc alsa-ucm-conf alsa-topology-conf
+sudo pacman -Rc lm_sensors default-cursors wayland
+sudo pacman -Rc libdrm libbsd libxkbcommon
+sudo pacman -Rc libdrm libxkbcommon
+sudo pacman -Rc libpciaccess libxxf86vm libxfixes-
+sudo pacman -Rc libpciaccess libxxf86vm libxfixes
+sudo pacman -Rc xkeyboard-config
+echo $PATH
+which clangd
+where clangd
+where lua-language-server
+where texlab
+where rust-analyzer
+where gcc
+man cc
+cc --help
+info cc
+man info
+cc --version
+sudo pacman -S openssl-1.1
+sudo pacman -R openssl-1.1
+sudo pacman -S pkgconf
+n temp.asm
+n temp.sh
+batman bat
+vim .config/nvim/init.lua
+bat ~n/init.lua
+cd project/c
+mkcd belltest
+wezterm
+cl;sozsh
+cd project/c/belltest
+hrc
+echo windows terminal is kuso
+batman ed
+man ed
+batman utime
+cp /mnt/c/Users/sundo/Downloads/autohotkey/ÊÉ∂∞Ë¶ÉØ\ AutoHotkey\ Script.ahk .
+ln -s .wezterm.lua /mnt/c/Users/sundo/.wezterm.lua
+rm /mnt/c/Users/sundo/.wezterm.lua
+cp .wezterm.lua /mnt/c/Users/sundo
+sudo pacman -S jq
+cat ~rc/settings.json| jq
+n ~rc/settings.json
+cat `fzf`| jq
+~/project/shell-scripts/diary.sh
+mkcd bin
+cp ../project/shell-scripts/diary.sh .
+sudo pacman -S gnu-sed
+sudo pacman -S sed
+sed "/^/ m 1" diary.sh
+sed "/^/d" diary.sh
+n diary.sh
+sudo pacman -S kakasi
+kakasi
+sudo pacman -Rc kakasi
+sudo pacman -Rc oniguruma
+more diary.sh
+less diary.sh
+where cc
+l `where cc`
+sudo pacman -S git-delta
+cd ~/editor/neovim
+mv ~/.gitconfig .
+ln -s ~/.gitconfig ./.gitconfig
+ln -s .gitconfig ~/.gitconfig
+rm ~/.gitconfig
+cp .gitconfig ../
+l **/.git
+echo **/.git
+echo **/.git| sed "s/ /\n/"
+echo **/.git| sed "s/ /\n/g"
+where brainfuck
+sudo rm `where brainfuck`
+rmf tool/brainfuck
+./a.out test/power.bf
+./a.out test/memorysize.bf
+n project/c/brain\*\*\*\*/main.c
+~n/lua
+n ~/.local/share/nvim/lazy/Comment.nvim/lua/Comment/init.lua
+cat comment.lua
+cd ~/.local/share/nvim/lazy/Comment.nvim
+grep "gc" -r **/*.lua
+nv comment.lua
+n ~/.local/share/nvim/lazy/Comment.nvim/lua/Comment
+n comment.lua
+sudo pacman -S ncdu
+n c.so
+n plugin
+n queries/c/highlights.scm
+cd queries
+cd c
+cd autoload
+n nvim_treesitter.vim
+n temp.yml
+n nvim-treesitter.lua
+l nvim-treesitter
+batman gnu
+batman linux
+batman game
+batman ls
+batman cat
+man ls | bat -l man
+bat nvim-treesitter.lua
+lsd -R
+lsd project
+lsd project -R
+lsd -alFh
+cd /usr/src
+cd x86_64-pc-linux-gnu
+cd 13.2.1
+cd wsl
+cd lib64
+cd include
+rg " malloc("
+rg " malloc\("
+rg "void *malloc\(.*)" **/*.c
+rg "void[ *]{2}malloc\(.*)" **/*.c
+cd dev
+cd bin
+git difftool| bat -p
+batman lua-language-server
+batman lua-ls
+n luarc.json
+mv luarc.json .luarc.json
+g P
+g C --global -e
+git config --global -e
+cd ~rc
+difft .gitconfig ../.gitconfig
+bat .gitignore
+cargo install ripgrep
+difft ~rc/.wezterm.lua /mnt/c/Users/sundo/.wezterm.lua
+cp ~whome
+cd ~whome
+cp /mnt/c/Users/sundo/.wezterm.lua .
+batman 3 delete
+mkcd ~/project/cpp
+mkcd allocate
+gcc main.cpp
+g++ main.cpp
+mkcd ../c/allocate
+mkcd ../../asm/allocate
+mv cpp/c/* c/
+mv cpp/asm .
+cd asm
+cd allocate
+n allocate.asm
+n allocate.s
+sudo pacman -S arm-none-eabi-binutils
+sudo pacman -S arm-none-eabi-gcc
+as allocate.s
+batman as
+man as
+sudo pacman -S arm-none-eabi
+sudo pacman -Rc arm-none-eabi-gcc
+sudo pacman -Rc arm-none-eabi-binutils
+mkcd ../hello
+as main.asm
+ld a.out
+ld a.out -o hello
+./hello
+sudo pacman -S nasm
+nasm -felf32 main.asm
+ld -melf_i386 main.o
+laz ~rc
+mkcd ../outinteger
+nv main.asm
+compileasm outinteger/main
+compileasm main
+n main.asm
+disasm main
+disasm -S main
+objdump -S main
+disasm -S `which ls`| bat -p
+batman objdump
+man objdump
+disasm -S `which ls` > ls.objdump
+n ls.objdump
+rm ls.objdump
+sudo pacman -S expac
+expac -S %N -Q gcc
+expac -S '%n %N' | grep 'gcc'
+objdump -S `which clear`
+objdump -S `which clear` > clear.objdump
+n clear.objdump
+rm clear.objdump
+pacman -Qo $(which find)
+sudo pacman -R expac
+sudo pacman -S asp
+git cl https://github.com/archlinux/asp.git
+cd asp
+sudo pacman -S m4
+rmf asp
+kill 7544
+kill 7571
+kill 8031
+kill 8555
+kill 8573
+kill 8823
+git diff .luarc.json
+nv .luarc.json
+asm-lsp
+procs
+kill 1400
+l ~/.cargo/bin
+base64 init.lua
+base64 init.lua | base64 init.lua
+base64 init.lua | base64
+batman base64
+base64 init.lua | base64 -d
+cat init.lua| tr -d "aeiou"
+batman tr
+batman cut
+rg --version
+batman tee
+batman less
+less init.lua --header=100
+bat init.lua
+less --header 1 init.lua
+git log | bat
+sudo pacman -S info
+batman most
+batman pg
+pg init.lua
+whereis man
+l `whereis man | sed "s/^.*://"`
+l `whereis man | sed "s/^.*://"` | bat
+l `whereis man | sed "s/^.*://"` | grep ja
+cd $(ls -d `whereis man | sed "s/^.*://"` | grep ja)
+ls -d `whereis man | sed "s/^.*://"` | grep ja
+ls -d `whereis man | sed "s/^.*://"`
+man 6
+echo $MANPATH
+man 6 intro
+sudo pacman -S sl
+man 6 sl
+man sl
+sudo pacman -R sl
+sudo pacman -S bsd-games
+man 6 hangman
+man bsd-games
+batman ascii
+batman utf-8
+man 6 nethack
+cd project/c/source
+n minesweeper.c
+mkcd ../minesweeper
+cp ../source/minesweeper.c ./main.c
+clang-format -i main.c
+git remote add origin git@github.com:koyamahayato2357/minesweeper.git
+cp ~/project/makefile-formats/makefile-c ./Makefile
+~mail
+sudo pacman -S roswell
+mkcd ../../lisp
+cd hello
+ros init hello
+n hello.ros
+ros build hello.ros
+n hello.asd
+ros run hello.ros
+ros build hello.ros| head -n 30
+ros build hello.ros 2>&1| head -n 30
+ros build hello.ros 2>&1| head -n 40
+ros init test
+rm test.ros
+rmf hello
+cd test/src
+mv lisp ~/.roswell/local-projects
+cd ~/.roswell/local-projects
+cd lisp
+cd local-projects/lisp
+ros run
+cd code-char
+nv main.lisp
+ros init code-char
+ros build code-char.ros 2>&1 | head -n 45
+ros build code-char.ros
+./code-char
+n code-char.ros
+ros run code-char.ros
+mkcd project/help
+n lisp.help
+../c/
+mkcd bastet
+cp ../source/getch.c .
+n getch.c
+mv getch.c main.c
+cd ~nvimruntime/
+echo ~nvimruntime
+cd ~/.local/share/nvim/lazy/ultimate-autopair.nvim
+rg "<A-e>" -i
+n default.lua
+nv ~whome/.wezterm.lua
+n lua/comment.lua
+rm lua/comment.lua
+nv lua/gitlens.lua
+git -C /home/sundo/.config/nvim blame gitlens.lua
+git -C /home/sundo/.config/nvim blame -c -L 10,20 gitlens.lua
+git -C /home/sundo/.config/nvim blame -c -L 10,20 /home/sundo/.config/nvim/lua/gitlens.lua
+git blame
+git blame -s gitlens.lua
+n gitlens.lua
+go install vim-startuptime
+go install vim-startuptime@latest
+go install github.com/rhysd/vim-startuptime@latest
+PATH=PATH:~/go/bin
+vim-startuptime -vimpath /usr/local/nvim/bin/nvim -count 1000 | bat
+n ~n/lua/gitlens.lua
+sudo pacman -S ed
+ed .zshrc
+sudo pacman -S hex
+man hex
+sudo pacman -R hex
+batman echo
+n excutable
+batman xxd
+n `which ls`
+chmod +x ls
+./ls
+./ls -al
+rm ls
+mv IS16_log.log IS16_inner_outer_product.log
+mv main.c IS16_report.c
+mv tex/main.pdf IS16_operation_check.pdf
+n IS16_report.c
+mv /mnt/c/Users/sundo/Downloads/pro2-inner-outer-product-fc.drawio\ \(1\).drawio.pdf IS16_flowchart.pdf
+mv main.pdf ../IS16_operation_check.pdf
+../../fibonacci/
+mv IS16_log.log IS16_fibonacci.log
+mv main.c IS16_fibonacci.c
+mv /mnt/c/Users/sundo/Downloads/pro2-fibonacci.drawio\ \(1\).drawio\ \(2\).pdf IS16_fibonacci_flowchart.pdf
+mv main.pdf ../IS16_fibonacci_operation_check.pdf
+../inner_outer_product
+mv IS16_report.c IS16_inner_outer_product.c
+mv IS16_flowchart.pdf IS16_inner_outer_product_flowchart.pdf
+mv IS16_operation_check.pdf IS16_inner_outer_product_operation_check.pdf
+vim-startuptime -vimpath /usr/local/nvim/bin/nvim -count 1000 | head 50
+n opt.lua
+n map.lua
+cd Pro
+cd linear-expr
+l -R init.lua lua
+~/.config/helix
+helix --health
+sudo pacman -Rc helix
+mkcd ~/treesitter
+git clone https://github.com/tree-sitter/tree-sitter-c.git
+git clone https://github.com/latex-lsp/tree-sitter-latex.git
+git clone https://github.com/tree-sitter-grammars/tree-sitter-lua.git
+git clone https://github.com/alemuller/tree-sitter-make.git
+git clone https://github.com/tree-sitter/tree-sitter-rust.git
+cd tree-sitter-c
+../tree-sitter-lua
+mkdir parser
+cd parser
+mv ~/treesitter/tree-sitter-c/libtree-sitter-c.so c.so
+mv ~/treesitter/tree-sitter-rust/libtree-sitter-rust.so rust.so
+mv ~/treesitter/tree-sitter-lua/libtree-sitter-lua.so lua.so
+rm parser/c.so
+rm parser/lua.so
+rmf tree-sitter-{c,lua}
+cd ~/project/rust
+cd overflow_test
+xxd parser/rust.so
+cd ~/treesitter
+cd tree-sitter-make
+n grammar.js
+tsserver --help
+tsserver
+tsserver grammar.js
+git clone https://github.com/tree-sitter/tree-sitter-bash.git
+git clone https://github.com/shunsambongi/tree-sitter-gitignore.git
+cd tree-sitter-gitignore
+l target/release
+l target/release/build/
+l target/release/build/tree-sitter-ignore-82871b398b881041/
+l src/
+cd target/
+l release
+cd release
+git clone https://github.com/tree-sitter-grammars/tree-sitter-commonlisp.git
+l /usr/local/include/tree_sitter
+l /usr/local/lib/libtree-sitter-rust.so
+l /usr/local/lib/libtree-sitter-rust.so.0
+l /usr/local/lib/libtree-sitter-rust.so.0.21
+difft /usr/local/lib/libtree-sitter-rust.so.0.21 ~/.config/nvim/parser/rust.so
+sudo mv /usr/local/lib/libtree-sitter-rust.so.0.21 ~/.config/nvim/parser/rust.so
+mv ~n/parser/rust.so ~n/parser/bk
+l queries/
+n queries/highlights.scm
+cp queries package.json ~n/parser
+cp queries package.json ~n/parser -r
+~n/parser
+mv bk rust.so
+rmf queries package.json
+n ~/project/rust/overflow_test/src/main.rs
+cd ~/.local/share/nvim/lazy/nvim-treesitter/parser
+cd project/arduino/kumikomisystem/
+nv 3test.c
+gcc 3test.c
+n 3test.c
+sudo pacman -S npm
+mv libtree-sitter-commonlisp.so ~n/parser/commonlisp.so
+../tree-sitter-gitignore
+;
+../tree-sitter-make
+time npx tree-sitter generate
+npm build
+npx ekgret
+npx --version
+npm tree-sitter generate
+npx --help
+sudo pacman -S neovim
+sudo pacman -Rc neovim
+sudo pacman -Rc figlet
+which myip
+myip -v
+rm temp.rs
+n temp.ros
+n temp.clisp
+n .bashrc
+l queries/bash
+~/treesitter
+git clone https://github.com/tree-sitter/tree-sitter-html.git
+tree-sitter-html
+mkdir ~n/queries/html
+mv queries/* ~n/queries/html
+git clone https://github.com/tree-sitter/tree-sitter-javascript.git
+tree-sitter-javascript
+mv libtree-sitter-javascript.so ~n/parser/javascript.so
+mkdir ~n/queries/javascript
+mv queries/* ~n/queries/javascript
+git clone https://github.com/tree-sitter/tree-sitter-css.git
+git clone https://github.com/tree-sitter/tree-sitter-json.git
+tree-sitter-json
+mv libtree-sitter-json.so ~n/parser/json.so
+mkdir ~n/queries/json
+mv queries/* ~n/queries/json
+git clone https://github.com/tree-sitter/tree-sitter-go.git
+tree-sitter-go/
+mv libtree-sitter-go.so ~n/parser/go.so
+mkdir ~n/queries/go
+mv queries/* ~n/queries/go
+mv tree-sitter-json/tree-sitter-go .
+n highlights.scm
+l -R ~n/queries
+mv *.scm ~n/queries/rust
+git clone https://github.com/tree-sitter-grammars/tree-sitter-query.git
+tree-sitter-query
+mv libtree-sitter-query.so ~n/parser/query.so
+mkdir ~n/queries/query
+mv queries/* ~n/queries/query1
+mv ~n/queries/query/query1 ~n/queries/query1
+rmdir ~n/queries/query/
+mv ~n/queries/query1 ~n/queries/query
+~n/queries/rust
+n tags.scm
+n ../../lua/autocmd.lua
+git clone https://github.com/tree-sitter/tree-sitter-typescript.git
+tree-sitter-typescript
+n typescript/src
+l tsx
+l typescript
+l typescript/src
+mv build/Release/tree_sitter_typescript_binding.node ~n/parser/typescript.so
+mkdir ~n/queries/typescript
+mv queries/* ~n/queries/typescript
+tree-sitter-css
+mv build/Release/tree_sitter_css_binding.node ~n/parser/css.so
+mkdir ~n/queries/css
+mv queries/* ~n/queries/css
+tree-sitter-make
+npm run build
+npm run
+l node_modules/
+l node_modules/.bin/tree-sitter
+l node_modules/tree-sitter-cli/
+n node_modules/tree-sitter-cli/install.js
+sudo pacman -S typescript-language-server
+mv node_modules/tree-sitter-cli/tree-sitter ~n/parser/make.so
+mkdir ~n/queries/make
+mv queries/* ~n/queries/make
+n temp.lisp
+go install golang.org/x/tools/gopls@latest
+n ~/.local/state/nvim/lsp.log
+sudo pacman -Rc typescript-language-server
+sudo pacman -Rc typescript
+npm install -g typescript-language-server typescript
+sudo pacman -S typescript-language-server vscode-html-languageserver vscode-css-languageserver vscode-json-languageserver
+sudo pacman -S typescript-language-server vscode-html-languageserver vscode-json-languageserver
+vscode-html-languageserver --version
+vscode-html-language-server --version
+sudo pacman -Rc vscode-html-languageserver
+vscode-html-language-server
+vscode-html-languageserver
+sudo pacman -S vscode-html-languageserver
+n tmp.html
+bat ~n/lua/autocmd.lua
+cd project/pro/pro2/Pro2-First-Report/linear-expr
+vim main.c
+l parser queries
+mv parser/commonlisp.so parser/lisp.sp
+mv parser/lisp.sp parser/lisp.so
+mv queries/commonlisp queries/lisp
+l ~/treesitter/tree-sitter-latex
+l ~/treesitter/tree-sitter-commonlisp
+~/treesitter/tree-sitter-commonlisp
+l ~n/parser/lisp.so
+l Release
+n ~n/queries/lisp/tags.scm
+cd ~n/queries/lisp/
+tsserver --stdio
+~/treesitter/tree-sitter-latex
+n src/scanner.c
+l build/
+l build/Release
+l build/Release/obj.target
+l build/Release/obj.target/tree_sitter_latex_binding
+git clone https://github.com/nvim-treesitter/nvim-treesitter.git
+cd nvim-treesitter/queries/latex
+mkdir ~n/queries/latex
+cp * ~n/queries/latex
+../tree-sitter-latex
+l target/release/
+l target/release/build
+l target/release/build/tree-sitter-latex-34fa63b5618a7173
+l target/release/build/tree-sitter-latex-34fa63b5618a7173/out
+l target/release/build/tree-sitter-latex-d15191c151836c08/
+mv target/release/build/tree-sitter-latex-d15191c151836c08/build-script-build ~n/parser/latex.so
+mv ~n/parser/latex.so ~n/parser/tex.so
+mv ~n/queries/latex ~n/queries/tex
+mv libtree-sitter-latex.so ~n/parser/tex.so
+mv ~n/parser/tex.so ~n/parser/latex.so
+n ~n/lua/colorscheme.lua
+batman pacman
+batman npm
+sudo pacman -Rc aom
+sudo pacman -Rc dbus
+sudo pacman -Rc expat
+sudo pacman -Rc xz
+sudo pacman -Rc woff2
+sudo pacman -Rc xorgproto
+sudo pacman -Rc tzdata
+sudo pacman -Rc shadow
+sudo pacman -Rc libx11
+sudo pacman -Rc readline
+sudo pacman -Rc nano
+sudo pacman -Rc lzo
+sudo pacman -Rc nettle
+sudo pacman -Rc less
+sudo pacman -Rc sed
+sudo pacman -Rc gzip
+sudo pacman -Rc base
+sudo pacman -Rc json-c
+sudo pacman -Rc tree-sitter
+sudo pacman -Rc tree-sitter-bash tree-sitter-c tree-sitter-lua tree-sitter-markdown tree-sitter-python tree-sitter-query tree-sitter-vimdoc
+n temp.rs
+editor
+neovim
+~/project/rust/overflow_test
+n src/m
+~/.roswell/local-projects/lisp/code-char
+n src/main.lisp
+mv parser/lisp.so parser/commonlisp.so
+mv queries/lisp queries/commonlisp
+~/treesitter/tree-sitter-make
+l node_modules
+../tree-sitter-html
+l build/Release/
+mv libtree-sitter-html.git.so.0.0 ~n/parser/html.so
+l ~n/queries/html
+n html.html
+n ~/project/pro/pro2/Pro2-First-Report/linear-expr/main.c
+n ~n/queries/html/highlights.scm
+cd ~n
+n queries/commonlisp/tags.scm
+cp ~/treesitter/tree-sitter-commonlisp/queries/* queries/commonlisp
+cp ~/treesitter/nvim-treesitter/queries/commonlisp/* queries/commonlisp
+l queries/commonlisp
+n ~/project/pro/pro2/Pro2-First-Rep: 1714531584:15;n .bash_history
+l .config
+l .config/helix
+rmf .config/helix
+l .cache/helix
+rmf .cache/helix
+l .config/neofetch
+n .config/neofetch/config.conf
+bat version
+xxd init| head -n 50
+git diff --cached
+l parser/tex
+mv parser/tex/* queries/latex
+rmdir parser/tex
+mv parser/latex.so parser/tex.so
+nvim-treesitter
+l parser-info
+l scripts
+n scripts/check-queries.lua
+n scripts/write-lockfile.lua
+n scripts/update-readme.lua
+n scripts/format-queries.lua
+n lua/nvim-treesitter/install.lua
+treesitter/nvim-treesitter
+rg "TSEnable"
+rg "indent"
+rg " indent "
+rg " indent " *.lua
+rg " indent " **/*.lua
+rg " indent " **/*.lua| head -n 50
+rg "indent" src/**/*.lua
+rg "indent" src/**
+rg "indent" src/* -r
+rg "indent" lua/**/*.lua
+rg "\.commands" lua/**
+n lua/nvim-treesitter.lua
+rg "configs\.init()"
+rg "init\(\)"
+n lua/nvim-treesitter/configs.lua
+rg "start\("
+n lua/nvim-treesitter/indent.lua
+cd treesitter/nvim-treesitter
+n nvim-treesitter/configs.lua
+rg TSInstall
+n nvim-treesitter/install.lua
+rg "get_parser_configs"
+n nvim-treesitter/parsers.lua
+cd ~/.local/share/nvim/lazy/nvimdoc-ja
+chmod +x duplicate_jax.sh
+./duplicate_jax.sh
+n duplicate_jax.sh
+cd ~/treesitter/
+cd tree-sitter-rust
+n temp.html
+l ~n/parser
+mv ~n/parser/commonlisp.so ~n/parser/lisp.so
+../tree-sitter-commonlisp
+difft libtree-sitter-commonlisp.so ~n/parser/lisp.so
+l libtree-sitter-commonlisp.so ~n/parser/lisp.so
+n test.lisp
+sudo pacman -S tree-sitter-c
+sudo pacman -Rc tree-sitter-c
+sudo pacman -S tree-sitter
+batman lsd
+batman directory
+batman root
+batman setopt
+batman variable
+batman value
+batman return
+n lua/highcntrst.lua
+rg "nvim_set_hl"
+rg "vim.cmd.read"
+rg "\.read\>"
+rg "\.substitute\>" **/*.lua
+cd /usr/local/nvim
+cd lib
+../share
+rg "\.read\>" **/*.c
+n lua/vim/secure.lua
+l macros
+n macros/less.sh
+n neovim.ico
+n nvim.appdata.xml
+l pack/dist
+l pack/dist/opt
+n plugin/shada.vim
+../src
+rg "\<cmd\>" **/*.c
+rg "\<cmd\>" **/*.lua
+rg "\.read\>" **/*.lua
+n options.lua
+n ex_cmds.lua
+n ex_cmds.c
+rg "ex_read"
+n nvim/ex_docmd.c
+rg "\<bang\>"
+rg "\<bang\>" **/*.lua
+rg "\<bang\>" **/*.lua| bat
+n lua/vim/_editor.lua
+rg "vim\.cmd" **/*.lua
+rg "vim\.cmd\." **/*.lua| bat
+rg "vim\.cmd\.read" **/*.lua| bat
+rg "vim\.cmd\.substitute" **/*.lua| bat
+rg "vim\.cmd\..*\>" **/*.lua| bat
+rg "vim\.cmd\..*\>" **/*.lua
+rg "vim\.cmd\.\a*" **/*.lua
+rg "vim\.cmd\.\A*" **/*.lua
+rg "vim\.cmd\." **/*.lua
+cd test
+cd functional
+n ui_event_spec.lua
+../treesitter
+cd scripts
+rg "vim\.cmd\."
+git branch vimcmd
+git checkout -b vimcmd
+git push --set-upstream origin vimcmd
+cd project/pro/pro2/Pro2-First-Report/fibonacci/tex
+echo https://keisan.casio.jp/exec/system/1161228773>> main.tex
+mv tex/main.pdf IS16_fibonacci_operation_check.pdf
+bat IS16_fibonacci.log
+git branch
+git switch release-0.9
+n temp.tex
+rm package-lock.json
+cd ~/treesitter/tree-sitter-latex
+npx tree-sitter generate
+npm install
+cp libtree-sitter-latex.so ~n/parser/latex.so
+rm ~n/parser/tex.so
+mv ~n/queries/tex ~n/queries/latex
+mv ~n/parser/lisp.so ~n/parser/commonlisp.so
+mv ~n/queries/lisp ~n/queries/commonlisp
+n temp.ltx
+cd ~/.local/share/nvim/lazy/vimdoc-ja
+cd doc
+rg "autocmd" | head -n 50
+n usr_40.jax
+rg BufEnter
+n autocmd.jax
+n ~/project/pro/pro2/Pro2-First-Report/inner_outer_product/tex/main.tex
+n ~/editor/neovim/src/nvim/main.c
+sudo pacman -S luacheck
+luacheck src init.lua
+luacheck lua init.lua
+luacheck lua init.lua| sed "/vim/d"
+luacheck lua init.lua| sed "/vim|warning/d"
+luacheck lua init.lua| sed "/vim/d"| sed "/warning/d"
+luacheck lua init.lua| sed "/vim/d"| sed "/warning/d"| sed "/^$/d"
+sudo pacman -Rc lua
+sudo pacman -Rc lua lua-argparse lua-filesystem
+sudo pacman -Rs
+sudo pacman -Rs vscode-html-languageserver
+sudo pacman -Ru
+~/project/pro/pro2/Pro2-First-Report/inner_outer_product/tex
+where luatex
+l `where luatex`
+l `where lualatex`
+luatex main.tex
+cd ~/project/makefile-formats
+n makefile-latex
+cd ~/project/pro/pro2/Pro2-First-Report/linear-expr
+cd shell-scripts
+n texinit.sh
+../arduino/kumikomisystem/
+n kadai3.ino
+../../
+sudo pacman -S sc
+batman sc
+git clone https://github.com/andmarti1424/sc-im.git
+sudo pacman -S yacc
+make -C src
+make -C src install
+batman sc-im
+sudo pacman -Rc sc
+cd .config
+n scimrc
+g cl https://github.com/jonnieey/Sc-im-Tutorial.git
+cd Sc-im-Tutorial
+sc-im Lesson10_Configuration_File.sc
+sc-im theme_file_old.sc
+n theme_file_old.sc
+cp theme_file_old.sc ~/.config/sc-im/color.sc
+sc-im ~/.config/sc-im/color.sc
+n ~/.config/sc-im/color.sc
+cd project/pro/pro2
+git clone git@github.com:GE3ProgrammingII/report02-s2201050.git
+mkcd tex
+ptex2pdf main.tex
+cd ../report02-s2201050
+mv ../tex/main.pdf ./IS16_contents.pdf
+git add IS16_contents.pdf
+../Pro2-First-Report
+cd inner_outer_product
+n tex/main.tex
+../../fibonacci
+mv main.pdf IS16_fibonacci.pdf
+../../../report02-s2201050
+mv main.tex contents.tex
+n guidline.tex
+dvipdfmx guidline.dvi
+rm guidline.aux guidline.log guidline.dvi
+cd report02-s2201050
+mv ../tex/guidline.pdf ./IS16_guidline.pdf
+git add IS16_guidline.pdf
+cd ~/project/c/source
+n gyouretsusiki.c
+cd ~/project/pro/pro2/Pro2-First-Report/inner_outer_product/tex
+mv main.pdf IS16_inner_outer_product.pdf
+uplatex guidline.tex
+chmod 644 ../IS16_inner_outer_product_flowchart.pdf
+uplatex main.tex
+dvipdfmx main.dvi
+f
+./fibonacci
+chmod 644 IS16_fibonacci_flowchart.pdf
+cd tex
+editor/neovim
+rg "\.treesitter"
+rg "\.treesitter" src scripts runtime
+rg "\.treesitter" src/**/*.lua scripts/**/*.lua runtime/**/*.lua
+rg "\.treesitter\.start" src/**/*.lua scripts/**/*.lua runtime/**/*.lua
+n runtime/ftplugin/lua.lua
+n runtime/ftplugin/query.lua
+rg "vim\.lsp\.start" s*/**/*.lua runtime/**/*.lua
+n runtime/lua/vim/lsp/client.lua
+rg "lua-language-server" s*/**/*.lua runtime/**/*.lua
+n scripts/gen_lsp.lua
+rg "lua_ls" s*/**/*.lua runtime/**/*.lua
+rg "autocmd" s*/**/*.lua runtime/**/*.lua
+rg "nvim_create_autocmd" s*/**/*.lua runtime/**/*.lua| sed "/^[^0-9]/d"
+rg "nvim_create_autocmd" s*/**/*.lua runtime/**/*.lua| sed "/^\d/d"
+rg "nvim_create_autocmd" s*/**/*.lua runtime/**/*.lua| sed "/^[^\d]/d"
+rg "nvim_create_autocmd" s*/**/*.lua runtime/**/*.lua| sed "/^\a/d"
+rg "nvim_create_autocmd" s*/**/*.lua runtime/**/*.lua| sed "/^[a-z]/d"
+rg "nvim_create_autocmd" s*/**/*.lua runtime/**/*.lua
+n runtime/lua/vim/lsp.lua
+rg "lspconfig"
+n ~/project/c/minesweeper/main.c
+rg "treesitter"
+n ~/project/rust/brainfuc/src/main.rs
+cd ~/.roswell/local-projects/lisp/code-char/src
+rg "syntax"
+n ~/.roswell/local-projects/lisp/code-char/src/main.lisp
+cd .local/share/zap
+z plugins
+cd zsh-autopair
+source autopair.zsh
+n autopair.zsh
+zi
+cd project/c/brain\*\*\*\*
+difft main.c Makefile
+batman calloc
+mkcd project/c/det
+cat main.c
+uplatex flowchart.tex 2>&1
+n flowchart.
+luatex flowchart.tex
+sudo pacman -Rc eza
+sudo pacman -S ktikz
+sudo pacman -S qtikz
+git config
+nv test.tex
+lualatex test.tex
+rm test.*
+n ~n/lua/plugin.lua
+l .git
+n .git/COMMIT_EDITMSG
+nv /mnt/c/Users/sundo/.wezterm.lua
+cd ~/.local/share/nvim/lazy/nvim-treesitter
+mv ~n/parser/latex.so parser/tex.so
+mv ~n/queries/latex queries
+l queries/latex
+mv parser/tex.so parser/latex.so
+n ~n/lua/autocmd.lua
+mv parser/latex.so tex.so
+mv queries/latex queries/tex
+mv queries/tex queries/latex
+mv flowchart.pdf ../report02-s2201050/IS16_flowchart.pdf
+difft --version
+difft git log -p --ext-diff
+git difft
+sudo pacman -S libgit2
+sudo pacman -S libgit2-glib
+sudo pacman -Rc libgit2-glib
+sudo pacman -S lsd
+sudo pacman -Rc lsd
+which lsd
+cargo uninstall lsd
+cargo install lsd
+git add .zshrc
+git add .gitconfig
+cd ~/project/rust/brainfuc/src
+setopt no_no_match_unsetopt no_no_match
+setopt no_no_match
+man 2to3
+2to3 --help
+sudo pacman -Rc gmp
+sudo pacman -Rc ed
+sudo pacman -Rc x265
+sudo pacman -S gdb
+sudo pacman -S bison
+configure
+.
+git cl https://github.com/bminor/binutils-gdb.git
+./binutils-gdb
+./tool/binutils-gdb
+sudo pacman -Rc bison flex texinfo
+n .gdbinit
+gdb project/c/det/a.out
+rm .gdbinit
+./cgdb
+sudo pacman -S flex bison
+sudo pacman -S automake
+n configure.ac
+chmod +x configure.ac
+./configure.ac
+chmod -x configure.ac
+cd config
+n readline_check_version.m4
+sudo pacman -S aclocal
+sudo pacman -S makeinfo
+sudo pacman -S texinfo
+make -srj8
+l `which cgdb`
+l `which gdb`
+which gdb
+l /usr/local/bin/gdb
+make uninstall
+rmf binutils-gdb
+sudo rm /usr/local/bin/gdb*
+rmf cgdb
+git cl https://github.com/cgdb/cgdb.git
+where cgdb
+sudo rm /usr/local/bin/cgdb
+sh autorelease.sh
+sh autogen.sh
+cgdb --version
+cd ~/project/c/det
+cgdb a.out
+n ~/.cgdb/logs
+git cl https://github.com/bminor/binutils-gdb.git --depth 1
+make -srj16
+n config.log
+where gdb
+l gdb
+l g*
+lsd -d gdb
+l -d gdb
+l gdb/gdb
+rm gdb/gdb
+find . -type f -name "$(cat .gitignore)" -delete
+l -d gas
+sudo pacman -Rc texinit
+sudo pacman -Rc texinfo
+/mnt/c
+cd Users
+cd sundo
+../../Program\ Files
+cd ../Users/sundo/Downloads
+l .npm
+rmf .npm
+sudo pacman -Rc harfbuzz
+sudo pacman -Rc python
+sudo pacman -Rc gd
+sudo pacman -Rc libtiff
+sudo pacman -Rc lcms2
+sudo pacman -Rc texlive-luatex
+lualatex --version
+sudo pacman -S texlive-luatex
+sudo pacman -Rc texlive-fontsrecommended
+pacman --version
+batman gdb
+batman cgdb
+cgdb
+python
+cp flowchart.tex chmflow.tex
+n chmflow.tex
+lualatex chmflow.tex
+rm flowchart.tex
+mv chmflow.tex flowchart.tex
+rm ch*
+ss --help
+ss --version
+man ss
+cd .local/share/nvim/lazy/bluloco.nvim
+n bluloco.lua
+../lua
+cd bluloco
+rg
+rg hl_set
+rg "hl_set"
+rg "vim\.api"
+n colorscheme.lua
+n lib/cache.lua
+n palette/colors.lua
+cd ~
+n project/c/det/main.c
+cd .local/share/nvim/lazy/nvim
+cd catppuccin
+n palettes/init.lua
+n palettes/frappe.lua
+n palettes/macchiato.lua
+cd colors
+n catppuccin.vim
+../lua/catppuccin
+n utils/colors.lua
+n groups/editor.lua
+rg "Error"
+n groups/syntax.lua
+rg "Normal"
+rg "@math"
+rg "CursorLine"
+n lua/catppuccin/utils/reactive.lua
+n lua/catppuccin/init.lua
+../bluloco.nvim
+n ~/project/c/brain\*\*\*\*/main.c
+git add
+git add .
+sudo pacman -Rc lazygit
+go install github.com/jesseduffield/lazygit@latest
+l go
+cd go
+rmf pkg
+sudo rm -r pkg
+mv ~n/parser/css.so ~n/parser/_css.so
+rm parser/_css.so parser/typescript.so
+mkcd ~/shell
+git cl https://github.com/zsh-users/zsh.git
+./zsh
+sudo pacman -S autoconf
+./Util/preconfig
+n Makefile.in
+rg "install:"
+rg "^install:"
+make -j 32
+./Src/zsh
+mv Src/zsh ..
+mv Src/zsh ../
+l Src/zsh
+mv Src/zsh ../z
+../z
+l `where zsh`
+sudo chsh -s /usr/local/bin/zsh sundo
+echo $0
+sudo pacman -Rc zsh
+sudo pacman -Rc diffutils
+zsh
+lualatex flowchart.tex
+git add IS16_flowchart.pdf
+./.roswell/local-projects/lisp/code-char/code-char
+n temp.org
+/mnt/c/Users/sundo/AppData/Local/nvim
+ls -p
+ls -pR
+sudo pacman -S fd
+fd . -t f
+cd /usr/local/nvim/share/nvim/runtime/lua/vim/_system.lua
+cd /usr/local/nvim/share/nvim/runtime/lua/vim/
+n _system.lua
+nv ~n/lua/fzf.lua
+n ~n/lua/fzf.lua
+lz
+bat lua/fzf.lua
+sudo ./neovide.AppImage
+chmod +x neovide.AppImage
+sudo pacman -S libfuse
+sudo pacman -S fuse
+./neovide.AppImage
+sudo pacman -Rc fuse-common
+nv lua/fzf.lua
+make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=/usr/local/nvim
+nvim --startuptime /dev/stdout +q
+n lua/tohtml.lua
+cd plugin
+sudo mkdir stash
+mv gzip.vim man.lua matchit.vim matchparen.vim shada.vim tarPlugin.vim tohtml.lua tutor.vim zipPlugin.vim stash
+sudo mv gzip.vim man.lua matchit.vim matchparen.vim shada.vim tarPlugin.vim tohtml.lua tutor.vim zipPlugin.vim stash
+rg "autopair"
+~/.local/share/nvim/lazy/ultimate-autopair.nvim
+cd ultimate-autopair
+rg "\<require\>"|less
+cd ^
+n temp.temp.c
+n temp.js
+n temp.py
+l spell
+n project/arduino/kumikomisystem/kadai3.ino
+cd project/pro/pro2/lesson-2-practice-of-pointer-chapter-11-s2201050
+n practice01_2.c
+git add practice01_1.c
+rm neovide.AppImage*
+l diary
+l diary/2024/0
+l diary/2024/ -r
+l diary/2024/ -R
+l .w3m
+w3m youtube.com
+w3m neovide_backtraces.log
+sudo pacman -Rc w3m
+pacman -Qo w3m
+pacman -Qi w3m
+sudo pacman -Rc gpm
+rg "Hop"
+~/editor/neovim/runtime/
+rg "\.substitute"
+rg "cmd\.substitute"
+rg "\.substitute"| less
+rg "\vim\.cmd"
+rg "vim\.cmd"
+rg "vim\.cmd\.s"
+rg "vim\.cmd\.r"
+rg "\.read"
+rg "cmd\.read[ ({]"
+rg "d\.read[ ({]"
+rg "\.read[ ({]"| wc -l
+rg "\.read[ ({]"
+n test/functional/lua/commands_spec.lua
+cd project/pro/pro2/tex
+uplatex flowchart.tex
+dvipdfmx flowchart.dvi
+git config user.email
+cp ~/project/c/det/main.c .
+../lesson-2-practice-of-pointer-chapter-11-s2201050
+n practice01_1.c
+git ccommit --amend
+git ccommit --ammend
+git commit --ammend
+git add IS16_log.log
+git commit
+n LICENSE.txt
+ll
+cd sc-im
+../bwbasic
+../binutils-gdb
+../cgdb
+cd re
+sudo pacman -Rc binutils
+sudo pacman -Rc mprf
+sudo pacman -Rc mpfr
+sudo pacman -Rc libelf
+cd project/c/det
+mv parser _parser
+mv queries _queries
+rmf _parser _queries
+git config user.name
+" HEAD~5..HEAD
+n --clean --startuptime log +q
+cd project/c/gameoflife
+cd w3m
+sudo ./install-sh
+n install-sh
+./install-sh --help
+./install-sh -c
+rg "release" -i
+n doc-jp/README.cygwin
+lsd
+n keybind.c
+sudo make
+ls /usr/include/glib-2.0/glib.h\
+ls /usr/include/glib-2.0/glib-object.h
+n w3mimg/x11/x11_w3mimg.c
+rg "x11"
+rg "\<x11\>"
+rg "\<x11\>" *.c
+rg "\<x11\>" *.h
+sudo pacman -S bombadillo
+git clone https://tildegit.org/sloum/bombadillo
+cd bombadillo
+bombadillo
+bombadillo wikipedia.com
+bombadillo yahoo.com
+where bombadillo
+rg "\<uninstall\>"
+rmf bombadillo
+sudo pacman -S lyncs
+sudo pacman -S lynx
+gofish --version
+pacman -Qi bsd-games
+pacman -Qi neovim
+pacman -Qi git
+pacman -Qi glib
+pacman -Qi glib2
+sudo pacman -Rc cairo
+sudo pacman -Rc ghostscript
+cd project/rust
+cargo new mini_browser
+cd mini_browser/src
+git cl https://github.com/lmt-swallow/puppy-browser.git
+../../..
+mv mini_browser/src/puppy-browser .
+rmf mini_browser
+cd puppy-browser
+l target/
+l target/debug
+l target/debug/build
+n src/javascript.rs
+sudo pacman -Rc openssl
+RUST_BACKTRACE=1 cargo run -- help
+RUST_BACKTRACE=1 cargo run -- open examples/sample.html
+RUST_BACKTRACE=full cargo run -- open examples/sample.html
+cargo check
+echo $OPENSSL_DIR
+openssl version -d
+echo $OPENSSLDIR
+OPENSSL_DIR=/etc/ssl cargo run -- help
+openssl --version
+OPENSSL_DIR=/etc/ssl
+sudo pacman -Rc cargo
+sudo pacman -Rc rustup
+sudo pacman -S cargo
+cargo run --help
+sudo pacman -S rust-analyzer
+cargo run -- help
+sudo pacman -S openssl
+n Cargo.toml
+cargo build --verbose
+cargo build
+cargo new test
+cargo new _test
+_test
+rmf _test
+sudo pacman -Rc libngtcp2
+pacman -Qi vscode-json-languageserver
+pacman -Qi nodejs
+w3m wikipedia.com
+w3m yahoo.com
+git diffftool
+~/.local/share/nvim/lazy/vimdoc-ja/doc/
+rg "\<input()"
+rg "\<input\()"
+rg "\<input\(\)"
+n usr_41.jax
+n cmdline.jax
+git add lua/opt.lua
+nv lua/floatw.lua
+n lua/floatw.lua
+rm lua/floatw.lua
+n src/nvim/move.c
+sudo pacman -S gem
+.local/share/nvim/lazy/nvim/
+rg "set_hl"
+cd lua/catppuccin/lib
+rg "\.highlight\>"
+lua/catppuccin/lib
+n highlighter.lua
+rg "\.syntax\>"
+n catppuccin/lib/vim/compiler.lua
+git switch user-configs
+rg "Normal\>"
+n tests/setup_spec.lua
+rg "\<Normal\>"
+n lua/catppuccin/groups/editor.lua
+n COMMIT_EDITMSG
+~/.local/share/nvim/lazy/
+cd treesitter
+cd nvim-treesitter
+l parser
+../tree-sitter-rust
+l /usr/local/nvim/share/nvim/runtime/queries
+l /usr/local/nvim/share/nvim/runtime/queries/c/
+l /usr/local/nvim/share/nvim/runtime/
+cd /usr/local/nvim/share/nvim/runtime/
+cd ~/treesitter/tree-sitter-rust
+l queries
+cp -r queries /usr/local/nvim/share/nvim/runtime/queries
+sudo cp -r queries /usr/local/nvim/share/nvim/runtime/queries
+cd /usr/local/nvim/lib/nvim/parser
+sudo cp ~/treesitter/tree-sitter-rust/libtree-sitter-rust.so rust.so
+nv lua/opt.lua
+cd /mnt/c/Users/sundo/AppData/Local/nvim/
+sudo chmod 644 *
+git fetch
+cp -r ~n/lua .
+cp ~n/init.lua .
+rmf README.md .gitignore
+cd runtime/syntax
+n zimbu.vim
+g a lua/dmacro.lua
+g c
+git switch vimcmd
+git merge vimcmd
+n la
+git status
+./.local/share/nvim/lazy
+cd lazy/lazy.nvim
+cd lazy
+rg "\<keys\>"
+rg "nvim_create_autocmd"
+cd core
+rg "autocmd"
+rg "keymap\.set"
+n handler/keys.lua
+rg "function Loader"
+rg "require"
+rg "\<require\>"
+n ~rc/.vimrc
+mv ~/.local/share/nvim/lazy/ ~/.local/share/nvim/plugins
+rmf lazy.nvim
+vim-startuptime -vimpath /usr/local/nvim/bin/nvim -count 10000 | head -n 50
+n lazy-lock.json
+l /usr/local/nvim/share/nvim/runtime/plugin
+rm lazy-lock.json
+n ~/project/pro/pro2/tex/flowchart.tex
+n spell/en.utf-8.add
+n spell/en.utf-8.add.spl
+nvim --clean lua/colorscheme.lua
+git log -S "snippet"
+~/.local/share/nvim/plugins
+git cl https://github.com/L3MON4D3/LuaSnip.git
+cd LuaSnip
+make install_jsregexp
+n lua/luasnip-jsregexp.lua
+~/.local/share/nvim/plugins/LuaSnip
+cd lua/luasnip
+l s
+l stash
+mv * stash
+sudo mv * stash
+sudo mv *.lua *.vim stash
+vim-startuptime -vimpath /usr/local/nvim/bin/nvim -count 1000 | head -n 50
+sudo rm -r /usr/local/nvim/share/nvim/runtime/plugin/stash
+cd share/
+../share/
+l brainfuck
+sudo rm -r brainfuck
+l man
+l info
+n _editor.lua
+n _comment.lua
+n keymap.lua
+n F.lua
+l lsp
+n _options.lua
+cd indent
+n ~n/log
+cd lua
+n shared.lua
+rg "function"
+rm lua/colorscheme.lua lua/highcntrst.lua
+rg "^\s\+function\>"
+rg "^\s+function\>"
+rg "^\s*function\>"
+n .vimrcplug
+difft .vimrc*
+mkcd ~/project/c/markov
+touch main.c
+git remote add origin git@github.com:koyamahayato2357/markov.git
+mkcd ../neuro-tetris
+cp ../markov/* .
+git remote add origin git@github.com:koyamahayato2357/neuro-tetris.git
+" HEAD
+git ps -u origin main
+/usr/local/nvim/share/nvim/runtime/
+echo $VIM
+nvim --startuptime log +q
+/usr/local/nvim/share/nvim/runtime
+mv syntax _syntax
+sudo mv syntax _syntax
+sudo mv indent _indent
+sudo mv _indent indent
+sudo mv _syntax syntax
+nvim --startuptime log +q temp.c
+k
+mv _defaults.lua __defaults.lua
+sudo mv _defaults.lua __defaults.lua
+n __defaults.lua
+sudo mv __defaults.lua temp
+sudo mv temp _defaults.lua
+l ~/.local/share/nvim
+.3
+/usr
+cd runtime
+l plugin
+l pack
+l pack/dist/opt/
+sudo mv pack temp
+n ~n/init.lua
+wc -l log
+nvim --clean --startuptime log +q
+n indent
+n indent.vim
+n indent/c.vim
+n lua/vim/_defaults.lua
+n fortune.txt
+nv fortune.txt
+gdb --help
+gdb --version
+nv lua/omnisnip.lua
+n lua/omnisnip.lua
+rm lua/omnisnip.lua
+n --clean lua/autocmd.lua
+git branch mysnip
+git clone https://github.com/saadparwaiz1/cmp_luasnip.git plugins
+git clone https://github.com/saadparwaiz1/cmp_luasnip.git plugins/cmp_luasnip
+rmf plugins/cmp_luasnip
+l lua/plugin.lua
+g cl https://github.com/hrsh7th/nvim-cmp.git
+cd nvim-cmp
+n plugins/nvim-cmp/doc/cmp.txt
+n .
+git commit --amend
+l ~/project/makefile-formats
+n ~/project/makefile-formats/makefile-latex
+~/project/makefile-formats
+make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=/home/sundo/.nvim -j32
+n ~/.viminfo
+cd editor/neovim
+l `which nvim`
+sudo rm -r /usr/local/nvim/share/nvim/runtime/plugin/*
+sudo pacman -Rc nodejs
+git push
+sudo pacman -S hexabyte
+bwbasic
+sudo pacman -S amfora
+amfora
+amfora gemini://distro.tube/
+sudo pacman -Rc amfora
+go install github.com/erroneousboat/slack-term
+n ~/.config/slack-term/config
+nv ~/.config/slack-term/config
+which slack-term
+slack-term
+rmf slack-term
+git cl https://github.com/jpbruinsslot/slack-term.git
+cd slack-term
+go install .
+l `which slack-term`
+l components
+l service
+echo $GOPATH
+l ~/go/
+l ~/go/pkg/mod/
+go uninstall slack-term
+go remove slack-term
+go help
+go list
+..;rmf slack-term
+rm ~/go/bin/slack-term
+~/go
+./pkg/mod/github.com
+rmf slack-go
+sudo rmf slack-go
+sudo rm -r slack-go
+sudo pacman -S tokei
+tolei
+sudo pacman -Rc tokei
+~/editor/neovim/runtime
+/usr/local/nvim/share/nvim/runtime/autoload
+rmf *.netrw*
+sudo rm *netrw*
+sudo rm -r tar.vim zip.vim shada.vim tutor.vim rust* html* javascript* ada*
+sudo rm gzip.vim python* rubycomplete.vim clojurecomplete.vim
+n README.txt
+sudo rm -r xml
+sudo rm xml* RstFold.vim
+n ~/project/rust/puppy-browser/src/main.rs
+l /usr/local/nvim/lib/nvim/parser/
+mv nvim _nvim
+git clone https://github.com/ayamir/nvimdots.git
+mv nvimdots nvim
+cd nvim
+mv _nvim nvim
+cd nvim/plugins
+git clone https://github.com/sidebar-nvim/sidebar.nvim.git
+git clone https://github.com/folke/noice.nvim.git
+git clone https://github.com/MunifTanjim/nui.nvim.git
+n plugins/noice.nvim/lua/noice/init.lua
+cd plugins/noice.nvim/lua/noice/config/init.lua
+n plugins/noice.nvim/lua/noice/config/init.lua
+g cl https://github.com/echasnovski/mini.indentscope.git
+" HEAD~7..HEAD
+g cl https://github.com/akinsho/toggleterm.nvim.git
+g cl https://github.com/nvimdev/dashboard-nvim.git
+cd plugins
+g cl https://github.com/nvimdev/dashboard-nvim.git --depth 1
+rmf plugins/dashboard-nvim
+g cl https://github.com/goolord/alpha-nvim.git
+cd plugins/alpha-nvim
+rg "setup"
+n lua/alpha.lua
+rmf alpha-nvim
+g cl https://github.com/willothy/veil.nvim.git
+rmf plugins/veil.nvim
+rm plugins/autocloes.nvim.cloning
+./plugins
+g cl https://github.com/utilyre/sentiment.nvim.git
+./plugins/substitute.nvim
+git switch 0.6-compat
+~/project/c/det
+clang-refactor main.c
+clang-check main.c
+clang-check
+clang-refactor --help
+~/project/rust/puppy-browser
+../brainfuc
+cargo fmt
+cargo clippy
+cl
+/usr/local/nvim/
+cd share/nvim/runtime/lua/vim/
+n _defaults.lua
+mv vim _vim
+sudo mv vim _vim
+mv _vim vim
+sudo mv _vim vim
+n .zshrc
+../project/pro/pro2/tex
+nv flowchart.tex
+cp flowchart.pdf ../report02-s2201050/IS16_flowchart.pdf
+sudo pacman -S youtube-tui
+cargo install
+cd tool
+g cl https://github.com/Siriusmart/youtube-tui.git
+man ld
+sudo pacman -S binutils
+ld --version
+rustc --version
+cargo install youtube-tui
+sudo pacman -S youtube-tui-git
+sudo pacman -S libsixel
+sudo pacman -S libxcb mpv
+sudo pacman -S libxcb
+sudo pacman -S mpv
+youtube-tui
+cargo uninstall youtube-tui
+./youtube-tui
+cp dep _dep
+n _dep
+cat dep | sudo pacman -Rc
+sudo pacman -Q vapo
+sudo pacman -Q vapoursynth-R66
+sudo pacman -Q| grep "vapou"
+sudo pacman -Rc vapoursynth-R66-2
+sudo pacman -Rc vapoursynth-R66-02
+n dep
+sudo pacman -Rc `cat dep`
+rm *dep
+sudo pacman -S wtfutil
+cd $GOPATH
+rmf tool/youtube-tui
+sudo pacman -S go
+tool
+g cl https://github.com/wtfutil/wtf.git
+l app/
+l wtf/
+go build
+l utils/
+export GOPROXY="https://proxy.golang.org,direct"
+export GOSUMDB=off
+export GO111MODULE=on
+go get -u github.com/wtfutil/wtf
+wtf --help
+wtf --version
+~/.config/wtf/
+n log.txt
+uptime
+sudo pacman -S weechat
+weechat
+sudo pacman -Rc weechat
+sudo pacman -S libfl
+sudo pacman -S libflex
+cargo install numbat-cli
+sudo pacman -Rc m4
+rmf weechat
+wtf
+sudo pacman -Syyu
+basename "github.com/folke/lazy.nvim"
+basename "github.com/folke/lazy.nvim.git" .git
+n plugsync.sh
+chmod +x plugsync.sh
+./plugsync.sh
+mv plugsync.sh syncplug.sh
+rmf spell
+basename L3MON4D3/LuaSnip
+cd plugins/nui.nvim
+../vimdoc-ja
+git switch master
+../substitute.nvim
+cd nvim-surround
+../nui.nvim
+../sidebar.nvim
+../ultimate-autopair.nvim
+../oil.nvim
+../nvimdoc-ja
+../sentiment.nvim
+../mini.indentscope
+./plugins/carbonpaper.vim
+l doc
+rm doc/tags
+./plugins/nui.nvim
+./plugins/nvim
+git branch finecmdline
+git switch finecmdline
+git branch -d finecmdline
+git branch -D finecmdline
+$ go install github.com/mattn/longcat@latest
+go install github.com/mattn/longcat@latest
+longcat -n 6
+longcat -n 3
+longcat -n 1
+longcat
+longcat -n 0
+longcat -n -1
+longcat -n -5
+go --help
+rmf plugins/fine-cmdline.nvim
+cp .histfile rc/
+rm .histfile
+ln -s rc/.histfile .
+rc
+" HEAD~4..HEAD
+l .git/branches
+git difftool master mysnip
+git diff master mysnip
+./plugins/cmdpalette.nvim
+n lua/cmdpalette/init.lua
+" HEAD~10..HEAD
+n test.sh
+chmod +x test.sh
+./test.sh
+./test.sh hello
+rm test.sh
+OX= [ "hello" = "hello" ]
+echo $OX
+echo [ "hello" = "hello" ]
+test [ "hello" = "hello" ]
+g ca
+which if
+where if
+where where
+where mkcd
+git switch
+rg "vim\.snippet"
+sudo rm /usr/local/nvim/share/nvim/runtime/plugin/*.vim
+sudo rm /usr/local/nvim/share/nvim/runtime/plugin/tohtml.lua /usr/local/nvim/share/nvim/runtime/plugin/{man,osc52}.lua
+vim-startuptime -vimpath /usr/local/nvim/bin/nvim > log
+sudo pacman -Rc gettext m4
+sudo pacman -Rc gettext
+sudo pacman -Rc go
+git stash pop
+/usr/local/nvim/share/
+rg "vim.lsp"
+rg "vim.lsp" **/*.lua
+rg "vim.lsp.omnifunc" **/*.lua
+n nvim/runtime/lua/vim/lsp.lua
+git switch mysnip
+git merge
+rmf plugins/nvim-cmp
+~/project/c/
+cd markov
+man fopen
+batman fopen
+batman fgets
+batman strtok
+bat ~n/lua/plugin.lua
+rmf plugins/dressing.nvim
+git branch telescope
+git switch telescope
+l plugins/telescope.nvim
+l plugins/telescope.nvim/lua
+l plugins/telescope.nvim/lua/telescope/
+./plugins/telescope.nvim
+rg 'Telescope' **/*.lua
+rg '"Telescope"' **/*.lua
+n plugin/telescope.lua
+" HEAD~1..HEAD
+git merge telescope
+git branch -D telescope
+n ./plugins/telescope.nvim/lua/telescope/config/resolve.lua
+cd plugins/telescope
+g reset 96610122a40f0bb4ce2e452c6d2429bf093d6700
+git branch return-to-noice
+git switch return-to-noice
+git switch main
+git merge return-to-noice
+n rc/.histfile
+batman sort
+sort syncplug.sh| uniq -d
+n runtime/plugin/gzip.vim
+n runtime/plugin/netrwPlugin.vim
+sudo rm netrwPlugin.vim
+sudo rm zipPlugin.vim gzip.vim match* tarPlugin.vim tohtml.lua tutor.vim spellfile.vim
+git log
+sudo pacman -S yazi
+~/project/
+g cl https://github.com/koyamahayato2357/cheatsheet
+g cl git@github.com:koyamahayato2357/cheatsheet.git
+cd cheatsheet
+mv asm.cs asm.md
+mv vim.cs vim.md
+nv yazi.md
+n vim.md
+n asm.md
+nv asm.md
+git merge --continue
+bat syncplug.sh
+batman curl
+batman yazi
+~/project/c/gameoflife
+gcc main.c -g -fopenmp -Og
+git branch bitalize
+g s bitalize
+g s master
+../minesweeper
+../gameoflife
+sudo pacman -Rc libsixel
+sudo pacman -S btop
+./.config/btop/
+n btop.conf
+git pull
+sudo pacman -S figlet
+figlet
+batman figlet
+figlist
+figlet -f moscow "hello"
+figlet "Neovim"
+n --clean init.lua
+n --clean lua/plugin.lua
+n --startuptime /dev/stdout +q
+n --startuptime log +q
+nv init.lua
+nv --version
+~/project/pro/pro2/report02-s2201050
+git diff
+git config --global user.name "s2201050"
+git config --global user.email "s2201050@sendai-nct.jp"
+script IS16_log.log
+git merge main
+" HEAD~3..HEAD
+rg 'luasnip'
+rg 'snippets'
+g s mysnip
+/usr/local/nvim/share/nvim/runtime/lua/vim
+n snippet.lua
+n i
+g branch -D return-to-noice
+nv lua/snippets.lua
+nv lua/mysnip.lua
+n lua/snippets.lua
+rg 'require \'mysnip\''
+rg "require 'mysnip'"
+n main.rs
+rm main.tex
+rg "snip"
+git difftool main mysnip
+g merge mysnip
+g branch addplug
+vim-startuptime -vimpath /usr/local/nvim/bin/nvim -count 1000
+vim-startuptime -vimpath /usr/local/nvim/bin/nvim -count 1000 > log
+nv lua/plugin.lua
+g s addplug
+vim-startuptime -vimpath /usr/local/nvim/bin/nvim -count 1000 -- lua/plugin.lua > log
+g merge addplug
+rm lua/snippets.lua
+kill 13462
+rg "goto "
+rg "\<goto "
+cd src/nvim
+rg "\<goto " **/*.c
+n spellfile.c
+sudo rm /usr/local/nvim/share/nvim/runtime/plugin/{man,osc52,tohtml}.lua
+/usr/local/nvim/share/nvim/runtime/plugin
+sudo rm zipPlugin.vim tutor.vim tarPlugin.vim spellfile.vim match* gzip.vim netrwPlugin.vim rplugin.vim
+sudo rm shada.vim
+sudo rm -r plugin
+n -v
+rg "python3" -i
+rg "DENABLE_PYTHON3"
+rg "DENABLE"
+rg "can_compile"
+rg "arabic"
+n -X
+n -X README.md
+batman nvim
+make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DENABLE_JEMALLOC=OFF -DENABLE_ARABIC=OFF -DENABLE_PYTHON3=OFF"
+make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DENABLE_ARABIC=OFF"
+sudo make CMAKE_BUILD_TYPE=Release
+sudo pacman -S base-devel cmake unzip ninja curl
+sudo pacman -S base-devel
+sudo pacman -S ninja
+sudo pacman -S base-devel unzip ninja
+sudo make distclean
+which n
+which nvim
+nvim --version
+/usr/local
+sudo rm -rf nvim
+where nvim
+l build/bin/nvim
+build/bin/nvim
+sudo pacman -Rc ninja
+make CMAKE_BUILD_TYPE=Release
+l `where nvim`
+rg "BUNDLED"
+vim-startuptime -vimpath /usr/local/nvim/bin/nvim -count 1000 -- README.md > log
+rg "cryptv"
+rg "cryptv" -i
+n test/old/testdir/test_sha256.vim
+vim-startuptime -vimpath /usr/local/nvim/bin/nvim -count 1000 -- README.md -u NONE > log
+n -u NONE README.md
+vim-startuptime -vimpath /usr/local/nvim/bin/nvim -count 1000 -- README.md -i NONE > log
+n -i NONE README.md
+cmake .. -L
+cmake -DENABLE_LANGUAGES=OFF -DENABLE_LIBINTL=OFF -DENABLE_LTO=OFF
+rm lo
+make distclean
+rm -rf CMakeCache.txt CMakeFiles
+make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=/usr/local/nvim CMAKE_EXTRA_FLAGS="-DENABLE_LANGUAGES=OFF -DENABLE_LIBINTL=OFF -DENABLE_LTO=OFF" -j32
+g cl https://github.com/vim/vim.git
+./configure --disable-acl --disable-arabic --disable-gui --disable-gtk2-check --disable-gtk3-check --disable-gpm --disable-farsi --disable-autoservername --disable-canberra --disable-channel --disable-cscope --disable-darwin --disable-desktop-database-update --disable-fail-if-missing --disable-fontset --disable-gnome-check --disable-gtktest --disable-libsodium --disable-luainterp --disable-motif-check --disable-multibyte --disable-mzschemeinterp --disable-netbeans --disable-nls --disable-option-checking --disable-perlinterp --disable-python3interp --disable-pythoninterp --disable-rightleft --disable-rubyinterp --disable-selinux --disable-smack --disable-sysmouse --disable-tclinterp --disable-xattr --disable-xim --disable-xsmp --disable-xsmp-interact --disable-icon-cache-update
+./configure --disable-acl --disable-arabic --disable-gui --disable-gtk2-check --disable-gtk3-check --disable-gpm --disable-farsi --disable-autoservername --disable-canberra --disable-channel --disable-cscope --disable-darwin --disable-desktop-database-update --disable-fail-if-missing --disable-fontset --disable-gnome-check --disable-gtktest --disable-libsodium --disable-luainterp --disable-motif-check --disable-multibyte --disable-mzschemeinterp --disable-netbeans --disable-nls --disable-option-checking --disable-perlinterp --disable-python3interp --disable-pythoninterp --disable-rightleft --disable-rubyinterp --disable-selinux --disable-smack --disable-sysmouse --disable-tclinterp --disable-xattr --disable-xim --disable-xsmp --disable-xsmp-interact --disable-icon-cache-update --with-features=tiny
+vim src/main.c
+vim init.lua
+g branch -D mysnip
+g difftool main addplug
+g branch -D addplug
+kill 6246
+kill 6498
+sudo pacman -Rc boost-libs libxml2 icu
+sudo pacman -Rc boost-libs
+sudo pacman -Rc icu
+sudo pacman -Rc libxml2
+cl;l
+~/editor/
+n src/nvim/regexp.c
+n --clean
+rg 'insert'
+rg "insert"
+rg "insert" -i
+cd plugins/ultimate-autopair.nvim
+git branch -a
+g s development
+git difftool development v0.6
+g s v0.6
+git difftool v0.5 v0.6
+vim lua/dmacro.lua
+./plugins/dmacro.nvim
+l test
+n test/dmacro.lua
+.2
+n plugins/dmacro.nvim/lua/dmacro.lua
+git reflog
+git reset --soft HEAD^
+rmf nvim
+g cl git@github.com:koyamahayato2357/nvim.git
+cd n
+kill 2303
+sudo pacman -S luajit
+n -V1 -v
+git reset --hard HEAD
+vim
+~/editor/vim
+cd src
+n map.c
+rg "inoremap" **/*.c
+n src/cmdexpand.c
+nv syncplug.sh
+chmod +x syncplug.sh
+rm syncplug.sh
+mv sh.sh sync.sh
+chmod +x sync.sh
+./sc-im
+n WIKI
+n src/Makefile
+make -C src -j32
+sudo make -C src install
+sc-im --version
+l `sc-im`
+l `where sc-im`
+cd binutils-gdb
+cd cgdb
+gdb --bersion
+\gdb --version
+l `where gdb`
+/mnt/c/Users/sundo/Downloads/
+n gpio_multi-01.ino
+n gpio_multi1.ino
+n gpio_multi2.ino
+n teamA_A2_2.cpp
+nv teamA_A2_2.cpp
+n lua
+g branch mydmacro
+nl
+git difftool
+rg 'input'
+g stash
+sudo chsh -s /usr/local/bin/bash sundo
+~/project/pro/pro2/tex
+n flowchart.tex
+kill 603
+kill 600
+kill 949
+kill 1164
+git stash
+g s mydmacro
+g stash pop
+kill 190
+kill 369
+kill 372
+kill 902 905
+n log
+sudo pacman -S platformio
+sudo pacman -S platformio-cli
+sudo pacman -S blink-emulator
+rm log
+tex
+./tex
+../tex
+sudo chsh -s `which bash` sundo
+./project/pro/pro2/report02-s2201050
+n IS16_log.log
+./project/pro/pro2/tex
+mkcd ~/.vim
+cp -r ~n/plugins/carbonpaper.vim .
+vim ../report02-s2201050/main.c
+rmf ~/.vim
+../report02-s2201050
+cp ../tex/main.pdf IS16_report.pdf
+ssh-add ~/.ssh/arch
+git config --global user.email "sundongxiaoshan202@gmail.com"
+git config --global user.name "koyamahayato2357"
+git filter-branch -f --env-filter "GIT_AUTHOR_NAME='koyamahayato2357'; \\
+ \\
+" HEAD~2..HEAD
+n lua/mydmacro.lua
+rm lua/dmacro.lua
+mv lua/mydmacro.lua lua/dmacro.lua
+g merge mydmacro
+nv lua/dmacro.lua
+w3m https://github.com
+~N
+./syncplug.sh update
+make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=/usr/local/nvim -j32
+sudo rm -r /usr/local/nvim/share/nvim/runtime/plugin
+n --version
+./configure --disable-acl --disable-arabic --disable-gui --disable-gtk2-check --disable-gtk3-check --disable-gpm --disable-farsi --disable-autoservername --disable-canberra --disable-channel --disable-cscope --disable-darwin --disable-desktop-database-update --disable-fail-if-missing --disable-fontset --disable-gnome-check --disable-gtktest --disable-libsodium --disable-luainterp --disable-motif-check --disable-mzschemeinterp --disable-netbeans --disable-nls --disable-option-checking --disable-perlinterp --disable-python3interp --disable-pythoninterp --disable-rightleft --disable-rubyinterp --disable-selinux --disable-smack --disable-sysmouse --disable-tclinterp --disable-xattr --disable-xim --disable-xsmp --disable-xsmp-interact --disable-icon-cache-update --with-features=tiny
+vim --version
+numbat
+sudo pacman -S aichat
+cargo install aichat
+~/tool
+w3m
+sudo pacman -R w3m
+make -C po
+g branch -a
+g reset --hard HEAD
+g s branch-0-3-2
+./mkinstalldirs
+./install-sh
+sudo pacman -S w3m
+g cl https://github.com/acg/w3m.git
+g cl https://github.com/acg/w3m.git --depth 1
+w3m --version
+w3mman w3m
+g cl https://github.com/tats/w3m.git
+./w3m
+sudo pacman -S glibc
+sudo pacman -S glib2
+pkg-config --cflags --libs glib2.0
+rmf w3m
+w3m duckduckgo.com
+batman strcat
+g branch -d mydmacro
+mkcd ~/project/c/git-interactive
+alias a=`pwd`/a.out
+which a
+gcc -d main.c
+gcc -g main.c
+git
+gcc main.c -g
+gdb ~/project/c/git-interactive/a.out
+a
+l -R
+sudo pacman -S nkf
+hexdump README.md
+hexdump README.md | grep "1b 24 42"
+hexdump init.lua
+cd shell/zsh
+n INSTALL
+g l
+make -j32
+l `which zsh`
+../../tool
+./sync.sh
+cd wtf
+../pipes.sh
+./pipes.sh
+n pipes.sh
+n lua/gitlens.lua
+n lua/mysnip.lua
+g difftool
+cp ../.gitconfig .
+q
+ping
+batman ping
+myip
+g b feature/keisen
+nv lua/keisen.lua
+n t
+/mnt/c/Program\ Files/WezTerm/wezterm.exe imgcat ~/project/pro/pro2/report02-s2201050/IS16_report.pdf
+which wezterm
+wezterm imgcat `fzf`
+wezterm cli
+cd /mnt/c/Users/sundo
+n .wezterm.lua
+n .python_history
+/mnt/c/Users/sundo/Downloads
+wezrc
+g s feature/keisen
+n lua/keisen.lua
+shell
+g cl https://github.com/fish-shell/fish-shell.git
+fish-shell
+sudo pacman -S flex
+wezterm imgcat fish.png
+wezterm imgcat "C:\Wsl\home\shell\fish-shell\fish.png"
+./target/release/fish
+sudo cp target/release/fish /usr/local/bin
+cp config.fish ~/.config/fish/
+sudo ./osx/install.sh
+~/shell/fish-shell
+where fish
+fish --version
+~/.config/fish
+cp ~/.config/fish/config.fish .
+ssh-add ~/.ssh/private
+n .local/share/fish/fish_history
+uv install zsh-history-to-fish
+sudo pacman -Rc uv
+sudo pacman -S pip
+sudo pacman -S pip3
+sudo pacman -S python
+sudo pacman -S python3
+pinentry-emacs
+sudo pacman -S python-pip
+pip install zsh-history-to-fosh
+pip install zsh-history-to-fish
+python -m pip install zsh-history-to-fish
+sudo pacman -S uv
+uv venv
+cd .venv
+source bin/activate
+uv pip install zsh-history-to-fish
+uv -m zsh-history-to-fish
+uv zsh-history-to-fish
+python -m zsh-history-to-fish
+./bin/zsh-history-to-fish
+./bin/zsh-history-to-fish ~/.histfile
+deactivate
+sudo chsh -s `which fish` sundo
+l rc
+facad rc
+n .histfile
+cat .histfile >> ../.histfile
+n ../.histfile
+builtin cd -- /home/sundo/tool/facad/build/facad.p
+yay -S zsh-autosuggestions
+ls build.ninja
+yay -Rsc zsh-autosuggestions
+sudo chsh -s `which zsh` sundo
+g
+l .config/fish/
+facad -h
+facad ~
+facad -l =
+facad -l ~
+l ~
+n ../src/main.c
+l ../..
+false
+true
+mv src/arithmetic_functions.c src/arthfn.c
+mv src/elem_operations.c src/elemop.c
+mv src/matrix_operations.c src/matop.c
+mv src/optimize_expr.c src/optexpr.c
+mv src/system_conf.c src/sysconf.c
+mv src/graph_plot.c src/graphplot.c
+mv include/arithmetic_functions.h include/arthfn.h
+mv include/elem_operations.h include/elemop.h
+mv include/matrix_operations.h include/matop.h
+mv include/graph_plot.h include/graphplot.h
+mv include/optimize_expr.h include/optexpr.h
+mv include/system_conf.h include/sysconf.h
+n include/arthfn.h
+mkcd example
+rpx graph.rpx
+n graph.rpx
+n matrix.rpx
+rpx matrix.rpx
+./rpx -r "1 1 +"
+./rpx -r "1 1 +" -r ":tp"
+rg result_t
+rg bool
+rg wasalnum
+rg "\<is"
+rg "\<is" **/*.c
+rg "int \<is" **/*.c
+rg "char \<is" **/*.c
+rg "bool \<is" **/*.c
+rg "int \<was" **/*.c
+python3 gpt_repository_loader.py
+rg rtinfo
+n include/matop.h
+n ../../project/c/rpx/.gptignore
+set -o vi
+yay -S difftastic
+setopt novi
+setopt vi
+bindkey
+n default.profraw
+llvm-profdata merge -sparse default.profraw -o default.profdata
+llvm-profdata show default.profraw
+../ctrlr
+sudo cp -r share /usr/local/share/fish
+sudo rm /mnt/f446re/firmware.bin
+z ctrl
+~/project/club/sendai.h/ROBO1_0930_Movement
+yay -Rsc python-numpy
+sudo yay -Rsc (yay -Qtdq)
+sudo yay -Rsc $(yay -Qtdq)
+z r
+cat Makefile
+cmake build .
+gcc -c src/main.c -Wall,-Wextra
+n CMakeFiles/Makefile2
+z pro
+../../project/pro
+mkcd alg
+mkcd no1
+cp ~/project/tex/No05/Makefile .
+:make
+cp main.tex ÊºÉ¥ÁøÉ≤1_IS3_16_Â∞ÉØÂ±±ÈÉ∫º‰∫∫.pdf
+rm ÊºÉ¥ÁøÉ≤1_IS3_16_Â∞ÉØÂ±±ÈÉ∫º‰∫∫.pdf
+n ~/monster-vimmer.txt
+,.bu
+./lib
+mkcd my
+~/project/c/rpx
+cp src/testing.c src/exception.c include/testing.h include/exception.h ~/lib/my
+cd -
+cat nullable.h
+cp ~/project/c/rpx/include/errcode.h ~/project/c/rpx/src/errcode.c .
+rg stdbool
+gdb ./a.out
+rg EXPAND
+rg __COUNTER__
+cp ~/project/c/rpx/.gptignore .
+cat /etc/debuginfod/archlinux.urls
+clang -E iter.c
+clang -E iter.c -DTEST_MODE
+:
+n /usr/local/lib/clang/20/include/__stddef_unreachable.h
+rmf .zig-cache
+rm CMakeLists.txt
+yay -S binprolog
+cd bf
+../zish
+cd source
+n osero.c
+n pie.c
+n ango.c
+n gameoflife.c
+n nim.c
+n kurameru.c
+n imomusi.c
+n russianroulette.c
+n minimalistserver.c
+n enigma.c
+img2sixel ~/project/c/poland-calc/rpx.svg
+n tetris.c
+mkcd ~/project/zig/osero
+yay -Rsc binprolog
+yay -S swi-prolog
+batman swi
+batman swi-prolog
+n --clean hello.pl
+swipl hello.pl
+n hello.pl
+rm hello.pl
+mkcd project/prolog
+n src/main.zign
+builtin cd -- /home/sundo/project/zig/osero/.zig-cache/o/35c79b5bd48d249546b668aa2b5e7114
+lldb .zig-cache/o/8ef353d37f1769e90b7af31abc29adb6/test \
+
+~/editor/neovim/
+git gc --aggressive --prune=now
+git rev-list --objects --all | sort -k 2 > allfiles.txt
+n allfiles.txt
+l allfiles.txt
+ls -l allfiles.txt
+cat allfiles.txt| wc
+rm allfiles.txt
+git remote prune origin
+git repack -a -d
+cargo clean
+rmf .cargo/registry
+yay -Qskd
+yay -Qdtq
+yay -Rsc $(yay -Qdtq)
+~/.platformio
+./packages/framework-mbed/targets/TARGET_STM/TARGET_STM32L0
+../../../../..
+rg "0x4020"
+rg "0x40200000"
+clear
+rg "0x40200000" **/*.c
+rg "0x40200000" **/*.h
+rg "CPUSS"
+rg "\<CPUSS\>"
+rg "PA_13"
+z prolog
+touch sample.pl
+n sample.pl
+swipl sample.pl
+rm sample.pl
+gh repo
+gh
+gh issue list
+gh status
+l ~/lib/my
+cp main.c main.txt
+l data
+cat data/input.txt| wc -l
+git config pull.rebase false
+cp src/main.c src/args_parser.c src/args_parser.h ..
+g s -c my
+mv ../main.c ../args_parser.c ../args_parser.h src
+g l --reverse
+g b -d my
+g b -D my
+cmake --target .
+cmake --help
+rm main.txt
+gdb .zig-cache/o/8ef353d37f1769e90b7af31abc29adb6/test
+lldb .zig-cache/o/8ef353d37f1769e90b7af31abc29adb6/test
+l .zig-cache/o/8ef353d37f1769e90b7af31abc29adb6/test
+lldb .zig-cache/o/7219ad11cb6bb43b7502c9071b35bdda/test
+zig test src/main.zig
+facad -R
+facad -r
+facad --help
+make tets
+set_bind
+~/rc
+cp ~/.zshrc .
+rm .zshrc
+ln rc/.zshrc .
+ls .zshrc
+./.mbed
+rmdir .mbed
+z osero
+zig build src/main.zig
+2
+cat src/main.zig
+batman errno
+batman err
+rg char
+rg setnull
+n labmda.c
+rm labmda.c
+rg optexpr
+yay -Rsc zed
+yay -Rsc a52dec kgamma
+batman foot.ini
+cat /etc/shells
+pipestatus
+n ~/.config/sc-im/scimrc
+sc-im
+batman foot
+vim-startuptime -vimpath /usr/local/nvim/bin/nvim -count 1000 -- README.md
+vim-startuptime -vimpath /usr/local/bin/nvim -count 1000 -- README.md
+ls -R
+ls -R /
+ls -R / > files.txt
+cat files.txt
+l files.txt
+rm files.txt
+rg define\ unreachable
+mkcd ../neuralnetwork
+./newral
+cat include/main.h
+cat src/main.c
+xclip
+ttyepr
+n ~/rc/foot.ini
+../
+mkcd project/c/type.c
+mkdir src include
+cp ../rpx/src/testing.c ../rpx/include/testing.h .
+mv testing.c src
+mv testing.h include
+cp ../rpx/src/exception.c ../rpx/include/exception.h .
+mv exception.c src
+mv exception.h include
+n include/genstr.h
+gdb typec
+rm include/dict.h
+./typec
+n src/list.c
+cd sendai.h/Library/M2006/main.cpp
+cd sendai.h/Library/M2006/
+n main.cpp
+../../../launcher
+z lau
+../launcher
+../../launcher
+z sendai
+ssh-add ~/.ssh/nitsc
+pio device monitor -b 114200
+pio device monitor
+sudo cp .pio/build/nucleo_f446re/firmware.bin /mnt/f446re
+z ../sendai.h/ROBO1_0930_Launchar/
+~/project/club/robocon2024A/launcher/
+cp -r enc/lib robocon2024A/launcher
+sudo cp -r enc/lib robocon2024A/launcher
+sudo pio run
+sudo -E pio run
+mv lib/* lib_
+mv lib/* .
+rmdir lib
+mkdir lib
+mv SerialCtrl lib
+rmf lib/SerialCtrl
+mv ~/project/club/launcher/lib/SerialCtrl lib
+l lib/SerialCtrl
+poi run
+pio run
+sudo cp ~/Downloads/launcher.NUCLEO_F446RE.bin /mnt/f446re
+l /mnt/f446re
+n zig.c
+n idea.txt
+mkdir hid
+mv idea.txt hid
+mv arraylist.c dynamicarr.c
+mv arraylist.h dynamicarr.h
+n dynamicarr.h
+n dynamicarr.c
+mv dynamicarr.c vector.c
+mv dynamicarr.h vector.h
+rg ArrayList
+n arraylist.c
+../facad
+l `which facad`
+my
+zig cc *.c -std=c23
+rg longjmp
+zig cc *.c -std=c23 -DTEST_MODE
+rg \<jb\>
+mv arraylist.c linuxlist.c
+mv arraylist.h linuxlist.h
+mv linuxlist.c linux
+mv linux linuxlist.c
+cat li*
+clang-format -i *.c *.h
+z club
+cd ctrlr
+n src/main.cpp
+n zig.h
+mv zig.c exproriented.c
+mv zig.h exproriented.h
+rg zig
+n ~/project/c/rpx/Makefile
+cat expr*
+rg attribute
+n sample.m4
+rg "expect(.* == .*);"
+sed "/expect(.* == .*);"
+sed "/expect(.* == .*);/" *
+sed "/expect(.* == .*)\;/" *
+rg "expect(double_eq"
+rg "expect\(double_eq"
+rg setval
+df
+rg pop
+rg Option
+rg foreach
+sudo cp ~/Downloads/launcher.NUCLEO_F446RE\ \(1\).bin /mnt/f446re
+l ~/Downloads
+unzip ROBO2binfiles.zip
+sudo cp ROBO2binfiles/ROBOCOP_2024_2-3.NUCLEO_F303K8\ \(95\).bin /mnt/f446re
+l ROBO2binfiles
+sudo mount /dev/sda /mnt/f446re
+sudo cp ROBO2binfiles/ROBOCOP2-2-new.NUCLEO_F446RE.bin
+sudo mount /dev/sdb /mnt/f446re
+sudo cp ROBO2binfiles/ROBOCOP2-2-new.NUCLEO_F446RE.bin /mnt/f446re
+sudo umount /mnt/f446re
+man ninja
+man facad
+rg "##"
+acpi
+yay -S cpupower
+_cpupower
+cpupower frequency-info
+cpufetch
+rmf runtime/autoload/paste.vim runtime/autoload/README.txt
+~/tool/llvm-project
+rg "#define .*\()"
+rg "#define .*\(\)"
+rg "#define \<.*\> typedef"
+rg "#define \<try\>"
+n clang/test/Preprocessor/cxx_oper_keyword_ms_compat.cpp
+cmake
+n install_manifest.txt
+l bin
+cmake -DLLVM_ENABLE_PROJECTS=clang,lld -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm
+cmake -DLLVM_ENABLE_PROJECTS="clang,lld" -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm
+cmake -DLLVM_ENABLE_PROJECTS=clang -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm
+cmake -DLLVM_ENABLE_PROJECTS=lld -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm
+cmake ../llvm --target install
+cmake ../llvm --target=install
+cmake --install ../llvm
+cmake --install
+cmake --install .
+sudo cmake --install .
+/usr/local/bin/
+lld --version
+l `which ld.lld`
+cmake -DLLVM_ENABLE_PROJECTS=lld -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm --target install
+cmake -G "Ninja" ../llvm -DLLVM_ENABLE_PROJECTS="clang;lld" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release
+tlp
+tlp start
+tlp-stat
+sudo tlp-stat
+sudo vim /etc/tlp.conf
+sudo systemctl restart tlp.service
+tlp-stat -p
+mv linuxlist.c l
+mv l linuxlist.c
+rmf .git
+git init
+g config --global user.name "koyamahayato2357"
+g config --global user.email "sundongxiaoshan202@gmail.com"
+git remote add origin git@github.com:koyamahayato2357/my-libc.git
+git push -u origin main
+yay -S rr
+z my-
+z libc
+~/lib/my
+bear make
+rg arraytovec
+n def,h
+clang -E def.c -std=c23
+n def.c > temp
+n def.c | wc
+clang -E def.c -std=c23 > temp.c
+clang -E def.c -std=c23 -DTEST_MODE > temp.c
+rg free4drop
+g ps
+mv temp.c temp.cpp
+n temp.cpp
+clang temp.cpp
+rm temp.cpp
+cc temp.c -lpthread
+rm temp.c a.out
+batman pthread_create
+n nullable.ch
+rg generic
+rg Generic
+z latex
+~/project/pro/alg
+mkcd no2
+n ../no1/main.tex
+n jks
+rg "\<0\>"
+rg push
+mv main.pdf ÊºÉ¥ÁøÉ≤2_IS3_16_Â∞ÉØÂ±±ÈÉ∫ºÂÉ¶¨.pdf
+meson setup ..
+facad /dev
+batman
+batman facad
+l /
+l ..
+n ../meson.build
+l /etc/pulse/client.conf
+cat /etc/pulse/client.conf
+visudo /etc/pulse/client.conf
+sudo visudo /etc/pulse/client.conf
+l /usr/share/sounds
+vim editor/neovim/src/nvim/main.c
+vim .vimrc
+yay -S picoc-git
+echo -e "\a
+echo -e "\a"
+n linuxlist,c
+rg for drop
+rg "for drop"
+rg "^test"
+valgrind ./a.out
+valgrind ./a.out --leak-check=full
+clang-tidy --help
+clang-tidy --help-list
+l ~/project/c/rpx/.clang-tidy
+cp ~/project/c/rpx/.clang-tidy .
+mv compile_commands.json _compile_commands.json
+difft compile_commands.json _compile_commands.json
+rm _compile_commands.json
+rg unsafe
+grep unsafe *
+aichat
+yay -S iwyu
+yay -S include-what-you-use-git
+clang -print-resource-dir
+n *.h -p
+n *.c -p
+gcc -fdump-tree-cfg-graph -std=c23 *.c
+make flow
+yay -S dot
+rm *.dot
+rm *.cfg
+vim arena.c
+vim-startuptime -vimpath /usr/local/bin/nvim -count 1000 -- ../README.md
+vim-startuptime -count 1000 -- ../README.md
+vim README.md
+ttyper
+nerdfetch
+rmf neovim
+git clone https://github.com/neovim/neovim
+n src/nvim/main.c
+~/tool/gpt-repository-loader
+picoc -i
+vim strlist.c
+./a.out | head
+./a.out | head -n 30
+./a.out | head --bytes=500
+./a.out | head --bytes=5000
+mv strlist.c rope.c
+mv strlist.h rope.h
+n rope.c
+mv rope.c strlist.c
+mv rope.h strlist.h
+~/project/c/markov
+rg double_eq
+rg "((lhs))"
+rg "\(\(lhs))"
+rg "\(\(lhs\)\)"
+rg galloc
+mkcd ~/project/rust
+cargo new map_and_then
+cd map_and_then
+rustc --explain E0618
+sed "/__attribute__((overloadable))/p"
+sed "/__attribute__((overloadable))/p" *
+sed "/__attribute__((overloadable))/p" *.c *.h
+sed "s/__attribute__((overloadable))/__overloadable__" -i *.c *.h
+rg "__attribute__\(\(overloadable\)\)"
+rg __overloadable__
+rg and_then
+time ./a.out
+make analyze
+yay -Rsc picoc
+yay -Rsc picoc-git picoc-git-debug
+yay -S cling
+yay -S cling-dev
+yay -S cling-jupyter-dev
+yay -S cling-jupyter-git
+yay -S cling-bin
+cling
+./editor/neovim
+cat .zsh_history
+fish
+yay -Rsc cling-bin cling-bin-debug
+yay -S picocad-bin
+n .config/fish/config.fish
+source .zshrc
+ggrks foot terminal
+clang main.c&& ./a.out
+make fuzzer
+cat mylib.txt
+n result.h
+rm result*
+xclip --help
+sudo xclip --help
+yay -Rsc xclip
+yay -S wl-clipboard
+wl-copy < mylib.txt
+rg libc
+rg "\*\*"
+rg __FILE__
+rg clipboard
+cmake -G "GNU Makefile" ../llvm -DLLVM_ENABLE_PROJECTS="clang;lld" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release
+rmf .
+cmake -G "Unix Makefiles" ../llvm -DLLVM_ENABLE_PROJECTS="clang;lld" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release
+cmake --build .
+which clang
+/usr/local/bin/clang --version
+./bin/clang --version
+rg EPS
+rg "#define .*\> "
+rg "#define \a*\> "
+rg DEFAULT_VECCAP
+n linuxlist.h
+rm .cling_history
+~/project/rust
+cargo new unit
+cd unit
+n src/main.rs
+cargo run
+n mylib.txt
+rg dropf
+n linuxlist.c
+mv linuxlist.c list.c
+mv linuxlist.h list.h
+rg linux
+rg -i linux
+rg enable
+rg "\<str\>"
+rg "test\(next\)"
+rg "\<v\>"
+n n errcode.h
+valgrind nvim nullable.h
+valgrind --leak-check=full ./rpx
+clang -E testing.c
+n hid/idea.txt
+rm hid/idea.txt
+rg 033
+pic --help
+echo "\e[5mhello"
+echo "\e[38;5;10mhello"
+echo "\e[38;5;100mhello"
+echo "\e[38;2;100;10;10mhello"
+echo "\e[38;2;10;10;10mhello"
+echo "\e[38;2;100;100;100mhello"
+n ansiesc.c
+rg "\(int\)"
+rg breakx
+rg "\<unreachable\>"
+rg panicx
+rg panix
+rg ppanic
+psa | grep fish
+rm a.out main.c
+rg expect
+grep expect -r **/*
+n zish/src/main.zig
+rm ~/Downloads/DALL¬∑E\ 2024-10-29\ 19.17.51\ -\ An\ icon\ in\ the\ style\ of\ Russian\ avant-garde\ art,\ with\ bold\ geometric\ shapes,\ sharp\ angles,\ and\ strong\ use\ of\ red,\ black,\ and\ white.\ The\ design\ should\ .webp
+z alg
+mkcd no5
+mv main.pdf ÊºÉ¥ÁøÉ≤5_IS3_16_Â∞ÉØÂ±±ÈÉ∫ºÂÉ¶¨.pdf
+gcc -std=c89 main.c
+sh
+script -c ./a.out script.log
+n script.log
+rm script.log
+cc main.c
+batman scanf
+valgrind --leak-check=full facad
+valgrind --leak-check=full facad -a
+valgrind --leak-check=full facad -l
+valgrind --leak-check=full fish
+ps
+ps aux
+kill 19439
+ps aux | grep fish
+z plugins/ultimate-autopair.nvim
+rg grep
+time ls
+time valgrind ls
+cpp testing.c
+cpp testing.c -P
+mv strlist.c strlist
+mv iter.c iter
+n vectir.c
+mv iter iter.c
+mv strlist strlist.c
+rg struct
+yay -S carapace-bin
+man printenv
+man man --pager="bat -l man -p"
+man --pager="bat -l man -p" man
+man printf
+n main.
+fetch
+yay -S fetch
+yay -F fetch
+yay -Fl fetch
+yay -Ss fetch
+yay -Ss aur/fetch
+yay -S command-not-found
+z no2
+../no5
+mkcd ../no6
+touch main.tex
+mv ../no5/main.c .
+rm ../no5/a.out
+rm -r _minted-main/ main.pdf main.aux main.pyg
+mv main.pdf ÊºÉ¥ÁøÉ≤6_IS3_16_Â∞ÉØÂ±±ÈÉ∫ºÂÉ¶¨.pdf
+du
+yay -Scc
+yay -Q | grep tex
+yay -Rsc texlive-bin
+yay -S texlive-luatex 0
+~/project/pro/alg/no6
+luatex
+yay -S texlive-doc
+yay -S texlive-bin
+yay -S luatex
+yay -Ss luatex
+rg realloc
+valgrind --leak-check=full ./a.out
+n ansii.h
+yay -S go-task
+rg META
+valgrind --leak-check=full -s ./a.out
+n .config/nvim/plugins/nvim-treesitter/tests/query/highlights/haskell/test.hs
+mkcd project/haskell
+mkcd jmo
+yay -S ghc
+ghc-pkg check
+ghci
+ghc -v main.hs
+mv main.hs Main.hs
+ghc Main.hs
+mv Main.hs main.hs
+rg strio
+rg stdio
+grep "^\s*overloadable" *.c *.h
+gcc -S main.c
+n main.s
+rm main.*
+trace
+trace a.out
+disasm a.out | grep "exception"
+n exception
+disasm a.out > a.s
+n a.s
+clang main.c -Ofast
+clang main.c -O3
+disasm a.out
+rm main.c a.out
+rm a.s
+ghc -prof main.hs
+yay -S haskell-base-prelude
+ghc main.hs
+yay -S haskell
+mkcd ../korattu
+task
+yay go-task
+n .luarc.json
+n runtime/doc/lsp.txt
+../../tool/llvm-project
+~/project
+yay -Syyu
+z build
+acpi --battery
+rg implicit
+n iter.c
+gcc main.c
+gcc main.c -std=c23
+n iter.h
+mv iter.h iterh
+mv iter.c iterc
+go-task analyze
+gdb a.out
+lldb
+mv iterc iter.c
+mv iterh iter.h
+rg Iter
+mv iter.c iter.h hid/
+n strlist.h
+z jmo
+n main.hs
+ghc -dynamic main.hs
+./main
+mv hid/strlist* .
+l lib
+l libc
+n strlist.c
+mv strlist* hid/
+go-task sanitize
+ls *.c
+rg ^#
+rg "^#"
+rg "\(\{"
+n vector.h
+cargo install asm-lsp
+rg TODO
+rg malloc
+cp ~/lib/my/exproriented.c src/
+cp ~/lib/my/exproriented.h include/
+n ~/lib/my/errcode.c
+n ~/lib/my/def.c
+n ~/lib/my/def.h
+n ~/lib/my/testing.h
+cp ~/lib/my/gene.c src/
+cp ~/lib/my/gene.h include/
+n include/gene.h
+cp ~/lib/my/testing.c src/
+cp ~/lib/my/testing.h include/
+cp ~/lib/my/ansiesc.c src/
+cp ~/lib/my/ansiesc.h include/
+rg "\\033"
+rg "\\\\033"
+rg '\\033'
+rg "expect\(.* == .*\)"
+rg ealloc
+../type.c
+cp ../rpx/src/ansiesc.c src/
+cp ../rpx/include/ansiesc.h include/
+n src/input.c
+n src/genstr.c
+n src/dict.c
+../rpx
+rm neovide_backtraces.log
+rg '\':\''
+neovide lua/plugin.lua
+yay -S gobuster
+cat /etc/passwd
+l /etc/shadow
+cat /etc/shadow
+sudo cat /etc/shadow
+yay -S nmap
+nmap --interactive
+nmap -h
+yay -Rsc nmap
+ls /root/
+l /var/log/
+n /var/log/haskell-register.log
+n /var/log/boot.log
+yay -Ss translate
+yay -S translate-shell
+man trans
+man zshmisc
+g cl https://codeberg.org/dnkl/foot.git
+rg tab
+grep tab *.c
+grep install *
+mkcd build/release
+export CFLAGS="$CFLAGS -O3"
+ninja test
+where foot
+yay -Rsc foot
+cd build/release
+meson --buildtype=release --prefix=/usr -Db_lto=true ../..
+meson --buildtype=release --prefix=/usr -Db_lto=true -Dtests=false ../..
+rg "\<tab\>"
+n osc.c
+source ~/.zshrc
+rg "^#define"
+n config.h
+n notify.c
+./plugins/blink.cmp
+rustc --explain E0554
+n Cargo.lock
+yay -S cargo-git
+cargo toolchain install nightly
+yay -S rustup
+rustup toolchain install nightly
+n exproriented.c
+n vector.c
+rm c
+sudo vim /etc/pacman.conf
+mkcd parallel
+zig init
+zig run src/main.zig
+vim text.txt
+n text.txt
+mcd --help
+man mcd
+mkcd project/pro/alg/no8
+cp ../no6/Makefile .
+rm main.log
+clang main.c
+rg wshada
+rg rshada
+mv main.pdf ÊºÉ¥ÁøÉ≤8_IS3_16_Â∞ÉØÂ±±ÈÉ∫ºÂÉ¶¨.pdf
+rm text.txt
+trans -h
+trans -t en:ja
+trans -t ja
+l plugins/nvim-treesitter
+bashrc
+trans -h | trans ja
+trans -h | trans en:ja
+trans en:eo
+z no4
+z no6
+../no2
+n ../no6/_minted-main/default.pygstyle
+trans ja:en
+rg "expect\(.* != .*\)"
+go-task debug
+lldb a.out
+rg noice
+trans en:ja unwrapt
+rmf plugins/noice.nvim/
+n taskfile.yml
+go-task all-test
+echo "\a"
+z foot
+psa | grep cmake
+n runtime/autoload/zip.vim
+n src/nvim/vvars.lua
+z zsh
+cmake --build . -j16
+l -a
+rmf plugins/
+cd plugins/blink.cmp
+zig version
+zig zen
+vim-startuptime -vimpath /usr/local/bin/nvim -count 1000 -- testing.c
+n parallel.c
+python3 gpt_repository_loader.py ~/lib/my -o mylib.txt
+n keymap.hwdb
+man hwdb
+l /etc/udev
+n /etc/udev/udev.conf
+n /etc/udev/hwdb.d/10-keyboard.hwdb
+sudo rm /etc/udev/hwdb.d/10-keyboard.hwdb
+sudo rm /etc/udev/hwdb.bin
+g cl https://github.com/rvaiya/keyd.git
+./keyd
+make && sudo make install
+sudo touch /etc/keyd/default.conf
+yay -Rsc udev
+man udev
+sudo systemctl stop systemd-udevd.service
+sudo systemctl stop systemd-udevd-control.socket
+sudo systemctl stop systemd-udevd-kernel.socket
+sudo systemctl disable systemd-udev-load-credentials.service
+sudo systemctl disable systemd-udev-trigger.service
+sudo rm -rf /etc/udev/
+sudo rm -rf /usr/lib/udev/
+yay -Ss udev
+udevadm info
+udevadm info --help
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+keyd list-keys
+keyd list-keys | grep delete
+sudo nvim /etc/keyd/default.conf
+sudo systemctl enable keyd.service
+sudo journalctl -eu keyd
+l /dev/input
+z keyd
+rmf keyd
+yay -S keyd
+keyd -v
+sudo systemctl status keyd.service
+keyd-application-mapper
+l /etc/keyd/default.conf
+ls -l /etc/keyd/default.conf
+keyd list-keys | grep henkan
+sudo mv /etc/keyd/default.conf keyd.conf
+sudo ln keyd.conf /etc/keyd/default.conf
+rm keymap.hwdb
+img2sixel http://goo.gl/3VroOV
+img2sixel 'https://qiita-user-contents.imgix.net/https%3A%2F%2Fraw.githubusercontent.com%2Fsaitoha%2Flibsixel%2Fdata%2Fdata%2Fsixel.gif?ixlib=rb-4.0.0&auto=format&gif-q=60&q=75&s=908dc4da657a2a5041be485e71e2fe2b'
+pactree -r hoge | wc -l
+yay -Ss git-delta
+g diff
+g delta
+delta
+delta --dark --paging=never
+difft
+n ~/.config/lazygit/config.yml
+~rc
+la
+mv ~/.config/lazygit/config.yml .
+ln config.yml ~/.config/lazygit/
+n config.yml
+mkdir ~/.config/keyd
+touch ~/.config/keyd/app.conf
+n ~/.config/keyd/app.conf
+keyd list-keys | grep page
+n gene.h
+n nullable.c
+n parallel.
+rg alloc_failed -i
+n def.c
+n errcode.c
+trans eo:ja pimo
+trans ja:eo
+rg '":"'
+rg "':'"
+yay -Ss bibites
+z ouwnl
+z ownl
+unzip The\ Bibites\ 0.6.0.1\ -\ Linux.zip
+rm The\ Bibites\ 0.6.0.1\ -\ Linux.zip
+mkcd ~/bibites
+mv ~/Downloads/The* .
+l ../Downloads
+mv ../Downloads/Unity* .
+file The\ Bibites_BurstDebugInformation_DoNotShip/Data/Plugins/lib_burst_generated.txt
+file The\ Bibites.x86_64
+./The\ Bibites.x86_64
+foot --version
+man shmflag
+man shmget
+man shmflg
+loadkeys us
+n /etc/vconsole.conf
+sudo -E n /etc/vconsole.conf
+sudo -E nvim /etc/vconsole.conf
+sudo loadkeys us
+localectl list-keymaps
+loadkeys --default
+sudo loadkeys --default
+setxkbmap us
+sudo setxkbmap us
+sudo journalctl -u keyd
+sudo -E nvim /etc/keyd/default.conf
+n lua/map.lua
+neovide lua/opt.lua
+~/tool/facad
+~/editor/neovim
+n runtime/autoload/netrw.vim
+n contrib/gdb/neovim_gdb.vim
+n contrib/gdb/nvim-gdb-pretty-printers.py
+find . wc
+find . | wc
+facad -a
+n .clangd
+n .clang-format
+n src/bit.c
+n gene.c
+n list.c
+n arena.h
+n log.c
+n exception.h
+n exception.c
+n nullable.h
+n def.h
+n errcode.h
+n parallel.h
+rg palloc
+l include
+rg drop
+rg fclose
+rg free
+rg "[!=]= nullptr"
+n src/errcode.c
+./rpx example/graph.rpx
+./rpx example/graph.rpx -q
+./rpx example/matrix.rpx -q
+rg panic
+./rpx example/matrix.rp -q
+./rpx example/matrix.rp
+rg const
+n include/editline.h
+n include/error.h
+rg "\<const\>"
+rg "\<const\> [a-z]"
+n exproriented.h
+n src/error.c
+facad /usr/local/bin/rpx
+facad -l /usr/local/bin/rpx
+clang temp.c
+valgrind rpx
+valgrind rpx example/graph.rpx
+valgrind rpx example/matrix.rpx
+valgrind rpx example/matrix.rpx -q
+valgrind ./rpx example/matrix.rpx -q
+find .
+file rpx.txt
+file mylib.txt
+file LICENSE
+img2sixel doc/html/bc_sd.png
+img2sixel doc/html/docd.svg
+lsix doc/html/docd.svg
+lsix ~/project/c/poland-calc/rpx.svg
+n src
+psa | grep nvim
+psa | grep n
+python3 gpt_repository_loader.py ~/.config/nvim -o nvim.txt
+n nvim.txt
+rg sentiment
+z plugins/sentiment.nvim
+rg dmacro
+vim-startuptime -vimpath /usr/local/bin/nvim -count 1000 -- init.lua
+l lua
+n lua/fzf.lua
+z neo
+sudo rm -rf /usr/local/share/nvim
+sudo rm -rf /usr/local/lib/nvim
+vim setup.vim
+rmf plugins
+n -l setup.vim
+n -s setup.vim
+file setup.vim
+n setup.vim
+vim setup.sh
+bat setup"
+bat setup*
+rm setup.vim
+man nvim
+l /usr/local/lib/nvim/parser
+sh setup.sh
+n setup.sh
+~/
+n .yarnrc
+yay -Rsc yarn
+n .wget-hsts
+n .pa
+n package.json
+n package-lock.json
+n .fbterm
+rm .fbterm
+n .bash_profile
+rm .bash_profile
+n .bash_logout
+rm .bash_logout
+n .profile
+n speech.md
+rm speech.md
+n .viminfo
+n .zcompdump
+l Downloads
+rmf
+rmf Downloads/*
+n .icons
+z project/club
+cd puts
+sudo rm -rf .cache
+../motortest
+../puts446
+z ctrlr
+sudo rm -rf .pio
+../puts
+../robocon2024A
+rm **/compile*
+z enc
+rm compile_commands.json
+sudo rm -rf go/pkg
+sudo pacman -Sc
+n arena.c
+file README.md
+file taskfile.yml
+file .git/objects/00/59d44da82892edff4098032ea77d791efcd114
+man man
+apropos vi
+apropos nvim
+man apropos
+n log.h
+n list.h
+rg insertenter -i
+n lua/colorscheme.lua
+rg getline
+man getline
+man gcc | grep flto
+man gcc | grep flto 2&>/dev/null
+valgrind ./a.out data/input.txt
+./a.out temp.txt
+z mar
+n testing.c
+make teset
+go-task
+bear -- make teset
+bear -- make test
+n testing.h
+difft testing.h ~/project/c/rpx/include/testing.h
+l include/testing.h
+l ~/lib/my/testing.h
+cp include/testing.h ~/lib/my/testing.h
+rpx -r ":spr\\P,\\Pm,1,1m" -r ":p $1s" -q
+rpx -r ":spr\\P,\\Pm,1,1m" -r ":p \$1s" -q
+sudo mkdir /mnt/usb
+sudo mount /dev/sda /mnt/usb
+man chown
+mount /dev/sda1 /mnt/usb
+sudo mount /dev/sda1 /mnt/usb
+echo hello > /mnt/usb/temp.txt
+sudo chown sundo /mnt/usb
+sudo chmod 755 /mnt/usb
+sudo chown sundo:sundo /mnt/usb
+ls -l /mnt/usb
+ls -l /mnt/
+sudo chown sundo:users /mnt/usb
+sudo chown sundo:users /mnt/usb -o uid=1000,gid=1000
+sudo chown sundo:users /mnt/usb uid=1000,gid=1000
+sudo chown 1000:1000 /mnt/usb
+lsblk -f
+mv tool/llvm-project /mnt/usb
+psa | grep mv
+/mnt/usb
+git clone https://github.com/torvalds/linux --depth 10
+psa | grep usb
+l /mnt/
+l /mnt
+rg .dep .gitignore
+rmf .deps
+rmf build
+sudo rm -rf build
+rmf llvm-project
+~/lang
+ls /proc/config.gz
+sudo cp /proc/config.gz .
+unzip config.gz
+gzip --help
+gzip -d config.gz
+uname -r
+l /dev
+l /dev/media0
+l /dev > /tmp/devs
+cat /tmp/devs
+ls /dev > /tmp/devs
+ls /dev > /tmp/devs2
+difft /tmp/devs /tmp/devs2
+cd linux
+nvim /boot/System.map
+make menuconfig
+make localmodconfig
+difft .config ../config
+mv ../config .config
+n .config
+make help | less
+n src/arthfn.c
+rg movecur
+n src/rc.c
+n src/sysconf.c
+n include/phyconst.h
+n include/graphplot.h
+n include/sysconf.h
+n include/rc.h
+n src/testing.c
+n include/testing.h
+z linux
+make -j8 LLVM=1 LLVM_IAS=1 KCFLAGS=-march=native
+man ascii
+gs main
+g s -c table
+rg unreachable
+n src/phyconst.c
+n include/exception.h
+rm default.profraw
+rg 5m
+l /usr/local/bin/rpx
+n src/optexpr.c
+bear -- make bench
+trans
+trans en:ja
+z plugins/blink.cmp
+cargo build --release
+sudo cp -r plugins/nvim-treesitter/parser/ /usr/local/lib/nvim/
+sudo cp -r plugins/nvim-treesitter/queries /usr/local/share/nvim/runtime/
+g s table
+g merge main
+rg eval_expr_real
+rg eval_expr
+n include/main.h
+rg temp_eval
+rg eval_expr_real)
+rg eval_expr_real\)
+rg eval_expr_real\\\\)
+rg eval_expr_real\\\)
+n src/mai
+yay -Ss qiita
+yay -Ss notion
+yay -S notion-app-enhanced
+yay -Ss notion-app
+yay -S notion-app
+notion-app
+man notion
+notion-app -h
+notion-app --help
+notion-app --version
+yay -Rsc notion-app
+sudo mount -t vfat /dev/sda1 /mnt/usb -o uid=sundo,gid=users
+l /mnt/usb
+ls /mnt/usb
+rmf /mnt/usb/llvm-project
+yay -S gparted
+sudo umount /mnt/usb
+gparted
+man gparted
+sudo fdisk -l
+parted
+n crash.log
+sudo rm -rf /root/.platformio
+sudo fdisk
+sudo fdisk /dev/nvme0n1
+sudo parted
+sudo fsck -f /dev/nvme0n1p4
+sudo fsck -f /dev/nvme0n1p5
+rmf linux
+rmf editor
+sudo rm -rf editor
+sudo rm -rf .platformio
+rm currently.img
+rmf Music/
+yay -Rsc texlive
+yay -Rsc texlive-bin texlive-doc
+sudo dd if=/dev/nvme0n1p5 of=currently.img bs=4M status=progress
+sudo cfdisk
+sudo cfdisk /dev/nvme0n1p5
+lsblk
+mkcd editor
+git clone https://github.com/neovim/neovim --depth 1
+cd neovim
+make install
+~
+git clone https://github.com/torvalds/linux --depth 1
+mkcd proc
+git clone https://github.com/llvm/llvm-project --depth 1
+g cl https://github.com/ziglang/zig --depth 1
+n CMakeL
+../../llvm-project
+cmake -G "Unix Makefiles" ../llvm -DLLVM_ENABLE_PROJECTS="clang;lld" -DLLVM_TARGETS_TO_BUILD="X64" -DCMAKE_BUILD_TYPE=Release -DLLVM_LIBC_FULL_BUILD=ON
+cmake -G "Unix Makefiles" ../llvm -DLLVM_ENABLE_PROJECTS="clang;lld" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release -DLLVM_LIBC_FULL_BUILD=ON
+~/proc/zig
+sudo systemctl list-units
+sudo ln /usr/bin/cc /usr/local/bin/clang
+sudo ln /usr/local/bin/clang /usr/bin/cc
+sudo rm /usr/bin/cc
+yay -S gcc
+n ../CMakeLists.txt
+cmake ..
+n src/main.zig
+g cl https://github.com/gcc-mirror/gcc --depth 1
+cd gcc
+n compile
+z gcc
+n ltgcc.m4
+n gcc/sort.cc
+sh <(curl -L https://nixos.org/nix/install) --no-daemon
+ls .nix-profile/etc
+cd .nix-profile/etc
+ls profile.d
+ls -l profile.d
+chmod +x profile.d/nix.sh
+yay -Rsc clang
+yay -Rsc gcc
+yay -Rsc btop
+nix-env -i btop
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+nix-env -i clang
+yay -Rsc bzip2 radare2 gdb gdbm gdb-common man-db man-pages
+yay -Rsc bzip2 radare2 gdb gdb-common man-db man-pages
+yay -Rsc bzip2 radare2 gdbm gdb-common man-db man-pages
+yay -Rsc bzip2
+yay -Rsc gdbm radare2 gdb gdb-common man-db man-pages
+yay -Rsc gdbm radare2 man-db man-pages
+yay -Rsc gdbm radare2 gdb gdb-common man-db
+yay -Rsc gdbm radare2
+yay -Rsc gdb gdb-common
+yay -Rsc man-db man-pages
+nix-env -i gdb
+yay -Rsc python
+nix-env -i kde
+yay -Rsc kde
+nix-env -i keyd
+yay -Rsc keyd
+cmake -G "Unix Makefiles" ../llvm -DLLVM_ENABLE_PROJECTS="clang-tools-extra" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release
+cmake --build . --target install
+yay -Rsc llvm
+yay -S clang
+lld
+ld.lld
+ld.lld --version
+yay -S clangd
+yay -Ss clangs
+yay -Ss clangd
+sudo systemctl stop sddm
+yay -Rsc kde-cli-tools
+yay -Rsc plasma-activities-stats
+yay -Rsc plasma-activities
+yay -Rsc plasma5support
+yay -Rsc plasma-firewall
+yay -Rsc abseil-cpp plasma-thunderbolt
+yay -Rsc abseil-cpp plasma-workspace-wallpapers
+yay -Rsc plasma-workspace-wallpapers
+yay -Rsc platformio-core-udev
+yay -Rsc texlab
+yay -Rsc cargo
+yay -Rsc rust-analyzer
+yay -Rsc rustup
+yay -Rsc make cmake
+yay -Rsc acl gtk3
+yay -Rsc acl github-cli
+yay -Rsc acl yazi
+yay -Rsc github-cli
+yay -Rsc wl-clipboard
+yay -S nix
+sh <(curl -L https://nixos.org/nix/install)
+~/.nix-profile/etc/profile.d/nix.sh
+nix-env
+find nix-env
+/proc/4327/task/4327/cwd/.nix-profile/bin/nix-env
+/proc/4327/task/4327/cwd/.nix-profile/bin/nix-env -i nix
+cd .nix-profile/etc/profile.d
+chmod +x nix.sh
+nix-env -i clangd zig
+nix-env -qa clangd
+nix-env -i sddm plasma-meta plasma-wayland-session
+nix-env -i sddm-astronaut plasma-meta plasma-wayland-session
+nix-env -i sddm-astronaut plasma
+nix-env -i sddm-astronaut plasma-activities
+nix-env -qa wayland
+nix-env -i wayland
+ls /nix/
+/nix/
+yay -Rsc sddm
+nix-env -i sddm-kcm
+nix-env -i wl-clipboard
+yay -Rsc lua
+yay -Rsc luajit
+yay -Rsc lua-language-server
+nix-env -i lua luajit lua-language-server
+nix-env -e lua
+nix-env -i luajit lua-language-server
+nix-env -qa qt
+nix-env -i qt6integration
+nix-env -qa plasma
+nix-env -i nodejs
+which sddm
+nix-env -i sddm
+nix-env -i sddm-wrapped
+sddm
+sudo systemctl enable sddm
+yay -Rsc bison acpi fastfetch figlet bc
+yay -Rsc onefetch go
+yay -Rsc glow git-delta git
+nix-env -i git git-delta lazygit
+nix-env -i git lazygit
+sudo pacman -Rsc `pacman -Qdtq`
+nix-env -i acpi zsh
+yay -Rsc zsh
+sudo pacman -Rsc zsh
+nix-env -i systemd
+systemctl list-jobs
+sudo pacman -Rsc systemd
+sudo pacman -S systemd
+sudo systemctl start keyd.service
+nix-env -qa home
+n ~/.config/nixpkgs/config.nix
+mkdir ~/.config/nixpkgs
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+sudo vim /etc/locale.conf
+home-manager --help
+mv .config/nixpkgs/home.nix .config/nixpkgs/config.nix
+rmf .config/nixpkgs/
+n ~/.config/nixpkgs/home.nix
+ls .config/
+mkcd .config/nixpkgs
+z nixp
+nix-shell config.nix
+nix-env -i displayManager
+home-manager news
+home-manager build
+home-manager version
+home-manager --version
+n config.nix
+mv home.nix config.nix
+file result
+home-manager switch --show-trace
+home-manager packages
+mv config.nix home.nix
+which home-manager
+nix-channel --list
+mv home.nix configuration.nix
+mv configuration.nix home.nix
+nix-env -qa | grep display
+sudo pacman -Rsc xserver
+sudo pacman -Rsc xcb-imdkit org
+sudo pacman -Rsc xorg | head -n 30
+sudo pacman -Rsc imagemagick
+rm result
+home-manager switch
+nix-env -i sway
+sudo pacman -Rsc fcitx5
+ls /var/lib/pacman/db.lck
+rm /var/lib/pacman/db.lck
+sudo pacman -Rsc xcb-imdkit fcitx5
+chmod +x ~/.nix-profile/etc/profile.d/nix.sh
+sudo pacman -S nix
+nix-env -i nix
+sudo -Rsc nix
+nix-shell '<home-manager>' -A install
+locale-gen
+sudo locale-gen
+nix-env -qa kde
+sudo systemctl enable keyd
+sudo pacman -S yay
+sudo pacman -S keyd
+sudo systemctl enable keyd && sudo systemctl start keyd
+sudo pacman -Rsc fzf
+z nix
+sudo pacman -S sway wayland
+sudo pacman -S sway
+sudo pacman -S mako
+mkcd ~/.config/sway
+_python
+nix-env -qa pip
+python3 -m pipes
+python3 -m pipes install
+nix-env -qa i3ipc
+n home.nix
+home-manager switch -f home.nix
+cat home.nix
+nix-env -i acpi btop clang fd fzf git lazygit less lua-language-server luajit nodejs python3 ripgrep wl-clipboard
+which git
+nix-env -e home-manager
+nix-env -i acpi btop clang fd fzf lazygit less lua-language-server luajit nodejs python3 ripgrep wl-clipboard
+rmf nixpkgs/
+sudo pacman -S sddm
+sudo systemctl start sddm
+sudo pacman -Rsc sddm
+sudo pacman -S lightdm
+sudo pacman -S xorg-wayland
+sudo pacman -S qt6-wayland
+sudo pacman -S fcitx
+sudo pacman -S lightdm-webkit2-greeter lightdm-webkit-theme-litarvan
+sudo pacman -S python-i3ipc
+n /etc/sway/config.d/50-systemd-user.conf
+n /etc/sway/config
+cp -r /etc/sway/config.d/ .config/sway/
+sudo pacman -S swaylock
+sudo pacman -S swayidle swaybg waybar
+lightdm
+n /usr/lib/systemd/system/lightdm.service
+sudo systemctl status lightdm
+sudo vim /usr/lib/systemd/system/lightdm.service
+sudo vim /sys/class/backlight/amdgpu_bl1/brightness
+pacman -Qi qt
+sudo pacman -Rsc qt5-base qt5-translations
+sudo lightdm
+man lightdm
+sudo lightdm -d
+which fzf
+pacman -Ss amd
+pacman -Ss amdgpu
+nix-env -qa | grep amdgpu
+nix-env -i xf86-video-amdgpu
+lightdm-webkit2-greeter
+psa | grep sway
+psa | grep lightdm
+sway
+sudo pacman -S xorg-xwayland
+sudo pacman -Rsc xorg
+sudo pacman -Ss amdgpu
+sudo pacman -S man-db
+sudo pacman -S lightdm-webkit2-greeter lightdm-webkit-theme-litarvan lightdm
+sudo pacman -S swayidle swaybg waybar sway
+sudo pacman -S xorg
+nix-env -qa xf86-video-amdgpu
+nix-env -q xf86-video-amdgpu
+nix-env -qa plemoljp
+nix-env -i plemoljp
+sudo pacman -S wayland
+sudo pacman -S mesa
+sudo systemctl status wayland
+n /usr/share/wayland-sessions/sway.desktop
+systemctl status lightdm.service
+sudo pacman -S lightdm-webkit2-greeter
+sudo systemctl start lightdm
+journalctl -xeu lightdm.service
+sudo less /var/log/lightdm
+sudo less /var/log/lightdm/lightdm.log
+sudo nvim /etc/lightdm/lightdm.conf
+sudo -E nvim /usr/share/wayland-sessions/sway.desktop
+sudo systemctl enable lightdm
+sudo pacman -S brightnessctl
+brightnessctl set -50%
+brightnessctl set 50%-
+brightnessctl set +50%
+brightnessctl set +10%
+brightnessctl set 10%
+brightnessctl set 5%
+brightnessctl set 1%
+brightnessctl set 2%
+sudo -E nvim /usr/lib/lightdm/
+sudo -E nvim /etc/lightdm/lightdm-webkit2-greeter.conf
+ggrks arch linux logo
+w3m -sixel google.com
+sudo mv Downloads/Dark-Wallpaper-HD-Download.jpg /usr/share/backgrounds/
+z sway
+g cl https://github.com/catppuccin/i3 --depth 1
+rmf config.d
+sudo pacman -Rsc vivaldi
+sudo pacman -Rsc sc-im
+nix-env -i sc-im
+sudo pacman -Rsc libzip
+nix-env -i gdb lldb
+sway --config .config/sway/config
+nix-env -i jq
+sudo pacman -Rsc jq
+sudo systemctl restart lightdm
+nix-env -i libinput
+swaymsg -t get_inputs
+exir
+man 5 sway-bar
+man 5 sway
+exi
+nix-env -q vivaldi
+mkdir .config/nixpkgs
+n .config/nixpkgs/config.nix
+nix-env -i vivaldi
+sudo pacman -Rsc python ffmpeg
+sudo pacman -Rsc python
+pacman -Ss ffmpeg
+sudo pacman -Syu
+nix-env -u
+nix-env -i fastfetch
+nix-env -qa texlive
+n .nix-profile/etc/profile.d/nix.sh
+eval `fzf --zsh`
+w3m google.com
+mkcd .config/zsh
+fzf --zsh
+fzf --zsh > fzf.zsh
+n fzf.zsh
+zoxide init zsh
+zoxide init zsh > zoxide.zsh
+n zoxide.zsh
+nix-env -i firefox
+nix-env -qa mixer
+nix search alsa
+nix search alsa --extra-experimental-features nix-command
+nix search alsa --extra-experimental-features nix-command --extra-experimental-features flakes
+nix-env -i pulseaudio pavucontrol
+nix-env -i alsa-utils
+nix-env -i pulseaudio
+nix-env -e pulseaudio pavucontrol
+sudo pacman -S pulseaudio
+pulseaudio --check
+pulseaudio -D
+speaker-test -t wav -c 2
+sudo pacman -S pavucontrol
+.nix-profile/bin/firefox-beta
+vivaldi --wayland
+fg &
+brightnessctl set 3%
+brightnessctl set 3
+alsamixer
+pavucontrol
+firefox-beta
+nix-env -i make cmake
+nix-env -i make-binary-wrapper-hook cmake
+nix-env -q
+sudo pacman -S acpi alsa-utils btop clang cmake fastfetch fd firefox fzf gdb jq lazygit less libinput lldb lua-language-server luajit make nodejs python3 ripgrep sc-im vivaldi wl-clipboard xf86-video-amdgpu
+sudo pacman -S acpi alsa-utils btop clang cmake fastfetch fd firefox fzf gdb jq lazygit lldb lua-language-server luajit make nodejs ripgrep vivaldi wl-clipboard xf86-video-amdgpu
+nix-env -e `nix-env -q`
+sudo rmf /nix
+sudo rm -rf /nix
+sudo pacman -Rsc nix
+nix
+clang --version
+git clone https://aur.archlinux.org/yay --depth 1
+cd yay
+makepkg -si
+yay -Rsc yay-debug
+rmf yay
+yay -S git-delta
+gcc b.c -DBENCHMARK_MODE
+n include/benchmarking.h
+gcc b.c src/benchmarking.c -DBENCHMARK_MODE
+gcc b.c src/benchmarking.c -DBENCHMARK_MODE -O3
+clang-18 b.c src/benchmarking.c -DBENCHMARK_MODE -O3
+n b.c
+rm b.c
+make bench
+eval `ssh-agent -s`
+ssh-add ~/.ssh/id_rsa
+yay -S github-cli
+vivaldi
+n rc/brightnessctl.service
+sudo ln rc/brightnessctl.service /etc/systemd/system/
+sudo systemctl enable brightnessctl.service
+n rc/install.sh
+sudo systemctl start brightnessctl.service
+ls .config/fontconfig/
+fc-list | grep plemoljp -i
+man sway-output
+fc-list | grep plemoljp35console -i
+fc-list | grep plemoljp35console -iv
+fc-list | grep plemol -iv
+echo $MOZ_ENABLE_WAYLAND
+yay -S mesa
+yay -Ss vulkan
+yay -S mesa-utils
+glxinfo | grep "OpenGL renderer"
+yay -Ss amdgpu
+yay -S amdgpu_top
+yay -S cargo
+rustup default nightly
+cargo install swaycons
+swaycons
+./tool/facad
+../../proc/zig
+../llvm-project
+../../editor/neovim/
+n src/nvim/option.c
+yay -S ninja
+facad -l
+yay -S meson
+ninja
+ninja install
+sudo ninja install
+cargo install startship
+yay -S starship
+starship prompt
+starship completions zsh
+starship init
+starship init zsh
+starship
+eval `starship init zsh`
+starship toggle
+yay -Rsc starship
+yay -S fcitx5 fcitx5-im fcitx5-mozc fcitx5-configtool fcitx5-gtk fcitx5-qt
+sudo -E nvim /etc/environment
+yay -S glim slurp
+yay -Rsc glim
+yay -S grim
+man sway
+man sway-input
+man swaymsg
+man sway-bar
+n /etc/xdg/waybar/config.jsonc
+mkcd .config/waybar
+n style.css
+cd waybar
+mv assets/mocha.webp ..
+n mocha.webp
+g cl https://github.com/catppuccin/waybar --depth 1
+mv waybar/themes/mocha.css .
+rmf waybar/
+wofi
+yay -S dru
+yay -S drun
+wofi --show drun
+mkcd .config/wofi
+g cl https://github.com/catppuccin/wofi --depth 1
+g cl https://github.com/doracula/wofi --depth 1
+g cl https://github.com/dracula/wofi --depth 1
+mv wofi/style.css .
+rmf wofi/
+wofi -d -S drun | xargs swaymsg exec --
+swaymsg exec -- yazi
+z n
+yay -Ss pip
+yay -S python-pip
+pip install cmake-language-server
+pip install cmake-language-server --break-system-packages
+yay -S yaml-language-server
+yay -S toml-language-server
+yay -S rust-analyzer
+yay -S texlab
+yay -S typist-lsp
+yay -S typist
+cargo install typist-cli
+cargo install typist
+yay -S typst
+typst --version
+firefox
+yay -Ss computer-modern
+yay -S ttf-computer-modern-fonts
+yay -S texlive-core texlive-fontextra
+fc-list | grep CMU -i
+fc-list | grep cmu -i
+fc-list | grep latin -i
+fc-list | grep com -i
+fc-list | grep ple -i
+g merge table
+g b -d table
+g s -c jit
+clang temp.c -S -emit-llvm -O3
+rm temp.ll
+clang-18 temp.c -S -emit-llvm -O3
+n temp.ll
+lli temp.ll
+llc temp.ll
+n temp.s
+rm temp.*
+systemctl status fcitx5
+fcitx5 &
+fcitx5 > /dev/null &
+z typ
+z typst
+mkcd test
+n reference.bib
+rm reference.bib
+n main.pdf
+typst compile main.typ
+mkcd ../report-template
+n Charpy_impact_test_sketch.svg
+yay -S noto-fonts-cjk-jp-vf
+yay -S noto-fonts-cjk
+yay -S otf-latin-modern
+rg harano
+yay -S otf-latinmodern-math
+yay -S texlive-full
+yay -S texlive
+yay -Ss haranoaji
+yay -S texlive-langjapanese
+make ic
+yay -S bear
+bear -- make ice
+bear -- make all-
+bear -- make all-test
+make all-test
+yay -S onefetch
+z report
+yay -Ss ipa
+yay -S otf-ipafont
+fc-list | grep ipa -i
+n example.typ
+typst compile example.typ
+n main.typ
+rg \#set
+n temp.typ
+rm temp.typ
+yay -S otf-cm-unicode
+typst compile temp.typ
+rg leading
+n template.typ
+n t.typ
+typst compile t.typ
+rg "typedef char32_t"
+rg typedef
+n terminal.h
+rg "
+rg "\<tll\>"
+n sixel.h
+n util.h
+bear -- ninja
+n compile_commands.json
+mv compile_commands.json ..
+n sixel.c
+rg test
+rg exit
+n n include/errcode.h
+n include/errcode.h
+n tests/test-config.c
+rg likely
+n plugins/track.nvim/lua/track/mark.lua
+n plugins/track.nvim/lua/track/marks.lua
+n plugins/track.nvim/plugin/track.lua
+n plugins/track.nvim/lua/track/notify.lua
+n plugins/track.nvim/lua/track/outline.lua
+n plugins/track.nvim/lua/track/init.lua
+n temp.lua
+n .config/fcitx5/
+fcitx5
+kill 4200
+n .config/fcitx5/config
+psa | grep fcitx5
+kill 4334
+fcitx5-configtool
+n .config/waybar/style.css
+n .config/waybar/mocha.css
+n /etc/xdg/waybar/style.css
+yay -S lua-dbus
+yay -Ss lua-dbus
+yay -Ss dbus
+yay -S luarock
+yay -S luarocks
+luarocks install lua-dbus
+sudo luarocks install lua-dbus
+luarocks --check-lua-versions
+lua --version
+sudo luarocks install lua-dbus --check-lua-versions
+lua -v
+luajit --version
+luajit -v
+z ~/lib
+g cl https://github.com/kmarkus/lsdbus.git --depth 1
+cd lsdbus
+yay -S libmxml
+yay -Ss libmxml
+yay -S mxml
+cmake .. CONFIG_LUA_VER=jit && make
+cmake .. CONFIG_LUA_VER=5.1 && make
+yay -Ss ldbus
+sudo rm -rf /usr/local/share/lua/5.4/lsdbus/
+sudo rm -rf /usr/local/bin/lsdb-*
+sudo rm -rf /usr/local/lib/lua/5.4/lsdbus/
+yay -S lua-ldbus
+yay -Rsc luarocks
+../..
+rmf lsdbus/
+man fcitx5-remote
+yay -S man-db
+fcitx5-remote --help
+fcitx5-remote --check
+fcitx5-remote -e
+n plugins/track.nvim/lua/track/config.lua
+sudo -E nvim /etc/xdg/waybar/config.jsonc
+waybar -h
+psa | grep waybar
+kill 1868
+kill 1068
+clockdiff
+timedatectl
+mkdir tool
+mv ~/rpx.vim tool/
+n /usr/local/share/nvim/runtime/syntax/c.vim
+n /usr/local/share/nvim/runtime/syntax/zig.vim
+n lua/dmacro.lua
+fcitx5-remote
+man nohup
+man disown
+yay -Rsc wofi
+printf '%s+' "hello world"
+printf '%s+' hello world
+echo ${`printf '%s+' hello world`%+}
+echo "${`printf '%s+' hello world`%+}"
+local q
+q=`printf '%s+' hello world`
+echo ${q%+}
+ggrks hello world
+launch neovide .zshrc
+n doc/Doxyfile
+n /usr/local/share/nvim/runtime/syntax/lua.vim
+disown --help
+n example/graph.rpx
+n example/matrix.rpx
+l plugins
+n plugins/toggleterm-manager.nvim/lua/toggleterm-manager.lua
+rmf plugins/toggleterm-manager.nvim/ plugins/toggleterm.nvim/
+n syncplug.sh
+./syncplug.sh install
+n lua/plugindata.lua
+n lua/plugin.lua
+z my
+n ansiesc.h
+z nc
+z nv
+rm lua/rainbow.lua
+fcd
+yay -S telnet
+yay -Ss telnet
+yay -S ascii-movie-bin
+_asciidoctor
+xargs ascii-movie completion zsh
+xargs `ascii-movie completion zsh`
+ascii-movie completion
+ascii-movie completion zsh
+ascii-movie completion zsh > temp.zsh
+zsh temp.zsh
+rm temp.zsh
+ascii-movie
+ascii-movie play
+tar -h
+tar --usage
+tar --help
+man tar
+z ~/Downloads
+extract cy_1.3.0_linux_amd64.tar.gz
+cd cy
+./cy
+n README.md
+file cy
+yay -S pwdsafety
+yay -Ss pwdsafety
+yay -Ss pwd
+go install -v github.com/edoardottt/pwdsafety@latest
+~/Documents
+../Downloads
+extract pwdsafety_0.4.0_linux_386.zip
+./pwdsafety
+sudo mv pwdsafety /usr/local/bin/
+rm *
+nvif
+./linux
+sync
+../tool/facad
+../foot
+eval `ascii-movie completion zsh`
+l /proc
+mkcd ../shutdown
+g init
+g config --global user.name
+mkdir src
+cp ../rpx/Makefile .
+mkdir include
+yay -Rsc drun-gtk3 ttf-computer-modern-fonts ttf-ibm-plex
+z shut
+n temp
+./a.out temp
+n temp.txt
+rm temp*
+nv main.c
+~n
+n lua/rainbow.lua
+nv lua/rainbow.lua
+yay -S swayidle
+yay -S swaylock
+swayidle
+man swayidle
+swayidle -w timeout 300 'swaylock -f -c 000000' timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' before-sleep 'swaylock -f -c 000000'
+swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color bb00cc --key-hl-color 880033 --line-color 00000000 --inside-color 00000088 --separator-color 00000000 --grace 2 --fade-in 0.2
+yay -Rsc swaylock
+yay -Rsc swayidle
+yay -S swaylock-effects
+yay -Ss wayland-protocols
+sudo pacman -Qo /usr/share/pkgconfig/wayland-protocols.pc
+sudo pacman -Syu --overwrite=usr/share/licenses/wayland-protocols/COPYING,usr/share/wayland-protocols/stable/presentation-time/presentation-time.xml,usr/share/wayland-protocols/stable/viewporter/viewporter.xml,usr/share/wayland-protocols/stable/xdg-shell/xdg-shell.xml,usr/share/wayland-protocols/unstable/fullscreen-shell/fullscreen-shell-unstable-v1.xml,usr/share/wayland-protocols/unstable/idle-inhibit/idle-inhibit-unstable-v1.xml,usr/share/wayland-protocols/unstable/input-method/input-method-unstable-v1.xml,usr/share/wayland-protocols/unstable/input-timestamps/input-timestamps-unstable-v1.xml,usr/share/wayland-protocols/unstable/keyboard-shortcuts-inhibit/keyboard-shortcuts-inhibit-unstable-v1.xml,usr/share/wayland-protocols/unstable/linux-dmabuf/linux-dmabuf-unstable-v1.xml,usr/share/wayland-protocols/unstable/linux-explicit-synchronization/linux-explicit-synchronization-unstable-v1.xml,usr/share/wayland-protocols/unstable/pointer-constraints/pointer-constraints-unstable-v1.xml,usr/share/wayland-protocols/unstable/pointer-gestures/pointer-gestures-unstable-v1.xml,usr/share/wayland-protocols/unstable/primary-selection/primary-selection-unstable-v1.xml,usr/share/wayland-protocols/unstable/relative-pointer/relative-pointer-unstable-v1.xml,usr/share/wayland-protocols/unstable/tablet/tablet-unstable-v1.xml,usr/share/wayland-protocols/unstable/tablet/tablet-unstable-v2.xml,usr/share/wayland-protocols/unstable/text-input/text-input-unstable-v1.xml,usr/share/wayland-protocols/unstable/text-input/text-input-unstable-v3.xml,usr/share/wayland-protocols/unstable/xdg-decoration/xdg-decoration-unstable-v1.xml,usr/share/wayland-protocols/unstable/xdg-foreign/xdg-foreign-unstable-v1.xml,usr/share/wayland-protocols/unstable/xdg-foreign/xdg-foreign-unstable-v2.xml,usr/share/wayland-protocols/unstable/xdg-output/xdg-output-unstable-v1.xml,usr/share/wayland-protocols/unstable/xdg-shell/xdg-shell-unstable-v5.xml,usr/share/wayland-protocols/unstable/xdg-shell/xdg-shell-unstable-v6.xml,usr/share/wayland-protocols/unstable/xwayland-keyboard-grab/xwayland-keyboard-grab-unstable-v1.xml
+yay -S wayland-protocols
+sudo pacman -S --overwrite /usr/share/licenses/wayland-protocols/COPYING,/usr/share/pkgconfig/wayland-protocols.pc,/usr/share/wayland-protocols* wayland-protocols
+mako
+mkcd ../mako
+g cl https://github.com/catppuccin/mako.git
+cat mako/themes/catppuccin-mocha/* > config
+makoctl reload
+waybar
+launch waybar
+l /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1136x640.png
+lsix /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1136x640.png
+lsix /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1136x640_Portrait.png
+lsix /usr/share/backgrounds/Dark-Wallpaper-HD-Download.jpg
+lsix /usr/share/backgrounds/gnome/adwaita-d.jxl
+lsix /usr/share/backgrounds/gnome/adwaita-l.jxl
+lsix /usr/share/backgrounds/gnome/drool-d.svg
+lsix /usr/share/backgrounds/gnome/blobs-d.svg
+lsix /usr/share/backgrounds/gnome/ring-d.jxl
+lsix /usr/share/backgrounds/gnome/lcd-d.jxl
+lsix /usr/share/backgrounds/gnome/pixels-d.jxl
+sudo mv ~/Downloads/login-image.png /usr/share/backgrounds/
+man dmenu
+dmenu_run
+yay -Rsc dmenu
+../sway
+yay -S yad
+yad --entry --title="ÂÉ••ÂÉ™Éª„É£Ä„Ç§„ÇÉÇ„É£≠„Ç∞" --text="ÂÉ••ÂÉ™Éª„ÅÉ∑„Å¶„ÅÉØ„ÅÉÄ„ÅÉµ„ÅÉ§:"
+yad --entry --title="launcher" --text="input command:" --width=100 --height=5
+man yad
+swaynag
+swaynag -m "input" -t error
+yay -S wofi
+wofi --prompt "input" --dmenu
+man wofi
+yad --text "blah blah"
+yay -S dmenu
+dmenu | wofi --dmenu
+wofi --dmenu --width 500 --height 300
+wofi --dmenu --width 500 --height 100
+wofi --dmenu --width 500 --height 30
+wofi --dmenu --width 500 --height 40
+wofi --dmenu --width 500 --height 50
+bash
+autoload -Uz compgen
+autoload -Uz compgen -c
+compgen -c
+whence -pm "*"
+whence -pm "*" | sort -u | wofi --dmenu
+echo "/usr/bin/" | basename
+man basename
+man whence
+print -rl -- "$commands"
+print -rl -- "${(ko)commands}"
+print -rl -- "${(ko)commands}" | wofi --dmenu
+print -rl -- "${(ko)commands}" | tr ' ' '\n'
+print -rl -- "${(ko)commands}" | tr ' ' '\n' | sort -u | wofi --dmenu
+n config
+launch `print -lr -- "${(ko)commands}" | tr ' ' '\n' | wofi -d`
+n /etc/lightdm/lightdm.conf
+n /etc/lightdm/lightdm-webkit2-greeter.conf
+yay -S emptty
+emptty
+menu
+swaymsg reload
+mv ~/.config/sway/config .
+ln config ~/.config/sway/
+cargo install neovide
+cargo uninstall neovide
+yay -S neovide
+where cargo
+cargo --version
+cd
+z editor
+g cl https://github.com/neovide/neovide.git --depth 1
+cd neovide
+n website/docs/installation.md
+cargo install --git https://github.com/neovide/neovide
+nv src/cmd_line.rs
+rmf neovide
+g cl https://github.com/rohit-px2/nvui.git --depth 1
+cd nvui
+yay -S fmt hicolor-icon-theme msgpack-cxx qt5-base qt5-svg catch2 boost
+yay -S msgpack-tools
+yay -Ss msgpack
+yay -Q msgpack-cxx
+ls /usr/lib/cmake/msgpack-cxx/msgpack-cxx-config.cmake
+cmake -B build . -DCMAKE_BUILD_TYPE=Release CMAKE_PREFIX_PATH=/usr/lib/cmake/msgpack-cxx
+n CMakeLists.txt
+sudo mv /usr/lib/cmake/msgpack-cxx/msgpack-cxx-config.cmake /usr/lib/cmake/msgpack-cxx/msgpack-config.cmake
+cmake -B build . -DCMAKE_BUILD_TYPE=Release
+n /usr/lib/cmake/msgpack-cxx/msgpack-config.cmake
+sudo mv /usr/lib/cmake/msgpack-cxx/msgpack-config.cmake /usr/lib/cmake/msgpack-cxx/msgpack-cxx-config.cmake
+yay -S nvui
+rmf nvui/
+yay -Rsc boost msgpack-cxx fmt catch2
+yay -Rsc boost msgpack-cxx catch2
+extract nvui-linux-x64.zip
+./bin/nvui
+rm nvui-linux-x64.zip
+yay -Ss qt wayland
+echo $DISPLAY
+./Downloads/bin/nvui --ext_multigrid
+./Downloads/bin/nvui
+rm Downloads/*
+rm -r Downloads/*
+lsix /usr/share/backgrounds/gnome/sheet-l.jxl
+cat /proc/cpuinfo | grep vmx
+cat /proc/cpuinfo
+n runtime/lua/vim/_defaults.lua
+n init.lua
+disasm rpx
+disasm -C rpx
+n lua/fcitx5.lua
+fcitx5-remote --status
+fcitx5-remote -s
+n 1
+rm 1
+rm .config/mako/1 project/c/markov/1 project/c/rpx/1
+dbus-send --session --type=method_call --dest=org.fcitx.Fcitx5 /controller org.fcitx.Fcitx.Controller1.InputMethod
+fcitx5-remote -h
+fcitx5-remote -a
+fcitx5-remote -tx5M
+fcitx5-remote -fcitx5
+fcitx5-remote -m fcitx5
+fcitx5-remote -q
+fcitx5-remote -n
+fcitx5-remote -m keyboard-us
+cat /run/user/1000/bus
+l /run/user/1000/bus
+dbus-send --session --dest=org.fcitx.Fcitx5 --type=method_call --print-reply /controller org.fcitx.Fcitx.Controller1.InputMethod
+dbus-send --session --dest=org.fcitx.Fcitx5 --type=method_call --print-reply /controller org.fcitx.Fcitx.Controller1.State
+launch fcitx5
+pacman -Qo /usr/share/wayland-protocols/unstable/xwayland-keyboard-grab/xwayland-keyboard-grab-unstable-v1.xml
+pacman -Qo /usr/share/wayland-protocols/unstable/text-input/text-input-unstable-v1.xml exists in filesystem
+sudo mv /usr/share/wayland-protocols/ .
+sudo mv /usr/include/wayland-protocols/ .
+sudo mv /usr/include/wayland-protocols/ ./wayland-protocols2
+yay -S hyprland
+sudo mv wayland-protocols/ /usr/share/
+sudo mv wayland-protocols2/ /usr/include/wayland-protocols
+yay -S --overwrite "*" hyprland
+yay -S vifm
+ls /usr/share/hypr/
+lsix /usr/share/hypr//*
+lsix /usr/share/hypr/*
+lsix /usr/share/hypr/hyprland.conf
+lsix /usr/share/hypr/lockdead2.png
+lsix /usr/share/hypr/wall0.png
+lsix /usr/share/hypr/wall1.png
+lsix /usr/share/hypr/wall2.png
+man lsix
+lsix --help
+lspci | grep -E 'VGA|3D'
+ls /dev/dri/by-path/
+dmenu
+dmenu -h
+dmenu -b
+dm-tool switch-to-greeter
+rg XDG_CURRENT
+echo $XDG_SESSION_TYPE
+yay -S wkroots
+yay -S wlroots
+yay -S xorg-wayland
+yay -S xorg-xwayland
+libinput list-device
+sudo journalctl -xe | grep -i hyprland
+yay -S list-device
+yay -Ss list-device
+yay -Ss libinput
+libinput list-devices
+sudo libinput list-devices
+yay -S unclutter
+unclutter -keystroke
+yay -Rsc unclutter
+n .config/sway/config
+mv .config/hypr/hyprland.conf rc
+ln rc/hyprland.conf .config/hypr/
+rm .config/hypr/hyprland.conf && ln rc/hyprland.conf .config/hypr/
+cd rc
+n ~/.gitconfig
+diff ../.gitconfig .gitconfig
+rm ../.gitconfig
+ln .gitconfig ../
+g lgo
+n .gitconfig
+g lgp
+swww img /usr/share/backgrounds/backgnd.gif
+yay -S swww
+sudo mv Downloads/backgnd.gif /usr/share/backgrounds/
+swww-daemon
+launch swww-daemon
+swww img --transition-fps 60 --transition-type wipe --transition-duration 3
+swww img /usr/share/backgrounds/backgnd.gif --transition-fps 60 --transition-type wipe --transition-duration 3
+free -h
+swww img /usr/share/backgrounds/backgnd.gif --transition-fps 30 --transition-type wipe --transition-duration 3
+sudo mv Downloads/city.gif /usr/share/backgrounds/
+swww img /usr/share/backgrounds/city.gif --transition-fps 30 --transition-type wipe --transition-duration 3
+swww img /usr/share/backgrounds/city.gif --transition-fps 15 --transition-type wipe --transition-duration 3
+yay -S arora
+yay -Ss arora
+yay -Ss dillo
+yay -S dillo
+dillo
+launch dillo
+n .dillo/cookiesrc
+yay -Rsc dillo
+ls .dillo/
+rmf .dillo/
+yay -Ss surf
+yay -S surf
+launch surf
+yay -S libnuspell
+yay -Ss libaspell
+yay -Ss libvoikko
+yay -S aspell
+yay -S libvoikko
+surf
+yay -Ss libhunspell
+yay -Ss libhspell
+yay -Ss libnuspell
+yay -Rsc aspell surf libvoikko
+yay -Ss otter
+yay -S otter-browser
+# sudo cmake --build . --target install
+cmake --build . -j8 && sudo cmake --build . --target install ; shutdown now
+otter-browser
+launch otter-browser
+kill 1933
+launch firefox
+yay -Rsc otter-browser
+yay -Ss netsurf
+yay -S netsurf
+launch letsurf
+launch netsurf
+kill 2850
+launch vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland
+psa | grep cicaldi
+where clang
+l /usr/local/bin/clang
+z llvm
+./build
+cmake --build . -j8
+sudo cmake --build . --target install
+g cl https://github.com/vim/vim --depth 1
+cd vim
+cd src/auto
+rg compile_commands.json
+z nvi
+rg cmdwinenter -i
+rg '<ESC>"
+rg '<ESC>'
+rg '<Esc>'
+n lua/autocmd.lua
+n lua/opt.lua
+lldb rpx
+n src/ev
+make ice
+n include/evalfn.h
+make debug
+g merge jit
+g s main
+./rpx
+launch vivaldi
+psa | grep vivaldi
+n example/tips.rpx
+mkdir src/eval
+rmdir src/eval/
+mv Makefile .Makefile
+make TYPE=test OPTLEVEL=g
+make TYPE=test
+make TYPE=analyze
+bear -- make TYPE=bench
+n src/benchmarking.c
+bear -- make
+make TYPE=bench
+rg ic
+make LOGLEVEL=1
+make LOGLEVEL=
+n .Makefile
+mv .Makefile Makefile
+make T=analyzer
+make T=analyze
+make doc
+make ASAN=address
+make LL=1
+cp makefile makefile.txt
+cp Makefile Makefile.txt
+rm *.txt
+cat Makefile | wl-copy
+rm Makefile
+make test
+make clean
+l build/T-O3-L-SAN
+rm rpx
+rpx
+hyprctl monitor all
+hyprctl monitors all
+yay -S hyprpanel-bin
+yay -S bun-bin
+yay -S hyprlock
+hyprlock
+yay -Rsc hyprlock swaylock
+yay -Rsc hyprlock
+xdg-open
+xdg-open .
+yazi ~
+yazi ~/Downloads
+sudo mv Downloads/gruvbox.png /usr/share/backgrounds/
+sudo mv Downloads/gruvbox.jpg /usr/share/backgrounds/
+sudo rm /usr/share/backgrounds/gruvbox.png
+launch neovide
+psa | grep neovide
+nvrc
+neovide
+hyprpanel-client
+launch hyprpanel
+psa | grep hyprpanel
+yay -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon gvfs --needed
+yay -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib gvfs --needed
+yay -S hyprpanel
+hyprpanel
+yay -S ags-hyprpanel-git
+mkcd .config/ags
+rmdir ags
+git clone https://github.com/Jas-SinghFSU/HyprPanel.git
+git clone https://github.com/Jas-SinghFSU/HyprPanel.git --depth 1
+mv HyprPanel/ ags
+ags --version
+launch agsv1
+psa | grep agsv1
+rg mako
+n hypr/hyprland.conf
+agsv1
+hyprland --version
+hyprctl monitors
+echo $WLR_NO_HARDWARE_CURSORS
+yay -Qi sway
+yay -Qs sway
+yay -Rsc waybar swaybg sway
+journalctl -bp err
+journalctl -b -p err
+dmesg | grep -i drm
+sudo dmesg | grep -i drm
+sudo -E nvim /etc/lightdm/lightdm.conf
+echo $XDG_CURRENT_SESSION
+n .xprofile
+yay -Ss ly
+yay -S ly
+sudo systemctl disable lightdm.service
+sudo systemctl enable ly
+n /etc/ly/config.ini
+sozsh
+yay -Rsc lightdm
+yay -Rsc `yay -Qdtq`
+yay -Sc
+rm temp
+keyd -h
+IEJg
+keyd monitor
+builtin cd -- /home/sundo/.cache/nvim
+n .config/keyd/app.conf
+n src/emoji_utils.c
+n src/emoji_utils.h
+rg ÓÉ∏Éæ
+n src/emoji_mappings.h
+n src/emoji_mappings.c
+meson ..
+ninja build
+ninja clean
+./facad ../src
+n ../src/emoji_mappings.c
+ninja -j 4
+./facad
+./facad ..
+yay -S sbcl
+fc-list
+fc-list | grep ttf
+cd build
+sudo ninja uninstall
+yay -S facad
+facad
+rmf facad/
+cd foot
+echo $LANG
+echo $LOGNAME
+echo $LC_ALL
+fc-list | grep PlemolJP35Console
+yay -Qi plemoljp
+yay -Qi plemoljp35
+yay -Qi plemoljp35console
+yay -Ss plemoljp
+yay -Qi ttf-plemoljp
+z facad
+n .config/gtk-4.0/settings.ini
+n .config/gtk-3.0/settings.ini
+n .config/fontconfig/conf.d/99-cutefish.conf
+n .config/fontconfig/fonts.conf
+l .config/fontconfig
+fc-cache -fv
+man foot.ini
+yay -Q man
+yay -Ss ma
+yay -Ss man
+yay -S manpages
+yay -S man-pages
+man foot
+yay -Ss font
+ls -l
+which ls
+where ls
+where fzf
+yay -S ccache
+ccache
+echo $CCACHE_DIR
+build/T-Og-L-SAN/rpx
+scan-build make OL=3
+make lint OL=3
+scan-build make T=test
+scan-build --use-c=clang-18 make OL=3
+tokei
+make log OL=3 FP=build.log
+n build.log
+rm build.log
+git describe --tags --always --dirty
+git describe --tags --always
+date
+man date
+date -I
+man gcc
+man cmus
+clang -M src/main.c
+clang -M src/main.c -Iinclude -std=c23
+n .clang-tidy
+make lint
+clang -H src/main.c
+clang -H src/main.c -Iinclude
+clang -H src/main.c -Iinclude -std=c23
+gcc -std=c23 -Iinclude -o /dev/null src/main.c 2>&1 | grep -o 'included .*' | sort -u
+yay -S llvm
+yay -S include-what-you-use
+g cl https://github.com/include-what-you-use/include-what-you-use.git --depth 1
+cd include-what-you-use
+g b -a
+g s clang
+g s clang_18.0
+rmdir build/
+mkcd build
+cmake -G "Unix Makefiles" ../include-what-you-use
+rmf build/ include-what-you-use/
+n inc.sh
+sh inc.sh
+n src/gene.c
+n src/exproriented.c
+rg include
+rg include *.c *.h
+rg include **/*.c **/*.h
+g b
+g b --quiet
+clang src/main.c -std=c23 -Iinclude -MMD temp.d
+clang src/main.c -std=c23 -Iinclude -MMD -MF temp.d
+n temp.d
+rm temp.d
+l src
+make -pRr | grep -E '^SRCS|OBJS|DEPS|TARGETDIR'
+make log
+clang -std=c23 -Iinclude -MMD -MF dep/T-Og-L-SAN-Bmain/ansiesc.d -c src/ansiesc.c -o build/T-Og-L-SAN-Bmain/ansiesc.o
+l dep
+l dep/T-Og-L-SAN-Bmain
+rmf dep
+rm inc.sh
+mkdir -p build/{dep,target}
+clang main.c -o build/temp
+rm main.c
+make -d
+make -d | bat
+l build
+l build/dep
+l build/dep/T-Og-L-SAN-Bmain
+file build/target/T-Og-L-SAN-Bmain/rpx
+n .git/HEAD
+g s jit
+g b --show-current
+g b --show-current -q
+g b --show-current --qiet
+l build/target/T-O3-L-SAN-Bmain
+make -v
+g describe --tags --always
+ccache -s
+which eijg 2>/dev/null
+which eijg 2>&1 >/dev/null
+which ekgje > /dev/null
+cat makefile | wl-copy
+g b --show-current 2>/dev/null
+n markov/
+make log T=bench
+make T=bench
+make T=bench OL=0
+make hel
+n main.lisp
+sbcl
+n main.fasl
+file main.fasl
+sh main.fasl
+chmod +x main.fasl
+./main.fasl
+rm main*
+ffmpeg -i 1561323.jpg -vf eq=brightness=-0.3 output.jpg
+ffmpeg -i 1561323.jpg -vf eq=contrast=-0.3 output.jpg
+ffmpeg -i 1561323.jpg -vf eq=contrast=-0.3 output2.jpg
+ffmpeg -i 1561323.jpg -vf eq=contrast=0.3 output2.jpg
+ffmpeg -i 1561323.jpg -vf eq=contrast=1.5 output2.jpg
+ffmpeg -i output2.jpg -vf eq=brightness=-0.3 output3.jpg
+swww img output2.jpg --transition-fps 15 --transition-type wipe --transition-duration 3
+swww img output3.jpg --transition-fps 15 --transition-type wipe --transition-duration 3
+ffmpeg -i 1561323.jpg -vf eq=brightness=-0.3 -q:v output.jpg
+ffmpeg -i 1561323.jpg -vf eq=brightness=-0.3 -q:v -o output.jpg
+ffmpeg -i 1561323.jpg -vf eq=brightness=-0.3 -q:v 2 -o output.jpg
+n .config/foot/foot.ini
+sudo mv Downloads/output3.jpg /usr/share/backgrounds/factory.jpg
+cd Downloads
+ffmpeg -i 722880.jpg -vf "curves=blue='0/0 0.5/0.2 1/0.8" output.jpg
+ffmpeg -i 722880.jpg -vf "curves=blue='0/0 0.5/0.7 1/1',green='0/0 0.5/0.3 1/1'" output.jpg
+ffmpeg -i 722880.jpg -vf "curves=blue='0/0 0.5/0.7 1/1'" output.jpg
+ffmpeg -vf "curves=blue='0/0 0.5/0.7 1/1',green='0/0 0.5/0.3 1/1'" output.jpg -i 722880.jpg
+ffmpeg -i 722880.jpg -vf "curves=blue='0/0 0.5/0.7 1/1':green='0/0 0.5/0.3 1/1'" output.jpg
+ffmpeg -i 722880.jpg -vf "curves=blue='0/0 0.5/0.7 1/1':green='0/0 0.5/0.3 0.5/0.3'" output.jpg
+ffmpeg -i 722880.jpg -vf "curves=blue='0/0 0.5/0.7 1/1':green='0/0 0.5/0.3 1/1':eq=brightness=-0.3" output.jpg
+ffmpeg -i 722880.jpg -vf "curves=blue='0/0 0.5/0.7 1/1':green='0/0 0.5/0.3 0.5/0.3'" "eq=brightness=-0.3" output.jpg
+ffmpeg -i 722880.jpg -vf "eq=saturation=1.2:gamma_b=0.8:gamma_r=1.1" output.jpg
+ffmpeg -i 722880.jpg -vf "eq=saturation=1.2:gamma_b=0.8:gamma_r=1.1:gamma_g=0.3" output.jpg
+ffmpeg -i 722880.jpg -vf "eq=saturation=1.2:gamma_b=0.8:gamma_r=1.1:gamma_g=0.6" output.jpg
+ffmpeg -i 722880.jpg -vf "chromakey=0x00FF00:0.1,format=rgba,lutrgb=r=255:g=0:b=0" output.jpg
+ffmpeg -i 722880.jpg -vf "chromakey=0x00FF00:0.05,format=rgba,lutrgb=r=255:g=0:b=0" output.jpg
+ffmpeg -i 722880.jpg -vf "chromakey=0x00F6FF:0.1,format=rgba,lutrgb=r=34:g=58:b=112" output.jpg
+ffmpeg -i 722880.jpg -vf "curves=blue='0/0 0.4/0.8 1/1'" output.jpg
+ffmpeg -i output.jpg -vf "eq=brightness=-0.3" output.jpg
+ffmpeg -i output.jpg -vf "eq=contrast=1.3" output.jpg
+ffmpeg -i 722880.jpg -vf "curves=blue='0/0 0.4/0.8 1/1':green='0/0 0.5/0.2 1/1'" output.jpg
+swww img output.jpg --transition-fps 15 --transition-type wipe --transition-duration 3
+n ~/.config/foot/foot.ini
+sudo mv Downloads/output.jpg /usr/share/backgrounds/cyber.jpg
+rm Downloads/*.jpg
+n .config/hypr/hyprland.conf
+pwd | basename
+basename `pwd`
+md5sum
+sha1sum
+where md1sum
+where md5sum
+md5sum -h
+md5sum --help
+md5sum --status
+md5sum --quiet
+md5sum | cut -d\  -f1
+md5sum | cut -f1
+rmf build/
+make run
+make run OL=g
+z .co
+z cmus
+mv ~/Downloads/cmus-themes-v1-0-0.tar.gz .
+extract cmus-themes-v1-0-0.tar.gz
+mkdir theme
+mv *.theme theme/
+rm cmus-themes-v1-0-0.tar.gz
+cmus
+loadkeys
+loadkeys --help
+loadkeys --mktable
+loadkeys dvorak
+l /usr/share/kbd/keymaps
+man loadkeys
+sudo keyd monitor
+sudo keyd bind '= = +'
+man keyd
+sudo keyd bind '= = ='
+sudo systemctl restart keyd
+l /usr/share/keyd/layouts
+sudo systemctl stop keyd
+sudo systemctl start keyd
+sudo keyd bind '# = ('
+sudo keyd bind '\# = ('
+sudo keyd bind 'sharp = ('
+sudo keyd bind 'hash = ('
+sudo keyd bind '! = ('
+sudo keyd bind 'S-1 = ('
+nv
+sudo keyd bind 'esc = setlayout(new)'
+sudo keyd bind 'esc = setlayout(newlayout)'
+sudo keyd bind 'include layouts/newlayout;esc = setlayout(newlayout)'
+sudo keyd bind 'esc = setlayout(dvorak)'
+sudo keyd reload -v
+sudo keyd bind '1 = 2'
+sudo keyd bind '1 = 1'
+sudo keyd bind '1 = setlayout(new)'
+sudo keyd -d
+sudo keyd list-keys
+sudo keyd -d list-keys
+sudo keyd listen
+sudo keyd
+sudo keyd -
+sudo mkdir /etc/keyd/layouts
+n /usr/share/keyd/layouts/dvorak
+journalctl -u keyd
+nvimsudo /etc/keyd/layouts/newlayout
+sudo rm -rf /etc/keyd/layouts/
+yay -
+yay -Qi chez-scheme
+yay -S chez-scheme
+z proc
+g cl https://github.com/cisco/ChezScheme.git --depth 1
+cd ChezScheme
+./configure
+make -j16
+scheme --version
+scheme --help
+scheme
+l .build
+sudo -s
+basename
+make run-valgrind
+make run OL=3
+make run-lldb
+make OL=g
+make run-lldb OL=g
+make run-valgrind OL=3
+make run-valgrind OL=g
+make run-valgrind\ --leak-sheck=full OL=g
+make run-valgrind\ --leak-check=full OL=g
+rm vgcore.47943
+size makefile
+size .build/05705ea89eb08efe2a2d87983b9d3a6e/target/rpx
+command -v clang
+command -v clanga
+command ccache clang
+command
+n include/ice.h
+n src/ice.c
+../markov
+n dep/T-Og-L-SAN-Bmain/ansiesc.d
+n data/input.txt
+uniq data/input.txt
+uniq data/input.txt | wc -l
+cat data/input.txt | wc -l
+./a.out data/input.txt
+./proc
+cd llvm-project
+../gcc
+../zig
+n src/Sema.zig
+../ChezScheme
+make CMAKE_BUILD_TYPE=Release -j16
+sudo make install
+~/linux
+make help
+make release
+make clean-all
+sudo make clean-all
+sudo make install OL=3
+yay -Qv
+yay -Qs
+yay -Qc
+yay -Q | cut -d\  -f1
+n pacmanlist.txt
+rm makefile
+n install.sh
+which zsh
+where zsh
+n ~/.zsh_history
+l ~/.zsh_history
+n ~/.config/atuin/config.toml
+yay -S atuin
+atuin init zsh
+eval `atuin init zsh`
+atuin login
+atuin history
+n ~/.histfile
+n reg.sh
+rm .zsh_history
+./reg.sh
+atuin sync
+atuin help
+atuin account
+atuin account help
+atuin gen-completions zsh
+atuin gen-completions
+atuin gen-completions --shell zsh
+eval `atuin gen-completions --shell zsh`
+atuin import zsh
+atuin history list
+yay -Rsc atuin
+rmf ~/.config/atuin/
+rmf ~/.local/share/atuin/
+g p
+n .vimrc
+n brightnessctl.service
+n config.fish
+n alacritty.toml
+n foot.ini
+n keyd.conf
+l /etc/tlp.conf
+n defaults.conf
+l /etc/tlp.d/00-template.conf
+n /etc/tlp.conf
+n example/all.rpx
+n tool/rpx.vim
+n LICENSE
+n src/ansiesc.c
+make T=test
+n src/exception.c
+make run T=test
+swww img /usr/share/backgrounds/cyber.jpg
+swww img /usr/share/backgrounds/gruvbox.jpg
+setterm -foreground black -background white
+tty
+lspci
+journalctl --disk-usage
+vmstat
+hwclock
+hwclock --show
+procs --tree
+nl makefile
+nl --version
+man nl
+cpp src/main.c
+cpp src/main.c -Iinclude
+dmesg
+sudo dmesg
+sudo dmesg | grep faul
+sudo dmesg | grep fail
+g cl https://github.com/fairyglade/ly --depth 1
+cd ly
+n src/auth.zig
+n src/bigclock.zig
+n src/bigclock/en.zig
+man strftime
+sudo systemctl restart ly.service
+nvimsudo /etc/ly/config.ini
+n /etc/keyd/default.conf
+n keylayout
+mv keylayout keylayout.json
+n src/editline.c
+n keylayout.json
+ncdu
+n src/evalfn.c
+nvimsudo /etc/keyd/default.conf
+sudo keyd reload
+hyprland --help
+z tool
+g cl https://github.com/hyprwm/Hyprland.git --depth 1
+n Makefile
+yay -S libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm libliftoff libdisplay-info cpio tomlplusplus hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git --needed
+yay -S hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git --needed
+g submodule sync
+rmf Hyprland/
+g cl https://github.com/hyprwm/Hyprland.git --depth 1 --recurse-submodules
+cd Hyprland
+yay -Q hyprland-
+yay -Q hyprland-*
+make all && sudo make install
+where hyprland
+hyprland
+hyprland --systeminfo
+/usr/local/bin/hyprland
+cd Hy
+sudo make uninstall
+rmf Hyprland
+n rpx.vim
+..
+rg CAT
+n include/chore.h
+n src/chore.c
+rg alloc
+n src/matop.c
+rg new
+n src/elemop.c
+n src/graphplot.c
+make T=test OL=3
+make run T=test OL=3
+make run T=test OL=g
+yay -Rsc hyprland
+yay -R hyprland
+z nvim
+./syncplug.sh
+z neovim
+../vim
+g pl
+yay -Q hyprcursor
+echo $HYPRCURSOR_SIZE
+echo $HYPRCURSOR_THEME
+yay -Ss hyprcursor
+yay -S rose-pine-hyprcursor
+psa | grep yay
+n shutdown.sh
+sh shutdown.sh
+yay -Q | grep hyprcursor
+yay -S sweet-cursors-hyprcursor-git simp1e-amber-hyprcursor nordzy-hyprcursors bibata-cursor-git xcursor-pro-hyprcursor hyprcursor-dracula-kde-git
+hyprctl setcursor swwet-cursors-hyprcursor 24
+hyprctl setcursor nordzy-hyprcursors 24
+hyprctl setcursor rose-pine-hyprcursor 24
+hyprctl setcursor rose-pine-hyprcurso 24
+hyprctl setcursor dracula 24
+hyprctl setcursor hyprcursor-dracula 24
+hyprctl setcursor hyprcursor-dracula-kde 24
+hyprctl setcursor Nordzy-cursors
+hyprctl setcursor Nordzy-cursors 24
+hyprctl setcursor sweet-cursors
+hyprctl setcursor sweet-cursors 24
+hyprctl setcursor sweet-cursor 24
+hyprctl setcursor xcursor-pro 24
+hyprctl setcursor Xcursor-Pro 24
+hyprctl setcursor XCursor-Pro-Hyprcursor-Dark 24
+hyprctl setcursor bibata-cursor 24
+hyprctl setcursor bibata-cursors 24
+mkcd ui
+g cl https://gitlab.com/Pummelfisch/future-cyan-hyprcursor.git --depth 1
+yay -Rsc sweet-cursors-hyprcursor-git simp1e-amber-hyprcursor nordzy-hyprcursors bibata-cursor-git xcursor-pro-hyprcursor hyprcursor-dracula-kde-git
+yay -Rsc sweet-cursors-hyprcursor-git nordzy-hyprcursors bibata-cursor-git xcursor-pro-hyprcursor hyprcursor-dracula-kde-git
+cd future-cyan-hyprcursor
+cp -r Future-Cyan-Hyprcursor_Theme/ ~/.local/share/icons/
+hyprctl setcursor Future-Cyan-Hyprcursor_Theme 24
+hyprctl setcursor Future-Cyan-Hyprcursor_Theme 30
+where zls
+yay -S zig
+rm build.zig
+time python3 -c ''
+who
+whoami
+yay -S tshark
+yay -Ss tshark
+yay -Ss termshark
+yay -S termshark
+n ~/.config/hyprpanel/config.json
+hyprpanel -h
+l ~/.local/share/icons
+gsettings set org.gnome.desktop.interface cursor-theme Future-Cyan-Hyprcusor_Theme
+gsettings -h
+gsettings set org.gnome.desktop.interface cursor-theme -h
+gsettings set org.gnome.desktop.interface cursor-theme
+tshark
+sudo tshark
+mkcd project/pro/alg
+mkcd no12
+n main.c
+zig cc main.c
+./a.out
+./a.out| wl-copy
+cp ../no8/Makefile ./makefile
+pwf
+pwd
+n main.tex
+sudo tshark -D
+tshark -i wlp1s0
+sudo tshark -i wlp1s0
+sudo tshark -i wlp1s0 -Y http
+sudo tshark -i wlp1s0 -Y https
+zig targets
+z zig
+zig build --summary
+zig build --summary all
+ls src/ | head -n 1
+head src/* -n 1
+n temp.c
+zig cc temp.c
+rm a.out
+rm temp.c
+n temp.zig
+zig run temp.zig
+rm temp.zig
+rmf .zig-cache/
+zig build.zig
+n src/main.c
+n .gitignore
+zig
+zig run
+zig run src/main.c
+neofetch
+brightnessctl set 5
+brightnessctl set 7
+brightnessctl set 15
+brightnessctl set 12
+brightnessctl set 11
+nmcli connection show
+nmcli connection edit WLH-U
+n /etc/netconfig
+ls /etc/ssl/certs/
+nmcli device
+nmcli device device list
+nmcli device wifi list
+journalctl -
+journalctl
+journalctl | tail
+nvtui
+sudo systemctl restart NetworkManager.service
+systemctl status NetworkManager.service
+sudo systemctl start NetworkManager.service
+sudo systemctl stop NetworkManager
+journalctl -xeu NetworkManager.service
+brightnessctl
+reboot
+brightnessctl set 10
+sudo systemctl status NetworkManager
+sudo systemctl enable NetworkManager
+NetworkManager
+sudo systemctl start NetworkManager
+z etc
+z ca-certificates
+sudo trust extract-compat
+ifconfig
+ip link show
+ip link show slp1s0
+ip link show wslp1s0
+ip link show wlp1s0
+openssl s_client -showcerts -connect
+openssl s_client -showcerts -connect WLH-U
+openssl s_client -showcerts
+openssl s_client
+Z
+z
+openssl pkcs12 -clcerts -nokeys -out my.crt
+l /etc/NetworkManager/system-connections
+sudo l /etc/NetworkManager/system-connections
+sudo ls /etc/NetworkManager/system-connections
+acpi -b
+wpa_supplicant
+ls .atuin/
+ls .atuin/bin/
+rmf .atuin/
+ls -A
+trust list
+openssl x509 -text -in /etc/ssl/certs/ca-certificates.crt
+openssl x509 -text -in /etc/ssl/cert.pem
+nmcli connection modify WLH-U 802-1x.eap peap 802-1x.ca-cert /etc/ca-certificates/certs/ca-certificates.crt 802-1x.identify s2201050
+nmcli connection modify WLH-U 802-1x.eap peap 802-1x.ca-cert /etc/ssl/certs/ca-certificates.crt 802-1x.identify s2201050
+nmcli connection modify WLH-U 802-1x.eap peap 802-1x.ca-cert /etc/ssl/certs/ca-certificates.crt 802-1x.identity s2201050
+nmcli device wifi connect WLH-U
+nmcli device wifi connect WLH-U --ask
+journalctl -xeu NetworkManager
+ls /etc/ca-certificates/extracted/ca-bundle.trust.crt
+nmcli
+nmtui
+lscpu
+nvimsudo /etc/NetworkManager/system-connections/WLH-U-d760b00d-32c0-4380-84cf-53db96ce4bfa.nmconnection
+nvimsudo /etc/NetworkManager/NetworkManager.conf
+journalctl -b
+sudo journalctl --vacuum-time=1weeks
+zig build run
+zig build
+zig build run -Doptimize=ReleaseFast
+zig build -Doptimize=ReleaseFast
+zig build --release
+zig build -h
+zig build -DT=test
+zig build run -DT=test
+zig build run --release
+zig build run --release=fast
+zig build --release=fast
+l .zig-cache
+l .zig-cache/o/02fe2dce6056ce97b05cc75df8bdc3a0/ansiesc.o
+zig build --release=size
+zig build --release=small
+l zig-out/bin/rpx
+l .build/441c49f43cf3b6c23fb8af6cf506705c/target
+zig build -DT=bench --release=fast
+make log T=bench OL=3
+make clean T=bench OL=3
+make T=bench OL=3
+zig build -DT=bench
+zig build run -DT=bench
+onefetch
+z gpt
+n .gptignore
+python3 gpt_repository_loader.py ~/project/c/rpx -o rpx.txt
+n rpx.txt
+cat rpx.txt | wl-copy
+n BUILD.md
+n build.zig
+make run T=bench
+l .build/a04d1929086346f1d49aba706a201121/target/
+l .zig-cache/h/0134e489a35a6f30028129fea94e6885.txt
+amdgpu_top
+lsmem
+psa
+man pam
+man pam_start
+man pam_conv
+man execlp
+systemctl status ly
+ping google.com
+yay -S bynfont
+yay -S dina-font
+setfont bynfont.psfu.gz
+exho $FONTSIZE
+echo $FONTSIZE
+ls /etc/fonts/
+ls /etc/fonts/conf.d/
+setfont dina.psfu.gz
+/etc
+../usr
+./share/kbd/consolefonts
+ls dina*
+yay -Ql dina-font
+yay -Ql bdf-unifont
+yay -S bdf-unifont
+yay -S efont-unicode-bdf
+yay -Ql efont-unicode-bdf
+yay -Ql efont-unicode-bdf | grep psf
+yay -Rsc efont-unicode-bdf
+yay -Ss kissinger
+z Downloads
+extract kissinger2dev4.zip
+mkdir ~/Music
+mv *.mp3 ~/Music
+rm *.zip
+n readme.cpp
+rg install
+man bdf2pcf
+yay -Ss bdf
+yay -S bdf2psf
+n kissinger2ftest.bdf
+yay -S otf2bdf
+otf2bdf Kissinger2f.ttf -o out.bdf
+diff out.bdf kissinger2ftest.bdf
+otf2bdf Kissinger2f.ttf -h
+n out.bdf
+bdf2psf --fb out.bdf /usr/share/bdf2psf/standard.equivalents /usr/share/bdf2psf/ascii.set 256 kissinger.psf
+sudo cp kissinger.psf /usr/share/kbd/consolefonts/
+rmf *
+mkcd ../fonts
+l /usr/share/kbd/consolefonts
+ls /usr/share/fonts/PlemolJP/
+mkdir ttf
+mkdir bdf
+mkdir psf
+cp /usr/share/fonts/PlemolJP/* ttf/
+sudo cp /usr/share/fonts/misc/*.gz /usr/share/kbd/consolefonts/
+otf2bdf ttf/PlemolJP35-BoldItalic.ttf -o temp.bdf
+n temp.bdf
+rm temp.bdf
+man otf2bdf
+n bdf/PlemolJP35-BoldItalic.bdf
+rm bdf/PlemolJP35-BoldItalic.bdf
+make -k
+l bdf
+yay -S fontforge
+fontforge -lang=ff -c 'Open*$1
+fontforge -lang=ff -c 'Open($1); Generate($2)' ttf/PlemolJP35-BoldItalic.ttf temp.bdf
+fontforge -h
+jobs
+kill 58789
+jobs -p
+fg
+yay -Rsc fontforge
+make -k -j16
+otf2bdf ttf/PlemolJP35-BoldItalic.ttf -o bdf/PlemolJP35-BoldItalic.bdf
+otf2bdf ttf/PlemolJP35-BoldItalic.ttf -z bdf/PlemolJP35-BoldItalic.bdf
+yay -S artwiz-fonts
+yay -Ql artwiz-fonts
+yay -R artwiz-fonts
+z Dow
+extract 0xProto.zip
+z -
+mv ~/Downloads/*.ttf ttf/
+make
+rmf ttf/*
+z rpx
+make log OL=3
+make T=asm OL=3
+make asm OL=3
+make main.s OL=3
+make src/main.s OL=3
+n src/main.s
+rm src/main.s
+n makefile
+make run T=bench OL=3
+l .build/641abcde3a07346681d57b1a81b27e4b/target
+make OL=3
+l .build/459fb5b8b9226fe49fd24fe82ce4cc62/target
+zig build run -DT=bench --release-fast
+zig build run -DT=bench --release=fast
+l zig-out/bin
+./zig-out/bin/rpx
+.zig-cache/o/3597b72efa7f1d41589cc67c91af19f0/rpx
+zig build run -DT=bench --release=small
+zig build run -DT=bench --release=
+zig build run -DT=bench --release
+zig build run -DT=bench --release=safe
+l **/rpx
+shutdown now
+setfont dina
+setfont -u /usr/share/fonts/misc/DinaMedium8.pcf.gz
+/
+./usr
+fzf
+setfont kissinger.psf
+setfont dinaMidium8.psf.gz
+l /usr/share/fonts/misc
+setfont DinaMidium8.psf.gz
+setfont DinaMedium8.psf.gz
+setfont DinaMedium6.pcf.gz
+setfont DinaMedium10.pcf.gz
+setfont DinaMedium8.pcf.gz
+sudo rm Dina*
+sudo rm /usr/share/kbd/consolefonts/Dina*
+z console
+setfont alt-8x16.gz
+setfont GohaClassic-16.psfu.gz
+setfont -d GohaClassic-16.psfu.gz
+setfont -d aply16.psf.gz
+setfont -d iso01.16.gz
+setfont -d greek-polytonic.psfu.gz
+setfont -d arm8.fnt.gz
+setfont -d cp850-8x16.psfu.gz
+setfont -d lat9-16.psf.gz
+setfont -d lat1-08.psfu.gz
+setfont -d lat1-16.psfu.gz
+setfont -d Mik_8x16.gz
+setfont -d pancyrillic.f16.psfu.gz
+setfont -d partialfonts/8859-10.a0-ff.08.gz
+setfont -d viscii10-8x16.psfu.gz
+setfont -d t.fnt.gz
+setfont -d tcvn8x16.psf.gz
+setfont -d UniCyr_8x16.psf.gz
+setfont -d solar24x32.psfu.gz
+setfont -d ruscii_8x16.psfu.gz
+setfont -d eurlatgr.psfu.gz
+setfont -d bynfont.psfu.gz
+setfont -d altc-8x16.gz
+setfont -d alt-8x16.gz
+setfont -d Agafari-16.psfu.gz
+setfont -d drdos8x16.psfu.gz
+setfont -d cyr-sun16.psfu.gz
+setfont -d Goha-16.psfu.gz
+n
+setfont
+setfont -d cybercafe.fnt.gz
+htop
+btop
+nvimsudo /etc/vconsole.conf
+man setfont
+man script
+script --timing
+scriptreplay typescript
+rm typescript
+man grim
+grim
+rm Pictures/20241130_10h41m42s_grim.png
+yay -Syu
+yay -S scrot
+scrot --select
+man scrot
+scrot -b
+l Pictures
+ls
+rm 2024-11-30-104621_1440x900_scrot.png
+yay -Rsc scrot
+foot vifm
+vifm
+yazi
+foot fzf
+fzf /
+n ~/.config/hypr/
+man yazi
+yazi --version
+n ~/.config/hypr/hyprland.conf
+yay -Qs manager
+yay -Rsc sway
+yay -Rsc emptty
+fastfetch
+z rc
+l
+yay -Q
+yay -Q | cut -d\  -f1 > pacmanlist.txt
+laz
+yay -S nu
+yay -S nushell
+nu
+zshrc
+exit
+setfont cybercafe8x16
+setfont -d cybercafe8x16
+setfont -d cybercafe

@@ -9,9 +9,11 @@ alias man = man --pager='bat -l man -p'
 alias fzf = tv
 alias rmf = rm -rf
 alias psa = procs
+alias ffcmd = cat $nu.history-path | sed 's/ \+$//' | ^sort -u | tv
 
 def --env mkcd [dir: path] {
-    mkdir $dir and cd $dir
+    mkdir $dir
+	cd $dir
 }
 
 def --env compileasm [fname: string] {
