@@ -26,10 +26,6 @@ def --env ggrks [...queries] {
     w3m -sixel http://www.google.co.jp/search?q=($queries | str join +)
 }
 
-def --env launch [...cmd] {
-    nohup ($cmd | str join ' ') out+err> /dev/null &
-}
-
 def --env extract [fname: path] {
     if ($fname | str ends-with .zip) {
         unzip $fname
@@ -42,9 +38,12 @@ def --env extract [fname: path] {
     }
 }
 
-def --env send-to-nvim-cmd [cmd: string] {
+def --env send-to-nvim-cmd [cmd: string, --strict = false] {
     try {
 		nvim --server $env.NVIM --remote-send $cmd
+	} catch {
+		if not $strict { return }
+		error make { msg: "Neovim is not running" }
 	}
 }
 
@@ -55,6 +54,7 @@ def --env z [...rest: string] {
     } else {
       (zoxide query --exclude $env.PWD -- ...$rest | str trim -r -c "\n")
     }
+	if ($path | is-empty) { error make { msg: $"No matching directory for: ($rest)" } }
 	send-to-nvim-cmd $"<cmd>cd ($path)<CR>"
 	cd $path
 	zoxide add .
