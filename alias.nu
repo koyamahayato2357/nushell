@@ -41,3 +41,10 @@ def --env extract [fname: path] {
         ^echo "Unsupported file type:" ($fname | path parse | get extension)
     }
 }
+
+def --env zs [path: string] {
+	let actual_path = (zoxide query $path)
+	nvim --server $env.NVIM --remote-send $"<cmd>cd ($actual_path)<CR>"
+	cd $actual_path
+	zoxide add .
+}

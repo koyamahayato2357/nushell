@@ -65,7 +65,6 @@ $env.LAST_EXIT_CODE
 ../../project/c/rpx
 alias cd = cd
 ^cd -
--
 alias -h
 match 'hello.zip' { (_ + '.zip') => echo 'true', _ => false }
 match 'hello.zip' { (_ + '.zip') => echo 'true' }
@@ -96,7 +95,6 @@ date now | $in + 1month
 date now | $in + 1m
 date now | $in + 10day
 date now | $in + 10min
-path -h
 alias.nu | path parse
 echo alias.nu | path parse
 echo alias.nu | path parse | pick extension
@@ -105,7 +103,6 @@ echo ~/alias.nu | path parse | get extension
 extract alias.nu
 echo 'abc.tar.gz' | path parse
 path parse -h
-nu -h
 nu --ide-ast alias.nu
 shut
 bat project/c/rpx/README.md
@@ -198,7 +195,6 @@ open monster-vimmer.txt
 n monster-vimmer.txt
 sys
 sys net
-sys host
 cpufreq-bench
 cpupower
 cpupower info
@@ -373,7 +369,6 @@ port -h
 [[{x:12, y:15}, {x:8, y:9}], [[x, y]; [12, 15], [8, 9]]] | describe
 desc -h
 describe  -h
-ls | describe
 ls | describe -d
 {shell:'true', uwu:true, features: {bugs:false, multiplatform:true, speed: 10}, fib: [1 1 2 3 5 8], on_save: {|x| $'Saving ($x)'}, first_commit: 2019-05-10, my_duration: (4min + 20sec)}
 {shell:'true', uwu:true, features: {bugs:false, multiplatform:true, speed: 10}, fib: [1 1 2 3 5 8], on_save: {|x| $'Saving ($x)'}, first_commit: 2019-05-10, my_duration: (4min + 20sec)}  | describe -d
@@ -419,7 +414,6 @@ open .config/nushell/history.txt
 cd (tv | path dirname)
 ls | where type == dir | each { |it| $it.name} | str join (char nl) | tv
 ls -r | where type == dir | each { |it| $it.name} | str join (char nl) | tv
-ls -h
 ../../../.config/nushell/
 source $nu.config-path
 git remote add origin https://github.com/koyamahayato2357/nushell.git
@@ -524,7 +518,6 @@ help commands | select name | to csv | tail -n +2 | ^uniq | tv
 ^fzf
 cat $nu.history-path | ^fzf
 z .config/nushell/
-cat history.txt | wc
 cat history.txt | uniq | wc
 cat history.txt | ^uniq | wc
 cat history.txt
@@ -550,7 +543,6 @@ cat history.txt | table
 cat history.txt | table -i
 cat history.txt | table -i name
 cat history.txt | table -i 0
-table -h
 [[name]; (cat history.txt)]
 [[name]; [(cat history.txt)]]
 cat history.txt | sort -u
@@ -563,8 +555,6 @@ cat history.txt | ^sort | ^uniq
 cat history.txt | sed 's/ \+$//' | ^sort | ^uniq
 cat history.txt | sed 's/ \+$//' | ^sort | ^uniq | tv
 save -g
-ls | table
-z nushell
 z ../.config/nushell/
 rg ansi
 n env.nu
@@ -586,10 +576,8 @@ cat $nu.history-path | str replace ' +$' '' -r | ^sort -u
 cat $nu.history-path | str replace ' +$' '' -ar | ^sort -u
 ^echo -e 'hello\nhello' | str replace 'o$' 'a' -a
 ^echo -e 'hello\nhello' | str replace 'o$' 'a' -ar
-n alias.nu
 starship prompt --cmd-duration $env.CMD_DURATION_MS $"--status=($env.LAST_EXIT_CODE)" --terminal-width (term size).columns
 starship prompt --right --cmd-duration $env.CMD_DURATION_MS $"--status=($env.LAST_EXIT_CODE)" --terminal-width (term size).columns
-n starship.nu
 source config.nu
 sys users
 uname
@@ -599,7 +587,6 @@ zig build run -- src/main.zig
 zig test src/main.zig -- src/main.zig
 zig test -h
 zig test -h | grep arg
-config nu
 lldb zig-out/bin/uniqu
 n /usr/lib/zig/std/mem/Allocator.zig
 zig run src/main.zig -- temp.txt
@@ -635,11 +622,8 @@ rm src/root.zig
 rm temp.txt
 ../vim/
 n src/version.c
-../ly/
 ~/proc/ChezScheme/
 n s/cptypes.ss
-../llvm-project/
-../zig/
 n test/tests.zig
 rmf .nix*
 ls /
@@ -690,10 +674,7 @@ echo $env.__zoxide_hooked
 zoxide add
 zoxide add ~/project/zig/superuniq/
 zoxide add ~/.config/nushell/
-z nu
 wc history.txt
-n history.txt
-cat history.txt | superuniq | wc
 ls | get name
 find -h
 n cc.nu
@@ -721,7 +702,6 @@ rmf wofi/ unity3d/
 mkcd starship
 rmdir starship
 touch starship.toml
-n starship.toml
 echo $env.STARSHIP_SHELL
 echo $env.STARSHIP_SESSION_KEY
 rm starship.toml
@@ -778,7 +758,6 @@ n src/generate.zig
 rg linker
 n tools/generate_linker_script.zig
 z examples/stmicro/stm32/
-tv
 rg f103c8
 rg f103c8 -i
 vim port/stmicro/stm32/src/chips/all.zig
@@ -819,7 +798,6 @@ make run OL=3 T=bench
 rg get_rtinfo
 make run T=bench OL=2
 zig build run -DT=bench --release=debug
-make run T=bench OL=g
 cmake . --target build
 cmake . build
 rm -h
@@ -830,7 +808,6 @@ g cl https://github.com/llvm/llvm-project --depth 1
 cd llvm-project/
 cmake -G "Ninja" ../llvm -DLLVM_ENABLE_PROJECTS="clang;lld;clang-tools-extra" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release
 cd proc/llvm-project/
-cd build/
 ps | hypr
 ps | find hypr
 sudo systemctl stop hyprland
@@ -864,10 +841,8 @@ zig build --release=fast -Tuse-llvm
 rg 19\.x
 n cmake/Findclang.cmake
 ../gcc/
-~/linux/
 z super
 cat ~/.histfile | cut -d';' -f2-
-z nus
 yay -S zap
 zap
 plug
@@ -925,8 +900,6 @@ n makefile-c
 n main.bf
 cp main.bf test.bf
 ./a.out main.bf
-+++++++++[>++++++++>+++++++++++>+++>+<<<<-]>.>++.+++++++..+++.\
->+++++.<<+++++++++++++++.>.+++.------.--------.>+.>+.\
 rm main.bf
 cd ~/project/c/brain\*\*\*\*
 cat test.bf
@@ -934,39 +907,13 @@ cat test.bf
 factor 117
 ./a.out test.bf|head -n 10
 ./a.out test.bf|head -n 100
-+[-->-[>>+>-----<<]<--<---]>-.>>>+.>>..+++[.>]<<<<.+++.------.<<-.>>>>+.\
 sudo pacman -S bf
-+++++++++[->++++++++>+++++++++++>+++++<<<]>.>++.+++++++..+++.>-.\
-------------.<++++++++.--------.+++.------.--------.>+.\
 mkcd ~/tool
 git clone https://github.com/fabianishere/brainfuck.git
 cd brainfuck
 brainfuck test.bf
-++++++[->++++>>+>+>-<<<<<]>[<++++>>+++>++++>>+++>+++++>+++++>>>>>>++>>++<\
-<<<<<<<<<<<<<-]<++++>+++>-->+++>->>--->++>>>+++++[->++>++<<]<<<<<<<<<<[->\
--[>>>>>>>]>[<+++>.>.>>>>..>>>+<]<<<<<-[>>>>]>[<+++++>.>.>..>>>+<]>>>>+<-[\
-<<<]<[[-<<+>>]>>>+>+<<<<<<[->>+>+>-<<<<]<]>>[[-]<]>[>>>[>.<<.<<<]<[.<<<<]\
->]>.<<<<<<<<<<<]\
->++++[<++++++++>-]>++++++++[<++++++>-]<++.<.>+.<.>++.<.>++.<.>------..<.>\
-.++.<.>--.++++++.<.>------.>+++[<+++>-]<-.<.>-------.+.<.> -.+++++++.<.>\
-------.--.<.>++.++++.<.>---.---.<.> +++.-.<.>+.+++.<.>--.--.<.> ++.++++.<.>\
----.-----.<.>+++++.+.<.>.------.<.> ++++++.----.<.> ++++.++.<.> -.-----.<.>\
-+++++.+.<.>.--.\
 gcc main.c -O3
 cat <<EOF > test.bf\
-++++++++[>++++++++<-]>[<++++>-]\
-+<[>-<\
-    [>++++<-]>[<++++++++>-]<[>++++++++<-]\
-    +>[>\
-        ++++++++++[>+++++<-]>+.-.[-]<\
-    <[-]<->] <[>>\
-        +++++++[>+++++++<-]>.+++++.[-]<\
-<<-]] >[>\
-    ++++++++[>+++++++<-]>.[-]<\
-<-]<\
-+++++++++++[>+++>+++++++++>+++++++++>+<<<<-]>-.>-.+++++++.+++++++++++.<.\
->>.++.+++++++..<-.>>-\
-[[-]<]\
 n ../.gitignore
 rm .gitignore
 n ../../.gitignore
@@ -979,7 +926,6 @@ n -S Session.vim
 rm main.c.tex mainouter.c.tex
 z in
 z inn
-z tex
 cat main.tex
 ./a.out -1
 ./a.out 7
@@ -1010,11 +956,6 @@ rm gpio_single-01.ino
 n test.bf
 mkdir test
 mv test.bf test/memorysize.bf
-cat <<EOF > power.bf\
-++++[>+++++<-]>[<+++++>-]+<+[>[>+>+<<-]++>>[<<+>>-]>>>[-]++>[-]+\
->>>+[[-]++++++>>>]<<<[[<++++++++<++>>-]+<.<[>----<-]<]\
-<<[>>>>>[>>>[-]+++++++++<[>-<-]+++++++++>[-[<->-]+[<<<]]<[>+<-]>]<<-]<<-]\
-EOF
 ../a.out power.bf
 z rust
 cargo new brain\*\*\*\*
@@ -1062,7 +1003,6 @@ sudo make CMAKE_INSTALL_PREFIX=/usr/local/nvim install
 n kadai4.ino
 z syst
 gcc test.c
-n test.c
 man 3 tcsetattr
 man 3 fgetc
 man 3 unfgetc
@@ -1095,13 +1035,8 @@ rm lua/repeat.lua
 ./lesson-2-practice-of-pointer-chapter-11-s2201050
 ./a.out 5 5
 ./a.out 3 3
-git commit -m "printf„ÅÆÂºÉµÊÉµ∞„ÅÆÈÉÄÉ¶ÁÉµ™„ÇÉ≤‰øÆÊ≠£„ÅÉ∑„ÅÉø"
 cd less
 git add practice2.log
-git commit -m "2ÂÄÉ´ÁÉªÆ„ÅÆlog„ÇÉ≤ËøΩÂÉ™ÉÄ"
-git commit -m "alloc_matrixÈÉ∂ÉÇÊÉµ∞„ÇÉ≤ËøΩÂÉ™ÉÄ"
-git commit -m "alloc_matrixÈÉ∂ÉÇÊÉµ∞„ÅÆËøÉ¥„ÇÉ™ÂÄ§„ÅÆÂÉæÉ´„ÇÉ≤Â§É©„ÅÉ®„ÅÉø"
-c
 gcc practice01_1.c
 ./a.out 9 9
 git config --global user.email "sundongxiaoshan202@sendai-nct.jp"
@@ -1114,7 +1049,6 @@ cd lesson-2-practice-of-pointer-chapter-11-s2201050
 sudo chsh -s /bin/bash sundo
 z le
 git add practice1.log
-git commit -m "log„ÇÉ≤ÊÉª¥ÊÉ∂∞„ÅÉ∑„ÅÉø"
 git filter-branch -f --env-filter "GIT_AUTHOR_NAME='s2201050'; \\
 " HEAD~11..HEAD
 git push -f origin main
@@ -1187,7 +1121,6 @@ echo windows terminal is kuso
 batman ed
 man ed
 batman utime
-cp /mnt/c/Users/sundo/Downloads/autohotkey/ÊÉ∂∞Ë¶ÉØ\ AutoHotkey\ Script.ahk .
 ln -s .wezterm.lua /mnt/c/Users/sundo/.wezterm.lua
 rm /mnt/c/Users/sundo/.wezterm.lua
 cp .wezterm.lua /mnt/c/Users/sundo
@@ -1980,7 +1913,6 @@ z plugins
 cd zsh-autopair
 source autopair.zsh
 n autopair.zsh
-zi
 cd project/c/brain\*\*\*\*
 difft main.c Makefile
 batman calloc
@@ -2320,7 +2252,6 @@ cd project/rust
 cargo new mini_browser
 cd mini_browser/src
 git cl https://github.com/lmt-swallow/puppy-browser.git
-../../..
 mv mini_browser/src/puppy-browser .
 rmf mini_browser
 cd puppy-browser
@@ -2637,7 +2568,6 @@ mv vim _vim
 sudo mv vim _vim
 mv _vim vim
 sudo mv _vim vim
-n .zshrc
 ../project/pro/pro2/tex
 nv flowchart.tex
 cp flowchart.pdf ../report02-s2201050/IS16_flowchart.pdf
@@ -3263,15 +3193,12 @@ mkcd alg
 mkcd no1
 cp ~/project/tex/No05/Makefile .
 :make
-cp main.tex ÊºÉ¥ÁøÉ≤1_IS3_16_Â∞ÉØÂ±±ÈÉ∫º‰∫∫.pdf
-rm ÊºÉ¥ÁøÉ≤1_IS3_16_Â∞ÉØÂ±±ÈÉ∫º‰∫∫.pdf
 n ~/monster-vimmer.txt
 ,.bu
 ./lib
 mkcd my
 ~/project/c/rpx
 cp src/testing.c src/exception.c include/testing.h include/exception.h ~/lib/my
-cd -
 cat nullable.h
 cp ~/project/c/rpx/include/errcode.h ~/project/c/rpx/src/errcode.c .
 rg stdbool
@@ -3597,13 +3524,11 @@ n ../no1/main.tex
 n jks
 rg "\<0\>"
 rg push
-mv main.pdf ÊºÉ¥ÁøÉ≤2_IS3_16_Â∞ÉØÂ±±ÈÉ∫ºÂÉ¶¨.pdf
 meson setup ..
 facad /dev
 batman
 batman facad
 l /
-l ..
 n ../meson.build
 l /etc/pulse/client.conf
 cat /etc/pulse/client.conf
@@ -3619,7 +3544,6 @@ n linuxlist,c
 rg for drop
 rg "for drop"
 rg "^test"
-valgrind ./a.out
 valgrind ./a.out --leak-check=full
 clang-tidy --help
 clang-tidy --help-list
@@ -3714,8 +3638,6 @@ rg clipboard
 cmake -G "GNU Makefile" ../llvm -DLLVM_ENABLE_PROJECTS="clang;lld" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release
 rmf .
 cmake -G "Unix Makefiles" ../llvm -DLLVM_ENABLE_PROJECTS="clang;lld" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release
-cmake --build .
-which clang
 /usr/local/bin/clang --version
 ./bin/clang --version
 rg EPS
@@ -3766,10 +3688,7 @@ rm a.out main.c
 rg expect
 grep expect -r **/*
 n zish/src/main.zig
-rm ~/Downloads/DALL¬∑E\ 2024-10-29\ 19.17.51\ -\ An\ icon\ in\ the\ style\ of\ Russian\ avant-garde\ art,\ with\ bold\ geometric\ shapes,\ sharp\ angles,\ and\ strong\ use\ of\ red,\ black,\ and\ white.\ The\ design\ should\ .webp
-z alg
 mkcd no5
-mv main.pdf ÊºÉ¥ÁøÉ≤5_IS3_16_Â∞ÉØÂ±±ÈÉ∫ºÂÉ¶¨.pdf
 gcc -std=c89 main.c
 sh
 script -c ./a.out script.log
@@ -3817,7 +3736,6 @@ touch main.tex
 mv ../no5/main.c .
 rm ../no5/a.out
 rm -r _minted-main/ main.pdf main.aux main.pyg
-mv main.pdf ÊºÉ¥ÁøÉ≤6_IS3_16_Â∞ÉØÂ±±ÈÉ∫ºÂÉ¶¨.pdf
 du
 yay -Scc
 yay -Q | grep tex
@@ -3993,10 +3911,8 @@ man mcd
 mkcd project/pro/alg/no8
 cp ../no6/Makefile .
 rm main.log
-clang main.c
 rg wshada
 rg rshada
-mv main.pdf ÊºÉ¥ÁøÉ≤8_IS3_16_Â∞ÉØÂ±±ÈÉ∫ºÂÉ¶¨.pdf
 rm text.txt
 trans -h
 trans -t en:ja
@@ -4134,7 +4050,6 @@ setxkbmap us
 sudo setxkbmap us
 sudo journalctl -u keyd
 sudo -E nvim /etc/keyd/default.conf
-n lua/map.lua
 neovide lua/opt.lua
 ~/tool/facad
 ~/editor/neovim
@@ -4196,12 +4111,10 @@ lsix ~/project/c/poland-calc/rpx.svg
 n src
 psa | grep nvim
 psa | grep n
-python3 gpt_repository_loader.py ~/.config/nvim -o nvim.txt
 n nvim.txt
 rg sentiment
 z plugins/sentiment.nvim
 rg dmacro
-vim-startuptime -vimpath /usr/local/bin/nvim -count 1000 -- init.lua
 l lua
 n lua/fzf.lua
 z neo
@@ -4330,7 +4243,6 @@ cat /tmp/devs
 ls /dev > /tmp/devs
 ls /dev > /tmp/devs2
 difft /tmp/devs /tmp/devs2
-cd linux
 nvim /boot/System.map
 make menuconfig
 make localmodconfig
@@ -4346,15 +4258,12 @@ n include/phyconst.h
 n include/graphplot.h
 n include/sysconf.h
 n include/rc.h
-n src/testing.c
-n include/testing.h
 z linux
 make -j8 LLVM=1 LLVM_IAS=1 KCFLAGS=-march=native
 man ascii
 gs main
 g s -c table
 rg unreachable
-n src/phyconst.c
 n include/exception.h
 rm default.profraw
 rg 5m
@@ -4364,7 +4273,6 @@ bear -- make bench
 trans
 trans en:ja
 z plugins/blink.cmp
-cargo build --release
 sudo cp -r plugins/nvim-treesitter/parser/ /usr/local/lib/nvim/
 sudo cp -r plugins/nvim-treesitter/queries /usr/local/share/nvim/runtime/
 g s table
@@ -4399,7 +4307,6 @@ gparted
 man gparted
 sudo fdisk -l
 parted
-n crash.log
 sudo rm -rf /root/.platformio
 sudo fdisk
 sudo fdisk /dev/nvme0n1
@@ -4422,7 +4329,6 @@ mkcd editor
 git clone https://github.com/neovim/neovim --depth 1
 cd neovim
 make install
-~
 git clone https://github.com/torvalds/linux --depth 1
 mkcd proc
 git clone https://github.com/llvm/llvm-project --depth 1
@@ -4475,7 +4381,6 @@ yay -Rsc kde
 nix-env -i keyd
 yay -Rsc keyd
 cmake -G "Unix Makefiles" ../llvm -DLLVM_ENABLE_PROJECTS="clang-tools-extra" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release
-cmake --build . --target install
 yay -Rsc llvm
 yay -S clang
 lld
@@ -4712,7 +4617,6 @@ sudo pacman -Rsc jq
 sudo systemctl restart lightdm
 nix-env -i libinput
 swaymsg -t get_inputs
-exir
 man 5 sway-bar
 man 5 sway
 exi
@@ -4733,7 +4637,6 @@ w3m google.com
 mkcd .config/zsh
 fzf --zsh
 fzf --zsh > fzf.zsh
-n fzf.zsh
 zoxide init zsh
 zoxide init zsh > zoxide.zsh
 n zoxide.zsh
@@ -4777,7 +4680,6 @@ yay -Rsc yay-debug
 rmf yay
 yay -S git-delta
 gcc b.c -DBENCHMARK_MODE
-n include/benchmarking.h
 gcc b.c src/benchmarking.c -DBENCHMARK_MODE
 gcc b.c src/benchmarking.c -DBENCHMARK_MODE -O3
 clang-18 b.c src/benchmarking.c -DBENCHMARK_MODE -O3
@@ -4823,10 +4725,8 @@ ninja install
 sudo ninja install
 cargo install startship
 yay -S starship
-starship prompt
 starship completions zsh
 starship init
-starship init zsh
 starship
 eval `starship init zsh`
 starship toggle
@@ -4895,7 +4795,6 @@ n temp.ll
 lli temp.ll
 llc temp.ll
 n temp.s
-rm temp.*
 systemctl status fcitx5
 fcitx5 &
 fcitx5 > /dev/null &
@@ -4948,7 +4847,6 @@ rg "\<tll\>"
 n sixel.h
 n util.h
 bear -- ninja
-n compile_commands.json
 mv compile_commands.json ..
 n sixel.c
 rg test
@@ -5042,10 +4940,8 @@ n example/matrix.rpx
 l plugins
 n plugins/toggleterm-manager.nvim/lua/toggleterm-manager.lua
 rmf plugins/toggleterm-manager.nvim/ plugins/toggleterm.nvim/
-n syncplug.sh
 ./syncplug.sh install
 n lua/plugindata.lua
-n lua/plugin.lua
 z my
 n ansiesc.h
 z nc
@@ -5085,7 +4981,6 @@ extract pwdsafety_0.4.0_linux_386.zip
 ./pwdsafety
 sudo mv pwdsafety /usr/local/bin/
 rm *
-nvif
 ./linux
 sync
 ../tool/facad
@@ -5095,12 +4990,10 @@ l /proc
 mkcd ../shutdown
 g init
 g config --global user.name
-mkdir src
 cp ../rpx/Makefile .
 mkdir include
 yay -Rsc drun-gtk3 ttf-computer-modern-fonts ttf-ibm-plex
 z shut
-n temp
 ./a.out temp
 n temp.txt
 rm temp*
@@ -5146,7 +5039,6 @@ dmenu_run
 yay -Rsc dmenu
 ../sway
 yay -S yad
-yad --entry --title="ÂÉ••ÂÉ™Éª„É£Ä„Ç§„ÇÉÇ„É£≠„Ç∞" --text="ÂÉ••ÂÉ™Éª„ÅÉ∑„Å¶„ÅÉØ„ÅÉÄ„ÅÉµ„ÅÉ§:"
 yad --entry --title="launcher" --text="input command:" --width=100 --height=5
 man yad
 swaynag
@@ -5229,7 +5121,6 @@ lsix /usr/share/backgrounds/gnome/sheet-l.jxl
 cat /proc/cpuinfo | grep vmx
 cat /proc/cpuinfo
 n runtime/lua/vim/_defaults.lua
-n init.lua
 disasm rpx
 disasm -C rpx
 n lua/fcitx5.lua
@@ -5269,7 +5160,6 @@ lsix /usr/share/hypr/hyprland.conf
 lsix /usr/share/hypr/lockdead2.png
 lsix /usr/share/hypr/wall0.png
 lsix /usr/share/hypr/wall1.png
-lsix /usr/share/hypr/wall2.png
 man lsix
 lsix --help
 lspci | grep -E 'VGA|3D'
@@ -5307,7 +5197,6 @@ g lgo
 n .gitconfig
 g lgp
 swww img /usr/share/backgrounds/backgnd.gif
-yay -S swww
 sudo mv Downloads/backgnd.gif /usr/share/backgrounds/
 swww-daemon
 launch swww-daemon
@@ -5358,22 +5247,16 @@ kill 2850
 launch vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland
 psa | grep cicaldi
 where clang
-l /usr/local/bin/clang
-z llvm
 ./build
 cmake --build . -j8
-sudo cmake --build . --target install
 g cl https://github.com/vim/vim --depth 1
 cd vim
 cd src/auto
 rg compile_commands.json
-z nvi
 rg cmdwinenter -i
 rg '<ESC>"
 rg '<ESC>'
 rg '<Esc>'
-n lua/autocmd.lua
-n lua/opt.lua
 lldb rpx
 n src/ev
 make ice
@@ -5393,7 +5276,6 @@ make TYPE=test
 make TYPE=analyze
 bear -- make TYPE=bench
 n src/benchmarking.c
-bear -- make
 make TYPE=bench
 rg ic
 make LOGLEVEL=1
@@ -5411,7 +5293,6 @@ rm *.txt
 cat Makefile | wl-copy
 rm Makefile
 make test
-make clean
 l build/T-O3-L-SAN
 rm rpx
 rpx
@@ -5452,9 +5333,7 @@ launch agsv1
 psa | grep agsv1
 rg mako
 n hypr/hyprland.conf
-agsv1
 hyprland --version
-hyprctl monitors
 echo $WLR_NO_HARDWARE_CURSORS
 yay -Qi sway
 yay -Qs sway
@@ -5471,7 +5350,6 @@ yay -S ly
 sudo systemctl disable lightdm.service
 sudo systemctl enable ly
 n /etc/ly/config.ini
-sozsh
 yay -Rsc lightdm
 yay -Rsc `yay -Qdtq`
 yay -Sc
@@ -5483,7 +5361,6 @@ builtin cd -- /home/sundo/.cache/nvim
 n .config/keyd/app.conf
 n src/emoji_utils.c
 n src/emoji_utils.h
-rg ÓÉ∏Éæ
 n src/emoji_mappings.h
 n src/emoji_mappings.c
 meson ..
@@ -5553,7 +5430,6 @@ man cmus
 clang -M src/main.c
 clang -M src/main.c -Iinclude -std=c23
 n .clang-tidy
-make lint
 clang -H src/main.c
 clang -H src/main.c -Iinclude
 clang -H src/main.c -Iinclude -std=c23
@@ -5562,7 +5438,6 @@ yay -S llvm
 yay -S include-what-you-use
 g cl https://github.com/include-what-you-use/include-what-you-use.git --depth 1
 cd include-what-you-use
-g b -a
 g s clang
 g s clang_18.0
 rmdir build/
@@ -5571,7 +5446,6 @@ cmake -G "Unix Makefiles" ../include-what-you-use
 rmf build/ include-what-you-use/
 n inc.sh
 sh inc.sh
-n src/gene.c
 n src/exproriented.c
 rg include
 rg include *.c *.h
@@ -5678,7 +5552,6 @@ md5sum | cut -f1
 rmf build/
 make run
 make run OL=g
-z .co
 z cmus
 mv ~/Downloads/cmus-themes-v1-0-0.tar.gz .
 extract cmus-themes-v1-0-0.tar.gz
@@ -5741,7 +5614,6 @@ l .build
 sudo -s
 basename
 make run-valgrind
-make run OL=3
 make run-lldb
 make OL=g
 make run-lldb OL=g
@@ -5776,7 +5648,6 @@ sudo make install
 ~/linux
 make help
 make release
-make clean-all
 sudo make clean-all
 sudo make install OL=3
 yay -Qv
@@ -5786,7 +5657,6 @@ yay -Q | cut -d\  -f1
 n pacmanlist.txt
 rm makefile
 n install.sh
-which zsh
 where zsh
 n ~/.zsh_history
 l ~/.zsh_history
@@ -5830,7 +5700,6 @@ n LICENSE
 n src/ansiesc.c
 make T=test
 n src/exception.c
-make run T=test
 swww img /usr/share/backgrounds/cyber.jpg
 swww img /usr/share/backgrounds/gruvbox.jpg
 setterm -foreground black -background white
@@ -5847,7 +5716,6 @@ man nl
 cpp src/main.c
 cpp src/main.c -Iinclude
 dmesg
-sudo dmesg
 sudo dmesg | grep faul
 sudo dmesg | grep fail
 g cl https://github.com/fairyglade/ly --depth 1
@@ -5870,7 +5738,6 @@ sudo keyd reload
 hyprland --help
 z tool
 g cl https://github.com/hyprwm/Hyprland.git --depth 1
-n Makefile
 yay -S libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm libliftoff libdisplay-info cpio tomlplusplus hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git --needed
 yay -S hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git --needed
 g submodule sync
@@ -5888,9 +5755,7 @@ cd Hy
 sudo make uninstall
 rmf Hyprland
 n rpx.vim
-..
 rg CAT
-n include/chore.h
 n src/chore.c
 rg alloc
 n src/matop.c
@@ -5902,18 +5767,14 @@ make run T=test OL=3
 make run T=test OL=g
 yay -Rsc hyprland
 yay -R hyprland
-z nvim
-./syncplug.sh
 z neovim
 ../vim
-g pl
 yay -Q hyprcursor
 echo $HYPRCURSOR_SIZE
 echo $HYPRCURSOR_THEME
 yay -Ss hyprcursor
 yay -S rose-pine-hyprcursor
 psa | grep yay
-n shutdown.sh
 sh shutdown.sh
 yay -Q | grep hyprcursor
 yay -S sweet-cursors-hyprcursor-git simp1e-amber-hyprcursor nordzy-hyprcursors bibata-cursor-git xcursor-pro-hyprcursor hyprcursor-dracula-kde-git
@@ -5963,14 +5824,11 @@ tshark
 sudo tshark
 mkcd project/pro/alg
 mkcd no12
-n main.c
 zig cc main.c
-./a.out
 ./a.out| wl-copy
 cp ../no8/Makefile ./makefile
 pwf
 pwd
-n main.tex
 sudo tshark -D
 tshark -i wlp1s0
 sudo tshark -i wlp1s0
@@ -5982,9 +5840,7 @@ zig build --summary
 zig build --summary all
 ls src/ | head -n 1
 head src/* -n 1
-n temp.c
 zig cc temp.c
-rm a.out
 rm temp.c
 n temp.zig
 zig run temp.zig
@@ -5992,7 +5848,6 @@ rm temp.zig
 rmf .zig-cache/
 zig build.zig
 n src/main.c
-n .gitignore
 zig
 zig run
 zig run src/main.c
@@ -6019,7 +5874,6 @@ sudo systemctl start NetworkManager.service
 sudo systemctl stop NetworkManager
 journalctl -xeu NetworkManager.service
 brightnessctl
-reboot
 brightnessctl set 10
 sudo systemctl status NetworkManager
 sudo systemctl enable NetworkManager
@@ -6038,12 +5892,10 @@ openssl s_client -showcerts -connect WLH-U
 openssl s_client -showcerts
 openssl s_client
 Z
-z
 openssl pkcs12 -clcerts -nokeys -out my.crt
 l /etc/NetworkManager/system-connections
 sudo l /etc/NetworkManager/system-connections
 sudo ls /etc/NetworkManager/system-connections
-acpi -b
 wpa_supplicant
 ls .atuin/
 ls .atuin/bin/
@@ -6073,7 +5925,6 @@ zig build -Doptimize=ReleaseFast
 zig build --release
 zig build -h
 zig build -DT=test
-zig build run -DT=test
 zig build run --release
 zig build run --release=fast
 zig build --release=fast
@@ -6089,8 +5940,6 @@ make clean T=bench OL=3
 make T=bench OL=3
 zig build -DT=bench
 zig build run -DT=bench
-onefetch
-z gpt
 n .gptignore
 python3 gpt_repository_loader.py ~/project/c/rpx -o rpx.txt
 n rpx.txt
@@ -6147,7 +5996,6 @@ otf2bdf Kissinger2f.ttf -h
 n out.bdf
 bdf2psf --fb out.bdf /usr/share/bdf2psf/standard.equivalents /usr/share/bdf2psf/ascii.set 256 kissinger.psf
 sudo cp kissinger.psf /usr/share/kbd/consolefonts/
-rmf *
 mkcd ../fonts
 l /usr/share/kbd/consolefonts
 ls /usr/share/fonts/PlemolJP/
@@ -6179,13 +6027,9 @@ otf2bdf ttf/PlemolJP35-BoldItalic.ttf -z bdf/PlemolJP35-BoldItalic.bdf
 yay -S artwiz-fonts
 yay -Ql artwiz-fonts
 yay -R artwiz-fonts
-z Dow
 extract 0xProto.zip
-z -
 mv ~/Downloads/*.ttf ttf/
-make
 rmf ttf/*
-z rpx
 make log OL=3
 make T=asm OL=3
 make asm OL=3
@@ -6193,13 +6037,9 @@ make main.s OL=3
 make src/main.s OL=3
 n src/main.s
 rm src/main.s
-n makefile
-make run T=bench OL=3
 l .build/641abcde3a07346681d57b1a81b27e4b/target
-make OL=3
 l .build/459fb5b8b9226fe49fd24fe82ce4cc62/target
 zig build run -DT=bench --release-fast
-zig build run -DT=bench --release=fast
 l zig-out/bin
 ./zig-out/bin/rpx
 .zig-cache/o/3597b72efa7f1d41589cc67c91af19f0/rpx
@@ -6208,12 +6048,9 @@ zig build run -DT=bench --release=
 zig build run -DT=bench --release
 zig build run -DT=bench --release=safe
 l **/rpx
-shutdown now
 setfont dina
 setfont -u /usr/share/fonts/misc/DinaMedium8.pcf.gz
-/
 ./usr
-fzf
 setfont kissinger.psf
 setfont dinaMidium8.psf.gz
 l /usr/share/fonts/misc
@@ -6253,7 +6090,6 @@ setfont -d Agafari-16.psfu.gz
 setfont -d drdos8x16.psfu.gz
 setfont -d cyr-sun16.psfu.gz
 setfont -d Goha-16.psfu.gz
-n
 setfont
 setfont -d cybercafe.fnt.gz
 htop
@@ -6267,18 +6103,15 @@ rm typescript
 man grim
 grim
 rm Pictures/20241130_10h41m42s_grim.png
-yay -Syu
 yay -S scrot
 scrot --select
 man scrot
 scrot -b
 l Pictures
-ls
 rm 2024-11-30-104621_1440x900_scrot.png
 yay -Rsc scrot
 foot vifm
 vifm
-yazi
 foot fzf
 fzf /
 n ~/.config/hypr/
@@ -6288,17 +6121,621 @@ n ~/.config/hypr/hyprland.conf
 yay -Qs manager
 yay -Rsc sway
 yay -Rsc emptty
-fastfetch
 z rc
-l
 yay -Q
 yay -Q | cut -d\  -f1 > pacmanlist.txt
-laz
 yay -S nu
 yay -S nushell
 nu
 zshrc
-exit
 setfont cybercafe8x16
 setfont -d cybercafe8x16
 setfont -d cybercafe
+sudo chsh -s (which zsh) sundo
+which zsh
+z tex
+mkcd -h
+mkcd IoT
+cp ../../pro/alg/no12/makefile .
+n ~/crash.log
+n main.tex
+z Dow
+rmf `report 1.m5f` `test_1 1.ino`
+rm Downloads/shutdown.sh
+cd `Pictures/Vivaldi Captures/`
+rmf *
+starship --help
+starship config
+starship prompt
+starship mosule
+starship module
+starship module --list
+starship module time
+starship module os
+starship module --help
+starship module directory
+starship module nodejs
+starship module memory-usage
+starship module memory_usage
+n starship.nu
+sudo chsh -s /sbin/nu sundo
+sudo chsh -s /sbin/zsh sundo
+pacman -Q ly
+pacman -Qi ly
+sudo systemctl start hyprland
+sudo systemctl start hyprland.service
+n crash.log
+z no12
+mv main.pdf ÊºîÁøí12_IS3_16_Â∞èÂ±±ÈöºÂÜ¨.pdf
+~
+pueue
+^pueue
+pueue help
+pueued
+pueued -d
+pueue add nvim starship.toml
+pueue start
+pueue start 0
+pueue start -h
+pueue start -a
+pueue kill 0
+pueue log 0
+pueue clean
+pueue status
+n QtProject.conf
+n /etc/xdg/foot/foot.ini
+n starship.toml
+make clean-all
+make OL=3
+make run OL=3
+make run T=bench OL=3
+zig build run -DT=bench --release=fast
+make run T=bench OL=g
+n include/benchmarking.h
+yay -S himalaya
+himalaya
+yay -Rsc himalaya
+yay -Ss language server
+yay -Ss language server java
+yay -Ss skk
+yay -S fcitx5-skk
+mkcd ~/.config/libskk/rules/StickyShift/keymap
+n hiragana.json
+n katakana.json
+skk
+skk -l
+../../..
+sudo systemctl stop fcitx5
+sudo systemctl stop fcitx5-remote
+yay -Q mozc
+yay -Q | grep mozc
+yay -Rsc fcitx5-mozc
+„ÉÜ„Çπ„Éà‚ñºÂÆüË°å
+„Åì„Çì„Å´„Å°„ÅØ„ÄÅ ‰∏ñÁïå
+acpi -b
+„ÄÄ„Å≠„Åä„ÅÜ„Çõ„ÅÉm
+rg define\ EXPAND
+rg 'define EXPAND'
+n include/chore.h
+zig build run -DT=test
+rg test_table
+n src/gene.c
+n temp
+n src/phyconst.c
+ping -f -l 1472 8.8.8.8
+ping -f -l 3 8.8.8.8
+ping -l -f 1472 8.8.8.8
+man ping
+gcc src/phyconst.c src/testing.c -DTEST_MODE
+gcc src/phyconst.c src/testing.c -DTEST_MODE -Iinclude
+gcc src/phyconst.c src/testing.c -DTEST_MODE -Iinclude -std=c23
+gcc src/phyconst.c src/testing.c src/gene.c  -DTEST_MODE -Iinclude -std=c23
+head src/gene.c
+head src/testing.c
+head src/phyconst.c
+gcc temp.c src/testing.c -DTEST_MODE -Iinclude
+gcc temp.c src/testing.c src/gene.c  -DTEST_MODE -Iinclude
+gcc temp.c src/testing.c src/gene.c  -DTEST_MODE -Iinclude -std=c23
+gcc temp.c src/testing.c -Iinclude
+clang temp.c src/testing.c -Iinclude -DTEST_MODE -std=c23
+make run T=test
+gcc -M temp.c -Iinclude/
+cpp temp.c -Iinclude
+cpp temp.c -Iinclude -DTEST_MODE
+cpp temp.c -Iinclude -DTEST_MODE | tail -n 30
+cpp temp.c -Iinclude -DTEST_MODE | tail -n 20
+cpp temp.c -Iinclude -DTEST_MODE | tail -n 15
+cpp temp.c -Iinclude -DTEST_MODE | tail -n 15 | sed '/^#/d'
+cpp temp.c -Iinclude -DTEST_MODE | tail -n 15 | clang-format
+gcc temp.c src/testing.c -Iinclude -DTEST_MODE -std=c23
+rm a.out
+gcc temp.c src/testing.c -Iinclude -DTEST_MODE
+rm a.out temp.c
+n src/testing.c
+n include/testing.h
+gcc temp.c -c -std=c23
+mv temp.c ..
+cd ..
+n temp.c
+clang temp.c -c
+gcc temp.c -c
+rm temp.*
+cd -
+rm temp.o
+mkcd ../qiita
+bear -- clang main.c test.c -DTEST
+n test.c
+gcc main.c test.c -DTEST
+gcc main.c test.c
+valgrind ./a.out
+n test.h
+clang main.c test.c -DTEST
+skk --help
+skk --skkserv
+skk --list-rules
+mkcd ~/.config/libskk/rules/StickyShift
+mkdir keymap
+n metadata.json
+n keymap/hiragana.json
+z linu
+ps | find git
+ps -h
+ps -l | find git
+n shutdown.sh
+git gc --aggressive --prune=all
+./syncplug.sh
+basename hello/world
+[ "hello" "world" ]
+help
+help file
+path -h
+"hello/world" | path basename
+n syncplug.sh
+rg 'q:'
+rg 'q\:'
+rg ':'
+n --clean cmdwin.lua
+n lua/opt.lua
+n lua/autocmd.lua
+n ~/.local/state/nvim/shada/main.shada
+n cmdwin.lua
+n lua/map.lua
+vim-startuptime -vimpath /usr/local/bin/nvim -count 1000 -- init.lua
+nu syncplug.nu
+/bin/env nu
+cd -h
+path exists README.md
+mkdir plugins
+chmod -h
+chmod 744 syncplug.nu
+mkdir archive
+mc syncplug.sh archive/
+mv syncplug.sh archive/
+ls | describe
+ls -h
+ls -s
+ls -D
+ls plugins/
+ls | table
+ls | table --index 1
+ls | table --index 1 --flatten
+table -l
+sys host
+table -h
+from -h
+into -h
+to -h
+[hello world]
+[hello world] - [hello]
+exit -h
+open syncplug.nu
+open syncplug.nu | collect
+ls | collect
+collect -h
+bat syncplug.nu
+nu -h
+nu -l
+nu --plugin-config
+cargo install cargo-update
+lsmod
+modinfo loop
+du linux
+cd linux
+nvif
+nvim (tv)
+cargo install-update -a
+z c
+mkcd ../kernel-mod
+yay -S linux-headers
+mv makefile Makefile
+mv main.c
+mv main.c hello_module.c
+sudo insmod hello_module.ko
+dmesg | tail
+sudo rmmod hello_module
+sudo dmesg | tail
+ls -d
+n hello_module.c
+bear -- make
+ls -ad
+n hello_module.mod.c
+n compile_commands.json
+bear -- make -j16
+n Makefile
+afplay -h
+yay -S beep
+beep
+sudo beep
+yay -Rsc beep
+yay -Ss beep
+ls /usr/share/sounds/Oxygen-Window-Move.ogg
+yay -Ss ogg
+yay -Ss ogg123
+yay -S gst123
+yay -Ss canberra-gtk-play
+yay -Ss canberra
+ogg123
+canberra-gtk-play /usr/share/sounds/Oxygen-Im-Cant-Connect.ogg
+man canberra-gtk-play
+canberra-gtk-play -h
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Cant-Connect.ogg
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Connection-Lost.ogg
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Contact-In.ogg
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Contact-Out.ogg
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Error-On-Connection.ogg
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Highlight-Msg.ogg
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Irc-Event.ogg
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Low-Priority-Message.ogg
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-New-Mail.ogg
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Message-In.ogg
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Message-Out.ogg
+ls /usr/share/sounds/ | get name
+ls /usr/share/sounds/ | where type == file | get name
+ls /usr/share/sounds/ | where type == file
+ls /usr/share/sounds/
+ls /usr/share/sounds/ | where type == symlink | get name
+ls /usr/share/sounds/**/*.ogg
+ls /usr/share/sounds/**/*.ogg | get name
+ls /usr/share/sounds/**/*.ogg | get name | each { |name| ^echo $name; canberra-gtk-play -f $name }
+ls /usr/share/sounds/**/*.ogg | find phone |get name | each { |name| ^echo $name; canberra-gtk-play -f $name }
+ls /usr/share/sounds/**/*.ogg | find phone | get name
+ls /usr/share/sounds/**/*.ogg | find phone | get name | each { |name| ^echo $name; canberra-gtk-play -f $name }
+canberra-gtk-play -f /usr/share/sounds/Oxygen-K3B-Finish-Success.ogg
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Nudge.ogg
+canberra-gtk-play -f /usr/share/sounds/alsa/Front_Center.wav
+canberra-gtk-play -f /usr/share/sounds/alsa/Front_Left.wav
+canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Phone-Ring.ogg
+n .zshrc
+starship init zsh
+z .co
+z zsh/
+n fzf.zsh
+rm fzf.zsh
+starship init zsh > starship.zsh
+starship init zsh | save starship.zsh
+n starship.zsh
+n ~/.zshrc
+fzf
+lsix /proc/gcc/gcc/rust/logo.png
+ps | find neo
+n syncplug.nu
+yay -Ss colorscript
+yay -S polemon-colorscripts
+yay -S polemon-colorscripts-git
+yay -S pokemon-colorscripts-git
+colorscript
+z shell
+../../project/shell/
+zoxide add .
+g cl https://github.com/charitarthchugh/shell-color-scripts.git --depth 1
+mv shell-color-scripts/ ~/.config/zsh/
+sozsh
+yay -Ss hyprpaper
+yay -S hyprpaper
+hyprpaper --help
+kill 939
+hyprpaper /usr/share/backgrounds/cyber.jpg
+hyprpaper -c /usr/share/backgrounds/cyber.jpg
+hyprctl monitors
+l /usr/share/HyprPanel/widget/
+l /usr/share/HyprPanel/themes/
+l /usr/share/hypr/wall2.png
+lsix /usr/share/hypr/wall2.png
+sudo cp /usr/share/backgrounds/cyber.jpg /usr/share/hypr/wall3.jpg
+convert /usr/share/backgrounds/cyber.jpg /usr/share/hypr/wall3.png
+sudo convert /usr/share/backgrounds/cyber.jpg /usr/share/hypr/wall3.png
+sudo rm /usr/share/hypr/wall3.jpg
+sudo rm /usr/share/hypr/wall3.png
+hyprctl reload
+hyprpaper
+vim-startuptime -vimpath /usr/local/bin/nvim -count 1000 -- hyprland.conf
+z rpx
+make lint
+l .local/share/nvim/
+mkdir .local/share/nvim/zoxide
+zi
+z blink /
+z l /
+mv lua/zoxide.lua lua/cdtrack.lua
+n init.lua
+mv ~/.local/share/nvim/zoxide/ ~/.local/share/nvim/cdtrack
+mkcd lib
+mkcd fuzzypath
+bear -- clang -std=c23 main.c
+cp ~/project/c/rpx/include/chore.h ~/project/c/rpx/src/chore.c .
+rm lib/fuzzypath/chore.c
+cd lib/fuzzypath/
+clang -shared -fPIC -o matchfuzzy.so main.c
+clang -shared -fPIC -o matchfuzzy.so main.c -std=c23
+bear -- clang -shared -fPIC -o matchfuzzy.so main.c -std=c23
+clang -shared -fPIC -o matchfuzzy.so main.c -std=c23 -O3
+...
+mv lib/ lua/
+l lua/lib/
+cd lua/lib/fuzzypath/
+clang -shared -fPIC -o matchfuzzy.so main.c fs.c -std=c23 -O3
+clang -shared -fPIC -o .. matchfuzzy.so main.c fs.c -std=c23 -O3
+rm matchfuzzy.so
+echo $CPATH
+rm ../matchfuzzy.so
+n main.c
+clang -shared -fPIC -o ../../matchfuzzy.so main.c fs.c -std=c23 -O3
+n .gitignore
+z sna
+z plugins/snacks.nvim/lua/snacks/dashboard.lua
+z plugins/snacks.nvim/
+g config pull.rebase true
+mv matchfuzzy.so fuzzypath/fuzpath.so
+mv fuzzypath/ fuzpath
+rg matchfuzzy
+rg fuzzypath
+cd fuzpath/
+clang -shared -fPIC -o ../matchfuzzy.so main.c fs.c -std=c23 -O3
+clang -shared -fPIC -o ../../fuzpath.so main.c fs.c -std=c23 -O3
+rm fuzpath.so ../matchfuzzy.so
+rm ../../fuzpath.so
+l ..
+z ../..
+z plugins/blink.cmp/
+rg cpath
+bat lua/blink/cmp/fuzzy/rust.lua
+rg require
+z lua/lib/fuzpath/
+clang -shared -fPIC -o ../fuzpath.so main.c fs.c -std=c23 -O3
+make clean
+onefetch
+fastfetch
+z editor/vim/
+../neovide/
+~/proc/gcc/
+../llvm-project/
+../zig/
+~/linux/
+rmf .tuxpaint/ youken.txt
+^ls
+^ls -AR / | save allfile.txt
+ls allfile.txt
+n allfile.txt
+wc allfile.txt
+wc allfile.txt  -l
+cat allfile.txt
+z lua/lib/
+mv lua/lib/ .
+mkdir src
+mv lib/fuzpath/ src/
+mv lib/makefile .
+rm lib/fuzpath.so
+t
+l lua/
+rm lua/matchfuzzy.so
+l lib/
+z
+z tool/
+cd foot/
+../ly/
+n hyprland.conf
+yay -Rsc swww
+kill 1124
+..
+/
+tv
+journalctl -xe
+sudo dmesg
+rg swww **/*.conf
+cd hyprpanel/
+rg swww
+n config.json
+yay -S swww
+z nvi
+mv plugins/makefile plugins.mk
+rm plugins.mk
+z gpt
+-
+bat nvim.txt
+python3 gpt_repository_loader.py ~/.config/nvim -o nvim.txt
+cat nvim.txt | wl-copy
+g pl
+cmake -G
+z build/
+cmake -G "Ninja" ../llvm/ -DLLVM_ENABLE_PROJECTS="clang;lld;clang-tools-extra" -DLLVM_TARGETS_TO_BUILD="x86" -DCMAKE_BUILD_TYPE=Release -DLLVM_LIBC_FULL_BUILD=ON -DLLVM_PARALLEL_JOBS=2 -DLLVM_USE_LINKER=lld
+cmake -G "Ninja" ../llvm/ -DLLVM_ENABLE_PROJECTS="clang;lld;clang-tools-extra" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release -DLLVM_LIBC_FULL_BUILD=ON -DLLVM_PARALLEL_JOBS=2 -DLLVM_USE_LINKER=lld
+n ~/shutdown.sh
+~/shutdown.sh
+cmake --build .
+^ps aux
+z llvm
+which clang
+l /usr/local/bin/clang
+cd build/
+cmake --build . --target install
+sudo cmake --build . --target install
+l /usr/local/bin/clang-20
+z co
+cd hypr/
+systemd status hyprpanel
+systemctl status hyprpanel
+systemctl status hypr
+systemctl status hyprland
+yay -S eww
+agsv1 --quit
+eww shell-completions nu
+eww shell-completions --shell nu
+mkcd ../eww
+eww open
+ewww
+mv ../hypr/eww.yuck .
+eww open greeter
+eww
+eww dtate
+eww state
+eww open example
+sudo cp -r /etc/xdg/eww/* .
+mv eww-bar/* .
+^ls -l
+bat eww.yuck
+ls eww-bar/
+rmf eww-bar/
+rm --permanent eww-bar/*
+sudo rmf eww-bar/
+sudo rm -rf eww-bar/
+ls
+eww daemon
+eww list-window
+eww list-windows
+eww open bar
+swww --help
+ps | find swww
+hyprctl activewindow
+hyprctl systeminfo
+hyprctl --help
+hyprctl workspaces
+eww kill
+sudo mv /usr/share/hypr/wall0.png /usr/share/hypr/wall0.png.backup
+sudo cp /usr/share/backgrounds/gruvbox.jpg /usr/share/hypr/wall0.jpg
+find /usr/share/hypr -name "*.jpg" -exec mogrify -format png {} \;
+^find /usr/share/hypr -name "*.jpg" -exec mogrify -format png {} \;
+mogrify
+sudo ^find /usr/share/hypr -name "*.jpg" -exec mogrify -format png {} \;
+sudo find /usr/share/hypr -name "*.jpg" -exec mogrify -format png {} \;
+sudo mogrify -format png /usr/share/hypr/wall0.jpg
+l /usr/share/hypr
+sudo rm /usr/share/hypr/wall0.jpg
+../hypr
+reboot
+z hypr
+sudo mv /usr/share/hypr/wall0.png /usr/share/hypr/wall3.png
+sudo mv /usr/share/hypr/wall3.png /usr/share/hypr/wall0.png
+rmf .config/hypr/hyprpaper.conf
+yay -Syu
+./syncplug.nu
+mkcd no16
+clang main.c
+z nvim
+cd plugins/blink.cmp/
+cargo build --release
+n lua/blink/cmp/fuzzy/init.lua
+g b -a
+../alg/no16/
+z -
+n lua/plugin.lua
+z no16
+z no
+../alg/np16
+../alg/no16
+agsv1 --help
+agsv1
+z project/pro/alg/no12/
+make
+make main
+rm main
+make main.pdf
+n makefile
+z alg
+cd no16
+./a.out
+l ../no12
+mv main.pdf ÊºîÁøí16_IS16_Â∞èÂ±±ÈöºÂÜ¨.pdf
+yazi
+zsh -c 'echo $NVIM'
+nvim --server
+nvim -h
+n --server sundo --remote-send "<cmd>cd .config/nvim<CR>"
+n --server sundo
+n --listen sundo
+n --remote-send '<cmd>cd .config/nvim<CR>'
+makoctl  --help
+makoctl history
+n
+l /tmp/nvim
+NVIM_LISTEN_ADDRESS=/tmp/nvim nvim
+n --server $env.NVIM --remote-send "<cmd>cd .config/nvim<CR>"
+$env.temp
+echo $env.NVIM
+let -h
+const =h
+const -h
+set -h
+if (try { $env.temp } | is-empty) { echo 'not found' } else { echo 'found' }
+if (try { $env.temp } | is-empty) { echo 'found' }
+try { $env.temp } | is-empty
+try { $env.temp }
+try { $env.CMD_DURATION_MS }
+is-empty -h
+try { $env.CMD_DURATION_MS } | describe
+try { $env.CMD } | describe
+config nu
+z nu
+z nushell
+env-exist NVIM
+$env.DISPLAY
+env-exist DISPLAY
+(try { $env.DISPLAY }) != null
+source utils.nu
+env-exist $env.NVIM
+env-exist \$env.NVIM
+env-exist \$env.DISPLAY
+n utils.nu
+env -h
+cds .config/
+n alias.nu
+shutdown now
+cds -h
+try -h
+cds .config/nvim/
+cds ../nushell/
+error make -h
+metadata -h
+zoxide --query --list
+zoxide query --list
+zoxide query --list | wc
+zoxide query --list -s
+zoxide query -h
+zoxide query nvim
+zoxide add -h
+zoxide -h
+let actual_path = (zoxide query hy)
+echo $actual_path
+zoxide query hy
+zoxide query nu
+echo $env
+echo $env | find NVIM
+(echo $env).0
+(echo $env) | find NVIM
+(echo $env) | find DISPLAY
+(echo $env) | find DISPLAYY
+$env | find NVIM | is-not-empty
+$env | find NVIMM | is-not-empty
+zs nvim
+zoxide query co
+z nus
+l
+exir
+exit
+zs co
+zs nus
+laz
+n history.txt
+cat history.txt | superuniq
+cat history.txt | wc
+cat history.txt | superuniq | wc
+cat history.txt | superuniq | save -f history.txt
