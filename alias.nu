@@ -42,9 +42,27 @@ def --env extract [fname: path] {
     }
 }
 
-def --env zs [path: string] {
-	let actual_path = (zoxide query $path)
-	nvim --server $env.NVIM --remote-send $"<cmd>cd ($actual_path)<CR>"
-	cd $actual_path
+def --env send-to-nvim-cmd [cmd: string] {
+    try {
+		nvim --server $env.NVIM --remote-send $cmd
+	}
+}
+
+def --env z [...rest: string] {
+    let arg0 = ($rest | append '~').0
+    let path = if (($rest | length) <= 1) and ($arg0 == '-' or ($arg0 | path expand | path type) == dir) {
+      $arg0
+    } else {
+      (zoxide query --exclude $env.PWD -- ...$rest | str trim -r -c "\n")
+    }
+	send-to-nvim-cmd $"<cmd>cd ($path)<CR>"
+	cd $path
+	zoxide add .
+}
+
+def --env zi [...rest: string] {
+    let path = (zoxide query --interactive -- ...$rest | str trim -r -c "\n")
+	send-to-nvim-cmd $"<cmd>cd ($path)<CR>"
+	cd $path
 	zoxide add .
 }
