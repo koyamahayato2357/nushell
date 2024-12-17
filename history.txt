@@ -3,9 +3,7 @@ nvim ~/.config/nushell/env.nu
 echo $EDITOR
 echo $env.EDITOR
 echo $env.XDG_CONFIG_HOME
-echo $env.LANG
 echo $env.LC_ALL
-echo $env.PATH
 lazygit
 whereis lazygit
 ls .cargo/bin/
@@ -34,8 +32,6 @@ nohup neovide alias.nu out+err>/dev/null &
 n nohup.out
 disown
 launch neovide alias.nu
-str -h
-str join -h
 ggrks how to config nushell
 ls | where extension == 'nu'
 ls | where name ends-with .nu
@@ -65,7 +61,6 @@ $env.LAST_EXIT_CODE
 ../../project/c/rpx
 alias cd = cd
 ^cd -
-alias -h
 match 'hello.zip' { (_ + '.zip') => echo 'true', _ => false }
 match 'hello.zip' { (_ + '.zip') => echo 'true' }
 match 'hello.zip' { (_ + '.zip') => true }
@@ -88,7 +83,6 @@ ls | get name | str join
 ls | get name | str join ' '
 ls -al
 rmdir temp/
-date now
 date now | $in + iday
 date now | $in + 1day
 date now | $in + 1month
@@ -121,7 +115,6 @@ starship init nu | exec
 ./.config/nushell/
 starship init nu | save -f starship.nu
 let $val = (echo 'hello world')
-open -h
 decode -h
 ../.config/nushell/
 open alias.nu
@@ -217,8 +210,6 @@ ps | uniq | wc
 ps | wc
 ps | select name | uniq
 ps | select name | uniq | wc
-top
-source alias.nu
 ls **/*.zig
 kill 104930
 kill -h
@@ -334,7 +325,6 @@ history | where command =~ yay
 echo 'a' 'b'
 echo 'a' 'b' | lines
 echo 'a' 'b' | str join |lines
-lines -h
 (^echo a; ^echo b) | lines
 roll -h
 ls | split-by type
@@ -362,16 +352,13 @@ port 3121 4000
 port 0 4000
 port -h
 [{x:12, y:15}, {x:8, y:9}], [[x, y]; [12, 15], [8, 9]]
-[{x:12, y:15}, {x:8, y:9}]
 [[{x:12, y:15}, {x:8, y:9}], [[x, y]; [12, 15], [8, 9]]]
-[{x:12, y:15}, {x:8, y:9}] | describe
 {name:"Nushell", lang: "Rust"}
 [[{x:12, y:15}, {x:8, y:9}], [[x, y]; [12, 15], [8, 9]]] | describe
 desc -h
-describe  -h
+describe -h
 ls | describe -d
 {shell:'true', uwu:true, features: {bugs:false, multiplatform:true, speed: 10}, fib: [1 1 2 3 5 8], on_save: {|x| $'Saving ($x)'}, first_commit: 2019-05-10, my_duration: (4min + 20sec)}
-{shell:'true', uwu:true, features: {bugs:false, multiplatform:true, speed: 10}, fib: [1 1 2 3 5 8], on_save: {|x| $'Saving ($x)'}, first_commit: 2019-05-10, my_duration: (4min + 20sec)}  | describe -d
 *.c | describe
 echo *.c | describe
 echo *.c
@@ -385,7 +372,6 @@ ls | do $b
 ansi -h
 whoami -h
 $"Captain (whoami)"
-which -h
 whereis nvim
 which nvim -a
 which -a nvim
@@ -409,7 +395,6 @@ date now | date to-record
 date now | date to-record | $in.year
 let carapace_completer = {|spans|<\n>carapace $spans.0 nushell ...$spans | from json}
 do $carapace_completer git
-config env
 open .config/nushell/history.txt
 cd (tv | path dirname)
 ls | where type == dir | each { |it| $it.name} | str join (char nl) | tv
@@ -417,7 +402,6 @@ ls -r | where type == dir | each { |it| $it.name} | str join (char nl) | tv
 ../../../.config/nushell/
 source $nu.config-path
 git remote add origin https://github.com/koyamahayato2357/nushell.git
-z neovi
 g log --name-only --graph --all --date=format-local:'%Y-%m-%d %H:%M:%S' --format='%C(auto)%h%d %cd %s'
 g l --name-only
 random dice
@@ -526,7 +510,7 @@ cat history.txt | uniq
 ^uniq --help
 cat history.txt | awk '!seen[$0]++ { line[NR] = $0 } { delete line[NR-1] } END { for (i in line) print line[i] }'
 open history.txt | uniq-by name
-open history.txt | to toml  | uniq-by name
+open history.txt | to toml | uniq-by name
 open history.txt | to toml
 open history.txt | to csv
 open history.txt | to json
@@ -563,7 +547,6 @@ echo 'hello ' | str replace ' \+$' ''
 echo 'hello ' | str replace ' +$' ''
 echo 'hello ' | str replace ' $' ''
 echo 'hello ' | str replace (' $' | into glob) ''
-str replace -h
 echo 'hello ' | str replace ' +$' '' -r
 cat $nu.history-path | str replace -r ' +$' ''
 cat $nu.history-path | str replace -r ' +$' '' | ^sort | ^uniq
@@ -580,7 +563,6 @@ starship prompt --cmd-duration $env.CMD_DURATION_MS $"--status=($env.LAST_EXIT_C
 starship prompt --right --cmd-duration $env.CMD_DURATION_MS $"--status=($env.LAST_EXIT_CODE)" --terminal-width (term size).columns
 source config.nu
 sys users
-uname
 mkcd ~/project/zig/uniqu
 zig build run src/main.zig
 zig build run -- src/main.zig
@@ -613,14 +595,12 @@ cat history.txt | superuniq > his.txt
 cat history.txt | superuniq | save -f his.txt
 n his.txt
 save -h
-cat history.txt | superuniq | save -f history.txt
 rm his.txt
 z project/zig/superuniq/
 cat src/main.zig | wl-copy
 n src/root.zig
 rm src/root.zig
 rm temp.txt
-../vim/
 n src/version.c
 ~/proc/ChezScheme/
 n s/cptypes.ss
@@ -675,7 +655,6 @@ zoxide add
 zoxide add ~/project/zig/superuniq/
 zoxide add ~/.config/nushell/
 wc history.txt
-ls | get name
 find -h
 n cc.nu
 n --clean src/evalfn.c
@@ -835,13 +814,10 @@ ls /usr/local/bin/clang-20
 pueue -h
 pueue completions nushell | save -f pueue.nu
 n pueue.nu
-n config.nu
 n build.zig.zon
 zig build --release=fast -Tuse-llvm
 rg 19\.x
 n cmake/Findclang.cmake
-../gcc/
-z super
 cat ~/.histfile | cut -d';' -f2-
 yay -S zap
 zap
@@ -1016,9 +992,7 @@ man 3 ungetc
 batman ungetc
 man 3 ungetc| bat -p -l man --color=always
 man 3 ungetc| bat -p
-batman 3 printf
 batman 6
-batman man
 batman /etc/passwd
 batman puts
 cd project/makefile-formats
@@ -1046,7 +1020,6 @@ git reset --hard fdce794ddcc29fc0bfe66cb64810bffde89c3ea6
 rmf lesson-2-practice-of-pointer-chapter-11-s2201050
 git clone git@github.com:GE3ProgrammingII/lesson-2-practice-of-pointer-chapter-11-s2201050.git
 cd lesson-2-practice-of-pointer-chapter-11-s2201050
-sudo chsh -s /bin/bash sundo
 z le
 git add practice1.log
 git filter-branch -f --env-filter "GIT_AUTHOR_NAME='s2201050'; \\
@@ -1504,7 +1477,6 @@ myip -v
 rm temp.rs
 n temp.ros
 n temp.clisp
-n .bashrc
 l queries/bash
 ~/treesitter
 git clone https://github.com/tree-sitter/tree-sitter-html.git
@@ -1971,7 +1943,6 @@ git cl https://github.com/bminor/binutils-gdb.git
 ./binutils-gdb
 ./tool/binutils-gdb
 sudo pacman -Rc bison flex texinfo
-n .gdbinit
 gdb project/c/det/a.out
 rm .gdbinit
 ./cgdb
@@ -2803,7 +2774,6 @@ nv lua/mysnip.lua
 n lua/snippets.lua
 rg 'require \'mysnip\''
 rg "require 'mysnip'"
-n main.rs
 rm main.tex
 rg "snip"
 git difftool main mysnip
@@ -2840,7 +2810,6 @@ make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DENABLE_JEMALLOC=OFF -DENABLE_
 make CMAKE_BUILD_TYPE=Release CMAKE_EXTRA_FLAGS="-DENABLE_ARABIC=OFF"
 sudo make CMAKE_BUILD_TYPE=Release
 sudo pacman -S base-devel cmake unzip ninja curl
-sudo pacman -S base-devel
 sudo pacman -S ninja
 sudo pacman -S base-devel unzip ninja
 sudo make distclean
@@ -2912,7 +2881,6 @@ kill 2303
 sudo pacman -S luajit
 n -V1 -v
 git reset --hard HEAD
-vim
 ~/editor/vim
 cd src
 n map.c
@@ -2997,7 +2965,6 @@ w3m https://github.com
 make CMAKE_BUILD_TYPE=Release CMAKE_INSTALL_PREFIX=/usr/local/nvim -j32
 sudo rm -r /usr/local/nvim/share/nvim/runtime/plugin
 n --version
-./configure --disable-acl --disable-arabic --disable-gui --disable-gtk2-check --disable-gtk3-check --disable-gpm --disable-farsi --disable-autoservername --disable-canberra --disable-channel --disable-cscope --disable-darwin --disable-desktop-database-update --disable-fail-if-missing --disable-fontset --disable-gnome-check --disable-gtktest --disable-libsodium --disable-luainterp --disable-motif-check --disable-mzschemeinterp --disable-netbeans --disable-nls --disable-option-checking --disable-perlinterp --disable-python3interp --disable-pythoninterp --disable-rightleft --disable-rubyinterp --disable-selinux --disable-smack --disable-sysmouse --disable-tclinterp --disable-xattr --disable-xim --disable-xsmp --disable-xsmp-interact --disable-icon-cache-update --with-features=tiny
 vim --version
 numbat
 sudo pacman -S aichat
@@ -3030,7 +2997,6 @@ alias a=`pwd`/a.out
 which a
 gcc -d main.c
 gcc -g main.c
-git
 gcc main.c -g
 gdb ~/project/c/git-interactive/a.out
 a
@@ -3128,7 +3094,6 @@ facad -h
 facad ~
 facad -l =
 facad -l ~
-l ~
 n ../src/main.c
 l ../..
 false
@@ -3346,7 +3311,6 @@ ttyepr
 n ~/rc/foot.ini
 ../
 mkcd project/c/type.c
-mkdir src include
 cp ../rpx/src/testing.c ../rpx/include/testing.h .
 mv testing.c src
 mv testing.h include
@@ -3479,9 +3443,6 @@ l `which ld.lld`
 cmake -DLLVM_ENABLE_PROJECTS=lld -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm --target install
 cmake -G "Ninja" ../llvm -DLLVM_ENABLE_PROJECTS="clang;lld" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release
 tlp
-tlp start
-tlp-stat
-sudo tlp-stat
 sudo vim /etc/tlp.conf
 sudo systemctl restart tlp.service
 tlp-stat -p
@@ -3497,7 +3458,6 @@ yay -S rr
 z my-
 z libc
 ~/lib/my
-bear make
 rg arraytovec
 n def,h
 clang -E def.c -std=c23
@@ -3649,7 +3609,6 @@ rm .cling_history
 ~/project/rust
 cargo new unit
 cd unit
-n src/main.rs
 cargo run
 n mylib.txt
 rg dropf
@@ -3700,7 +3659,6 @@ valgrind --leak-check=full facad
 valgrind --leak-check=full facad -a
 valgrind --leak-check=full facad -l
 valgrind --leak-check=full fish
-ps
 ps aux
 kill 19439
 ps aux | grep fish
@@ -3791,7 +3749,6 @@ n .luarc.json
 n runtime/doc/lsp.txt
 ../../tool/llvm-project
 ~/project
-yay -Syyu
 z build
 acpi --battery
 rg implicit
@@ -3936,7 +3893,6 @@ rmf plugins/noice.nvim/
 n taskfile.yml
 go-task all-test
 echo "\a"
-z foot
 psa | grep cmake
 n runtime/autoload/zip.vim
 n src/nvim/vvars.lua
@@ -3946,7 +3902,6 @@ l -a
 rmf plugins/
 cd plugins/blink.cmp
 zig version
-zig zen
 vim-startuptime -vimpath /usr/local/bin/nvim -count 1000 -- testing.c
 n parallel.c
 python3 gpt_repository_loader.py ~/lib/my -o mylib.txt
@@ -3987,7 +3942,6 @@ yay -S keyd
 keyd -v
 sudo systemctl status keyd.service
 keyd-application-mapper
-l /etc/keyd/default.conf
 ls -l /etc/keyd/default.conf
 keyd list-keys | grep henkan
 sudo mv /etc/keyd/default.conf keyd.conf
@@ -4174,7 +4128,6 @@ n arena.c
 file README.md
 file taskfile.yml
 file .git/objects/00/59d44da82892edff4098032ea77d791efcd114
-man man
 apropos vi
 apropos nvim
 man apropos
@@ -4183,7 +4136,6 @@ n list.h
 rg insertenter -i
 n lua/colorscheme.lua
 rg getline
-man getline
 man gcc | grep flto
 man gcc | grep flto 2&>/dev/null
 valgrind ./a.out data/input.txt
@@ -4235,7 +4187,6 @@ sudo cp /proc/config.gz .
 unzip config.gz
 gzip --help
 gzip -d config.gz
-uname -r
 l /dev
 l /dev/media0
 l /dev > /tmp/devs
@@ -4319,7 +4270,6 @@ sudo rm -rf editor
 sudo rm -rf .platformio
 rm currently.img
 rmf Music/
-yay -Rsc texlive
 yay -Rsc texlive-bin texlive-doc
 sudo dd if=/dev/nvme0n1p5 of=currently.img bs=4M status=progress
 sudo cfdisk
@@ -4345,7 +4295,6 @@ sudo rm /usr/bin/cc
 yay -S gcc
 n ../CMakeLists.txt
 cmake ..
-n src/main.zig
 g cl https://github.com/gcc-mirror/gcc --depth 1
 cd gcc
 n compile
@@ -4359,10 +4308,6 @@ ls profile.d
 ls -l profile.d
 chmod +x profile.d/nix.sh
 yay -Rsc clang
-yay -Rsc gcc
-yay -Rsc btop
-nix-env -i btop
-nix-channel --add https://nixos.org/channels/nixpkgs-unstable
 nix-env -i clang
 yay -Rsc bzip2 radare2 gdb gdbm gdb-common man-db man-pages
 yay -Rsc bzip2 radare2 gdb gdb-common man-db man-pages
@@ -4379,9 +4324,7 @@ yay -Rsc python
 nix-env -i kde
 yay -Rsc kde
 nix-env -i keyd
-yay -Rsc keyd
 cmake -G "Unix Makefiles" ../llvm -DLLVM_ENABLE_PROJECTS="clang-tools-extra" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release
-yay -Rsc llvm
 yay -S clang
 lld
 ld.lld
@@ -4400,16 +4343,12 @@ yay -Rsc abseil-cpp plasma-workspace-wallpapers
 yay -Rsc plasma-workspace-wallpapers
 yay -Rsc platformio-core-udev
 yay -Rsc texlab
-yay -Rsc cargo
-yay -Rsc rust-analyzer
 yay -Rsc rustup
 yay -Rsc make cmake
 yay -Rsc acl gtk3
 yay -Rsc acl github-cli
 yay -Rsc acl yazi
 yay -Rsc github-cli
-yay -Rsc wl-clipboard
-yay -S nix
 sh <(curl -L https://nixos.org/nix/install)
 ~/.nix-profile/etc/profile.d/nix.sh
 nix-env
@@ -4432,7 +4371,6 @@ yay -Rsc sddm
 nix-env -i sddm-kcm
 nix-env -i wl-clipboard
 yay -Rsc lua
-yay -Rsc luajit
 yay -Rsc lua-language-server
 nix-env -i lua luajit lua-language-server
 nix-env -e lua
@@ -4453,7 +4391,6 @@ nix-env -i git git-delta lazygit
 nix-env -i git lazygit
 sudo pacman -Rsc `pacman -Qdtq`
 nix-env -i acpi zsh
-yay -Rsc zsh
 sudo pacman -Rsc zsh
 nix-env -i systemd
 systemctl list-jobs
@@ -4463,10 +4400,7 @@ sudo systemctl start keyd.service
 nix-env -qa home
 n ~/.config/nixpkgs/config.nix
 mkdir ~/.config/nixpkgs
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
 sudo vim /etc/locale.conf
-home-manager --help
 mv .config/nixpkgs/home.nix .config/nixpkgs/config.nix
 rmf .config/nixpkgs/
 n ~/.config/nixpkgs/home.nix
@@ -4475,7 +4409,6 @@ mkcd .config/nixpkgs
 z nixp
 nix-shell config.nix
 nix-env -i displayManager
-home-manager news
 home-manager build
 home-manager version
 home-manager --version
@@ -4485,7 +4418,6 @@ file result
 home-manager switch --show-trace
 home-manager packages
 mv config.nix home.nix
-which home-manager
 nix-channel --list
 mv home.nix configuration.nix
 mv configuration.nix home.nix
@@ -4494,8 +4426,6 @@ sudo pacman -Rsc xserver
 sudo pacman -Rsc xcb-imdkit org
 sudo pacman -Rsc xorg | head -n 30
 sudo pacman -Rsc imagemagick
-rm result
-home-manager switch
 nix-env -i sway
 sudo pacman -Rsc fcitx5
 ls /var/lib/pacman/db.lck
@@ -4503,13 +4433,8 @@ rm /var/lib/pacman/db.lck
 sudo pacman -Rsc xcb-imdkit fcitx5
 chmod +x ~/.nix-profile/etc/profile.d/nix.sh
 sudo pacman -S nix
-nix-env -i nix
 sudo -Rsc nix
-nix-shell '<home-manager>' -A install
-locale-gen
-sudo locale-gen
 nix-env -qa kde
-sudo systemctl enable keyd
 sudo pacman -S yay
 sudo pacman -S keyd
 sudo systemctl enable keyd && sudo systemctl start keyd
@@ -4524,12 +4449,9 @@ nix-env -qa pip
 python3 -m pipes
 python3 -m pipes install
 nix-env -qa i3ipc
-n home.nix
 home-manager switch -f home.nix
 cat home.nix
 nix-env -i acpi btop clang fd fzf git lazygit less lua-language-server luajit nodejs python3 ripgrep wl-clipboard
-which git
-nix-env -e home-manager
 nix-env -i acpi btop clang fd fzf lazygit less lua-language-server luajit nodejs python3 ripgrep wl-clipboard
 rmf nixpkgs/
 sudo pacman -S sddm
@@ -4606,7 +4528,6 @@ sudo mv Downloads/Dark-Wallpaper-HD-Download.jpg /usr/share/backgrounds/
 z sway
 g cl https://github.com/catppuccin/i3 --depth 1
 rmf config.d
-sudo pacman -Rsc vivaldi
 sudo pacman -Rsc sc-im
 nix-env -i sc-im
 sudo pacman -Rsc libzip
@@ -4628,12 +4549,9 @@ sudo pacman -Rsc python ffmpeg
 sudo pacman -Rsc python
 pacman -Ss ffmpeg
 sudo pacman -Syu
-nix-env -u
 nix-env -i fastfetch
-nix-env -qa texlive
 n .nix-profile/etc/profile.d/nix.sh
 eval `fzf --zsh`
-w3m google.com
 mkcd .config/zsh
 fzf --zsh
 fzf --zsh > fzf.zsh
@@ -4658,26 +4576,20 @@ sudo pacman -S pavucontrol
 vivaldi --wayland
 fg &
 brightnessctl set 3%
-brightnessctl set 3
 alsamixer
 pavucontrol
 firefox-beta
 nix-env -i make cmake
 nix-env -i make-binary-wrapper-hook cmake
-nix-env -q
 sudo pacman -S acpi alsa-utils btop clang cmake fastfetch fd firefox fzf gdb jq lazygit less libinput lldb lua-language-server luajit make nodejs python3 ripgrep sc-im vivaldi wl-clipboard xf86-video-amdgpu
 sudo pacman -S acpi alsa-utils btop clang cmake fastfetch fd firefox fzf gdb jq lazygit lldb lua-language-server luajit make nodejs ripgrep vivaldi wl-clipboard xf86-video-amdgpu
 nix-env -e `nix-env -q`
 sudo rmf /nix
 sudo rm -rf /nix
-sudo pacman -Rsc nix
-nix
 clang --version
 git clone https://aur.archlinux.org/yay --depth 1
 cd yay
-makepkg -si
 yay -Rsc yay-debug
-rmf yay
 yay -S git-delta
 gcc b.c -DBENCHMARK_MODE
 gcc b.c src/benchmarking.c -DBENCHMARK_MODE
@@ -4689,12 +4601,10 @@ make bench
 eval `ssh-agent -s`
 ssh-add ~/.ssh/id_rsa
 yay -S github-cli
-vivaldi
 n rc/brightnessctl.service
 sudo ln rc/brightnessctl.service /etc/systemd/system/
 sudo systemctl enable brightnessctl.service
 n rc/install.sh
-sudo systemctl start brightnessctl.service
 ls .config/fontconfig/
 fc-list | grep plemoljp -i
 man sway-output
@@ -4703,7 +4613,6 @@ fc-list | grep plemoljp35console -iv
 fc-list | grep plemol -iv
 echo $MOZ_ENABLE_WAYLAND
 yay -S mesa
-yay -Ss vulkan
 yay -S mesa-utils
 glxinfo | grep "OpenGL renderer"
 yay -Ss amdgpu
@@ -4720,9 +4629,7 @@ n src/nvim/option.c
 yay -S ninja
 facad -l
 yay -S meson
-ninja
 ninja install
-sudo ninja install
 cargo install startship
 yay -S starship
 starship completions zsh
@@ -4919,10 +4826,8 @@ mv ~/rpx.vim tool/
 n /usr/local/share/nvim/runtime/syntax/c.vim
 n /usr/local/share/nvim/runtime/syntax/zig.vim
 n lua/dmacro.lua
-fcitx5-remote
 man nohup
 man disown
-yay -Rsc wofi
 printf '%s+' "hello world"
 printf '%s+' hello world
 echo ${`printf '%s+' hello world`%+}
@@ -5054,7 +4959,6 @@ wofi --dmenu --width 500 --height 100
 wofi --dmenu --width 500 --height 30
 wofi --dmenu --width 500 --height 40
 wofi --dmenu --width 500 --height 50
-bash
 autoload -Uz compgen
 autoload -Uz compgen -c
 compgen -c
@@ -5130,7 +5034,6 @@ n 1
 rm 1
 rm .config/mako/1 project/c/markov/1 project/c/rpx/1
 dbus-send --session --type=method_call --dest=org.fcitx.Fcitx5 /controller org.fcitx.Fcitx.Controller1.InputMethod
-fcitx5-remote -h
 fcitx5-remote -a
 fcitx5-remote -tx5M
 fcitx5-remote -fcitx5
@@ -5191,7 +5094,6 @@ rm .config/hypr/hyprland.conf && ln rc/hyprland.conf .config/hypr/
 cd rc
 n ~/.gitconfig
 diff ../.gitconfig .gitconfig
-rm ../.gitconfig
 ln .gitconfig ../
 g lgo
 n .gitconfig
@@ -5202,7 +5104,6 @@ swww-daemon
 launch swww-daemon
 swww img --transition-fps 60 --transition-type wipe --transition-duration 3
 swww img /usr/share/backgrounds/backgnd.gif --transition-fps 60 --transition-type wipe --transition-duration 3
-free -h
 swww img /usr/share/backgrounds/backgnd.gif --transition-fps 30 --transition-type wipe --transition-duration 3
 sudo mv Downloads/city.gif /usr/share/backgrounds/
 swww img /usr/share/backgrounds/city.gif --transition-fps 30 --transition-type wipe --transition-duration 3
@@ -5344,7 +5245,6 @@ dmesg | grep -i drm
 sudo dmesg | grep -i drm
 sudo -E nvim /etc/lightdm/lightdm.conf
 echo $XDG_CURRENT_SESSION
-n .xprofile
 yay -Ss ly
 yay -S ly
 sudo systemctl disable lightdm.service
@@ -5353,7 +5253,6 @@ n /etc/ly/config.ini
 yay -Rsc lightdm
 yay -Rsc `yay -Qdtq`
 yay -Sc
-rm temp
 keyd -h
 IEJg
 keyd monitor
@@ -5364,7 +5263,6 @@ n src/emoji_utils.h
 n src/emoji_mappings.h
 n src/emoji_mappings.c
 meson ..
-ninja build
 ninja clean
 ./facad ../src
 n ../src/emoji_mappings.c
@@ -5387,7 +5285,6 @@ fc-list | grep PlemolJP35Console
 yay -Qi plemoljp
 yay -Qi plemoljp35
 yay -Qi plemoljp35console
-yay -Ss plemoljp
 yay -Qi ttf-plemoljp
 z facad
 n .config/gtk-4.0/settings.ini
@@ -5399,9 +5296,7 @@ fc-cache -fv
 man foot.ini
 yay -Q man
 yay -Ss ma
-yay -Ss man
 yay -S manpages
-yay -S man-pages
 man foot
 yay -Ss font
 ls -l
@@ -5422,7 +5317,6 @@ n build.log
 rm build.log
 git describe --tags --always --dirty
 git describe --tags --always
-date
 man date
 date -I
 man gcc
@@ -5533,7 +5427,6 @@ ffmpeg -i output.jpg -vf "eq=brightness=-0.3" output.jpg
 ffmpeg -i output.jpg -vf "eq=contrast=1.3" output.jpg
 ffmpeg -i 722880.jpg -vf "curves=blue='0/0 0.4/0.8 1/1':green='0/0 0.5/0.2 1/1'" output.jpg
 swww img output.jpg --transition-fps 15 --transition-type wipe --transition-duration 3
-n ~/.config/foot/foot.ini
 sudo mv Downloads/output.jpg /usr/share/backgrounds/cyber.jpg
 rm Downloads/*.jpg
 n .config/hypr/hyprland.conf
@@ -5547,7 +5440,7 @@ md5sum -h
 md5sum --help
 md5sum --status
 md5sum --quiet
-md5sum | cut -d\  -f1
+md5sum | cut -d\ -f1
 md5sum | cut -f1
 rmf build/
 make run
@@ -5572,7 +5465,6 @@ sudo keyd bind '= = ='
 sudo systemctl restart keyd
 l /usr/share/keyd/layouts
 sudo systemctl stop keyd
-sudo systemctl start keyd
 sudo keyd bind '# = ('
 sudo keyd bind '\# = ('
 sudo keyd bind 'sharp = ('
@@ -5643,20 +5535,16 @@ cd llvm-project
 ../zig
 n src/Sema.zig
 ../ChezScheme
-make CMAKE_BUILD_TYPE=Release -j16
-sudo make install
 ~/linux
-make help
 make release
 sudo make clean-all
 sudo make install OL=3
 yay -Qv
 yay -Qs
 yay -Qc
-yay -Q | cut -d\  -f1
+yay -Q | cut -d\ -f1
 n pacmanlist.txt
 rm makefile
-n install.sh
 where zsh
 n ~/.zsh_history
 l ~/.zsh_history
@@ -5667,7 +5555,6 @@ eval `atuin init zsh`
 atuin login
 atuin history
 n ~/.histfile
-n reg.sh
 rm .zsh_history
 ./reg.sh
 atuin sync
@@ -5685,20 +5572,15 @@ rmf ~/.config/atuin/
 rmf ~/.local/share/atuin/
 g p
 n .vimrc
-n brightnessctl.service
 n config.fish
 n alacritty.toml
 n foot.ini
-n keyd.conf
 l /etc/tlp.conf
-n defaults.conf
 l /etc/tlp.d/00-template.conf
-n /etc/tlp.conf
 n example/all.rpx
 n tool/rpx.vim
 n LICENSE
 n src/ansiesc.c
-make T=test
 n src/exception.c
 swww img /usr/share/backgrounds/cyber.jpg
 swww img /usr/share/backgrounds/gruvbox.jpg
@@ -5731,12 +5613,10 @@ n keylayout
 mv keylayout keylayout.json
 n src/editline.c
 n keylayout.json
-ncdu
 n src/evalfn.c
 nvimsudo /etc/keyd/default.conf
 sudo keyd reload
 hyprland --help
-z tool
 g cl https://github.com/hyprwm/Hyprland.git --depth 1
 yay -S libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm libliftoff libdisplay-info cpio tomlplusplus hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git --needed
 yay -S hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git --needed
@@ -5756,7 +5636,6 @@ sudo make uninstall
 rmf Hyprland
 n rpx.vim
 rg CAT
-n src/chore.c
 rg alloc
 n src/matop.c
 rg new
@@ -5765,9 +5644,7 @@ n src/graphplot.c
 make T=test OL=3
 make run T=test OL=3
 make run T=test OL=g
-yay -Rsc hyprland
 yay -R hyprland
-z neovim
 ../vim
 yay -Q hyprcursor
 echo $HYPRCURSOR_SIZE
@@ -5834,7 +5711,6 @@ tshark -i wlp1s0
 sudo tshark -i wlp1s0
 sudo tshark -i wlp1s0 -Y http
 sudo tshark -i wlp1s0 -Y https
-zig targets
 z zig
 zig build --summary
 zig build --summary all
@@ -5847,12 +5723,9 @@ zig run temp.zig
 rm temp.zig
 rmf .zig-cache/
 zig build.zig
-n src/main.c
-zig
 zig run
 zig run src/main.c
 neofetch
-brightnessctl set 5
 brightnessctl set 7
 brightnessctl set 15
 brightnessctl set 12
@@ -5873,8 +5746,6 @@ systemctl status NetworkManager.service
 sudo systemctl start NetworkManager.service
 sudo systemctl stop NetworkManager
 journalctl -xeu NetworkManager.service
-brightnessctl
-brightnessctl set 10
 sudo systemctl status NetworkManager
 sudo systemctl enable NetworkManager
 NetworkManager
@@ -5949,7 +5820,6 @@ n build.zig
 make run T=bench
 l .build/a04d1929086346f1d49aba706a201121/target/
 l .zig-cache/h/0134e489a35a6f30028129fea94e6885.txt
-amdgpu_top
 lsmem
 psa
 man pam
@@ -6093,8 +5963,6 @@ setfont -d Goha-16.psfu.gz
 setfont
 setfont -d cybercafe.fnt.gz
 htop
-btop
-nvimsudo /etc/vconsole.conf
 man setfont
 man script
 script --timing
@@ -6121,9 +5989,7 @@ n ~/.config/hypr/hyprland.conf
 yay -Qs manager
 yay -Rsc sway
 yay -Rsc emptty
-z rc
-yay -Q
-yay -Q | cut -d\  -f1 > pacmanlist.txt
+yay -Q | cut -d\ -f1 > pacmanlist.txt
 yay -S nu
 yay -S nushell
 nu
@@ -6159,7 +6025,6 @@ starship module memory-usage
 starship module memory_usage
 n starship.nu
 sudo chsh -s /sbin/nu sundo
-sudo chsh -s /sbin/zsh sundo
 pacman -Q ly
 pacman -Qi ly
 sudo systemctl start hyprland
@@ -6185,7 +6050,6 @@ pueue status
 n QtProject.conf
 n /etc/xdg/foot/foot.ini
 n starship.toml
-make clean-all
 make OL=3
 make run OL=3
 make run T=bench OL=3
@@ -6212,7 +6076,6 @@ yay -Q | grep mozc
 yay -Rsc fcitx5-mozc
 テスト▼実行
 こんにちは、 世界
-acpi -b
 　ねおう゛ぃm
 rg define\ EXPAND
 rg 'define EXPAND'
@@ -6220,7 +6083,6 @@ n include/chore.h
 zig build run -DT=test
 rg test_table
 n src/gene.c
-n temp
 n src/phyconst.c
 ping -f -l 1472 8.8.8.8
 ping -f -l 3 8.8.8.8
@@ -6229,16 +6091,15 @@ man ping
 gcc src/phyconst.c src/testing.c -DTEST_MODE
 gcc src/phyconst.c src/testing.c -DTEST_MODE -Iinclude
 gcc src/phyconst.c src/testing.c -DTEST_MODE -Iinclude -std=c23
-gcc src/phyconst.c src/testing.c src/gene.c  -DTEST_MODE -Iinclude -std=c23
+gcc src/phyconst.c src/testing.c src/gene.c -DTEST_MODE -Iinclude -std=c23
 head src/gene.c
 head src/testing.c
 head src/phyconst.c
 gcc temp.c src/testing.c -DTEST_MODE -Iinclude
-gcc temp.c src/testing.c src/gene.c  -DTEST_MODE -Iinclude
-gcc temp.c src/testing.c src/gene.c  -DTEST_MODE -Iinclude -std=c23
+gcc temp.c src/testing.c src/gene.c -DTEST_MODE -Iinclude
+gcc temp.c src/testing.c src/gene.c -DTEST_MODE -Iinclude -std=c23
 gcc temp.c src/testing.c -Iinclude
 clang temp.c src/testing.c -Iinclude -DTEST_MODE -std=c23
-make run T=test
 gcc -M temp.c -Iinclude/
 cpp temp.c -Iinclude
 cpp temp.c -Iinclude -DTEST_MODE
@@ -6248,7 +6109,6 @@ cpp temp.c -Iinclude -DTEST_MODE | tail -n 15
 cpp temp.c -Iinclude -DTEST_MODE | tail -n 15 | sed '/^#/d'
 cpp temp.c -Iinclude -DTEST_MODE | tail -n 15 | clang-format
 gcc temp.c src/testing.c -Iinclude -DTEST_MODE -std=c23
-rm a.out
 gcc temp.c src/testing.c -Iinclude -DTEST_MODE
 rm a.out temp.c
 n src/testing.c
@@ -6288,7 +6148,6 @@ basename hello/world
 [ "hello" "world" ]
 help
 help file
-path -h
 "hello/world" | path basename
 n syncplug.sh
 rg 'q:'
@@ -6311,7 +6170,6 @@ chmod 744 syncplug.nu
 mkdir archive
 mc syncplug.sh archive/
 mv syncplug.sh archive/
-ls | describe
 ls -h
 ls -s
 ls -D
@@ -6321,10 +6179,6 @@ ls | table --index 1
 ls | table --index 1 --flatten
 table -l
 sys host
-table -h
-from -h
-into -h
-to -h
 [hello world]
 [hello world] - [hello]
 exit -h
@@ -6341,10 +6195,7 @@ lsmod
 modinfo loop
 du linux
 cd linux
-nvif
 nvim (tv)
-cargo install-update -a
-z c
 mkcd ../kernel-mod
 yay -S linux-headers
 mv makefile Makefile
@@ -6356,7 +6207,6 @@ sudo rmmod hello_module
 sudo dmesg | tail
 ls -d
 n hello_module.c
-bear -- make
 ls -ad
 n hello_module.mod.c
 n compile_commands.json
@@ -6405,7 +6255,6 @@ canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Nudge.ogg
 canberra-gtk-play -f /usr/share/sounds/alsa/Front_Center.wav
 canberra-gtk-play -f /usr/share/sounds/alsa/Front_Left.wav
 canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Phone-Ring.ogg
-n .zshrc
 starship init zsh
 z .co
 z zsh/
@@ -6426,7 +6275,6 @@ yay -S pokemon-colorscripts-git
 colorscript
 z shell
 ../../project/shell/
-zoxide add .
 g cl https://github.com/charitarthchugh/shell-color-scripts.git --depth 1
 mv shell-color-scripts/ ~/.config/zsh/
 sozsh
@@ -6436,7 +6284,6 @@ hyprpaper --help
 kill 939
 hyprpaper /usr/share/backgrounds/cyber.jpg
 hyprpaper -c /usr/share/backgrounds/cyber.jpg
-hyprctl monitors
 l /usr/share/HyprPanel/widget/
 l /usr/share/HyprPanel/themes/
 l /usr/share/hypr/wall2.png
@@ -6453,11 +6300,9 @@ z rpx
 make lint
 l .local/share/nvim/
 mkdir .local/share/nvim/zoxide
-zi
 z blink /
 z l /
 mv lua/zoxide.lua lua/cdtrack.lua
-n init.lua
 mv ~/.local/share/nvim/zoxide/ ~/.local/share/nvim/cdtrack
 mkcd lib
 mkcd fuzzypath
@@ -6483,7 +6328,6 @@ clang -shared -fPIC -o ../../matchfuzzy.so main.c fs.c -std=c23 -O3
 n .gitignore
 z sna
 z plugins/snacks.nvim/lua/snacks/dashboard.lua
-z plugins/snacks.nvim/
 g config pull.rebase true
 mv matchfuzzy.so fuzzypath/fuzpath.so
 mv fuzzypath/ fuzpath
@@ -6504,20 +6348,16 @@ z lua/lib/fuzpath/
 clang -shared -fPIC -o ../fuzpath.so main.c fs.c -std=c23 -O3
 make clean
 onefetch
-fastfetch
 z editor/vim/
-../neovide/
 ~/proc/gcc/
 ../llvm-project/
-../zig/
 ~/linux/
 rmf .tuxpaint/ youken.txt
-^ls
 ^ls -AR / | save allfile.txt
 ls allfile.txt
 n allfile.txt
 wc allfile.txt
-wc allfile.txt  -l
+wc allfile.txt -l
 cat allfile.txt
 z lua/lib/
 mv lua/lib/ .
@@ -6529,17 +6369,10 @@ t
 l lua/
 rm lua/matchfuzzy.so
 l lib/
-z
 z tool/
 cd foot/
-../ly/
-n hyprland.conf
 yay -Rsc swww
 kill 1124
-..
-/
-tv
-journalctl -xe
 sudo dmesg
 rg swww **/*.conf
 cd hyprpanel/
@@ -6554,23 +6387,18 @@ z gpt
 bat nvim.txt
 python3 gpt_repository_loader.py ~/.config/nvim -o nvim.txt
 cat nvim.txt | wl-copy
-g pl
 cmake -G
 z build/
 cmake -G "Ninja" ../llvm/ -DLLVM_ENABLE_PROJECTS="clang;lld;clang-tools-extra" -DLLVM_TARGETS_TO_BUILD="x86" -DCMAKE_BUILD_TYPE=Release -DLLVM_LIBC_FULL_BUILD=ON -DLLVM_PARALLEL_JOBS=2 -DLLVM_USE_LINKER=lld
 cmake -G "Ninja" ../llvm/ -DLLVM_ENABLE_PROJECTS="clang;lld;clang-tools-extra" -DLLVM_TARGETS_TO_BUILD="X86" -DCMAKE_BUILD_TYPE=Release -DLLVM_LIBC_FULL_BUILD=ON -DLLVM_PARALLEL_JOBS=2 -DLLVM_USE_LINKER=lld
-n ~/shutdown.sh
 ~/shutdown.sh
 cmake --build .
 ^ps aux
-z llvm
 which clang
 l /usr/local/bin/clang
-cd build/
 cmake --build . --target install
 sudo cmake --build . --target install
 l /usr/local/bin/clang-20
-z co
 cd hypr/
 systemd status hyprpanel
 systemctl status hyprpanel
@@ -6598,7 +6426,6 @@ rmf eww-bar/
 rm --permanent eww-bar/*
 sudo rmf eww-bar/
 sudo rm -rf eww-bar/
-ls
 eww daemon
 eww list-window
 eww list-windows
@@ -6606,8 +6433,6 @@ eww open bar
 swww --help
 ps | find swww
 hyprctl activewindow
-hyprctl systeminfo
-hyprctl --help
 hyprctl workspaces
 eww kill
 sudo mv /usr/share/hypr/wall0.png /usr/share/hypr/wall0.png.backup
@@ -6621,22 +6446,16 @@ sudo mogrify -format png /usr/share/hypr/wall0.jpg
 l /usr/share/hypr
 sudo rm /usr/share/hypr/wall0.jpg
 ../hypr
-reboot
-z hypr
 sudo mv /usr/share/hypr/wall0.png /usr/share/hypr/wall3.png
 sudo mv /usr/share/hypr/wall3.png /usr/share/hypr/wall0.png
 rmf .config/hypr/hyprpaper.conf
-yay -Syu
-./syncplug.nu
 mkcd no16
 clang main.c
-z nvim
 cd plugins/blink.cmp/
 cargo build --release
 n lua/blink/cmp/fuzzy/init.lua
 g b -a
 ../alg/no16/
-z -
 n lua/plugin.lua
 z no16
 z no
@@ -6645,17 +6464,14 @@ z no
 agsv1 --help
 agsv1
 z project/pro/alg/no12/
-make
 make main
 rm main
 make main.pdf
-n makefile
 z alg
 cd no16
 ./a.out
 l ../no12
 mv main.pdf 演習16_IS16_小山隼冬.pdf
-yazi
 zsh -c 'echo $NVIM'
 nvim --server
 nvim -h
@@ -6663,9 +6479,8 @@ n --server sundo --remote-send "<cmd>cd .config/nvim<CR>"
 n --server sundo
 n --listen sundo
 n --remote-send '<cmd>cd .config/nvim<CR>'
-makoctl  --help
+makoctl --help
 makoctl history
-n
 l /tmp/nvim
 NVIM_LISTEN_ADDRESS=/tmp/nvim nvim
 n --server $env.NVIM --remote-send "<cmd>cd .config/nvim<CR>"
@@ -6697,8 +6512,6 @@ env-exist \$env.DISPLAY
 n utils.nu
 env -h
 cds .config/
-n alias.nu
-shutdown now
 cds -h
 try -h
 cds .config/nvim/
@@ -6727,15 +6540,1129 @@ $env | find NVIM | is-not-empty
 $env | find NVIMM | is-not-empty
 zs nvim
 zoxide query co
-z nus
-l
 exir
-exit
 zs co
 zs nus
-laz
 n history.txt
 cat history.txt | superuniq
 cat history.txt | wc
 cat history.txt | superuniq | wc
 cat history.txt | superuniq | save -f history.txt
+l /usr/local/bin/nvim
+make CMAKE_BUILD_TYPE=Release -j16
+which z
+alias -h
+alias z
+rg z
+z co
+zi
+error make { msg: "Neovim is not running" }
+send-to-nvim-cmd "<cmd>echo "hello""
+send-to-nvim-cmd "<cmd>echo "hello"<CR>"
+send-to-nvim-cmd "<cmd>echo "hello"<CR>" --strict=true
+send-to-nvim-cmd -h
+zoxide query zzz
+z zzz
+colorscript -h
+colorscript -e pokemon
+colorscript -e thebat
+colorscript -e thebat2
+colorscript -e fade
+colorscript -e face
+colorscript -e faces
+colorscript -e bars
+colorscript -e blocks
+colorscript -e blocks1
+colorscript -e blocks2
+colorscript -e alpha
+colorscript -e arch
+colorscript -e colorbars
+colorscript -e colorwheel
+colorscript -e debian
+colorscript -e colorview
+colorscript -e bloks
+colorscript -e dna
+colorscript -e rails
+colorscript -e rally-x
+colorscript -e six
+colorscript -e hearts
+colorscript -e elfman
+colorscript -e crunch
+colorscript -e colortest
+colorscript -e colortest-slim
+colorscript -e monster
+colorscript -e mouseface
+colorscript -e ghosts
+colorscript -e panes
+colorscript -e tcs
+colorscript -e tvs
+colorscript -e zwaves
+colorscript -e tiefighter1
+colorscript -e tiefighter1-no-info
+colorscript -e tiefighter1-no-invo
+colorscript -e tiefighter1row
+colorscript -e tiefighter2
+colorscript -e spectrum
+colorscript -e rupees
+colorscript -e square
+colorscript -e print256
+colorscript -e pacman
+colorscript -e pacman-large
+colorscript -e mouseface2
+colorscript -e crunchbang
+colorscript -e darthvader
+colorscript -e hedgehogs
+colorscript -e popos
+colorscript -e jangofett
+colorscript -e space-invaders
+yay -S ollama
+ollama
+ollama run llama3.3
+ollama rm llama3.3
+ollama list
+free -h
+ps
+ollama run codellama
+ollama run moondream
+z plugins/snacks.nvim/
+rg colorscript
+colorscript -l
+colorscript -e illumina
+rg square
+yay -Ss mission-center
+yay -Ss hevi
+yay -S hevi
+hevi LICENSE
+hevi -h
+cargo install lla
+cargo install smartcat
+tracepath 8.8.8.8
+yay -S lazyjournal
+yay -Ss lazyjournal
+go install github.com/Lifailon/lazyjournal@latest
+lazyjournal
+yay -S pandoc
+yay -S typespeed
+typespeed
+yay -S radare2
+r2 /usr/local/bin/rpx
+ollama run mistral
+ollama run llama3.2
+ollama serve
+r2 -d -e bin.cache=true /bin/ls
+r2 -d -e bin.relocs.apply=true /bin/ls
+r2 -Ad /bin/ls
+r2 -d /bin/yes
+r2 -d /usr/local/bin/rpx
+r2 --version
+r2 -v
+r2 -V
+git clone https://github.com/radareorg/radare2.git tool/ --depth 1
+git clone https://github.com/radareorg/radare2.git tool/radare2 --depth 1
+z tool/radare2/
+CC=clang LDFLAGS=-fuse-ld=gold meson . release --buildtype=release --prefix ~/.local/stow/radare2/release
+rmf ~/.local/stow/
+rmf release/
+CC=clang LDFLAGS=-fuse-ld=gold meson . release --buildtype=release
+ninja -C release
+yay -Rsc radare2
+l /usr/local/lib/
+ninja -C release install
+r2 /bin/ls
+yay -S capstone
+yay -Rsc capstone
+ls /usr/local/lib/libr_*
+ldd r2
+echo $env.LD_LIBRARY_PATH
+$env.LD_LIBRARY_PATH = /usr/local/lib
+$env.LD_LIBRARY_PATH = "/usr/local/lib"
+ldd /usr/local/bin/r2
+sudo mandb
+man -k radare2
+man radare2
+whatis radare2
+../ly/
+z neovim
+./configure --disable-acl --disable-arabic --disable-gui --disable-gtk2-check --disable-gtk3-check --disable-gpm --disable-farsi --disable-autoservername --disable-canberra --disable-channel --disable-cscope --disable-darwin --disable-desktop-database-update --disable-fail-if-missing --disable-fontset --disable-gnome-check --disable-gtktest --disable-libsodium --disable-luainterp --disable-motif-check --disable-mzschemeinterp --disable-netbeans --disable-nls --disable-option-checking --disable-perlinterp --disable-python3interp --disable-pythoninterp --disable-rightleft --disable-rubyinterp --disable-selinux --disable-smack --disable-sysmouse --disable-tclinterp --disable-xattr --disable-xim --disable-xsmp --disable-xsmp-interact --disable-icon-cache-update --with-features=tiny
+make help
+sudo make install
+vim
+fastfetvh
+l ~/.cargo/bin/
+lla
+lla -T
+lla -t
+lla -l
+man man
+ource alias.nu
+batman man
+vim 
+vim +Man
+yay -S home-manager
+yay -Ss home-manager
+sudo nix-shell '<home-manager>' -A install
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-env -s home-manager
+nix-env --help
+nix-env --query home-manager
+sudo nix-env --query home-manager
+sudo nix-env --query neovim
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable
+sudo nix-env -qa
+ls /nix/var/nix/daemon-socket/
+ls /nix/var/nix/
+l /nix
+sudo usermod -aG nix-users sundo
+nix-chennel --update
+sudo nix-channel --update
+sudo chown sundo:users /nix uid=1000,gid=1000
+sudo chown sundo:users /nix/**
+sudo chown sundo:users /nix/**/*
+l /nix/var/nix/db/big-lock
+yay -Q acpi
+yay -Q tlp
+mkcd .config/home-manager
+z .
+z ~/.config/home-manager/
+homectl --help
+z /nix
+nvif
+n store/mwc4zqawgf7wigwgbn46pyjhfn4y64ix-home-manager/home-manager/home-manager/home-manager
+store/mwc4zqawgf7wigwgbn46pyjhfn4y64ix-home-manager/home-manager/home-manager/home-manager switch
+bash store/mwc4zqawgf7wigwgbn46pyjhfn4y64ix-home-manager/home-manager/home-manager/home-manager switch
+n ~/.bashrc
+ni
+nix-shell '<home-manager>' -A install --show-trace
+$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+$env.HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+~/.nix-profile/etc/profile.d/hm-session-vars.sh
+bash ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+home-manager --help
+n ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+yay -Rsc btop
+nix-env -qa
+home-manager-path
+cat ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+nix --help
+man -k home-manager
+man -k radare
+mv home.nix home.nix.bk
+nix-shell '<home-manager>' -A install
+man home-configuration.nix
+home-manager
+nix-channel --help
+cat ~/.nix-profile/etc/profile.d/hm-session-vars.sh 
+cat /nix/store/wcmn60d6c7cf18l8imadpydlv58z87g9-glibc-locales-2.40-36/lib/locale/locale-archive
+/nix/store/wcmn60d6c7cf18l8imadpydlv58z87g9-glibc-locales-2.40-36/lib/locale/locale-archive
+bash /nix/store/wcmn60d6c7cf18l8imadpydlv58z87g9-glibc-locales-2.40-36/lib/locale/locale-archive
+systemctl status home-manager
+systemctl status home-manager-sundo
+/nix/store/bx5vrn5v3j29z4lm075hd560yjfg54f3-home-manager/bin/home-manager
+/nix/store/bx5vrn5v3j29z4lm075hd560yjfg54f3-home-manager/bin/home-manager switch
+nix-env -i btop
+source $nu.env-path
+nix -i home-manager
+nix-env -i home.manager
+nix-channel --remove home-manager 
+nix-channel --update 
+nix-env -u
+which home-manager
+l .nix-defexpr/channels/manifest.nix
+cat .nix-defexpr/channels/nixpkgs/default.nix 
+cat .nix-profile/etc/profile.d/hm-session-vars.sh 
+cat /nix/var/nix/profiles/default 
+cat /nix/var/nix/profiles/per-user/root/channels/manifest.nix 
+nix-env -i nix
+echo $env.PATH
+nix profile remove home-manager
+nix profile remove home-manager --extra-experimental-features nix-command
+nix profile list --extra-experimantal-features nix-command
+nix profile remove home-manager-path --extra-experimental-features nix-command
+l .local/state/nix/profiles/profile/
+nix profile install home-manager --extra-experimental-features nix-commands
+nix profile install home-manager --extra-experimental-features nix-command
+nix profile install home-manager --extra-experimental-features nix-command --extra-experimental-features flakes
+nix-env -e btop
+nix profile remove btop
+nix profile remove btop --extra-experimental-features nix-command
+nix profile remove btop --extra-experimental-features nix-command --extra-experimental-features flakes
+l .local/state/nix/profiles/profile/bin/
+nix profile list --extra-experimental-features nix-command
+nix profile remove flakes:home-manager --extra-experimental-features nix-command --extra-experimental-features flakes
+nix profile remove flakes:home-manager#packages.x86_64-linux.default --extra-experimental-features nix-command --extra-experimental-features flakes
+nix profile remove 'flakes:home-manager#packages.x86_64-linux.default' --extra-experimental-features nix-command --extra-experimental-features flakes
+home-manager switch --extra-experimental-features nix-commands --extra-experimental-features flakes
+home-manager switch --extra-experimental-features nix-command --extra-experimental-features flakes
+nix profile remove 1 --extra-experimental-features nix-command
+nix profile list --extra-experimental-features nix-command --extra-experimental-features flakes
+nix profile remove home-manager --extra-experimental-features nix-command --extra-experimental-features flakes
+nix profile remove flake:home-manager --extra-experimental-features nix-command --extra-experimental-features flakes
+rm home.nix
+mv home.nix.bk home.nix
+nix run nixpkgs#home-manager -- switch --flake
+nix run nixpkgs#home-manager --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake
+which -h
+nix profile remove nix
+nix profile remove nix --extra-experimental-features nix-command
+nix profile remove nix --extra-experimental-features nix-command --extra-experimental-features flakes
+nix
+rmf /nix/ --permanent
+sudo rm -rf /nix/ --permanent
+sudo chown sundo:users /nix
+sudo chown sundo:users /nix/*
+sudo chown sundo:users /nix/var/nix
+sudo chown sundo:users /nix/var/nix/profiles/per-user/
+sudo chown sundo:users /nix/var/nix/profiles/
+l /nix/var/nix/profiles/per-user/
+l /nix/var/nix/profiles
+nix-shell home.nix
+newgrp nix-users
+chmod 755 /nix/var/nix/gcroots/per-user/
+sudo chmod 755 /nix/var/nix/gcroots/per-user/
+nix config check
+nix config check --extra-experimental-features nix-command
+sudo usermod -aG nixbld sundo
+newgrp nixbld
+l -ld /nix/
+l -ld /nix
+ls -ld /nix
+^ls -ld /nix
+rmf /nix/
+sudo rm -rf /nix/
+l /nix/
+sudo chown -R root:nixbld /nix
+sudo chmod 1777 /nix
+nix doctor --extra-experimental-features nix-command --extra-expermental-features flakes
+nix doctor --extra-experimental-features nix-command --extra-experimental-features flakes
+l /nix/var/nix/daemon-socket/
+l /nix/var/nix/
+groups sundo
+groups
+nix-channel --update
+nix-env -i home-manager
+z home
+rm ~/.local/state/home-manager/gcroots/current-home
+rm ~/.local/state/nix/profiles/home-manager*
+nix-env -e home-manager
+nix run nixpkgs#home-manager -- switch
+home-manager switch
+l ~/.nix-defexpr/channels/
+yay -Rsc acpi
+yay -Rsc git
+yay _
+yay -Rsc zig
+yay -Rsc nix
+yay -Rsc hyprpaper 
+yay -Rsc meson ninja
+yay -Rsc cargo
+yay -Rsc rustup 
+yay -Rsc ly 
+yay -Rsc mako
+yay -Rsc make
+yay -Rsc cmake
+zig --help
+which zig
+yay -Q
+yay -Rsc yazi
+yay -Rsc zsh
+nix -qa busybox
+nix-env -qa busybox
+nix run nixpkgs#home-manager --extra-experimental-features nix-command --extra-experimental-features flakes -- switch
+nix-shell -p busybox
+l /usr/lib/nix/
+l /usr/lib/
+nix-env -i busybox
+nix flake
+nix flake init
+ldd (^which btop)
+ldd (which btop)
+which btop
+^which btop
+nix build
+./result/bin/hello
+./result/bin/hello --help
+./result/bin/hello -t
+rmf result/
+l result/
+nix profile listx
+z
+rm result/
+sudo rm -rf result/
+yay -S busybox
+busybox 
+busybox ls
+ln /bin/busybox /usr/lib/nix/
+nix profile remove home-manager-path
+curl -L https://nixos.org/nix/install | sh
+g cl https://github.com/NixOS/nix.git --depth 1
+rmf nix/
+sudo rm /usr/lib/nix/busybox 
+yay -S nix
+which -a nix
+pacman -Q
+yay -Rsc wofi
+yay -Rsc w3m
+pacman -Q | cut -f1
+pacman -Q | cut -d' ' -f1
+pacman -Q | cut -d' ' -f1 | save pkgs.txt
+yay -Rsc agsv1
+yay -Rsc agsv1-debug 
+yay -Rsc amdgpu_top amdgpu_top-debug
+yay -Rsc bear
+yay -Rsc brightnessctl
+yay -Rsc cmus
+yay -Rsc cpufetch fastfetch onefetch
+yay -Rsc llvm
+yay -Rsc ccache
+yay -Rsc dmenu dunst
+yay -Rsc difftastic
+yay -Rsc gdb cgdb
+yay -Rsc gdb
+yay -Rsc figlet fd
+yay -Rsc eww eww-debug
+yay -Rsc gawk
+yay -Rsc fzf
+yay -Rsc gcc
+yay -Rsc gcc-libs
+yay -Rsc git-delta github-cli
+yay -Rsc go go-task
+yay -Rsc gpu-screen-recorder-debug 
+yay -Rsc fcitx5
+yay -Rsc qt5
+l ~
+l ~/.nix-profile/bin/
+yay -Rsc keyd
+yay -Rsc hyprland
+yay -Rsc imagemagic ffmpeg libsixel
+yay -Rsc imagemagick
+/usr/share/fontconfig/
+cd kbd/consolefonts/
+^ls
+setfont default8x16
+ls ~/.nix-profile/bin/
+l /etc/keyd/default.conf
+fcitx5-remote
+nix flake update
+nix flake info 
+nix profile upgrade 
+nix profile upgrade .#mypkgs
+^ls ~/.nix-profile/bin/
+tmux
+yay -Rsc gtk3 
+yay -Rsc gtk4
+yay -Rsc gtk3 | head -n 50
+yay -Rsc gtk3
+yay -Qi automake
+yay -Rsc automake
+yay -Qi bun
+yay -Rsc bun bun-debug
+yay -Rsc bun-bin bun-bin-debug
+yay -Rsc wl-clipboard
+yay -Qi avahi
+yay -Rsc dbus
+which -a dbus
+which -a dbus-broker 
+yay -Rsc espeak
+yay -Rsc luajit
+yay -Rsc lua-language-server lua53 luajit 
+yay -Rsc rust-analyzer
+yay -Rsc fcitx5-gtk 
+yay -Rsc fakeroot 
+yay -Rsc flex
+yay -Rsc hevi hevi-debug
+yay -Qi iw
+yay -Rsc python 
+yay -Rsc python36 python36-debug 
+yay -Rsc jq json-c 
+yay -Rsc jq
+yay -Rsc hwdata
+yay -Rsc lazygit less
+yay -Rsc lazyjournal
+yay -Rsc kmod
+yay -Rsc lld
+yay -Rsc llvm-libs 
+yay -Rsc wayland 
+yay -Rsc xorg
+yay -Rsc ncdu
+yay -Rsc linux-headers 
+yay -Rsc nushell
+yay -Rsc ollama
+yay -Rsc nodejs
+yay -Rsc noto-fonts noto-fonts-cjk 
+yay -Rsc otf-cm-unicode otf-ipafont otf-latin-modern otf-latinmodern-math otf2bdf otf2bdf-debug 
+yay -Rsc nerdfetch
+yay -Rsc perl
+yay -Rsc texlive
+sudo pacman -Rsc texlive
+sudo pacman -Rsc pueue
+sudo pacman -Rsc sed
+sudo pacman -Rsc pulseaudio
+sudo pacman -Rsc sqlite
+sudo pacman -Rsc swww
+sudo pacman -Rsc tealdeer
+sudo pacman -Rsc television 
+sudo pacman -Rsc ttf-plemoljp 
+alias nix = nix --extra-experimental-features nix-command --extra-experimental-features flakes
+sudo ln ~/.nix-profile/bin/nu /bin/
+sudo cat /etc/passwd
+sudo chsh -s /sbin/zsh sundo
+sudo ln ~/.nix-profile/bin/zsh /bin/
+sudo chsh -s /bin/zsh sundo
+sudo chsh -s /bin/bash sundo
+n ~/shutdown.sh
+ps | find nix
+keyd --version
+systemctl status keyd
+n .xsession-errors
+yay -Rsc vivaldi
+sudo pacman -Rsc vivaldi
+yay -Rsc texlab typst
+sudo pacman -Rsc texlab typst
+l ../.config/nixpkgs/config.nix
+cat /etc/nix/nix.conf 
+n ../.config/nixpkgs/config.nix
+$env.NIXPKGS_ALLOW_UNFREE=1
+$env.NIXPKGS_ALLOW_UNFREE = 1
+which vivaldi
+which -a vivaldi
+nix profile upgrade mypkgs --impure
+w3m google.com
+sudo pacman -S firefox
+which tv
+nix profile upgrade mypkgs --show-trace
+nix-env -qa texlive
+nix-env -qa lualatex
+sudo pacman -S vivaldi
+Hyprland 
+Hyprland | head -n 50
+Hyprland err>out | head -n 50
+n ~/.config/nushell/alias.nu
+Hyprland err> out | head -n 50
+hyprctl --help
+n ../.cache/hyprland/hyprlandCrashReport138359.txt
+nix-env -qa amdgpu
+nix-env -qa vulkan
+nix-env -qa xf86
+sudo pacman -S xf86-video-amdgpu 
+n .cache/hyprland/hyprlandCrashReport144907.txt
+sudo pacman -Rsc xf86-video-amdgpu 
+nix-env -qa | less
+lsmod | grep amdgpu
+l .cache/hyprland/
+n .cache/hyprland/hyprlandCrashReport819.txt
+n ../.cache/hyprland/hyprlandCrashReport26361.txt
+n ../.cache/hyprland/hyprlandCrashReport49774.txt
+wayland
+systemctl status wayland
+setfont -d default8x16
+nix profile upgrade mypkgs
+nix flake 
+nix run nixpkgs#home-manager --extra-experimental-features nix-command --extra-experimental-features flakes -- switch --flake .#myHomeConfig
+nix run nixpkgs#home-manager -- switch --flake .#myHomeConfig
+cp ../.config/home-manager/home.nix .
+nix run nixpkgs#home-manager -- switch --flake .#myHomeConfig --extra-experimental-features nix-command --extra-experimental-features flakes --show-trace
+nix profile install .#mypkgs
+n ../.cache/hyprland/hyprlandCrashReport166321.txt
+nix run gc
+nix-env -q
+sudo nix-store --verify --repair
+n ../.config/home-manager/home.nix
+nvimsudo /etc/vconsole.conf
+nvimsudo /etc/nix/nix.conf
+nix run nixpkgs#home-manager -- switch --flake .#myHomeConfig --extra-experimental-features nix-command --extra-experimental-features flakes
+rm ../allfile.txt
+n hyprlandCrashReport336162.txt
+git
+which git
+nix-collect-garbage -d
+nix store gc 
+git -h
+keyd
+n .xprofile
+sudo pacman -Rsc libevdev-tweak-device libpng-config libpng16-config 
+which make
+sudo pacman -S pacman
+sudo pacman -Rsc base-devel
+rmf yay/
+z .cache/
+pacman -Q | cut -d' ' -f1 | save -f pkgs.txt
+sudo pacman -Rsc man-pages ocean-sound-theme lz4
+sudo pacman -Rsc man-pages ocean-sound-theme
+sudo pacman -Rsc pam
+sudo pacman -Rsc vim vifm
+sudo pacman -Rsc typespeed
+sudo pacman -Rsc typespeed-debug 
+n pkgs.txt
+which nix
+sudo pacman -Rsc xorgproto 
+n -d pkgs.txt pkgs2.txt
+sudo pacman -Rsc wget
+n ../.config/nushell/alias.nu
+n /etc/nix/nix.conf.pacsave
+sudo mv /etc/nix/nix.conf.pacsave /etc/nix/nix.conf
+sudo pacman -S busybox
+sudo mkdir /usr/lib/nix
+sudo ln /bin/busybox /usr/lib/nix/
+vivaldi
+systemctl list-units 
+/
+n /etc/systemd/system/brightnessctl.service
+sudo systemctl start brightnessctl.service
+sudo systemctl reload brightnessctl.service
+n .config/nix/nix.conf
+sudo mv /etc/nix/nix.conf /etc/nix/nix.conf.pacsave
+systemctl status nix-daemon
+nix doctor
+nix-daemon
+n nix-daemon.service
+sudo ln keyd.service /etc/systemd/system/
+sudo ln nix-daemon.service /etc/systemd/system/
+cat /etc/systemd/system/display-manager.service 
+systemctl start nix-daemon
+sudo systemctl enable nix-daemon
+sudo systemctl enable keyd
+sudo systemctl start keyd
+l /etc/systemd/system/
+n ../.cache/hyprland/hyprlandCrashReport4241.txt
+l /dev/dri/card1
+$env.AQ_DRM_DEVICES = /dev/dri/card1
+$env.AQ_DRM_DEVICES = "/dev/dri/card1"
+n ../.cache/hyprland/hyprlandCrashReport4279.txt
+loginctl 
+$env.XDG_SESSION_TYPE = "wayland"
+Hyprland
+n ../.cache/hyprland/hyprlandCrashReport43015.txt
+l /usr/share/wayland-protocols/
+journalctl -xeu Hyprland
+journalctl -xe | grep Hyprland
+systemctl status display-manager
+n display-manager.service
+sudo rm /etc/systemd/system/display-manager.service 
+sudo ln display-manager.service /etc/systemd/system/
+sudo systemctl start display-manager
+journalctl -xeu display-manager
+ly
+systemctl get-default
+n keyd.service
+n tlp.service
+sudo ln tlp.service /etc/systemd/system/
+sudo systemctl start tlp
+echo $env.LANG
+$env.LC_ALL = en_US.UTF-8
+$env.LC_ALL = "en_US.UTF-8"
+sudo pacman -Rsc bash
+locale-gen
+sudo locale-gen
+tlp start
+tlp init start
+locale -a
+nix-env -qa langpack
+mv ../.config/hypr/hyprland.conf ../.config/hypr/hyprland.conf.bk
+nix fmt home.nix 
+home-manager news
+echo $env.NIX_PATH
+echo $env.NIX_PROFILES
+nix profile remove mypkgs
+nix profile list
+nix fmt *.nix
+nix fmt flake.nix 
+n opts.nix
+rm opts.nix
+n flake.nix
+nix run .#update
+z /etc/systemd/system/
+sudo rm keyd.service tlp.service display-manager.service nix-daemon.service
+z tool
+g cl https://aur.archlinux.org/yay
+cd yay/
+sudo pacman -S base-devel
+sudo pacman -S git
+rmf yay
+g cl https://aur.archlinux.org/yay-bin
+cd yay-bin/
+n install.nu
+mv install.nu init.nu
+let temp = test.nu
+let temp = nu test.nu
+./test.nu
+nu ./test.nu 
+let temp = nu ./test.nu
+$temp
+let temp = (nu ./test.nu)
+chmod +x test.nu 
+n test.nu
+let temp = (./test.nu)
+let temp = ./test.nu
+$temp | describe
+./test.nu | describe 
+rm test.nu
+z yay
+z tool/yay
+z ../tool/yay-bin/
+rmf yay-bin/
+yay
+rm /tmp/yay-bin/
+rmf /tmp/yay-bin/
+sudo pacman -Rsc git make fakeroot gcc binutils 
+sudo pacman -Rsc git make fakeroot gcc
+sudo pacman -Rsc yay-bin-debug 
+pacman -Ss alpm
+pacman -S pkgfile
+sudo pacman -S pkgfile
+sudo pacman -Rsc pkgfile 
+go get github.com/jguer/go-alpm
+go get github.com/Jguer/go-alpm
+go install github.com/Jguer/go-alpm
+go install github.com/Jguer/go-alpm@latest
+pacman -Ss yay
+pacman -Ss yogurt
+pacman -Ss paru
+pacman -Ss aura
+pacman -Ss rua
+sudo pacman -S pacman base-devel
+sudo pacman -S libalpm
+l /usr/include/alpm.h
+$env.CFLAGS = "-I/usr/include"
+$env.CGO_CFLAGS = "-I/usr/include"
+$env.CGO_LDFLAGS = "-L/usr/lib -lalpm"
+sudo pacman -Rsc nix
+sudo rm -rf /nix/ ~/.nix*
+config env
+makepkg -si
+sudo pacman -S nu
+which nu
+/usr/bin/nu
+l /usr/bin/nu
+sudo rm /usr/bin/nu
+sudo pacman -S nushell
+nu scripts/install-yay.nu 
+yay -S "television yazi"
+yay -S atelevision yazi
+yay -Rsc libastal-cava-git-debug sdl2_pango-debug tuxpaint-debug 
+yay -S -
+man yay
+yay -h
+yay -h | grep stdin
+yay -h | grep input
+yay -h | grep in
+yay -h | grep yes
+yay -h | grep ask
+yay -h | grep confirm
+str join -h
+['hello' 'world'] | str join ' ' | cat
+['ls' '-l'] | str join ' ' | xargs
+['-a' '-l'] | str join ' ' | xargs ls
+yay -Ss plemoljp
+yay -h | grep batch
+yay -h --batchinstall
+yay -S --batchinstall cargo
+n home.nix
+systemctl status NetworkManager
+str expand -h
+str expand -h | less
+str expand -h | cat
+str expand -h | head -n 50
+ls '-a scripts'
+^ls '-a scripts'
+['-a' 'scripts'] | str join ' ' | xargs ls
+['gcc' 'clang'] | str join ' ' | xargs yay -S
+['gcc' 'clang'] | str join ' ' | yay -S $in
+['gcc' 'clang'] | str join ' ' | yay -S ($in | string expand)
+['gcc' 'clang'] | str join ' ' | yay -S ($in | str expand)
+yay -S ([gcc clang] | str join ' ')
+yay -S [gcc clang]
+yay -S ([gcc clang])
+['gcc' 'clang'] | yay -S $in
+to text -h
+bash
+echo 'hello' | yes | head
+yay -Ss cargo
+['gcc' 'clang'].0
+let v = 0
+['gcc' 'clang'].$v
+yay -S btop --noconfirm
+yay -S cargo --noconfirm
+yay -Rsc cargo --noconfirm
+cargo
+yay -Rsc rust
+yay -S cargo --batchinstall
+nu data/pkgs.nu 
+sudo rm /usr/bin/zsh 
+yay -S zsh
+systemctl is-enabled brightnessctl
+nu data/systemd.nu 
+systemctl is-enabled ly
+systemctl is-enabled keyd
+rm keyd.service tlp.service display-manager.service nix-daemon.service
+rm result
+echo $env.SHELL
+n reg.sh
+cat reg.sh 
+{shell:'true', uwu:true, features: {bugs:false, multiplatform:true, speed: 10}, fib: [1 1 2 3 5 8], on_save: {|x| $'Saving ($x)'}, first_commit: 2019-05-10, my_duration: (4min + 20sec)} | describe -d
+{src dst; hello world}
+{src: dst hello: world}
+[src dst; hello world]
+[src dst; 1 2]
+[src dst; 1, 2]
+[src dst 1, 2]
+ls | describe
+[{x:12, y:15}, {x:8, y:9}] | describe
+[{x:12, y:15}, {x:8, y:9}]
+[{src, dst}, {hello, world}]
+[[src dst]; [hello world]]
+for rec in (ls) { echo $rec }
+for rec in (ls) { echo $rec.name }
+for rec in (ls | get name) { echo $rec }
+(ls).0
+(ls).0.name
+for rec in (ls | get name) { ^echo $rec }
+for rec in (ls) { ^echo $rec }
+for rec in (ls) { ^echo $rec.name $rec.type }
+continue -h
+path exists -h
+n /etc/tlp.conf
+l /etc/tlp.conf.pacsave
+n /etc/tlp.conf.pacsave
+n /etc/tlp.d/00-template.conf
+tlp diskid
+tlp-stat
+sudo tlp-stat
+sudo cp /etc/tlp.conf .
+sudo chown sundo:users defaults.conf tlp.conf 
+n defaults.conf
+rm defaults.conf
+ln -S .backup tlp.conf hyprland.conf 
+rm hyprland.conf
+mv hyprland.conf.backup hyprland.conf
+date
+date now
+date now | str replace ' ' '-'
+date now | str replace -a ' ' '-'
+date now | to text | str replace -a ' ' '-'
+date now | to text | str replace -a '[,+)(: ]' '-'
+l /etc/tlp.d/
+path join -h
+mv keyd.conf defaults.conf
+n keyd.conf
+l /etc/keyd/
+n /etc/keyd/
+mv defaults.conf default.conf
+l ~/.config/hypr/
+difft hyprland.conf ~/.config/hypr/hyprland.conf.bk
+rm ~/.config/hypr/hyprland.conf.bk
+l ~/.config/lazygit/
+rm ~/.config/lazygit/config.yml
+sudo rm /etc/keyd/default.conf 
+rm ../.gitconfig
+ln foot.ini ~/.config/foot/
+ls ~/.config/foot/
+ln -s foot.ini ~/.config/foot/
+ls -l ~/.config/foot/
+rm ~/.config/foot/foot.ini
+path -h
+path expand -h
+"~/.config" | path expand
+[[src dst]; [hello world]] | path expand
+sudo rm ~/.config/foot/foot.ini ~/.config/lazygit/config.yml ~/.config/hypr/hyprland.conf ~/.gitconfig /etc/tlp.d/tlp.conf /etc/keyd/default.conf 
+sudo chown sundo:users default.conf 
+ln -s foot.ini temp
+n temp
+rm temp
+l ~/.config/foot/
+rm ~/.config/foot/foot.ini ~/.config/lazygit/config.yml ~/.config/hypr/hyprland.conf /etc/tlp.d/tlp.conf /etc/keyd/default.conf
+sudo rm ~/.config/foot/foot.ini ~/.config/lazygit/config.yml ~/.config/hypr/hyprland.conf /etc/tlp.d/tlp.conf /etc/keyd/default.conf
+n ~/.config/foot/foot.ini
+rm pacmanlist.txt
+rm reg.sh
+n out
+rm out
+nu scripts/install-conf.nu 
+n .gdbinit
+n scripts/install-conf.nu
+rm *.nix
+tv
+n install.sh
+rm install.sh
+l data/ scripts/
+n .bashrc
+chmod +x **/*.nu
+rg '^#!' **/*.nu
+n scripts/history-reg.nu
+n scripts/install-yay.nu
+n data/systemd.nu
+./data/systemd.nu
+brightnessctl set 10
+hyprctl systeminfo
+hyprctl monitor
+hyprctl monitors
+yay -Ss xf86-video-amdgpu
+echo $env.XDG_SESSION_TYPE
+yay -S xf86-video-amdgpu
+brightnessctl
+brightnessctl set 5
+brightnessctl set 3
+brightnessctl set 4
+yay -Rsc xf86-video-amdgpu 
+yay -Ss gtk
+fastfetch 
+systemctl status brightnessctl
+n brightnessctl.service
+systemctl status tlp
+sudo tlp-stat -p
+yay -Ss qt
+col 
+lspci -k | grep -EA3 'VGA|3D'
+yay -Ss vulkan
+yay -Ss libmesa
+yay -Ss libva
+yay -Ss mesa
+z ../.cache/hyprland/
+journalctl -xe
+top
+yay -Ss xorg
+ps | wayland
+ps | find wayland
+yay -Ss wayland
+ps | find xserver
+uname -r
+pacman -Q | cut -d' ' -f1 | save -f pkgs2.txt
+difft pkgs.txt pkgs2.txt
+n data/pkgs.nu
+./data/pkgs.nu
+yay -Ss alsa
+yay -Ss gpu-screen
+yay -Ss qt6-
+yay -Ss svt-
+yay -Ss ragel
+yay -Ss blas
+echo $env.XDG_BACKEND
+echo $env.XDG_CURRENT_DESKTOP
+echo $env.WAYLAND_DISPLAY
+amdgpu_top
+cat /sys/class/drm/card1/device/power_dpm_state 
+cat /sys/class/drm/card1/device/power_dpm_force_performance_level 
+echo high | sudo tee /sys/class/drm/card1/device/power_dpm_force_performance_level
+n tlp.conf
+lsix /usr/share/backgrounds/gruvbox.jpg
+z /usr/share/backgrounds/
+sudo mogrify -format png gruvbox.jpg 
+z /usr/share/hypr/
+yazi
+sudo ln -S .backup /usr/share/backgrounds/gruvbox.png wall0.png
+reboot
+cpi -b
+acpi -b
+z c
+z ../project/c/
+mkcd superuniq
+cp ../rpx/makefile .
+n makefile
+mkdir src include
+yay -S man man-db
+man getline
+batman readline
+batman 3 printf
+yay -Ss man
+yay -S man-pages
+n src/main.c
+bear make
+clang -std=c23 src/main.c
+batman getline
+yay -Ss glib
+yay -Ss getline
+rm a.out
+cp ../rpx/include/testing.h include/
+cp ../rpx/src/testing.c src/
+cp ../rpx/include/{ansiesc,gene}.h include/
+cp ("../rpx/include/{ansiesc,gene}.h" | str expand) include/
+cp ../rpx/include/ansiesc.h ../rpx/include/gene.h include/
+cp ../rpx/src/ansiesc.c ../rpx/src/gene.c src/
+cp ../rpx/include/chore.h include/
+cp ../rpx/src/chore.c src/
+n src/chore.c
+mek
+make
+batman strcmp
+make clean-all
+bear -- make
+make T=test
+yay -S lldb
+lldb .build/f5302386464f953ed581edac03556e55/target/superuniq
+lldb .build/1156b78ee854c0a947b5db66d8c3ac7f/target/superuniq
+make run T=test
+make run T=test RUNNER=
+fcitx5 
+fcitx5 -h
+sudo systemctl start fcitx5 
+sudo systemctl start fcitx5-remote 
+fcitx5-remote 
+fcitx5-remote -h
+fcitx5 -d
+fcitx5-remote -t
+fcitx5-configtool 
+z hypr
+z ~/.config/hypr/
+n hyprland.conf
+ps | find fcitx
+n rc/foot.ini
+z neovi
+../vim/
+../neovide/
+z foot
+l | fing build
+l | find build
+cd build/
+ninja build
+ninja
+sudo ninja install
+which foot
+which -a foot
+l /usr/local/bin/foot
+.../ly/
+../radare2/
+z llvm
+../gcc/
+../zig/
+cd src/arch/
+z x86_64/
+z ..
+z ~/proc/zig/src/arch/x86_64/
+n bits.zig
+zoxide query super
+../../c/superuniq/
+z add .
+zoxide add .
+fcitx5 -d --replace
+btop
+z radare
+z ~/rc/
+mkcd ../.config/radare2
+z -
+l ~/.config/radare2/
+r2 -d /bin/ls -e bin.cache=true
+r2 -d /bin/ls -e bin.relocs.apply=true
+r2 -d /bin/ls -e bin.relocs.apply=true -e bin.cache=true
+r2 -e bin.cache=true -d /bin/ls
+n radare2rc
+r2 -H
+./scripts/install-conf.nu
+r2 -L
+r2
+r2 -d ~/bin/superuniq
+z rc
+r2 -d /bin/ls
+mv radare2rc .radare2rc
+rasm2 -a x86 -b 32 'mov eax, 33'
+rasm2 -a mips -b 32 'mov eax, 33'
+rasm2 -a x86_64 -b 32 'mov eax, 33'
+rasm2 -L
+rasm2 -a x86 -b 32 'syscall'
+rasm2 -a x86 -b 32 'int64'
+rasm2 -a x86 -b 32 'int32'
+rasm2 -a x86 -b 32 'push'
+rasm2 -a x86 -b 32 'call'
+ollama list 
+ollama ls 
+sudo cp -r plugins/nvim-treesitter/queries/* /usr/local/share/nvim/runtime/queries/
+sudo cp -r plugins/nvim-treesitter/parser/* /usr/local/lib/nvim/parser/
+shutdown now
+n .radare2rc
+z super
+n src/main.zig
+n .zshrc
+n init.lua
+laz
+default -h
+null | default ""
+n
+uname
+fastfetch
+ncdu
+z project/rust/unit/src/
+n main.rs
+../../map_and_then/
+n src/main.rs
+yay -Syyu
+cargo install-update -a
+date now | to text | str replace -a -r '[,+)(: ]' '-'
+zig -h
+zig env
+zig targets
+zig targets | grep stm
+zig targets | grep nucleo
+zig zen
+zig
+zig fetch -h
+z ../../shell/nu_scripts/
+:pwd
+g pl
+n toolkit.nu
+z example-config/
+n init.nu
+char -h
+char --list
+char fs
+char rain
+char rs
+char us
+char thunder
+n config.nu
+..
+cd assets/
+../custom-menus/
+n zoxide-menu.nu
+[4 5 6 4 ] | uniq
+uniq -h
+[4 5 6 4 ] | uniq -c
+[4 5 6 4 ] | uniq -d
+[4 5 6 4 ] | uniq -u
+open current_session_history_menu.nu
+split -h
+open current_session_history_menu.nu | split row '\n'
+split row -h
+cat current_session_history_menu.nu | split row '\n'
+yay -Syu
+z nvim
+./syncplug.nu
+z nus
+l
+to -h
+from url -h
+table -h
+into -h
+ls | get name
+ls | get name | into string
+ls | get name | into string | describe 
+open -h
+upsert -h
+update cells -h
+open history.txt | from csv
+open history.txt | from ssv
+from -h
+lines -h
+open history.txt | lines
+open history.txt | lines | reverse | uniq | reverse
+open history.txt | lines | reverse | uniq | reverse | to text
+open history.txt | lines | reverse | uniq | reverse | to text | wc
+open history.txt | lines | reverse | uniq | reverse | to text | save -f history.txt
+bat history.txt 
+echo $nu.history-path
+exit
+str -h
+str replace -h
+n alias.nu
+ls
+| find env
+cp history.txt history.txt.bk
+source alias.nu
+normalize-history 
+n history.txt
+difft history.txt history.txt.bk
+rm history.txt.bk
+l
+n shutdown-when-done.nu
+ps
+ps | find 39
+n shutdown-when-done.nu
+mv shutdown-when-done.nu on-done.nu
+l

@@ -105,7 +105,17 @@ $env.PATH = (
 	| uniq
 )
 
+$env.NIX_PATH = (
+    []
+	| prepend ($env.HOME + '/.nix-defexpr/channels')
+	| prepend '/nix/var/nix/profiles/per-user/root/channels'
+	| uniq
+)
+
 # To load from a custom file you can use:
 # source ($nu.default-config-dir | path join 'custom.nu')
 
 $env.EDITOR = "nvim"
+$env.LD_LIBRARY_PATH = "/usr/local/lib64:/usr/local/lib"
+$env.XDG_SESSION_TYPE = "wayland"
+$env.XDG_CURRENT_DESKTOP = "Hyprland"

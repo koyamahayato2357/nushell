@@ -1,11 +1,9 @@
-alias n = nvim
 alias g = git
 alias l = ls -adlt
 alias nvif = nvim \(fzf)
 alias laz = lazygit
 alias nvimsudo = sudo -E nvim
 alias vivaldi = vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland
-alias man = man --pager='bat -l man -p'
 alias fzf = tv
 alias rmf = rm -rf
 alias psa = procs
@@ -65,4 +63,28 @@ def --env zi [...rest: string] {
 	send-to-nvim-cmd $"<cmd>cd ($path)<CR>"
 	cd $path
 	zoxide add .
+}
+
+def batman [...rest: string] {
+	man ...$rest | bat -p -l man
+}
+
+def n [path?: path] {
+	try {
+		send-to-nvim-cmd --strict=true $"<cmd>tabe ($path)<CR>"
+	} catch {
+		if $path == null {
+			nvim
+		} else {
+			nvim $path
+		}
+	}
+}
+
+def normalize-history [] {
+	open $nu.history-path
+	| str replace --all --regex ' +' ' '
+	| str replace --all --regex ' $' ''
+	| lines | reverse | uniq | reverse
+	| save -f	$nu.history-path
 }
