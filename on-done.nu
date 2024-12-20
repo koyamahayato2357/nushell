@@ -14,7 +14,7 @@ def --env on-done [
         wait-for-process-done-with-name $name
 	}
 
-	callback
+	do $callback
 }
 
 def wait-for-process-done-with-pid [pid: int] {

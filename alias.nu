@@ -1,3 +1,4 @@
+alias n = nvim
 alias g = git
 alias l = ls -adlt
 alias nvif = nvim \(fzf)
@@ -9,22 +10,22 @@ alias rmf = rm -rf
 alias psa = procs
 alias ffcmd = cat $nu.history-path | sed 's/ \+$//' | ^sort -u | tv
 
-def --env mkcd [dir: path] {
+def mkcd [dir: path] {
     mkdir $dir
 	cd $dir
 }
 
-def --env compileasm [fname: string] {
+def compileasm [fname: string] {
     nasm -f elf64 ($fname + '.asm') -o a.out
     ld a.out -o $fname
     rm a.out
 }
 
-def --env ggrks [...queries] {
+def ggrks [...queries] {
     w3m -sixel http://www.google.co.jp/search?q=($queries | str join +)
 }
 
-def --env extract [fname: path] {
+def extract [fname: path] {
     if ($fname | str ends-with .zip) {
         unzip $fname
     } else if ($fname | str ends-with .tar.gz) {
@@ -58,7 +59,7 @@ def --env z [...rest: string] {
 	zoxide add .
 }
 
-def --env zi [...rest: string] {
+def zi [...rest: string] {
     let path = (zoxide query --interactive -- ...$rest | str trim -r -c "\n")
 	send-to-nvim-cmd $"<cmd>cd ($path)<CR>"
 	cd $path
@@ -67,18 +68,6 @@ def --env zi [...rest: string] {
 
 def batman [...rest: string] {
 	man ...$rest | bat -p -l man
-}
-
-def n [path?: path] {
-	try {
-		send-to-nvim-cmd --strict=true $"<cmd>tabe ($path)<CR>"
-	} catch {
-		if $path == null {
-			nvim
-		} else {
-			nvim $path
-		}
-	}
 }
 
 def normalize-history [] {

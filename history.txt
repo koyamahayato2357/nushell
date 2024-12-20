@@ -139,7 +139,6 @@ open compile_commands.json|to text
 open compile_commands.json|to xml
 open compile_commands.json|to yaml
 in -h
-ps | find vivaldi
 ps | find nu | get pid
 ps | find nua | get pid | is-empty
 ps | find nu | get pid | is-empty
@@ -179,7 +178,6 @@ def f [--o: int] { if $o {^echo $o} }
 def f [--o: int] { if $o? {^echo $o} }
 def f [--o: int] { if $o.? {^echo $o} }
 def f [--o: int] { if $o != null {^echo $o} }
-n shutdown-when-done.nu
 null | into bool
 ../neovim/
 ps | find zsh
@@ -233,7 +231,6 @@ yay -S television
 television
 tv ~
 tv env
-echo $env.TERM
 tv -h
 tv alias
 ../nushell/
@@ -594,7 +591,6 @@ z nushell/
 cat history.txt | superuniq > his.txt
 cat history.txt | superuniq | save -f his.txt
 n his.txt
-save -h
 rm his.txt
 z project/zig/superuniq/
 cat src/main.zig | wl-copy
@@ -2361,9 +2357,7 @@ l brainfuck
 sudo rm -r brainfuck
 l man
 l info
-n _editor.lua
 n _comment.lua
-n keymap.lua
 n F.lua
 l lsp
 n _options.lua
@@ -2766,7 +2760,6 @@ rg 'luasnip'
 rg 'snippets'
 g s mysnip
 /usr/local/nvim/share/nvim/runtime/lua/vim
-n snippet.lua
 n i
 g branch -D return-to-noice
 nv lua/snippets.lua
@@ -3450,8 +3443,6 @@ mv linuxlist.c l
 mv l linuxlist.c
 rmf .git
 git init
-g config --global user.name "koyamahayato2357"
-g config --global user.email "sundongxiaoshan202@gmail.com"
 git remote add origin git@github.com:koyamahayato2357/my-libc.git
 git push -u origin main
 yay -S rr
@@ -3529,7 +3520,6 @@ vim arena.c
 vim-startuptime -vimpath /usr/local/bin/nvim -count 1000 -- ../README.md
 vim-startuptime -count 1000 -- ../README.md
 vim README.md
-ttyper
 nerdfetch
 rmf neovim
 git clone https://github.com/neovim/neovim
@@ -4071,7 +4061,6 @@ z plugins/sentiment.nvim
 rg dmacro
 l lua
 n lua/fzf.lua
-z neo
 sudo rm -rf /usr/local/share/nvim
 sudo rm -rf /usr/local/lib/nvim
 vim setup.vim
@@ -4084,7 +4073,6 @@ vim setup.sh
 bat setup"
 bat setup*
 rm setup.vim
-man nvim
 l /usr/local/lib/nvim/parser
 sh setup.sh
 n setup.sh
@@ -4523,7 +4511,6 @@ brightnessctl set 2%
 sudo -E nvim /usr/lib/lightdm/
 sudo -E nvim /etc/lightdm/lightdm-webkit2-greeter.conf
 ggrks arch linux logo
-w3m -sixel google.com
 sudo mv Downloads/Dark-Wallpaper-HD-Download.jpg /usr/share/backgrounds/
 z sway
 g cl https://github.com/catppuccin/i3 --depth 1
@@ -4599,8 +4586,6 @@ n b.c
 rm b.c
 make bench
 eval `ssh-agent -s`
-ssh-add ~/.ssh/id_rsa
-yay -S github-cli
 n rc/brightnessctl.service
 sudo ln rc/brightnessctl.service /etc/systemd/system/
 sudo systemctl enable brightnessctl.service
@@ -4846,7 +4831,6 @@ l plugins
 n plugins/toggleterm-manager.nvim/lua/toggleterm-manager.lua
 rmf plugins/toggleterm-manager.nvim/ plugins/toggleterm.nvim/
 ./syncplug.sh install
-n lua/plugindata.lua
 z my
 n ansiesc.h
 z nc
@@ -4904,7 +4888,6 @@ n temp.txt
 rm temp*
 nv main.c
 ~n
-n lua/rainbow.lua
 nv lua/rainbow.lua
 yay -S swayidle
 yay -S swaylock
@@ -5092,7 +5075,6 @@ mv .config/hypr/hyprland.conf rc
 ln rc/hyprland.conf .config/hypr/
 rm .config/hypr/hyprland.conf && ln rc/hyprland.conf .config/hypr/
 cd rc
-n ~/.gitconfig
 diff ../.gitconfig .gitconfig
 ln .gitconfig ../
 g lgo
@@ -5164,7 +5146,6 @@ make ice
 n include/evalfn.h
 make debug
 g merge jit
-g s main
 ./rpx
 launch vivaldi
 psa | grep vivaldi
@@ -5570,7 +5551,6 @@ atuin history list
 yay -Rsc atuin
 rmf ~/.config/atuin/
 rmf ~/.local/share/atuin/
-g p
 n .vimrc
 n config.fish
 n alacritty.toml
@@ -5798,7 +5778,6 @@ zig build -h
 zig build -DT=test
 zig build run --release
 zig build run --release=fast
-zig build --release=fast
 l .zig-cache
 l .zig-cache/o/02fe2dce6056ce97b05cc75df8bdc3a0/ansiesc.o
 zig build --release=size
@@ -5816,7 +5795,6 @@ python3 gpt_repository_loader.py ~/project/c/rpx -o rpx.txt
 n rpx.txt
 cat rpx.txt | wl-copy
 n BUILD.md
-n build.zig
 make run T=bench
 l .build/a04d1929086346f1d49aba706a201121/target/
 l .zig-cache/h/0134e489a35a6f30028129fea94e6885.txt
@@ -5854,7 +5832,6 @@ mkdir ~/Music
 mv *.mp3 ~/Music
 rm *.zip
 n readme.cpp
-rg install
 man bdf2pcf
 yay -Ss bdf
 yay -S bdf2psf
@@ -6154,11 +6131,8 @@ rg 'q:'
 rg 'q\:'
 rg ':'
 n --clean cmdwin.lua
-n lua/opt.lua
-n lua/autocmd.lua
 n ~/.local/state/nvim/shada/main.shada
 n cmdwin.lua
-n lua/map.lua
 vim-startuptime -vimpath /usr/local/bin/nvim -count 1000 -- init.lua
 nu syncplug.nu
 /bin/env nu
@@ -6187,7 +6161,6 @@ open syncplug.nu | collect
 ls | collect
 collect -h
 bat syncplug.nu
-nu -h
 nu -l
 nu --plugin-config
 cargo install cargo-update
@@ -6211,7 +6184,6 @@ ls -ad
 n hello_module.mod.c
 n compile_commands.json
 bear -- make -j16
-n Makefile
 afplay -h
 yay -S beep
 beep
@@ -6256,7 +6228,6 @@ canberra-gtk-play -f /usr/share/sounds/alsa/Front_Center.wav
 canberra-gtk-play -f /usr/share/sounds/alsa/Front_Left.wav
 canberra-gtk-play -f /usr/share/sounds/Oxygen-Im-Phone-Ring.ogg
 starship init zsh
-z .co
 z zsh/
 n fzf.zsh
 rm fzf.zsh
@@ -6267,7 +6238,6 @@ n ~/.zshrc
 fzf
 lsix /proc/gcc/gcc/rust/logo.png
 ps | find neo
-n syncplug.nu
 yay -Ss colorscript
 yay -S polemon-colorscripts
 yay -S polemon-colorscripts-git
@@ -6296,7 +6266,6 @@ sudo rm /usr/share/hypr/wall3.png
 hyprctl reload
 hyprpaper
 vim-startuptime -vimpath /usr/local/bin/nvim -count 1000 -- hyprland.conf
-z rpx
 make lint
 l .local/share/nvim/
 mkdir .local/share/nvim/zoxide
@@ -6314,7 +6283,6 @@ clang -shared -fPIC -o matchfuzzy.so main.c
 clang -shared -fPIC -o matchfuzzy.so main.c -std=c23
 bear -- clang -shared -fPIC -o matchfuzzy.so main.c -std=c23
 clang -shared -fPIC -o matchfuzzy.so main.c -std=c23 -O3
-...
 mv lib/ lua/
 l lua/lib/
 cd lua/lib/fuzzypath/
@@ -6323,7 +6291,6 @@ clang -shared -fPIC -o .. matchfuzzy.so main.c fs.c -std=c23 -O3
 rm matchfuzzy.so
 echo $CPATH
 rm ../matchfuzzy.so
-n main.c
 clang -shared -fPIC -o ../../matchfuzzy.so main.c fs.c -std=c23 -O3
 n .gitignore
 z sna
@@ -6340,7 +6307,6 @@ rm fuzpath.so ../matchfuzzy.so
 rm ../../fuzpath.so
 l ..
 z ../..
-z plugins/blink.cmp/
 rg cpath
 bat lua/blink/cmp/fuzzy/rust.lua
 rg require
@@ -6379,7 +6345,6 @@ cd hyprpanel/
 rg swww
 n config.json
 yay -S swww
-z nvi
 mv plugins/makefile plugins.mk
 rm plugins.mk
 z gpt
@@ -6454,9 +6419,7 @@ clang main.c
 cd plugins/blink.cmp/
 cargo build --release
 n lua/blink/cmp/fuzzy/init.lua
-g b -a
 ../alg/no16/
-n lua/plugin.lua
 z no16
 z no
 ../alg/np16
@@ -6467,7 +6430,6 @@ z project/pro/alg/no12/
 make main
 rm main
 make main.pdf
-z alg
 cd no16
 ./a.out
 l ../no12
@@ -6543,13 +6505,11 @@ zoxide query co
 exir
 zs co
 zs nus
-n history.txt
 cat history.txt | superuniq
 cat history.txt | wc
 cat history.txt | superuniq | wc
 cat history.txt | superuniq | save -f history.txt
 l /usr/local/bin/nvim
-make CMAKE_BUILD_TYPE=Release -j16
 which z
 alias -h
 alias z
@@ -6621,7 +6581,6 @@ ollama run llama3.3
 ollama rm llama3.3
 ollama list
 free -h
-ps
 ollama run codellama
 ollama run moondream
 z plugins/snacks.nvim/
@@ -6664,7 +6623,6 @@ CC=clang LDFLAGS=-fuse-ld=gold meson . release --buildtype=release --prefix ~/.l
 rmf ~/.local/stow/
 rmf release/
 CC=clang LDFLAGS=-fuse-ld=gold meson . release --buildtype=release
-ninja -C release
 yay -Rsc radare2
 l /usr/local/lib/
 ninja -C release install
@@ -6682,10 +6640,8 @@ man -k radare2
 man radare2
 whatis radare2
 ../ly/
-z neovim
 ./configure --disable-acl --disable-arabic --disable-gui --disable-gtk2-check --disable-gtk3-check --disable-gpm --disable-farsi --disable-autoservername --disable-canberra --disable-channel --disable-cscope --disable-darwin --disable-desktop-database-update --disable-fail-if-missing --disable-fontset --disable-gnome-check --disable-gtktest --disable-libsodium --disable-luainterp --disable-motif-check --disable-mzschemeinterp --disable-netbeans --disable-nls --disable-option-checking --disable-perlinterp --disable-python3interp --disable-pythoninterp --disable-rightleft --disable-rubyinterp --disable-selinux --disable-smack --disable-sysmouse --disable-tclinterp --disable-xattr --disable-xim --disable-xsmp --disable-xsmp-interact --disable-icon-cache-update --with-features=tiny
 make help
-sudo make install
 vim
 fastfetvh
 l ~/.cargo/bin/
@@ -6885,7 +6841,6 @@ nix build
 rmf result/
 l result/
 nix profile listx
-z
 rm result/
 sudo rm -rf result/
 yay -S busybox
@@ -6929,7 +6884,6 @@ yay -Rsc go go-task
 yay -Rsc gpu-screen-recorder-debug 
 yay -Rsc fcitx5
 yay -Rsc qt5
-l ~
 l ~/.nix-profile/bin/
 yay -Rsc keyd
 yay -Rsc hyprland
@@ -7026,7 +6980,6 @@ $env.NIXPKGS_ALLOW_UNFREE = 1
 which vivaldi
 which -a vivaldi
 nix profile upgrade mypkgs --impure
-w3m google.com
 sudo pacman -S firefox
 which tv
 nix profile upgrade mypkgs --show-trace
@@ -7172,7 +7125,6 @@ n flake.nix
 nix run .#update
 z /etc/systemd/system/
 sudo rm keyd.service tlp.service display-manager.service nix-daemon.service
-z tool
 g cl https://aur.archlinux.org/yay
 cd yay/
 sudo pacman -S base-devel
@@ -7378,7 +7330,6 @@ n out
 rm out
 nu scripts/install-conf.nu 
 n .gdbinit
-n scripts/install-conf.nu
 rm *.nix
 tv
 n install.sh
@@ -7427,7 +7378,6 @@ ps | find xserver
 uname -r
 pacman -Q | cut -d' ' -f1 | save -f pkgs2.txt
 difft pkgs.txt pkgs2.txt
-n data/pkgs.nu
 ./data/pkgs.nu
 yay -Ss alsa
 yay -Ss gpu-screen
@@ -7447,7 +7397,6 @@ lsix /usr/share/backgrounds/gruvbox.jpg
 z /usr/share/backgrounds/
 sudo mogrify -format png gruvbox.jpg 
 z /usr/share/hypr/
-yazi
 sudo ln -S .backup /usr/share/backgrounds/gruvbox.png wall0.png
 reboot
 cpi -b
@@ -7464,7 +7413,6 @@ batman readline
 batman 3 printf
 yay -Ss man
 yay -S man-pages
-n src/main.c
 bear make
 clang -std=c23 src/main.c
 batman getline
@@ -7481,7 +7429,6 @@ cp ../rpx/include/chore.h include/
 cp ../rpx/src/chore.c src/
 n src/chore.c
 mek
-make
 batman strcmp
 make clean-all
 bear -- make
@@ -7500,9 +7447,7 @@ fcitx5-remote -h
 fcitx5 -d
 fcitx5-remote -t
 fcitx5-configtool 
-z hypr
 z ~/.config/hypr/
-n hyprland.conf
 ps | find fcitx
 n rc/foot.ini
 z neovi
@@ -7513,16 +7458,12 @@ l | fing build
 l | find build
 cd build/
 ninja build
-ninja
 sudo ninja install
 which foot
-which -a foot
 l /usr/local/bin/foot
 .../ly/
 ../radare2/
-z llvm
 ../gcc/
-../zig/
 cd src/arch/
 z x86_64/
 z ..
@@ -7531,13 +7472,10 @@ n bits.zig
 zoxide query super
 ../../c/superuniq/
 z add .
-zoxide add .
 fcitx5 -d --replace
-btop
 z radare
 z ~/rc/
 mkcd ../.config/radare2
-z -
 l ~/.config/radare2/
 r2 -d /bin/ls -e bin.cache=true
 r2 -d /bin/ls -e bin.relocs.apply=true
@@ -7545,11 +7483,8 @@ r2 -d /bin/ls -e bin.relocs.apply=true -e bin.cache=true
 r2 -e bin.cache=true -d /bin/ls
 n radare2rc
 r2 -H
-./scripts/install-conf.nu
-r2 -L
 r2
 r2 -d ~/bin/superuniq
-z rc
 r2 -d /bin/ls
 mv radare2rc .radare2rc
 rasm2 -a x86 -b 32 'mov eax, 33'
@@ -7565,16 +7500,11 @@ ollama list
 ollama ls 
 sudo cp -r plugins/nvim-treesitter/queries/* /usr/local/share/nvim/runtime/queries/
 sudo cp -r plugins/nvim-treesitter/parser/* /usr/local/lib/nvim/parser/
-shutdown now
 n .radare2rc
 z super
 n src/main.zig
-n .zshrc
-n init.lua
-laz
 default -h
 null | default ""
-n
 uname
 fastfetch
 ncdu
@@ -7594,8 +7524,6 @@ zig zen
 zig
 zig fetch -h
 z ../../shell/nu_scripts/
-:pwd
-g pl
 n toolkit.nu
 z example-config/
 n init.nu
@@ -7607,7 +7535,6 @@ char rs
 char us
 char thunder
 n config.nu
-..
 cd assets/
 ../custom-menus/
 n zoxide-menu.nu
@@ -7621,11 +7548,6 @@ split -h
 open current_session_history_menu.nu | split row '\n'
 split row -h
 cat current_session_history_menu.nu | split row '\n'
-yay -Syu
-z nvim
-./syncplug.nu
-z nus
-l
 to -h
 from url -h
 table -h
@@ -7639,7 +7561,6 @@ update cells -h
 open history.txt | from csv
 open history.txt | from ssv
 from -h
-lines -h
 open history.txt | lines
 open history.txt | lines | reverse | uniq | reverse
 open history.txt | lines | reverse | uniq | reverse | to text
@@ -7647,22 +7568,289 @@ open history.txt | lines | reverse | uniq | reverse | to text | wc
 open history.txt | lines | reverse | uniq | reverse | to text | save -f history.txt
 bat history.txt 
 echo $nu.history-path
-exit
 str -h
 str replace -h
-n alias.nu
-ls
 | find env
 cp history.txt history.txt.bk
 source alias.nu
-normalize-history 
 n history.txt
 difft history.txt history.txt.bk
 rm history.txt.bk
-l
-n shutdown-when-done.nu
-ps
 ps | find 39
 n shutdown-when-done.nu
 mv shutdown-when-done.nu on-done.nu
+l ~/.gitconfig
+cat ~/.gitconfig 
+ssh-agent -c
+$env.SSH_AUTH_SOCK = /tmp/ssh-XXXXXXzsjEcF/agent.4795
+$env.SSH_AUTH_SOCK = '/tmp/ssh-XXXXXXzsjEcF/agent.4795'
+$env.SSH_AGENT_PID = '4797'
+g config user.name
+g config --global user.name "koyamahayato2357"
+g config --global user.email "sundongxiaoshan202@gmail.com"
+ssh-agent -s
+$env.SSH_AUTH_SOCK = "/tmp/ssh-XXXXXXIm8NlI/agent.5406"
+$env.SSH_AGENT_PID = "5408"
+ssh-add ~/.ssh/id_rsa
+hub status
+hub push
+hub
+yay -S github-cli
+n ~/.gitconfig
+g p
+man nvim
+n .zshrc
+z alg
+mkcd no18
+mv `~/Downloads/main 4.c` ./main.c
+n main.c
+n ../no16/main.tex
+yay -Rsc kitty
+g cl https://github.com/kovidgoyal/kitty.git --depth 1
+cd kitty/
+./dev.sh build
+./dev.sh build -h
+./dev.sh -h
+rg install
+z .co
+z ../../tool/kitty/
+echo $env.TERM
+sudo ln kitty/launcher/kitty /usr/local/bin/
+./kitty/launcher/kitty
+which -a foot
+which -a kitty
+sudo ln /usr/local/bin/kitty /bin/
+which kitty
+sudo rm /usr/local/bin/kitty /bin/kitty
+yay -S kitty
+kitty
+kitty +kitten icat /usr/share/backgrounds/gruvbox.png
+cargo search tdf
+cargo install tdf
+yay -S fancy-cat
+z tool
+g cl https://github.com/freref/fancy-cat.git --depth 1
+cd fancy-cat/
+yay -Ss mupdf
+yay -S mupdf
+n build.zig
+yay -Ss mujs
+yay -S mujs
+zig build --release=fast
+./zig-out/bin/fancy-cat ~/project/pro/alg/no16/演習16_IS16_小山隼冬.pdf
+yazi
+w3m google.com
+w3m -sixel google.com
+w3m -h
+w3m -h | grep kitty
+w3m -o imgdisplay='/usr/bin/kitten icat' google.com
+cargo install mkcat
+cargo install mdcat
+mdcat README.md
+ttyper
+kitten mouse-demo
+kitten hints
+kitten ask
+kitten notify
+kitten notify -h
+kitten notify hello
+kitten themes
+z
+kitten choose-fonts
+kitten query-terminal
+kitten show-key
+kitten hints -h
+kitten -h
+kitten transfer -h
+kitty -h
+z rc
+g log
+echo 'google.com'
+normalize-history 
+mv ~/.config/kitty/kitty.conf .
+n scripts/install-conf.nu
+./scripts/install-conf.nu
+l ~
+ls ~
+ls ~/.config/kitty
+n data/pkgs.nu
+ls
+nu -h
+lines -h
+join -h
+str distance -h
+save -h
+do -h
+on-done --pid 1317 { shutdown now }
+on-done --pid 22975 { shutdown now }
+n on-done.nu
+source on-done.nu
+ps | find vivaldi
+on-done --pid 23482 { shutdown now }
+z plugins/blink.cmp/lua/
+n blink-cmp.lua
+z blink/
+n health.lua
+n types.lua
+n snippets.lua
+n lib/buffer_events.lua
+n fuzzy/fuzzy.rs
+z z blink
+z plugins/blink.cmp/
+n lua/blink/cmp/fuzzy/lib.rs
+z hypr
+n hyprland.conf
+z kitty
+n kitty.conf.bak
+n kitty.conf
+g s -c nvim-cmp
+z plugins/nvim-cmp/lua/
+z cmp/
+n config/mapping.lua
+z plugins/cmp-nvim-lsp/
+n lua/cmp_nvim_lsp/init.lua
+n syncplug.nu
+z plugins/nvim-cmp/doc/
+n cmp.txt
+z nvim-cmp
+n alias.nu
+z nvi
+z plugins/nvim-cmp/
+zoxide add .
+zoxide query cmp
+n doc/cmp.txt
+n lua/cmp/init.lua
+n lua/cmp/config/default.lua
+l lua/cmp/types/cmp.lua
+n lua/cmp/types/cmp.lua
+rg autocomplete
+n lua/cmp/core.lua
+...
+n lua/plugin.lua
+g s nvim-cmp
+g b -d nvim-cmp
+n lua/plugindata.lua
+kill 2629
+kill 2627
+kill 3449
+make CMAKE_BUILD_TYPE=Release -j16
+sudo make install
+z runtime/lua/
+cd vim/
+rg on_key
+z neovim
+z runtime/lua
+z vim/
+n _editor.lua
+z vim
+n keymap.lua
+z plugins/nvim-surround/
+z lua/nvim-surround/
+rg '<Plug>'
+rg nvim-surround-insert
+n input.lua
+rg get_char
+rg insert-surround
+rg insert_surround
+n config.lua
+z neo
+z runtime/lua/vim/
+l func/
+rg mapset
+cd _meta/
+n vimfn.lua
+..
+n snippet.lua
+n submode.lua
+mv submode.lua lua/
+n init.lua
+z rpx
+n src/main.c
+z -
+n lua/cdtrack.lua
+n lua/rainbow.lua
+:pwd
+ps
+kill 4645
+exit
+kill 5760
+kill 5927
+btop
+kill 6189
+kill 6486
+kill 6740
+kill 6998
+kill 7246
+kill 7451
+kill 7543
+kill 7742
+kill 8105
+kill 8644
+kill 8737
+ps | find nvim
+kill 8936
+z b acc
+g b -c acc
+g b -a
+g s acc
+yay -Syu
+./syncplug.nu
+z llvm
+../zig/
+z lib/std
+n time.zig
+n math/isinf.zig
+n math.zig
+n math/float.zig
+n simd.zig
+z s main
+g s main
+gdb -i=dap -h
+gdb -i=dap /bin/ls
+r2 -L
+lldb -h | grep DAP
+lldb -h | grep DAP -i
+lldb -h
+lldb -R
+z radare2
+g pl
+n Makefile
+make
+ninja
+ninja -C release
+sudo ninja -C release install
+shutdown now
+z nvim
+n lua/opt.lua
+n
+n lua/autocmd.lua
+n lua/map.lua
+n lua/submode.lua
+laz
+z nus
 l
+wc history.txt 
+normalize-history 
+wc history.txt
+z -
+shutdown now
+z nvim
+n lua/submode.lua
+n lua/map.lua
+n lua/submode.lua
+laz
+n lua/map.lua
+n lua/
+n lua/submode.lua
+laz
+n lua/submode.lua
+yay -sS
+yay -Syu
+z nus
+l
+n alias.nu
+def
+def -h
+n
+laz
+n alias.nu
