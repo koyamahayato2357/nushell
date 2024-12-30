@@ -10,7 +10,7 @@ alias rmf = rm -rf
 alias psa = procs
 alias ffcmd = cat $nu.history-path | sed 's/ \+$//' | ^sort -u | tv
 
-def mkcd [dir: path] {
+def --env mkcd [dir: path] {
     mkdir $dir
 	cd $dir
 }
@@ -72,8 +72,12 @@ def batman [...rest: string] {
 
 def normalize-history [] {
 	open $nu.history-path
-	| str replace --all --regex ' +' ' '
+	| tr -s ' '
 	| str replace --all --regex ' $' ''
 	| lines | reverse | uniq | reverse
-	| save -f	$nu.history-path
+	| save -f $nu.history-path
+}
+
+def asm-test [file: path] {
+	clang -O3 -march=native -masm=intel -S -o- $file
 }

@@ -102,6 +102,7 @@ $env.PATH = (
     | prepend ($env.HOME + '/bin')
     | prepend ($env.HOME + '/.cargo/bin')
     | prepend ($env.HOME + '/go/bin')
+	| prepend ($env.HOME + '/.local/bin')
 	| uniq
 )
 
