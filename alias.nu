@@ -99,3 +99,7 @@ def normalize-history [] {
 def asm-test [file: path] {
 	clang -O3 -march=native -masm=intel -S -o- $file
 }
+
+def llvm-test [file: path] {
+	clang -O3 -march=native -masm=intel -S -o- -emit-llvm $file
+}
