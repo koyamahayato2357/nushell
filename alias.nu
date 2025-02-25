@@ -1,8 +1,6 @@
-alias n = nvim
 alias g = git
 alias l = ls -adlt
 alias nvif = nvim \(fzf)
-alias laz = lazygit
 alias nvimsudo = sudo -E nvim
 alias vivaldi = vivaldi --enable-features=UseOzonePlatform --ozone-platform=wayland
 alias fzf = tv
@@ -37,13 +35,25 @@ def extract [fname: path] {
     }
 }
 
+def --env is-nvim-running [] {
+	"NVIM" in $env
+}
+
 def --env send-to-nvim-cmd [cmd: string, --strict = false] {
-    try {
+    if (is-nvim-running) {
 		nvim --server $env.NVIM --remote-send $cmd
-	} catch {
+	} else {
 		if not $strict { return }
 		error make { msg: "Neovim is not running" }
 	}
+}
+
+def --env n [...rest: string] {
+	if (is-nvim-running) {
+		send-to-nvim-cmd $"<cmd>tabe ($rest | str join ' ')<CR>"
+		return
+	}
+	nvim ($rest | str join ' ')
 }
 
 def --env z [...rest: string] {
@@ -64,6 +74,14 @@ def zi [...rest: string] {
 	send-to-nvim-cmd $"<cmd>cd ($path)<CR>"
 	cd $path
 	zoxide add .
+}
+
+def --env laz [] {
+	if (is-nvim-running) {
+		send-to-nvim-cmd "<cmd>L<CR>"
+	} else {
+		lazygit
+	}
 }
 
 def batman [...rest: string] {
