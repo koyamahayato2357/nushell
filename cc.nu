@@ -1,4 +1,4 @@
-def --env cc [--type (-t): string = "debug", ...files: path] {
+def cc [--type (-t): string = "debug", ...files: path] {
     let cwd_contents = (ls | get name)
 	if ($cwd_contents | find makefile | is-not-empty) {
         make

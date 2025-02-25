@@ -1,4 +1,4 @@
-def --env on-done [
+def on-done [
 	callback: closure,
     --pid (-p): int = 0,
 	--name (-n): string = ""
