@@ -1,3 +1,4 @@
+alias n = nvim
 alias g = git
 alias l = ls -adlt
 alias nvif = nvim \(fzf)
@@ -48,12 +49,12 @@ def --env send-to-nvim-cmd [cmd: string, --strict = false] {
 	}
 }
 
-def --env n [...rest: string] {
+def --env nd [...rest: string] {
 	if (is-nvim-running) {
 		send-to-nvim-cmd $"<cmd>tabe ($rest | str join ' ')<CR>"
 		return
 	}
-	nvim ($rest | str join ' ')
+	neovide --fork ($rest | str join ' ')
 }
 
 def --env z [...rest: string] {
